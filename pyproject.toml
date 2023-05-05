@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "pyclearpass"
+version = "1.0.1"
+authors = [{ name="Aruba Automation", email="aruba-automation@hpe.com" }]
+dependencies = ["requests >=2.24","urllib3 >=1.25.10"]
+description = "This package contains all of the API functions to work with the ClearPass API. This package has been built based on Aruba ClearPass v6.11"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+	"Intended Audience :: System Administrators",
+    "Topic :: System :: Networking",
+    "Development Status :: 4 - Beta"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/aruba/pyclearpass"
