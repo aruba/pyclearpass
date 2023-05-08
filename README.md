@@ -2,7 +2,7 @@
 ## Aruba ClearPass V6.11 SDK
 Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module. All responses from the ClearPass API are in JSON format and any interactions with the API are logged within the Audit Viewer.
 
-This package has been uploaded to https://pypi.org/ (outstanding) and is also available to install via https://github.com/jazzyj123/pyclearpass. Installation instructions are provided below. 
+This package has been uploaded to https://pypi.org/ (outstanding) and is also available to install via https://github.com/aruba/pyclearpass. Installation instructions are provided below. 
 ## Available API Categories 
 The following describes the available top level functionality of the ClearPass API available within this Python Package. 
 - Operations
@@ -29,9 +29,9 @@ These steps list what is required on the ClearPass server:
 1. Make sure you have the API Service enabled within Services. You may use the template to help you do this. 
 2. Create a new API Client within the ClearPass Guest Portal 
 a. client id = demo, 
-b. enabled, Operating Mode =Rest API, 
+b. enabled, Operating Mode = Rest API, 
 c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
-d. Grant Type = client credentials)
+d. Grant Type = client credentials
 e. Acess Token Lifetime: 8 Hours
 3. Optional but preferred, a valid SSL cerfificate
 
@@ -55,7 +55,7 @@ Run the following in a command line terminal to install the pip package - ```pip
 #### Method 3 - Installing Package from Github (using Git.exe)
 1. Install Git for your Operating System from https://git-scm.com/download
 2. Run the following in a command line terminal to install the pip package - ```pip3 install git+https://github.com/aruba/pyclearpass``` or ```pip install git+https://github.com/aruba/pyclearpass```. This may vary between Operating Systems. 
-Note - whilst the repository is located on jazzyj123, you will need to install using ```pip3 install git+https://github.com/jazzyj123/pyclearpass``` or ```pip install git+https://github.com/jazzyj123/pyclearpass```.
+
 
 # Inital Usage Instructions
 Within your Python favourite IDE enivronment, create an import reference
