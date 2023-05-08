@@ -90,7 +90,7 @@ Once an update is available on the Python PyPi repository, you may upgrade your 
 To remove the Python pyclearpass package, type the following command into a command line terminal - ```pip3 uninstall pyclearpass ``` or ```pip uninstall pyclearpass ```
 
 # Release Notes
-Release notes for this version are availble in the [RELEASE-NOTES.MD](RELEASE-NOTES.MD) file.
+Release notes for this version are availble in the [RELEASE-NOTES.md](RELEASE-NOTES.md) file.
 
 # Further Usage Examples
 The examples below all exclude importing the module and creating the login variable. An example is shown below
