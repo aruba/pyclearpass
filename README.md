@@ -58,7 +58,7 @@ Run the following in a command line terminal to install the pip package - ```pip
 
 
 # Inital Usage Instructions
-Within your Python favourite IDE enivronment, create an import reference
+Within your Python favourite IDE environment, create an import reference
 ```
 from pyclearpass import *
 ```
