@@ -32,7 +32,7 @@ a. client id = demo,
 b. enabled, Operating Mode = Rest API, 
 c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
 d. Grant Type = client credentials
-e. Acess Token Lifetime: 8 Hours
+e. Access Token Lifetime: 8 Hours
 3. Optional but preferred, a valid SSL cerfificate
 
 If you need information, refer to the ClearPass configuration documentation for the API account -
