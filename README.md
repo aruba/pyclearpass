@@ -28,11 +28,11 @@ _This package comes without any warranties and should be used at your own risk._
 These steps list what is required on the ClearPass server:
 1. Make sure you have the API Service enabled within Services. You may use the template to help you do this. 
 2. Create a new API Client within the ClearPass Guest Portal 
-a. client id = demo, 
-b. enabled, Operating Mode = Rest API, 
-c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
-d. Grant Type = client credentials
-e. Access Token Lifetime: 8 Hours
+    - a. client id = demo, 
+    - b. enabled, Operating Mode = Rest API, 
+    - c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
+    - d. Grant Type = client credentials
+    - e. Access Token Lifetime: 8 Hours
 3. Optional but preferred, a valid SSL cerfificate
 
 If you need information, refer to the ClearPass configuration documentation for the API account -
