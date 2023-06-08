@@ -28,11 +28,11 @@ _This package comes without any warranties and should be used at your own risk._
 These steps list what is required on the ClearPass server:
 1. Make sure you have the API Service enabled within Services. You may use the template to help you do this. 
 2. Create a new API Client within the ClearPass Guest Portal 
-a. client id = demo, 
-b. enabled, Operating Mode = Rest API, 
-c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
-d. Grant Type = client credentials
-e. Acess Token Lifetime: 8 Hours
+    - a. client id = demo, 
+    - b. enabled, Operating Mode = Rest API, 
+    - c. Operator Profile = Pick one with apporpiate permission level or make a new one,  
+    - d. Grant Type = client credentials
+    - e. Access Token Lifetime: 8 Hours
 3. Optional but preferred, a valid SSL cerfificate
 
 If you need information, refer to the ClearPass configuration documentation for the API account -
@@ -58,7 +58,7 @@ Run the following in a command line terminal to install the pip package - ```pip
 
 
 # Inital Usage Instructions
-Within your Python favourite IDE enivronment, create an import reference
+Within your Python favourite IDE environment, create an import reference
 ```
 from pyclearpass import *
 ```
@@ -105,11 +105,13 @@ clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=F
 LSCGCS = ApiLocalServerConfiguration.get_cluster_server(login)
 print(json.dumps(LSCGCS['_embedded']['items'],indent=1))
 ```
+
 ## Get Total End Point Count 
 ```
 IGEP = ApiIdentities.get_endpoint(login, calculate_count='true')
 print("Total MACs in Table: "+str(IGEP['count']))
 ```
+
 ## Get Insight Device Details
 ```
 print(ApiLogs.get_insight_endpoint_ip_by_ip(login,ip="192.168.0.99"))
@@ -131,6 +133,7 @@ newEndPoint = {
 }
 print(ApiIdentities.new_endpoint(login,body=newEndPoint))
 ```
+
 ## Add New Role
 ```
 role={"name": "Test1","description": "Test role made using the API Package in Python"}
@@ -141,7 +144,6 @@ print(ApiPolicyElements.new_role(login,body=role))
 ```
 print(ApiPolicyElements.delete_role_name_by_name(login,name='Demo'))
 ```
-
 
 ## Add New Guest Device 
 This example adds a Guest Device including 
@@ -176,7 +178,6 @@ print(json.dumps(view_guest_device,indent=2))
 ## Delete an Enforcement Policy
 ```
 print(ApiPolicyElements.delete_enforcement_policy_by_enforcement_policy_id(login,enforcement_policy_id='3058'))
-
 ```
 
 ## Create a new Enforcement Policy with staged initial rules and then a loop to create additional rules. 
@@ -227,8 +228,8 @@ for id in range(9,11):
  
 newEnforcementPolicy["rules"] = newEnforcementPolicyRules["rules"]
 print(ApiPolicyElements.new_enforcement_policy(login,body=newEnforcementPolicy))
-
 ```
+
 >Note - you may find it easier to initially pull a working Enforcement Policy with minimal rules before trying to create a new one from scratch. For example, the rule evaluation in the GUI shows as 'First applicable', however in the backend it is shown as 'first-applicable'. This example is a working policy. It is demonstrated with a loop which could read an entry in a CSV file if adapted. 
 
 ## Update an existing Enforcement Policy, retaining the original items and using a loop to add additional items 
