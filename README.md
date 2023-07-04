@@ -2,7 +2,7 @@
 ## Aruba ClearPass V6.11 SDK
 Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module. All responses from the ClearPass API are in JSON format and any interactions with the API are logged within the Audit Viewer.
 
-This package has been uploaded to https://pypi.org/ (outstanding) and is also available to install via https://github.com/aruba/pyclearpass. Installation instructions are provided below. 
+This package has been uploaded to https://pypi.org/ and is also available to install via https://github.com/aruba/pyclearpass. Installation instructions are provided below. 
 ## Available API Categories 
 The following describes the available top level functionality of the ClearPass API available within this Python Package. 
 - Operations
@@ -41,7 +41,7 @@ https://developer.arubanetworks.com/aruba-cppm/docs/clearpass-configuration
 # Python Requirements  
 Ensure Python v3.9 or greater is installed on your operating system
 # Package Installation  
-#### Method 1 - Installing Package from PyPi (not yet published!)
+#### Method 1 - Installing Package from PyPi 
 Run the following in a command line terminal to install the pip package - ```pip3 install pyclearpass``` or ```pip install pyclearpass```. This may vary between Operating Systems. 
 
 #### Method 2 - Installing Package from Github (not using Git.exe)
