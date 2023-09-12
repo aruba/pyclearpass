@@ -63,18 +63,19 @@ Within your Python favourite IDE environment, create an import reference
 from pyclearpass import *
 ```
 Create a object to login into ClearPass. The login object needs to be passed to use any function within the ClearPass API.
-An example below shows how to create the login object.
+Two examples below shows how to create the login object (either one can be used, but not both).
 1. Using client_credentials
 ```
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
 clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=False)
 ```
+>Note - The login object will contain the APIToken once any function has been used. 
+It grabs it once for the session and uses the same token through the execution of the rest of the script. 
 2. Using an explicitly defined api_token
 ```
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
->Note - The login object will contain the APIToken once any function has been used. 
-It grabs it once for the session and uses the same token through the execution of the rest of the script. 
+
 
 Find an API you want to use, by prefixing  ```Api```  in your IDE and intellisense will show the available APIs available. Each of the top level API category names are available as a module. Once you have chosen a specifc API to use, for example ApiPolicyElements, it will show you the available methods if you suffix a . to the command - ```ApiPolicyElements.```
 
