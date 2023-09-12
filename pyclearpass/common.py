@@ -57,7 +57,7 @@ class ClearPassAPILogin:
         full_url_path = self.server + url
 
         if len(self.api_token) == 0:
-            cred = _get_api_key(self)
+            cred = _new_api_token(self)
             try:
                 self.api_token = cred["access_token"]
             except TypeError:
@@ -116,7 +116,7 @@ class ClearPassAPILogin:
             return cred
 
 
-def _get_api_key(self):
+def _new_api_token(self):
     """
     Operation: Obtain an OAuth2 access token for making API calls
     HTTP Status Response Codes: 200 OK, 400 Bad Request, 406 Not Acceptable, 415 Unsupported Media Type, 200 OK, 400 Bad Request, 406 Not Acceptable, 415 Unsupported Media Type
