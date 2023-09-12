@@ -17,3 +17,5 @@ Initial Release
 9. All file names updated
 10. Updated __init__.py to reflect new filenames
 11. Updated README.md
+## Version 1.0.3
+1. Missing '_new_api_token' rename from ClearPassAPILogin (common.py)

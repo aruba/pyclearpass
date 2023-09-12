@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pyclearpass
-Version: 1.0.2
+Version: 1.0.3
 Summary: This package contains all of the API functions to work with the ClearPass API. This package been built based on Aruba ClearPass v6.11.4
 Project-URL: Homepage, https://github.com/aruba/pyclearpass
 Author-email: Aruba Automation <aruba-automation@hpe.com>
