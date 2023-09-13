@@ -41,7 +41,7 @@ https://developer.arubanetworks.com/aruba-cppm/docs/clearpass-configuration
 # Python Requirements  
 Ensure Python v3.9 or greater is installed on your operating system
 # Package Installation  
-#### Method 1 - Installing Package from PyPi (not yet published!)
+#### Method 1 - Installing Package from PyPi
 Run the following in a command line terminal to install the pip package - ```pip3 install pyclearpass``` or ```pip install pyclearpass```. This may vary between Operating Systems. 
 
 #### Method 2 - Installing Package from Github (not using Git.exe)
