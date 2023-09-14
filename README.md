@@ -69,8 +69,7 @@ Two examples below shows how to create the login object (either one can be used,
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
 clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=False)
 ```
->Note - The login object will contain the APIToken once any function has been used. 
-It grabs it once for the session and uses the same token through the execution of the rest of the script. 
+>The login object will contain the APIToken once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
 2. Using an explicitly defined api_token
 ```
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
@@ -99,18 +98,26 @@ To remove the Python pyclearpass package, type the following command into a comm
 Release notes for this version are availble in the [RELEASE-NOTES.md](RELEASE-NOTES.md) file.
 
 # Further Usage Examples
-The examples below all exclude importing the module and creating the login variable. Two examples are shown below
+The examples below all exclude importing the module and creating the login variable. This is described directly below.
+
+## New Login Session
+The login variable only needs to be defined once in the script. Two examples are shown below to achieve this;
+
 1. Using client_credentials
 ```
 from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
 clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=False)
 ```
+>As mentioned earlier, the login object will contain the API Token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
+
 2. Using an explicitly defined api_token
 ```
 from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
+
+
 
 ## Get Local Server Configuration 
 ```
