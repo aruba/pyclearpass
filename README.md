@@ -32,7 +32,7 @@ These steps list what is required on the ClearPass server:
     - enabled, Operating Mode = Rest API, 
     - Operator Profile = Pick one with apporpiate permission level or make a new one,  
     - Grant Type = client credentials
-    - Access Token Lifetime: 8 Hours
+    - Access Token Lifetime = 8 Hours
 3. Optional but preferred, a valid SSL cerfificate
 
 If you need information, refer to the ClearPass configuration documentation for the API account -
