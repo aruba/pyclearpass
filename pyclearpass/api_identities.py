@@ -40,6 +40,7 @@ class ApiIdentities(ClearPassAPILogin):
                 Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
                 "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
@@ -62,6 +63,7 @@ class ApiIdentities(ClearPassAPILogin):
                 "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
                 "scope" : "", #Not supported at this time. Object Type: string
                 "user_id" : "", #Not supported at this time. Object Type: string
+
                 }
         """
         url_path = "/api-client"
@@ -90,6 +92,7 @@ class ApiIdentities(ClearPassAPILogin):
                 Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
                 "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
@@ -112,6 +115,7 @@ class ApiIdentities(ClearPassAPILogin):
                 "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
                 "scope" : "", #Not supported at this time. Object Type: string
                 "user_id" : "", #Not supported at this time. Object Type: string
+
                 }
         """
         url_path = "/api-client/{client_id}"
@@ -131,6 +135,7 @@ class ApiIdentities(ClearPassAPILogin):
                 Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
                 "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
@@ -153,6 +158,7 @@ class ApiIdentities(ClearPassAPILogin):
                 "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
                 "scope" : "", #Not supported at this time. Object Type: string
                 "user_id" : "", #Not supported at this time. Object Type: string
+
                 }
         """
         url_path = "/api-client/{client_id}"
@@ -284,6 +290,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "current_state" : "", #Read-only property indicating the current state of the account. Object Type: string
@@ -300,6 +307,7 @@ class ApiIdentities(ClearPassAPILogin):
         "start_time" : "", #Time at which the account will be enabled. Object Type: string
         "visitor_name" : "", #Name to display for the account. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/device"
@@ -333,6 +341,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "current_state" : "", #Read-only property indicating the current state of the account. Object Type: string
@@ -353,6 +362,7 @@ class ApiIdentities(ClearPassAPILogin):
         "username" : "", #No Desc. Object Type: string
         "visitor_name" : "", #Name to display for the account. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/device/{device_id}"
@@ -377,6 +387,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "current_state" : "", #Read-only property indicating the current state of the account. Object Type: string
@@ -394,6 +405,7 @@ class ApiIdentities(ClearPassAPILogin):
         "start_time" : "", #Time at which the account will be enabled. Object Type: string
         "visitor_name" : "", #Name to display for the account. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/device/{device_id}"
@@ -445,6 +457,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "current_state" : "", #Read-only property indicating the current state of the account. Object Type: string
@@ -465,6 +478,7 @@ class ApiIdentities(ClearPassAPILogin):
         "username" : "", #No Desc. Object Type: string
         "visitor_name" : "", #Name to display for the account. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/device/mac/{macaddr}"
@@ -489,6 +503,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "current_state" : "", #Read-only property indicating the current state of the account. Object Type: string
@@ -506,6 +521,7 @@ class ApiIdentities(ClearPassAPILogin):
         "start_time" : "", #Time at which the account will be enabled. Object Type: string
         "visitor_name" : "", #Name to display for the account. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/device/mac/{macaddr}"
@@ -563,12 +579,14 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac_address', 'status']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+
         }
         """
         url_path = "/endpoint"
@@ -597,12 +615,14 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+
         }
         """
         url_path = "/endpoint/{endpoint_id}"
@@ -622,12 +642,14 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac_address', 'status']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+
         }
         """
         url_path = "/endpoint/{endpoint_id}"
@@ -671,12 +693,14 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+
         }
         """
         url_path = "/endpoint/mac-address/{mac_address}"
@@ -696,12 +720,14 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['mac_address', 'status']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+
         }
         """
         url_path = "/endpoint/mac-address/{mac_address}"
@@ -756,6 +782,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the external account. Object Type: string
         "type" : "", #Type of the external account. Object Type: string
@@ -771,6 +798,7 @@ class ApiIdentities(ClearPassAPILogin):
         "auth_key" : "", #Authorization key for V3 SNMP external account. Object Type: string
         "priv_protocol" : "", #Privacy protocol for V3 SNMP external account. Object Type: string
         "priv_key" : "", #Privacy key for V3 SNMP external account. Object Type: string
+
         }
         """
         url_path = "/external-account"
@@ -801,6 +829,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the external account. Object Type: string
         "type" : "", #Type of the external account. Object Type: string
@@ -816,6 +845,7 @@ class ApiIdentities(ClearPassAPILogin):
         "auth_key" : "", #Authorization key for V3 SNMP external account. Object Type: string
         "priv_protocol" : "", #Privacy protocol for V3 SNMP external account. Object Type: string
         "priv_key" : "", #Privacy key for V3 SNMP external account. Object Type: string
+
         }
         """
         url_path = "/external-account/{external_account_id}"
@@ -837,6 +867,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the external account. Object Type: string
         "type" : "", #Type of the external account. Object Type: string
@@ -852,6 +883,7 @@ class ApiIdentities(ClearPassAPILogin):
         "auth_key" : "", #Authorization key for V3 SNMP external account. Object Type: string
         "priv_protocol" : "", #Privacy protocol for V3 SNMP external account. Object Type: string
         "priv_key" : "", #Privacy key for V3 SNMP external account. Object Type: string
+
         }
         """
         url_path = "/external-account/{external_account_id}"
@@ -895,6 +927,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the external account. Object Type: string
         "type" : "", #Type of the external account. Object Type: string
@@ -910,6 +943,7 @@ class ApiIdentities(ClearPassAPILogin):
         "auth_key" : "", #Authorization key for V3 SNMP external account. Object Type: string
         "priv_protocol" : "", #Privacy protocol for V3 SNMP external account. Object Type: string
         "priv_key" : "", #Privacy key for V3 SNMP external account. Object Type: string
+
         }
         """
         url_path = "/external-account/name/{name}"
@@ -929,6 +963,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the external account. Object Type: string
         "type" : "", #Type of the external account. Object Type: string
@@ -944,6 +979,7 @@ class ApiIdentities(ClearPassAPILogin):
         "auth_key" : "", #Authorization key for V3 SNMP external account. Object Type: string
         "priv_protocol" : "", #Privacy protocol for V3 SNMP external account. Object Type: string
         "priv_key" : "", #Privacy key for V3 SNMP external account. Object Type: string
+
         }
         """
         url_path = "/external-account/name/{name}"
@@ -997,6 +1033,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['username', 'password', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "do_expire" : 0, #Action to take when the expire_time is reached. Object Type: integer
@@ -1017,6 +1054,7 @@ class ApiIdentities(ClearPassAPILogin):
         "visitor_name" : "", #The guest’s full name. Object Type: string
         "visitor_phone" : "", #The guest’s contact telephone number. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/guest"
@@ -1050,6 +1088,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "do_expire" : 0, #Action to take when the expire_time is reached. Object Type: integer
@@ -1071,6 +1110,7 @@ class ApiIdentities(ClearPassAPILogin):
         "visitor_name" : "", #The guest’s full name. Object Type: string
         "visitor_phone" : "", #The guest’s contact telephone number. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/guest/{guest_id}"
@@ -1095,6 +1135,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['username', 'password', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "do_expire" : 0, #Action to take when the expire_time is reached. Object Type: integer
@@ -1116,6 +1157,7 @@ class ApiIdentities(ClearPassAPILogin):
         "visitor_name" : "", #The guest’s full name. Object Type: string
         "visitor_phone" : "", #The guest’s contact telephone number. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/guest/{guest_id}"
@@ -1167,6 +1209,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "do_expire" : 0, #Action to take when the expire_time is reached. Object Type: integer
@@ -1188,6 +1231,7 @@ class ApiIdentities(ClearPassAPILogin):
         "visitor_name" : "", #The guest’s full name. Object Type: string
         "visitor_phone" : "", #The guest’s contact telephone number. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/guest/username/{username}"
@@ -1212,6 +1256,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['username', 'password', 'role_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "create_time" : "", #Time at which the account was created. Object Type: string
         "do_expire" : 0, #Action to take when the expire_time is reached. Object Type: integer
@@ -1233,6 +1278,7 @@ class ApiIdentities(ClearPassAPILogin):
         "visitor_name" : "", #The guest’s full name. Object Type: string
         "visitor_phone" : "", #The guest’s contact telephone number. Object Type: string
         "..." : "", #Additional properties (custom fields) may be stored with the account. Object Type: string
+
         }
         """
         url_path = "/guest/username/{username}"
@@ -1294,6 +1340,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['user_id', 'password', 'username', 'role_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
         "password" : "", #Password of the local user. Object Type: string
@@ -1302,6 +1349,7 @@ class ApiIdentities(ClearPassAPILogin):
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the local user account. Object Type: object
+
         }
         """
         url_path = "/local-user"
@@ -1330,6 +1378,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
         "password" : "", #Password of the local user. Object Type: string
@@ -1338,6 +1387,7 @@ class ApiIdentities(ClearPassAPILogin):
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the local user account. Object Type: object
+
         }
         """
         url_path = "/local-user/{local_user_id}"
@@ -1357,6 +1407,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['user_id', 'password', 'username', 'role_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
         "password" : "", #Password of the local user. Object Type: string
@@ -1365,6 +1416,7 @@ class ApiIdentities(ClearPassAPILogin):
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the local user account. Object Type: object
+
         }
         """
         url_path = "/local-user/{local_user_id}"
@@ -1408,6 +1460,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
         "password" : "", #Password of the local user. Object Type: string
@@ -1416,6 +1469,7 @@ class ApiIdentities(ClearPassAPILogin):
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the local user account. Object Type: object
+
         }
         """
         url_path = "/local-user/user-id/{user_id}"
@@ -1435,6 +1489,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['user_id', 'password', 'username', 'role_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
         "password" : "", #Password of the local user. Object Type: string
@@ -1443,6 +1498,7 @@ class ApiIdentities(ClearPassAPILogin):
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the local user account. Object Type: object
+
         }
         """
         url_path = "/local-user/user-id/{user_id}"
@@ -1497,6 +1553,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_format', 'host_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the static host list. Object Type: string
         "description" : "", #Description of the static host list. Object Type: string
@@ -1504,6 +1561,7 @@ class ApiIdentities(ClearPassAPILogin):
         "host_type" : "", #Host type of the static host list. Object Type: string
         "value" : "", #Value for the host format "Subnet" and "Regular Expression". Object Type: string
         "host_entries" : {}, #List of host entries (Address and Description) for the host format "List". For example, "host_entries":[{"host_address": "10.21.11.117", "host_address_desc" : "My host address description."}, {..} ..]. Object Type: object
+
         }
         """
         url_path = "/static-host-list"
@@ -1534,6 +1592,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the static host list. Object Type: string
         "description" : "", #Description of the static host list. Object Type: string
@@ -1541,6 +1600,7 @@ class ApiIdentities(ClearPassAPILogin):
         "host_type" : "", #Host type of the static host list. Object Type: string
         "value" : "", #Value for the host format "Subnet" and "Regular Expression". Object Type: string
         "host_entries" : {}, #List of host entries (Address and Description) for the host format "List". For example, "host_entries":[{"host_address": "10.21.11.117", "host_address_desc" : "My host address description."}, {..} ..]. Object Type: object
+
         }
         """
         url_path = "/static-host-list/{static_host_list_id}"
@@ -1562,6 +1622,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_format', 'host_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the static host list. Object Type: string
         "description" : "", #Description of the static host list. Object Type: string
@@ -1569,6 +1630,7 @@ class ApiIdentities(ClearPassAPILogin):
         "host_type" : "", #Host type of the static host list. Object Type: string
         "value" : "", #Value for the host format "Subnet" and "Regular Expression". Object Type: string
         "host_entries" : {}, #List of host entries (Address and Description) for the host format "List". For example, "host_entries":[{"host_address": "10.21.11.117", "host_address_desc" : "My host address description."}, {..} ..]. Object Type: object
+
         }
         """
         url_path = "/static-host-list/{static_host_list_id}"
@@ -1612,6 +1674,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the static host list. Object Type: string
         "description" : "", #Description of the static host list. Object Type: string
@@ -1619,6 +1682,7 @@ class ApiIdentities(ClearPassAPILogin):
         "host_type" : "", #Host type of the static host list. Object Type: string
         "value" : "", #Value for the host format "Subnet" and "Regular Expression". Object Type: string
         "host_entries" : {}, #List of host entries (Address and Description) for the host format "List". For example, "host_entries":[{"host_address": "10.21.11.117", "host_address_desc" : "My host address description."}, {..} ..]. Object Type: object
+
         }
         """
         url_path = "/static-host-list/name/{name}"
@@ -1638,6 +1702,7 @@ class ApiIdentities(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_format', 'host_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the static host list. Object Type: string
         "description" : "", #Description of the static host list. Object Type: string
@@ -1645,6 +1710,7 @@ class ApiIdentities(ClearPassAPILogin):
         "host_type" : "", #Host type of the static host list. Object Type: string
         "value" : "", #Value for the host format "Subnet" and "Regular Expression". Object Type: string
         "host_entries" : {}, #List of host entries (Address and Description) for the host format "List". For example, "host_entries":[{"host_address": "10.21.11.117", "host_address_desc" : "My host address description."}, {..} ..]. Object Type: object
+
         }
         """
         url_path = "/static-host-list/name/{name}"

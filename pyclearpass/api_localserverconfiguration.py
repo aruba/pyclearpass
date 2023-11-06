@@ -48,9 +48,11 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['access', 'networks']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "access" : "", #Access type of the Access control application. Object Type: string
         "networks" : {}, #hostname, IP address or subnet (CIDR) of the Networks to be restricted (e.g. ["hostname.example.com", "1.2.3.4", "10.1.0.0/16"]). Object Type: object
+
         }
         """
         url_path = "/server/access-control/{server_uuid}/{resource_name}"
@@ -113,12 +115,14 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['domain_controller', 'netbios_name', 'on_name_conflict', 'username', 'password']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "domain_controller" : "", #FQDN of the domain controller. Object Type: string
         "netbios_name" : "", #NetBIOS name of the domain. Object Type: string
         "on_name_conflict" : 0, #Action to perform in case of a controller name conflict(1 - Use specified Domain Controller, 2 - Use Domain Controller returned by DNS query, 3 - Fail on conflict). Object Type: integer
         "username" : "", #Domain username . Object Type: string
         "password" : "", #Domain password. Object Type: string
+
         }
         """
         url_path = "/ad-domain/join/{server_uuid}"
@@ -138,11 +142,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['netbios_name', 'username', 'password', 'force_leave']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "netbios_name" : "", #NetBIOS name of the domain. Object Type: string
         "username" : "", #Domain username . Object Type: string
         "password" : "", #Domain password. Object Type: string
         "force_leave" : False, #Leave domain even if AD is down. Object Type: boolean
+
         }
         """
         url_path = "/ad-domain/leave/{server_uuid}"
@@ -164,9 +170,11 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['netbios_name', 'password_servers']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "netbios_name" : "", #NetBIOS name of the domain. Object Type: string
         "password_servers" : {}, #List of Hostname or IP Address of the AD password servers. Object Type: object
+
         }
         """
         url_path = "/ad-domain/password-servers/{server_uuid}"
@@ -216,8 +224,10 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
-        "is_insight_enabled" : "" #variable unknown: , #True if this server has Insight reporting enabled. Object Type: bool
+        "is_insight_enabled" : {}, #True if this server has Insight reporting enabled. Object Type: bool
+
         }
         """
         url_path = "/cluster/server/{uuid}"
@@ -259,6 +269,7 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['engine_id', 'version']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "system_location" : "", #System location of the system monitoring settings for a server. Object Type: string
         "system_contact" : "", #System contact of the system monitoring settings for a server. Object Type: string
@@ -271,6 +282,7 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         "auth_key" : "", #Authentication key of system monitoring settings. Object Type: string
         "privacy_protocol" : "", #Privacy Protocol of system monitoring settings. Object Type: string
         "privacy_key" : "", #Privacy key of system monitoring settings. Object Type: string
+
         }
         """
         url_path = "/server/snmp/{server_uuid}"
@@ -290,6 +302,7 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "system_location" : "", #System location of the system monitoring settings for a server. Object Type: string
         "system_contact" : "", #System contact of the system monitoring settings for a server. Object Type: string
@@ -302,6 +315,7 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         "auth_key" : "", #Authentication key of system monitoring settings. Object Type: string
         "privacy_protocol" : "", #Privacy Protocol of system monitoring settings. Object Type: string
         "privacy_key" : "", #Privacy key of system monitoring settings. Object Type: string
+
         }
         """
         url_path = "/server/snmp/{server_uuid}"
@@ -349,9 +363,11 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "param_name_1" : "", #param_value_1. Object Type: string
         "param_name_2" : "", #param_value_2.... Object Type: string
+
         }
         """
         url_path = "/service-parameter/{server_uuid}/{service_id}"

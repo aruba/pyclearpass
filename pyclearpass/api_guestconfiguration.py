@@ -40,6 +40,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #No Desc. Object Type: string
@@ -68,6 +69,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "relevant_date_template" : "", #No Desc. Object Type: string
         "associated_apps" : False, #No Desc. Object Type: boolean
         "pass_apps" : False, #No Desc. Object Type: array
+
         }
         """
         url_path = "/template/pass"
@@ -96,6 +98,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #No Desc. Object Type: string
@@ -124,6 +127,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "relevant_date_template" : "", #No Desc. Object Type: string
         "associated_apps" : False, #No Desc. Object Type: boolean
         "pass_apps" : False, #No Desc. Object Type: array
+
         }
         """
         url_path = "/template/pass/{id}"
@@ -143,6 +147,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #No Desc. Object Type: string
@@ -171,6 +176,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "relevant_date_template" : "", #No Desc. Object Type: string
         "associated_apps" : False, #No Desc. Object Type: boolean
         "pass_apps" : False, #No Desc. Object Type: array
+
         }
         """
         url_path = "/template/pass/{id}"
@@ -210,12 +216,14 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['g_radius_internal_auth_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "g_admin_access_guest_require_https" : False, #If checked, HTTP access by guests will be redirected to use HTTPS instead. Object Type: boolean
         "change_of_authorization" : False, #Global to automatically send disconnects when enabled/role values change.Requires a NAS Type supporting RFC-3576. Object Type: boolean
         "g_radius_default_vendor" : "", #Select the default type for network access servers. Object Type: string
         "g_radius_server_bind_3576" : "", #Force a specific bind address for RFC-3576 requests.  This may be needed in an AirGroup environment.Defaults to '0.0.0.0' or '::' depending on your network. Object Type: string
         "g_radius_internal_auth_type" : "", #Controls the RADIUS authentication type used for internal RADIUS authentication requests. Object Type: string
+
         }
         """
         url_path = "/guest/authentication"
@@ -231,12 +239,14 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['g_radius_internal_auth_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "g_admin_access_guest_require_https" : False, #If checked, HTTP access by guests will be redirected to use HTTPS instead. Object Type: boolean
         "change_of_authorization" : False, #Global to automatically send disconnects when enabled/role values change.Requires a NAS Type supporting RFC-3576. Object Type: boolean
         "g_radius_default_vendor" : "", #Select the default type for network access servers. Object Type: string
         "g_radius_server_bind_3576" : "", #Force a specific bind address for RFC-3576 requests.  This may be needed in an AirGroup environment.Defaults to '0.0.0.0' or '::' depending on your network. Object Type: string
         "g_radius_internal_auth_type" : "", #Controls the RADIUS authentication type used for internal RADIUS authentication requests. Object Type: string
+
         }
         """
         url_path = "/guest/authentication"
@@ -261,6 +271,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
                 "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
@@ -277,9 +288,9 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
                 "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
         Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
-                "guest_account_expiry_options" : {},      The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
-                "guest_modify_expire_time_options" : {},      The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
-                "guest_lifetime_options" : {},      The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
+                "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
+                "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
+                "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
                 "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
                 "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
         Enter a value between 1 and 30. Object Type: integer
@@ -305,6 +316,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
         Enter 0 to allow an unlimited number of sessions. Object Type: integer
                 "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
+
                 }
         """
         url_path = "/guestmanager"
@@ -320,6 +332,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
                 "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
@@ -336,9 +349,9 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
                 "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
         Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
-                "guest_account_expiry_options" : {},      The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
-                "guest_modify_expire_time_options" : {},      The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
-                "guest_lifetime_options" : {},      The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
+                "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
+                "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
+                "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
                 "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
                 "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
         Enter a value between 1 and 30. Object Type: integer
@@ -364,6 +377,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
                 "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
         Enter 0 to allow an unlimited number of sessions. Object Type: integer
                 "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
+
                 }
         """
         url_path = "/guestmanager"
@@ -403,6 +417,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric ID of the template. Object Type: integer
         "name" : "", #Name of the template. Object Type: string
@@ -419,6 +434,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "wizard_fields" : "", #Visitor account fields. Object Type: string
         "wizard_notes" : "", #Notes to display on the template. Object Type: string
         "wizard_footer" : "", #Footer text to display on the template. Object Type: string
+
         }
         """
         url_path = "/template/print"
@@ -447,6 +463,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric ID of the template. Object Type: integer
         "name" : "", #Name of the template. Object Type: string
@@ -463,6 +480,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "wizard_fields" : "", #Visitor account fields. Object Type: string
         "wizard_notes" : "", #Notes to display on the template. Object Type: string
         "wizard_footer" : "", #Footer text to display on the template. Object Type: string
+
         }
         """
         url_path = "/template/print/{id}"
@@ -482,6 +500,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric ID of the template. Object Type: integer
         "name" : "", #Name of the template. Object Type: string
@@ -498,6 +517,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "wizard_fields" : "", #Visitor account fields. Object Type: string
         "wizard_notes" : "", #Notes to display on the template. Object Type: string
         "wizard_footer" : "", #Footer text to display on the template. Object Type: string
+
         }
         """
         url_path = "/template/print/{id}"
@@ -550,6 +570,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'vendor_preset', 'form_action', 'form_method', 'form_username', 'form_password', 'form_password_encryption', 'access_if_denied', 'login_delay', 'login_skin', 'login_pre_auth_check']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Unique ID of the web login. Object Type: integer
         "name" : "", #Enter a name for this web login page. Object Type: string
@@ -583,7 +604,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "login_header" : "", #HTML template code displayed before the login form. Object Type: string
         "login_footer" : "", #HTML template code displayed after the login form. Object Type: string
         "login_message" : "", #HTML template code displayed while the login attempt is in progress. Object Type: string
-        "login_delay" : "" #variable unknown: , #The time in seconds to delay while displaying the login message. Object Type: number
+        "login_delay" : "", #The time in seconds to delay while displaying the login message. Object Type: number
         "login_skin" : "", #Choose the skin to use when this web login page is displayed. Object Type: string
         "login_terms_require" : False, #If checked, the user will be forced to accept a Terms and Conditions checkbox. Object Type: boolean
         "login_terms_label" : "", #The form label for the terms checkbox.  Leave blank to use the default (Terms:). Object Type: string
@@ -639,6 +660,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "mfa_mc_client_secret" : "", #No Desc. Object Type: string
         "mfa_header_html" : "", #HTML template code displayed before the provider’s vendor-specific authentication area. Object Type: string
         "mfa_footer_html" : "", #HTML template code displayed after the provider’s vendor-specific authentication area. Object Type: string
+
         }
         """
         url_path = "/weblogin"
@@ -667,6 +689,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'vendor_preset', 'form_action', 'form_method', 'form_username', 'form_password', 'form_password_encryption', 'access_if_denied', 'login_delay', 'login_skin', 'login_pre_auth_check']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Unique ID of the web login. Object Type: integer
         "name" : "", #Enter a name for this web login page. Object Type: string
@@ -700,7 +723,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "login_header" : "", #HTML template code displayed before the login form. Object Type: string
         "login_footer" : "", #HTML template code displayed after the login form. Object Type: string
         "login_message" : "", #HTML template code displayed while the login attempt is in progress. Object Type: string
-        "login_delay" : "" #variable unknown: , #The time in seconds to delay while displaying the login message. Object Type: number
+        "login_delay" : "", #The time in seconds to delay while displaying the login message. Object Type: number
         "login_skin" : "", #Choose the skin to use when this web login page is displayed. Object Type: string
         "login_terms_require" : False, #If checked, the user will be forced to accept a Terms and Conditions checkbox. Object Type: boolean
         "login_terms_label" : "", #The form label for the terms checkbox.  Leave blank to use the default (Terms:). Object Type: string
@@ -756,6 +779,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "mfa_mc_client_secret" : "", #No Desc. Object Type: string
         "mfa_header_html" : "", #HTML template code displayed before the provider’s vendor-specific authentication area. Object Type: string
         "mfa_footer_html" : "", #HTML template code displayed after the provider’s vendor-specific authentication area. Object Type: string
+
         }
         """
         url_path = "/weblogin/{id}"
@@ -775,6 +799,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'vendor_preset', 'form_action', 'form_method', 'form_username', 'form_password', 'form_password_encryption', 'access_if_denied', 'login_delay', 'login_skin', 'login_pre_auth_check']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Unique ID of the web login. Object Type: integer
         "name" : "", #Enter a name for this web login page. Object Type: string
@@ -808,7 +833,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "login_header" : "", #HTML template code displayed before the login form. Object Type: string
         "login_footer" : "", #HTML template code displayed after the login form. Object Type: string
         "login_message" : "", #HTML template code displayed while the login attempt is in progress. Object Type: string
-        "login_delay" : "" #variable unknown: , #The time in seconds to delay while displaying the login message. Object Type: number
+        "login_delay" : "", #The time in seconds to delay while displaying the login message. Object Type: number
         "login_skin" : "", #Choose the skin to use when this web login page is displayed. Object Type: string
         "login_terms_require" : False, #If checked, the user will be forced to accept a Terms and Conditions checkbox. Object Type: boolean
         "login_terms_label" : "", #The form label for the terms checkbox.  Leave blank to use the default (Terms:). Object Type: string
@@ -864,6 +889,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "mfa_mc_client_secret" : "", #No Desc. Object Type: string
         "mfa_header_html" : "", #HTML template code displayed before the provider’s vendor-specific authentication area. Object Type: string
         "mfa_footer_html" : "", #HTML template code displayed after the provider’s vendor-specific authentication area. Object Type: string
+
         }
         """
         url_path = "/weblogin/{id}"
@@ -907,6 +933,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'vendor_preset', 'form_action', 'form_method', 'form_username', 'form_password', 'form_password_encryption', 'access_if_denied', 'login_delay', 'login_skin', 'login_pre_auth_check']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Unique ID of the web login. Object Type: integer
         "name" : "", #Enter a name for this web login page. Object Type: string
@@ -940,7 +967,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "login_header" : "", #HTML template code displayed before the login form. Object Type: string
         "login_footer" : "", #HTML template code displayed after the login form. Object Type: string
         "login_message" : "", #HTML template code displayed while the login attempt is in progress. Object Type: string
-        "login_delay" : "" #variable unknown: , #The time in seconds to delay while displaying the login message. Object Type: number
+        "login_delay" : "", #The time in seconds to delay while displaying the login message. Object Type: number
         "login_skin" : "", #Choose the skin to use when this web login page is displayed. Object Type: string
         "login_terms_require" : False, #If checked, the user will be forced to accept a Terms and Conditions checkbox. Object Type: boolean
         "login_terms_label" : "", #The form label for the terms checkbox.  Leave blank to use the default (Terms:). Object Type: string
@@ -996,6 +1023,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "mfa_mc_client_secret" : "", #No Desc. Object Type: string
         "mfa_header_html" : "", #HTML template code displayed before the provider’s vendor-specific authentication area. Object Type: string
         "mfa_footer_html" : "", #HTML template code displayed after the provider’s vendor-specific authentication area. Object Type: string
+
         }
         """
         url_path = "/weblogin/page-name/{page_name}"
@@ -1015,6 +1043,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'vendor_preset', 'form_action', 'form_method', 'form_username', 'form_password', 'form_password_encryption', 'access_if_denied', 'login_delay', 'login_skin', 'login_pre_auth_check']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Unique ID of the web login. Object Type: integer
         "name" : "", #Enter a name for this web login page. Object Type: string
@@ -1048,7 +1077,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "login_header" : "", #HTML template code displayed before the login form. Object Type: string
         "login_footer" : "", #HTML template code displayed after the login form. Object Type: string
         "login_message" : "", #HTML template code displayed while the login attempt is in progress. Object Type: string
-        "login_delay" : "" #variable unknown: , #The time in seconds to delay while displaying the login message. Object Type: number
+        "login_delay" : "", #The time in seconds to delay while displaying the login message. Object Type: number
         "login_skin" : "", #Choose the skin to use when this web login page is displayed. Object Type: string
         "login_terms_require" : False, #If checked, the user will be forced to accept a Terms and Conditions checkbox. Object Type: boolean
         "login_terms_label" : "", #The form label for the terms checkbox.  Leave blank to use the default (Terms:). Object Type: string
@@ -1104,6 +1133,7 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         "mfa_mc_client_secret" : "", #No Desc. Object Type: string
         "mfa_header_html" : "", #HTML template code displayed before the provider’s vendor-specific authentication area. Object Type: string
         "mfa_footer_html" : "", #HTML template code displayed after the provider’s vendor-specific authentication area. Object Type: string
+
         }
         """
         url_path = "/weblogin/page-name/{page_name}"

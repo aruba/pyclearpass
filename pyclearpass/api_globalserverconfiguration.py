@@ -40,6 +40,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'cppm_privileges']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin privilege. Object Type: string
         "description" : "", #Description of the admin privilege. Object Type: string
@@ -48,6 +49,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "insight_privileges" : {}, #Privilege list in JSON object format(e.g., {"report": "RWD", "dashboard":"RW"}).. Object Type: object
         "allow_passwords" : False, #If selected, all passwords may be displayed in the response. Object Type: boolean
         "allow_security_configs" : False, #If selected, Admin user will have access for security configuration. Object Type: boolean
+
         }
         """
         url_path = "/admin-privilege"
@@ -78,6 +80,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin privilege. Object Type: string
         "description" : "", #Description of the admin privilege. Object Type: string
@@ -86,6 +89,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "insight_privileges" : {}, #Privilege list in JSON object format(e.g., {"report": "RWD", "dashboard":"RW"}).. Object Type: object
         "allow_passwords" : False, #If selected, all passwords may be displayed in the response. Object Type: boolean
         "allow_security_configs" : False, #If selected, Admin user will have access for security configuration. Object Type: boolean
+
         }
         """
         url_path = "/admin-privilege/{admin_privilege_id}"
@@ -107,6 +111,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'cppm_privileges']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin privilege. Object Type: string
         "description" : "", #Description of the admin privilege. Object Type: string
@@ -115,6 +120,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "insight_privileges" : {}, #Privilege list in JSON object format(e.g., {"report": "RWD", "dashboard":"RW"}).. Object Type: object
         "allow_passwords" : False, #If selected, all passwords may be displayed in the response. Object Type: boolean
         "allow_security_configs" : False, #If selected, Admin user will have access for security configuration. Object Type: boolean
+
         }
         """
         url_path = "/admin-privilege/{admin_privilege_id}"
@@ -158,6 +164,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin privilege. Object Type: string
         "description" : "", #Description of the admin privilege. Object Type: string
@@ -166,6 +173,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "insight_privileges" : {}, #Privilege list in JSON object format(e.g., {"report": "RWD", "dashboard":"RW"}).. Object Type: object
         "allow_passwords" : False, #If selected, all passwords may be displayed in the response. Object Type: boolean
         "allow_security_configs" : False, #If selected, Admin user will have access for security configuration. Object Type: boolean
+
         }
         """
         url_path = "/admin-privilege/name/{name}"
@@ -185,6 +193,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'cppm_privileges']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin privilege. Object Type: string
         "description" : "", #Description of the admin privilege. Object Type: string
@@ -193,6 +202,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "insight_privileges" : {}, #Privilege list in JSON object format(e.g., {"report": "RWD", "dashboard":"RW"}).. Object Type: object
         "allow_passwords" : False, #If selected, all passwords may be displayed in the response. Object Type: boolean
         "allow_security_configs" : False, #If selected, Admin user will have access for security configuration. Object Type: boolean
+
         }
         """
         url_path = "/admin-privilege/name/{name}"
@@ -247,12 +257,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'user_id', 'password', 'privilege_level']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin user. Object Type: string
         "user_id" : "", #Unique user id of the admin user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "password" : "", #Password of the admin user. Object Type: string
         "privilege_level" : "", #Name of the admin privilege. Object Type: string
+
         }
         """
         url_path = "/admin-user"
@@ -281,12 +293,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin user. Object Type: string
         "user_id" : "", #Unique user id of the admin user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "password" : "", #Password of the admin user. Object Type: string
         "privilege_level" : "", #Name of the admin privilege. Object Type: string
+
         }
         """
         url_path = "/admin-user/{id}"
@@ -306,12 +320,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'user_id', 'password', 'privilege_level']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin user. Object Type: string
         "user_id" : "", #Unique user id of the admin user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "password" : "", #Password of the admin user. Object Type: string
         "privilege_level" : "", #Name of the admin privilege. Object Type: string
+
         }
         """
         url_path = "/admin-user/{id}"
@@ -355,12 +371,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin user. Object Type: string
         "user_id" : "", #Unique user id of the admin user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "password" : "", #Password of the admin user. Object Type: string
         "privilege_level" : "", #Name of the admin privilege. Object Type: string
+
         }
         """
         url_path = "/admin-user/user-id/{user_id}"
@@ -380,12 +398,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'user_id', 'password', 'privilege_level']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the admin user. Object Type: string
         "user_id" : "", #Unique user id of the admin user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "password" : "", #Password of the admin user. Object Type: string
         "privilege_level" : "", #Name of the admin privilege. Object Type: string
+
         }
         """
         url_path = "/admin-user/user-id/{user_id}"
@@ -425,6 +445,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['password_minimum_length', 'password_complexity']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "password_minimum_length" : 0, #Minimum length of the password. Object Type: integer
         "password_complexity" : "", #Complexity Level of the password. Object Type: string
@@ -436,6 +457,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "disable_after_failed_attempts" : 0, #Failed attempts count. Object Type: integer
         "password_remember_history" : 0, #Must be different from this many previous passwords. Object Type: integer
         "reset_failed_attempts_count" : False, #Reset failed attempts count and enable those users. Object Type: boolean
+
         }
         """
         url_path = "/admin-user/password-policy"
@@ -451,6 +473,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "password_minimum_length" : 0, #Minimum length of the password. Object Type: integer
         "password_complexity" : "", #Complexity Level of the password. Object Type: string
@@ -462,6 +485,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "disable_after_failed_attempts" : 0, #Failed attempts count. Object Type: integer
         "password_remember_history" : 0, #Must be different from this many previous passwords. Object Type: integer
         "reset_failed_attempts_count" : False, #Reset failed attempts count and enable those users. Object Type: boolean
+
         }
         """
         url_path = "/admin-user/password-policy"
@@ -486,8 +510,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['license_key']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "license_key" : "", #License key. Object Type: string
+
         }
         """
         url_path = "/application-license"
@@ -516,8 +542,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['license_key']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "license_key" : "", #License key. Object Type: string
+
         }
         """
         url_path = "/application-license/{license_id}"
@@ -604,6 +632,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'entity_name', 'data_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the attribute. Object Type: string
         "entity_name" : "", #Entity Name of the attribute. Object Type: string
@@ -612,6 +641,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "default_value" : "", #Default Value of the attribute. Object Type: string
         "allow_multiple" : False, #To Allow Multiple values of the attribute for Data Type String. Object Type: boolean
         "allowed_value" : "", #Allowed Value for Data Type List (e.g., example1,example2,example3). Object Type: string
+
         }
         """
         url_path = "/attribute"
@@ -640,6 +670,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the attribute. Object Type: string
         "entity_name" : "", #Entity Name of the attribute. Object Type: string
@@ -648,6 +679,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "default_value" : "", #Default Value of the attribute. Object Type: string
         "allow_multiple" : False, #To Allow Multiple values of the attribute for Data Type String. Object Type: boolean
         "allowed_value" : "", #Allowed Value for Data Type List (e.g., example1,example2,example3). Object Type: string
+
         }
         """
         url_path = "/attribute/{attribute_id}"
@@ -667,6 +699,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'entity_name', 'data_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the attribute. Object Type: string
         "entity_name" : "", #Entity Name of the attribute. Object Type: string
@@ -675,6 +708,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "default_value" : "", #Default Value of the attribute. Object Type: string
         "allow_multiple" : False, #To Allow Multiple values of the attribute for Data Type String. Object Type: boolean
         "allowed_value" : "", #Allowed Value for Data Type List (e.g., example1,example2,example3). Object Type: string
+
         }
         """
         url_path = "/attribute/{attribute_id}"
@@ -722,6 +756,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the attribute. Object Type: string
         "entity_name" : "", #Entity Name of the attribute. Object Type: string
@@ -730,6 +765,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "default_value" : "", #Default Value of the attribute. Object Type: string
         "allow_multiple" : False, #To Allow Multiple values of the attribute for Data Type String. Object Type: boolean
         "allowed_value" : "", #Allowed Value for Data Type List (e.g., example1,example2,example3). Object Type: string
+
         }
         """
         url_path = "/attribute/{entity_name}/name/{name}"
@@ -752,6 +788,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'entity_name', 'data_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the attribute. Object Type: string
         "entity_name" : "", #Entity Name of the attribute. Object Type: string
@@ -760,6 +797,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "default_value" : "", #Default Value of the attribute. Object Type: string
         "allow_multiple" : False, #To Allow Multiple values of the attribute for Data Type String. Object Type: boolean
         "allowed_value" : "", #Allowed Value for Data Type List (e.g., example1,example2,example3). Object Type: string
+
         }
         """
         url_path = "/attribute/{entity_name}/name/{name}"
@@ -800,6 +838,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "title" : "", #Default Landing page Title. Object Type: string
         "header" : "", #Default Landing page Header. Object Type: string
@@ -808,6 +847,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "app_name" : "", #If specified, User will be redirected to the selected ClearPass application login page. Object Type: string
         "guest_portal" : "", #If specified, User will be redirected to the selected Guest Web Login/Self-Registration Portal. Object Type: string
         "url" : "", #Redirect URL constructed based on the Guest Portal name(guest_portal) or Application Login Page(app_name). Object Type: string
+
         }
         """
         url_path = "/clearpass-portal"
@@ -824,8 +864,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "timeout" : "", #Maximum time in seconds to wait for the database sync operation. Object Type: string
+
         }
         """
         url_path = "/cluster/db-sync"
@@ -850,6 +892,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "AdminSessionIdleTimeout" : 0, #Admin Session Idle Timeout in minutes. Object Type: integer
         "AdminUserLoginRemoteTacacsServerIP" : "", #Remote TACACS+ server for Admin logins. Object Type: string
@@ -928,6 +971,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "UserPrompt" : "", #TACACS+ User Prompt Text. Object Type: string
         "allowConcurrentLogin" : "", #Enable Concurrent Admin Login. Object Type: string
         "session_cache_type" : "", #No Desc. Object Type: string
+
         }
         """
         url_path = "/cluster/parameters"
@@ -943,6 +987,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "AdminSessionIdleTimeout" : 0, #Admin Session Idle Timeout in minutes. Object Type: integer
         "AdminUserLoginRemoteTacacsServerIP" : "", #Remote TACACS+ server for Admin logins. Object Type: string
@@ -1021,6 +1066,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "UserPrompt" : "", #TACACS+ User Prompt Text. Object Type: string
         "allowConcurrentLogin" : "", #Enable Concurrent Admin Login. Object Type: string
         "session_cache_type" : "", #No Desc. Object Type: string
+
         }
         """
         url_path = "/cluster/parameters"
@@ -1060,6 +1106,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'configuration_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Data Filter. Object Type: string
         "description" : "", #Description of the Data Filter. Object Type: string
@@ -1069,7 +1116,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "template" : "", #Template name for Data Filter (applicable when type=INSIGHT). Object Type: string
         "custom_sql" : "", #Custom SQL of the Data Filter. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Data Filter, applicable only for attributes. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsCreate
+        "rules" : "", #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsCreate
+
         }
         """
         url_path = "/data-filter"
@@ -1098,6 +1146,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Data Filter. Object Type: string
         "description" : "", #Description of the Data Filter. Object Type: string
@@ -1107,7 +1156,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "template" : "", #Template name for Data Filter (applicable when type=INSIGHT). Object Type: string
         "custom_sql" : "", #Custom SQL of the Data Filter. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Data Filter, applicable only for attributes. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/data-filter/{data_filter_id}"
@@ -1127,6 +1177,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'configuration_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Data Filter. Object Type: string
         "description" : "", #Description of the Data Filter. Object Type: string
@@ -1136,7 +1187,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "template" : "", #Template name for Data Filter (applicable when type=INSIGHT). Object Type: string
         "custom_sql" : "", #Custom SQL of the Data Filter. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Data Filter, applicable only for attributes. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsReplace
+        "rules" : "", #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/data-filter/{data_filter_id}"
@@ -1180,6 +1232,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Data Filter. Object Type: string
         "description" : "", #Description of the Data Filter. Object Type: string
@@ -1189,7 +1242,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "template" : "", #Template name for Data Filter (applicable when type=INSIGHT). Object Type: string
         "custom_sql" : "", #Custom SQL of the Data Filter. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Data Filter, applicable only for attributes. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/data-filter/name/{name}"
@@ -1209,6 +1263,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'configuration_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Data Filter. Object Type: string
         "description" : "", #Description of the Data Filter. Object Type: string
@@ -1218,7 +1273,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "template" : "", #Template name for Data Filter (applicable when type=INSIGHT). Object Type: string
         "custom_sql" : "", #Custom SQL of the Data Filter. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Data Filter, applicable only for attributes. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsReplace
+        "rules" : "", #List of Rules for Data Filter, applicable only for attributes. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/data-filter/name/{name}"
@@ -1273,6 +1329,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'port', 'username', 'password', 'time_out', 'remote_dir']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of file backup server. Object Type: string
         "description" : "", #Description of file backup server. Object Type: string
@@ -1283,6 +1340,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "time_out" : 0, #Timeout for file backup server . Object Type: integer
         "remote_dir" : "", #Remote directory for file backup server. Object Type: string
         "cppm_servers" : "", #ClearPass server UUID List for file backup server. Object Type: array
+
         }
         """
         url_path = "/file-backup-server"
@@ -1313,6 +1371,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of file backup server. Object Type: string
         "description" : "", #Description of file backup server. Object Type: string
@@ -1323,6 +1382,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "time_out" : 0, #Timeout for file backup server . Object Type: integer
         "remote_dir" : "", #Remote directory for file backup server. Object Type: string
         "cppm_servers" : "", #ClearPass server UUID List for file backup server. Object Type: array
+
         }
         """
         url_path = "/file-backup-server/{file_backup_server_id}"
@@ -1344,6 +1404,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'port', 'username', 'password', 'time_out', 'remote_dir']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of file backup server. Object Type: string
         "description" : "", #Description of file backup server. Object Type: string
@@ -1354,6 +1415,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "time_out" : 0, #Timeout for file backup server . Object Type: integer
         "remote_dir" : "", #Remote directory for file backup server. Object Type: string
         "cppm_servers" : "", #ClearPass server UUID List for file backup server. Object Type: array
+
         }
         """
         url_path = "/file-backup-server/{file_backup_server_id}"
@@ -1401,6 +1463,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of file backup server. Object Type: string
         "description" : "", #Description of file backup server. Object Type: string
@@ -1411,6 +1474,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "time_out" : 0, #Timeout for file backup server . Object Type: integer
         "remote_dir" : "", #Remote directory for file backup server. Object Type: string
         "cppm_servers" : "", #ClearPass server UUID List for file backup server. Object Type: array
+
         }
         """
         url_path = "/file-backup-server/host-address/{host_address}"
@@ -1432,6 +1496,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'port', 'username', 'password', 'time_out', 'remote_dir']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of file backup server. Object Type: string
         "description" : "", #Description of file backup server. Object Type: string
@@ -1442,6 +1507,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "time_out" : 0, #Timeout for file backup server . Object Type: integer
         "remote_dir" : "", #Remote directory for file backup server. Object Type: string
         "cppm_servers" : "", #ClearPass server UUID List for file backup server. Object Type: array
+
         }
         """
         url_path = "/file-backup-server/host-address/{host_address}"
@@ -1493,6 +1559,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['password_minimum_length', 'password_complexity']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "password_minimum_length" : 0, #Minimum length of the password. Object Type: integer
         "password_complexity" : "", #Complexity Level of the password. Object Type: string
@@ -1509,6 +1576,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "disable_after_unchanged_days" : 0, #Disable after password not changed after this many days. Object Type: integer
         "disable_after_failed_attempts" : 0, #Failed attempts count. Object Type: integer
         "reset_failed_attempts_count" : False, #Reset failed attempts count and enable those users. Object Type: boolean
+
         }
         """
         url_path = "/local-user/password-policy"
@@ -1524,6 +1592,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "password_minimum_length" : 0, #Minimum length of the password. Object Type: integer
         "password_complexity" : "", #Complexity Level of the password. Object Type: string
@@ -1540,6 +1609,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "disable_after_unchanged_days" : 0, #Disable after password not changed after this many days. Object Type: integer
         "disable_after_failed_attempts" : 0, #Failed attempts count. Object Type: integer
         "reset_failed_attempts_count" : False, #Reset failed attempts count and enable those users. Object Type: boolean
+
         }
         """
         url_path = "/local-user/password-policy"
@@ -1564,14 +1634,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['server_name', 'default_from_address']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_name" : "", #SMTP Server Name. Object Type: string
         "user_name" : "", #Username. Object Type: string
         "password" : "", #Password. Object Type: string
         "default_from_address" : "", #Default FROM Address. Object Type: string
         "connection_security" : "", #Connection Security. Object Type: string
-        "port" : "" #variable unknown: , #Port Number. Object Type: int
-        "connection_timeout" : "" #variable unknown: , #Connection Timeout . Object Type: int
+        "port" : "", #Port Number. Object Type: int
+        "connection_timeout" : "", #Connection Timeout . Object Type: int
+
         }
         """
         url_path = "/messaging-setup"
@@ -1619,6 +1691,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'sponsor_filter']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #Enter a name for this operator profile. Object Type: string
@@ -1659,6 +1732,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "override_guest_users" : "", #Override the Manage Guest Accounts view. Object Type: string
         "override_guest_edit_receipt" : "", #Override the Updated Account Details form. Object Type: string
         "override_mac_edit_receipt" : "", #Override the Updated Device Details form. Object Type: string
+
         }
         """
         url_path = "/operator-profile"
@@ -1687,6 +1761,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'sponsor_filter']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #Enter a name for this operator profile. Object Type: string
@@ -1727,6 +1802,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "override_guest_users" : "", #Override the Manage Guest Accounts view. Object Type: string
         "override_guest_edit_receipt" : "", #Override the Updated Account Details form. Object Type: string
         "override_mac_edit_receipt" : "", #Override the Updated Device Details form. Object Type: string
+
         }
         """
         url_path = "/operator-profile/{id}"
@@ -1746,6 +1822,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'sponsor_filter']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #Enter a name for this operator profile. Object Type: string
@@ -1786,6 +1863,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "override_guest_users" : "", #Override the Manage Guest Accounts view. Object Type: string
         "override_guest_edit_receipt" : "", #Override the Updated Account Details form. Object Type: string
         "override_mac_edit_receipt" : "", #Override the Updated Device Details form. Object Type: string
+
         }
         """
         url_path = "/operator-profile/{id}"
@@ -1829,6 +1907,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'sponsor_filter']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #Enter a name for this operator profile. Object Type: string
@@ -1869,6 +1948,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "override_guest_users" : "", #Override the Manage Guest Accounts view. Object Type: string
         "override_guest_edit_receipt" : "", #Override the Updated Account Details form. Object Type: string
         "override_mac_edit_receipt" : "", #Override the Updated Device Details form. Object Type: string
+
         }
         """
         url_path = "/operator-profile/name/{name}"
@@ -1888,6 +1968,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['name', 'sponsor_filter']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #No Desc. Object Type: integer
         "name" : "", #Enter a name for this operator profile. Object Type: string
@@ -1928,6 +2009,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "override_guest_users" : "", #Override the Manage Guest Accounts view. Object Type: string
         "override_guest_edit_receipt" : "", #Override the Updated Account Details form. Object Type: string
         "override_mac_edit_receipt" : "", #Override the Updated Device Details form. Object Type: string
+
         }
         """
         url_path = "/operator-profile/name/{name}"
@@ -1967,8 +2049,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['zone_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone_name" : "", #Name of the Policy Manager Zone. Object Type: string
+
         }
         """
         url_path = "/server/policy-manager-zones"
@@ -1997,8 +2081,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['zone_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone_name" : "", #Name of the Policy Manager Zone. Object Type: string
+
         }
         """
         url_path = "/server/policy-manager-zones/{zone_id}"
@@ -2042,8 +2128,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['zone_name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone_name" : "", #Name of the Policy Manager Zone. Object Type: string
+
         }
         """
         url_path = "/server/policy-manager-zones/name/{name}"
@@ -2098,6 +2186,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'snmp_version']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #HostName of the SNMP Trap Server. Object Type: string
         "description" : "", #Description of the SNMP Trap Server. Object Type: string
@@ -2111,6 +2200,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "priv_protocol" : {}, #Privacy Protocol. Object Type: object
         "auth_protocol" : {}, #Authentication Protocol. Object Type: object
         "security_level" : {}, #SNMP Version. Object Type: object
+
         }
         """
         url_path = "/snmp-trap-receiver"
@@ -2141,6 +2231,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #HostName of the SNMP Trap Server. Object Type: string
         "description" : "", #Description of the SNMP Trap Server. Object Type: string
@@ -2154,6 +2245,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "priv_protocol" : {}, #Privacy Protocol. Object Type: object
         "auth_protocol" : {}, #Authentication Protocol. Object Type: object
         "security_level" : {}, #SNMP Version. Object Type: object
+
         }
         """
         url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
@@ -2175,6 +2267,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'snmp_version']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #HostName of the SNMP Trap Server. Object Type: string
         "description" : "", #Description of the SNMP Trap Server. Object Type: string
@@ -2188,6 +2281,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "priv_protocol" : {}, #Privacy Protocol. Object Type: object
         "auth_protocol" : {}, #Authentication Protocol. Object Type: object
         "security_level" : {}, #SNMP Version. Object Type: object
+
         }
         """
         url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
@@ -2233,6 +2327,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #HostName of the SNMP Trap Server. Object Type: string
         "description" : "", #Description of the SNMP Trap Server. Object Type: string
@@ -2246,6 +2341,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "priv_protocol" : {}, #Privacy Protocol. Object Type: object
         "auth_protocol" : {}, #Authentication Protocol. Object Type: object
         "security_level" : {}, #SNMP Version. Object Type: object
+
         }
         """
         url_path = "/snmp-trap-receiver/name/{name}"
@@ -2265,6 +2361,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'snmp_version']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #HostName of the SNMP Trap Server. Object Type: string
         "description" : "", #Description of the SNMP Trap Server. Object Type: string
@@ -2278,6 +2375,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "priv_protocol" : {}, #Privacy Protocol. Object Type: object
         "auth_protocol" : {}, #Authentication Protocol. Object Type: object
         "security_level" : {}, #SNMP Version. Object Type: object
+
         }
         """
         url_path = "/snmp-trap-receiver/name/{name}"

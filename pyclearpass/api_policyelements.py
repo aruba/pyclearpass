@@ -40,6 +40,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Application Dictionary. Object Type: string
                 "description" : "", #Description of the Application Dictionary. Object Type: string
@@ -48,6 +49,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #Application Dictionary Attribute Type. Object Type: string
              "allowed_values":"", #Allowed Values for Application Dictionary Attributes in CSV format. Object Type: string
         }], #List of Application Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/application-dictionary"
@@ -80,6 +82,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Application Dictionary. Object Type: string
                 "description" : "", #Description of the Application Dictionary. Object Type: string
@@ -88,6 +91,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #Application Dictionary Attribute Type. Object Type: string
              "allowed_values":"", #Allowed Values for Application Dictionary Attributes in CSV format. Object Type: string
         }], #List of Application Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/application-dictionary/{application_dictionary_id}"
@@ -109,6 +113,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Application Dictionary. Object Type: string
                 "description" : "", #Description of the Application Dictionary. Object Type: string
@@ -117,6 +122,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #Application Dictionary Attribute Type. Object Type: string
              "allowed_values":"", #Allowed Values for Application Dictionary Attributes in CSV format. Object Type: string
         }], #List of Application Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/application-dictionary/{application_dictionary_id}"
@@ -162,6 +168,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Application Dictionary. Object Type: string
                 "description" : "", #Description of the Application Dictionary. Object Type: string
@@ -170,6 +177,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #Application Dictionary Attribute Type. Object Type: string
              "allowed_values":"", #Allowed Values for Application Dictionary Attributes in CSV format. Object Type: string
         }], #List of Application Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/application-dictionary/name/{name}"
@@ -189,6 +197,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Application Dictionary. Object Type: string
                 "description" : "", #Description of the Application Dictionary. Object Type: string
@@ -197,6 +206,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #Application Dictionary Attribute Type. Object Type: string
              "allowed_values":"", #Allowed Values for Application Dictionary Attributes in CSV format. Object Type: string
         }], #List of Application Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/application-dictionary/name/{name}"
@@ -251,12 +261,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'method_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth method. Object Type: string
         "description" : "", #Description of the auth method. Object Type: string
         "method_type" : "", #Type of the auth method. Object Type: string
-        "details" : "" #variable unknown: , #Details JSON object of the auth method. Object Type: AuthMethodDetails
-        "inner_methods" : "" #variable unknown: , #List of inner methods of the auth method. Object Type: array
+        "details" : "", #Details JSON object of the auth method. Object Type: AuthMethodDetails
+        "inner_methods" : "", #List of inner methods of the auth method. Object Type: array
+
         }
         """
         url_path = "/auth-method"
@@ -285,12 +297,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth method. Object Type: string
         "description" : "", #Description of the auth method. Object Type: string
         "method_type" : "", #Type of the auth method. Object Type: string
-        "details" : "" #variable unknown: , #Details JSON object of the auth method. Object Type: AuthMethodDetails
-        "inner_methods" : "" #variable unknown: , #List of inner methods of the auth method. Object Type: array
+        "details" : "", #Details JSON object of the auth method. Object Type: AuthMethodDetails
+        "inner_methods" : "", #List of inner methods of the auth method. Object Type: array
+
         }
         """
         url_path = "/auth-method/{auth_method_id}"
@@ -310,12 +324,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'method_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth method. Object Type: string
         "description" : "", #Description of the auth method. Object Type: string
         "method_type" : "", #Type of the auth method. Object Type: string
-        "details" : "" #variable unknown: , #Details JSON object of the auth method. Object Type: AuthMethodDetails
-        "inner_methods" : "" #variable unknown: , #List of inner methods of the auth method. Object Type: array
+        "details" : "", #Details JSON object of the auth method. Object Type: AuthMethodDetails
+        "inner_methods" : "", #List of inner methods of the auth method. Object Type: array
+
         }
         """
         url_path = "/auth-method/{auth_method_id}"
@@ -359,12 +375,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth method. Object Type: string
         "description" : "", #Description of the auth method. Object Type: string
         "method_type" : "", #Type of the auth method. Object Type: string
-        "details" : "" #variable unknown: , #Details JSON object of the auth method. Object Type: AuthMethodDetails
-        "inner_methods" : "" #variable unknown: , #List of inner methods of the auth method. Object Type: array
+        "details" : "", #Details JSON object of the auth method. Object Type: AuthMethodDetails
+        "inner_methods" : "", #List of inner methods of the auth method. Object Type: array
+
         }
         """
         url_path = "/auth-method/name/{name}"
@@ -384,12 +402,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'method_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth method. Object Type: string
         "description" : "", #Description of the auth method. Object Type: string
         "method_type" : "", #Type of the auth method. Object Type: string
-        "details" : "" #variable unknown: , #Details JSON object of the auth method. Object Type: AuthMethodDetails
-        "inner_methods" : "" #variable unknown: , #List of inner methods of the auth method. Object Type: array
+        "details" : "", #Details JSON object of the auth method. Object Type: AuthMethodDetails
+        "inner_methods" : "", #List of inner methods of the auth method. Object Type: array
+
         }
         """
         url_path = "/auth-method/name/{name}"
@@ -444,18 +464,20 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'cppm_primary_auth_source_connection_details', 'server_timeout', 'cache_timeout']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth source. Object Type: string
         "description" : "", #Description of the auth source. Object Type: string
         "type" : "", #Type of the auth source. Object Type: string
         "use_for_authorization" : False, #Enable to use this Authentication Source. Object Type: boolean
         "authorization_source_names" : False, #additional auth-sources from which role-mapping attributes to be fetched. Object Type: array
-        "cppm_primary_auth_source_connection_details" : "" #variable unknown: , #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataCreate
-        "auth_source_radius_attributes" : "" #variable unknown: , #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsCreate
-        "cppm_auth_source_connection_backups" : "" #variable unknown: , #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataCreate
-        "auth_source_filters" : "" #variable unknown: , #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsCreate
+        "cppm_primary_auth_source_connection_details" : False, #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataCreate
+        "auth_source_radius_attributes" : False, #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsCreate
+        "cppm_auth_source_connection_backups" : False, #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataCreate
+        "auth_source_filters" : False, #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsCreate
         "server_timeout" : 0, #Time out if the Authentication source fails to send a response to an authorization query. Object Type: integer
         "cache_timeout" : 0, #Specify the duration in number of seconds for which the attributes are cached.. Object Type: integer
+
         }
         """
         url_path = "/auth-source"
@@ -484,18 +506,20 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth source. Object Type: string
         "description" : "", #Description of the auth source. Object Type: string
         "type" : "", #Type of the auth source. Object Type: string
         "use_for_authorization" : False, #Enable to use this Authentication Source. Object Type: boolean
         "authorization_source_names" : False, #additional auth-sources from which role-mapping attributes to be fetched. Object Type: array
-        "cppm_primary_auth_source_connection_details" : "" #variable unknown: , #details of Authentication source. Object Type: AuthSourceConnectionDetailsUpdate
-        "auth_source_radius_attributes" : "" #variable unknown: , #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsUpdate
-        "cppm_auth_source_connection_backups" : "" #variable unknown: , #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataUpdate
-        "auth_source_filters" : "" #variable unknown: , #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsUpdate
+        "cppm_primary_auth_source_connection_details" : False, #details of Authentication source. Object Type: AuthSourceConnectionDetailsUpdate
+        "auth_source_radius_attributes" : False, #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsUpdate
+        "cppm_auth_source_connection_backups" : False, #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataUpdate
+        "auth_source_filters" : False, #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsUpdate
         "server_timeout" : 0, #Time out if the Authentication source fails to send a response to an authorization query. Object Type: integer
         "cache_timeout" : 0, #Specify the duration in number of seconds for which the attributes are cached.. Object Type: integer
+
         }
         """
         url_path = "/auth-source/{auth_source_id}"
@@ -515,18 +539,20 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'cppm_primary_auth_source_connection_details', 'server_timeout', 'cache_timeout']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth source. Object Type: string
         "description" : "", #Description of the auth source. Object Type: string
         "type" : "", #Type of the auth source. Object Type: string
         "use_for_authorization" : False, #Enable to use this Authentication Source. Object Type: boolean
         "authorization_source_names" : False, #additional auth-sources from which role-mapping attributes to be fetched. Object Type: array
-        "cppm_primary_auth_source_connection_details" : "" #variable unknown: , #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataReplace
-        "auth_source_radius_attributes" : "" #variable unknown: , #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsReplace
-        "cppm_auth_source_connection_backups" : "" #variable unknown: , #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataReplace
-        "auth_source_filters" : "" #variable unknown: , #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsReplace
+        "cppm_primary_auth_source_connection_details" : False, #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataReplace
+        "auth_source_radius_attributes" : False, #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsReplace
+        "cppm_auth_source_connection_backups" : False, #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataReplace
+        "auth_source_filters" : False, #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsReplace
         "server_timeout" : 0, #Time out if the Authentication source fails to send a response to an authorization query. Object Type: integer
         "cache_timeout" : 0, #Specify the duration in number of seconds for which the attributes are cached.. Object Type: integer
+
         }
         """
         url_path = "/auth-source/{auth_source_id}"
@@ -570,18 +596,20 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth source. Object Type: string
         "description" : "", #Description of the auth source. Object Type: string
         "type" : "", #Type of the auth source. Object Type: string
         "use_for_authorization" : False, #Enable to use this Authentication Source. Object Type: boolean
         "authorization_source_names" : False, #additional auth-sources from which role-mapping attributes to be fetched. Object Type: array
-        "cppm_primary_auth_source_connection_details" : "" #variable unknown: , #details of Authentication source. Object Type: AuthSourceConnectionDetailsUpdate
-        "auth_source_radius_attributes" : "" #variable unknown: , #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsUpdate
-        "cppm_auth_source_connection_backups" : "" #variable unknown: , #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataUpdate
-        "auth_source_filters" : "" #variable unknown: , #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsUpdate
+        "cppm_primary_auth_source_connection_details" : False, #details of Authentication source. Object Type: AuthSourceConnectionDetailsUpdate
+        "auth_source_radius_attributes" : False, #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsUpdate
+        "cppm_auth_source_connection_backups" : False, #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataUpdate
+        "auth_source_filters" : False, #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsUpdate
         "server_timeout" : 0, #Time out if the Authentication source fails to send a response to an authorization query. Object Type: integer
         "cache_timeout" : 0, #Specify the duration in number of seconds for which the attributes are cached.. Object Type: integer
+
         }
         """
         url_path = "/auth-source/name/{name}"
@@ -601,18 +629,20 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'type', 'cppm_primary_auth_source_connection_details', 'server_timeout', 'cache_timeout']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the auth source. Object Type: string
         "description" : "", #Description of the auth source. Object Type: string
         "type" : "", #Type of the auth source. Object Type: string
         "use_for_authorization" : False, #Enable to use this Authentication Source. Object Type: boolean
         "authorization_source_names" : False, #additional auth-sources from which role-mapping attributes to be fetched. Object Type: array
-        "cppm_primary_auth_source_connection_details" : "" #variable unknown: , #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataReplace
-        "auth_source_radius_attributes" : "" #variable unknown: , #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsReplace
-        "cppm_auth_source_connection_backups" : "" #variable unknown: , #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataReplace
-        "auth_source_filters" : "" #variable unknown: , #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsReplace
+        "cppm_primary_auth_source_connection_details" : False, #details of Authentication source. Object Type: AuthSourceConnectionDetailsMetadataReplace
+        "auth_source_radius_attributes" : False, #details of authSourceRadiusAttributes. Object Type: AuthSourceRadiusAttributeDetailsReplace
+        "cppm_auth_source_connection_backups" : False, #details of authentication source backups. Object Type: AuthSourceBackupConnectionDetailsMetadataReplace
+        "auth_source_filters" : False, #details of auth_source_filters. Object Type: AuthSourceFiltersDetailsReplace
         "server_timeout" : 0, #Time out if the Authentication source fails to send a response to an authorization query. Object Type: integer
         "cache_timeout" : 0, #Specify the duration in number of seconds for which the attributes are cached.. Object Type: integer
+
         }
         """
         url_path = "/auth-source/name/{name}"
@@ -667,13 +697,15 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'enforcement_type', 'default_enforcement_profile', 'rule_eval_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Enforcement Policy. Object Type: string
         "description" : "", #Description of the Enforcement Policy. Object Type: string
         "enforcement_type" : "", #Enforcement Type of the Enforcement Policy. Object Type: string
         "default_enforcement_profile" : "", #Default Enforcement Profile for the Enforcement Policy. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm of the Enforcement Policy rules. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Enforcement Policy. Object Type: RulesSettingsCreate
+        "rules" : "", #List of Rules for Enforcement Policy. Object Type: RulesSettingsCreate
+
         }
         """
         url_path = "/enforcement-policy"
@@ -704,13 +736,15 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Enforcement Policy. Object Type: string
         "description" : "", #Description of the Enforcement Policy. Object Type: string
         "enforcement_type" : "", #Enforcement Type of the Enforcement Policy. Object Type: string
         "default_enforcement_profile" : "", #Default Enforcement Profile for the Enforcement Policy. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm of the Enforcement Policy rules. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Enforcement Policy. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of Rules for Enforcement Policy. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/enforcement-policy/{enforcement_policy_id}"
@@ -732,13 +766,15 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'enforcement_type', 'default_enforcement_profile', 'rule_eval_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Enforcement Policy. Object Type: string
         "description" : "", #Description of the Enforcement Policy. Object Type: string
         "enforcement_type" : "", #Enforcement Type of the Enforcement Policy. Object Type: string
         "default_enforcement_profile" : "", #Default Enforcement Profile for the Enforcement Policy. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm of the Enforcement Policy rules. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Enforcement Policy. Object Type: RulesSettingsReplace
+        "rules" : "", #List of Rules for Enforcement Policy. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/enforcement-policy/{enforcement_policy_id}"
@@ -784,13 +820,15 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Enforcement Policy. Object Type: string
         "description" : "", #Description of the Enforcement Policy. Object Type: string
         "enforcement_type" : "", #Enforcement Type of the Enforcement Policy. Object Type: string
         "default_enforcement_profile" : "", #Default Enforcement Profile for the Enforcement Policy. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm of the Enforcement Policy rules. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Enforcement Policy. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of Rules for Enforcement Policy. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/enforcement-policy/name/{name}"
@@ -810,13 +848,15 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'enforcement_type', 'default_enforcement_profile', 'rule_eval_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the Enforcement Policy. Object Type: string
         "description" : "", #Description of the Enforcement Policy. Object Type: string
         "enforcement_type" : "", #Enforcement Type of the Enforcement Policy. Object Type: string
         "default_enforcement_profile" : "", #Default Enforcement Profile for the Enforcement Policy. Object Type: string
         "rule_eval_algo" : "", #Rule Evaluation Algorithm of the Enforcement Policy rules. Object Type: string
-        "rules" : "" #variable unknown: , #List of Rules for Enforcement Policy. Object Type: RulesSettingsReplace
+        "rules" : "", #List of Rules for Enforcement Policy. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/enforcement-policy/name/{name}"
@@ -871,6 +911,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'ip_address']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "description" : "", #Description of the network device. Object Type: string
         "name" : "", #Name of the network device. Object Type: string
@@ -882,12 +923,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         "coa_capable" : False, #Flag indicating if the network device is capable of CoA. Object Type: boolean
         "coa_port" : 0, #CoA port number of the network device. Object Type: integer
         "radsec_enabled" : False, #Flag indicating if the network device is radSec enabled. Object Type: boolean
-        "snmp_read" : "" #variable unknown: , #SNMP read settings of the network device. Object Type: SNMPReadSettings
-        "snmp_write" : "" #variable unknown: , #SNMP write settings of the network device. Object Type: SNMPWriteSettings
-        "radsec_config" : "" #variable unknown: , #RadSec settings of the network device. Object Type: RadSecSettings
-        "cli_config" : "" #variable unknown: , #CLI Configuration details of the network device. Object Type: CLISettings
-        "onConnect_enforcement" : "" #variable unknown: , #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
+        "snmp_read" : False, #SNMP read settings of the network device. Object Type: SNMPReadSettings
+        "snmp_write" : False, #SNMP write settings of the network device. Object Type: SNMPWriteSettings
+        "radsec_config" : False, #RadSec settings of the network device. Object Type: RadSecSettings
+        "cli_config" : False, #CLI Configuration details of the network device. Object Type: CLISettings
+        "onConnect_enforcement" : False, #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the network device. Object Type: object
+
         }
         """
         url_path = "/network-device"
@@ -918,6 +960,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "description" : "", #Description of the network device. Object Type: string
         "name" : "", #Name of the network device. Object Type: string
@@ -929,12 +972,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         "coa_capable" : False, #Flag indicating if the network device is capable of CoA. Object Type: boolean
         "coa_port" : 0, #CoA port number of the network device. Object Type: integer
         "radsec_enabled" : False, #Flag indicating if the network device is radSec enabled. Object Type: boolean
-        "snmp_read" : "" #variable unknown: , #SNMP read settings of the network device. Object Type: SNMPReadSettings
-        "snmp_write" : "" #variable unknown: , #SNMP write settings of the network device. Object Type: SNMPWriteSettings
-        "radsec_config" : "" #variable unknown: , #RadSec settings of the network device. Object Type: RadSecSettings
-        "cli_config" : "" #variable unknown: , #CLI Configuration details of the network device. Object Type: CLISettings
-        "onConnect_enforcement" : "" #variable unknown: , #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
+        "snmp_read" : False, #SNMP read settings of the network device. Object Type: SNMPReadSettings
+        "snmp_write" : False, #SNMP write settings of the network device. Object Type: SNMPWriteSettings
+        "radsec_config" : False, #RadSec settings of the network device. Object Type: RadSecSettings
+        "cli_config" : False, #CLI Configuration details of the network device. Object Type: CLISettings
+        "onConnect_enforcement" : False, #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the network device. Object Type: object
+
         }
         """
         url_path = "/network-device/{network_device_id}"
@@ -956,6 +1000,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'ip_address']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "description" : "", #Description of the network device. Object Type: string
         "name" : "", #Name of the network device. Object Type: string
@@ -967,12 +1012,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         "coa_capable" : False, #Flag indicating if the network device is capable of CoA. Object Type: boolean
         "coa_port" : 0, #CoA port number of the network device. Object Type: integer
         "radsec_enabled" : False, #Flag indicating if the network device is radSec enabled. Object Type: boolean
-        "snmp_read" : "" #variable unknown: , #SNMP read settings of the network device. Object Type: SNMPReadSettings
-        "snmp_write" : "" #variable unknown: , #SNMP write settings of the network device. Object Type: SNMPWriteSettings
-        "radsec_config" : "" #variable unknown: , #RadSec settings of the network device. Object Type: RadSecSettings
-        "cli_config" : "" #variable unknown: , #CLI Configuration details of the network device. Object Type: CLISettings
-        "onConnect_enforcement" : "" #variable unknown: , #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
+        "snmp_read" : False, #SNMP read settings of the network device. Object Type: SNMPReadSettings
+        "snmp_write" : False, #SNMP write settings of the network device. Object Type: SNMPWriteSettings
+        "radsec_config" : False, #RadSec settings of the network device. Object Type: RadSecSettings
+        "cli_config" : False, #CLI Configuration details of the network device. Object Type: CLISettings
+        "onConnect_enforcement" : False, #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the network device. Object Type: object
+
         }
         """
         url_path = "/network-device/{network_device_id}"
@@ -1016,6 +1062,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "description" : "", #Description of the network device. Object Type: string
         "name" : "", #Name of the network device. Object Type: string
@@ -1027,12 +1074,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         "coa_capable" : False, #Flag indicating if the network device is capable of CoA. Object Type: boolean
         "coa_port" : 0, #CoA port number of the network device. Object Type: integer
         "radsec_enabled" : False, #Flag indicating if the network device is radSec enabled. Object Type: boolean
-        "snmp_read" : "" #variable unknown: , #SNMP read settings of the network device. Object Type: SNMPReadSettings
-        "snmp_write" : "" #variable unknown: , #SNMP write settings of the network device. Object Type: SNMPWriteSettings
-        "radsec_config" : "" #variable unknown: , #RadSec settings of the network device. Object Type: RadSecSettings
-        "cli_config" : "" #variable unknown: , #CLI Configuration details of the network device. Object Type: CLISettings
-        "onConnect_enforcement" : "" #variable unknown: , #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
+        "snmp_read" : False, #SNMP read settings of the network device. Object Type: SNMPReadSettings
+        "snmp_write" : False, #SNMP write settings of the network device. Object Type: SNMPWriteSettings
+        "radsec_config" : False, #RadSec settings of the network device. Object Type: RadSecSettings
+        "cli_config" : False, #CLI Configuration details of the network device. Object Type: CLISettings
+        "onConnect_enforcement" : False, #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the network device. Object Type: object
+
         }
         """
         url_path = "/network-device/name/{name}"
@@ -1052,6 +1100,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'ip_address']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "description" : "", #Description of the network device. Object Type: string
         "name" : "", #Name of the network device. Object Type: string
@@ -1063,12 +1112,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         "coa_capable" : False, #Flag indicating if the network device is capable of CoA. Object Type: boolean
         "coa_port" : 0, #CoA port number of the network device. Object Type: integer
         "radsec_enabled" : False, #Flag indicating if the network device is radSec enabled. Object Type: boolean
-        "snmp_read" : "" #variable unknown: , #SNMP read settings of the network device. Object Type: SNMPReadSettings
-        "snmp_write" : "" #variable unknown: , #SNMP write settings of the network device. Object Type: SNMPWriteSettings
-        "radsec_config" : "" #variable unknown: , #RadSec settings of the network device. Object Type: RadSecSettings
-        "cli_config" : "" #variable unknown: , #CLI Configuration details of the network device. Object Type: CLISettings
-        "onConnect_enforcement" : "" #variable unknown: , #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
+        "snmp_read" : False, #SNMP read settings of the network device. Object Type: SNMPReadSettings
+        "snmp_write" : False, #SNMP write settings of the network device. Object Type: SNMPWriteSettings
+        "radsec_config" : False, #RadSec settings of the network device. Object Type: RadSecSettings
+        "cli_config" : False, #CLI Configuration details of the network device. Object Type: CLISettings
+        "onConnect_enforcement" : False, #OnConnect Enforcement settings of the network device. Object Type: OnConnectEnforcementSettings
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the network device. Object Type: object
+
         }
         """
         url_path = "/network-device/name/{name}"
@@ -1123,11 +1173,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'group_format', 'value']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the network device group. Object Type: string
         "description" : "", #Description of the network device group. Object Type: string
         "group_format" : "", #Format of the network devices. Object Type: string
         "value" : "", #Network devices in the specified format. Object Type: string
+
         }
         """
         url_path = "/network-device-group"
@@ -1160,11 +1212,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the network device group. Object Type: string
         "description" : "", #Description of the network device group. Object Type: string
         "group_format" : "", #Format of the network devices. Object Type: string
         "value" : "", #Network devices in the specified format. Object Type: string
+
         }
         """
         url_path = "/network-device-group/{network_device_group_id}"
@@ -1186,11 +1240,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'group_format', 'value']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the network device group. Object Type: string
         "description" : "", #Description of the network device group. Object Type: string
         "group_format" : "", #Format of the network devices. Object Type: string
         "value" : "", #Network devices in the specified format. Object Type: string
+
         }
         """
         url_path = "/network-device-group/{network_device_group_id}"
@@ -1236,11 +1292,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the network device group. Object Type: string
         "description" : "", #Description of the network device group. Object Type: string
         "group_format" : "", #Format of the network devices. Object Type: string
         "value" : "", #Network devices in the specified format. Object Type: string
+
         }
         """
         url_path = "/network-device-group/name/{name}"
@@ -1260,11 +1318,13 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'group_format', 'value']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the network device group. Object Type: string
         "description" : "", #Description of the network device group. Object Type: string
         "group_format" : "", #Format of the network devices. Object Type: string
         "value" : "", #Network devices in the specified format. Object Type: string
+
         }
         """
         url_path = "/network-device-group/name/{name}"
@@ -1319,6 +1379,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'posture_agent', 'policy_xml']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Posture Policy Name. Object Type: string
         "description" : "", #Description. Object Type: string
@@ -1327,6 +1388,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "plugin_version" : "", #Plugin Version. Object Type: string
         "roles" : "", #Restrict by Roles. Object Type: array
         "policy_xml" : "", #Posture Policy XML. Object Type: string
+
         }
         """
         url_path = "/posture-policy"
@@ -1357,6 +1419,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Posture Policy Name. Object Type: string
         "description" : "", #Description. Object Type: string
@@ -1365,6 +1428,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "plugin_version" : "", #Plugin Version. Object Type: string
         "roles" : "", #Restrict by Roles. Object Type: array
         "policy_xml" : "", #Posture Policy XML. Object Type: string
+
         }
         """
         url_path = "/posture-policy/{posture_policy_id}"
@@ -1386,6 +1450,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'posture_agent', 'policy_xml']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Posture Policy Name. Object Type: string
         "description" : "", #Description. Object Type: string
@@ -1394,6 +1459,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "plugin_version" : "", #Plugin Version. Object Type: string
         "roles" : "", #Restrict by Roles. Object Type: array
         "policy_xml" : "", #Posture Policy XML. Object Type: string
+
         }
         """
         url_path = "/posture-policy/{posture_policy_id}"
@@ -1437,6 +1503,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Posture Policy Name. Object Type: string
         "description" : "", #Description. Object Type: string
@@ -1445,6 +1512,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "plugin_version" : "", #Plugin Version. Object Type: string
         "roles" : "", #Restrict by Roles. Object Type: array
         "policy_xml" : "", #Posture Policy XML. Object Type: string
+
         }
         """
         url_path = "/posture-policy/name/{name}"
@@ -1464,6 +1532,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'posture_agent', 'policy_xml']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Posture Policy Name. Object Type: string
         "description" : "", #Description. Object Type: string
@@ -1472,6 +1541,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "plugin_version" : "", #Plugin Version. Object Type: string
         "roles" : "", #Restrict by Roles. Object Type: array
         "policy_xml" : "", #Posture Policy XML. Object Type: string
+
         }
         """
         url_path = "/posture-policy/name/{name}"
@@ -1526,6 +1596,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['vendor_id', 'vendor_name', 'prefix', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_id" : 0, #Vendor ID of RADIUS Dictionary. Object Type: integer
                 "vendor_name" : "", #Vendor Name of RADIUS Dictionary. Object Type: string
@@ -1539,6 +1610,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "extra_data":"", #RADIUS Dictionary Attribute Extra Data. Object Type: string
              "valid_values":[{"":""}], #RADIUS Dictionary Attribute Valid Values. Object Type: array
         }], #Attributes of RADIUS Dictionary. Object Type: array
+
                 }
         """
         url_path = "/radius-dictionary"
@@ -1569,6 +1641,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_id" : 0, #Vendor ID of RADIUS Dictionary. Object Type: integer
                 "vendor_name" : "", #Vendor Name of RADIUS Dictionary. Object Type: string
@@ -1582,6 +1655,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "extra_data":"", #RADIUS Dictionary Attribute Extra Data. Object Type: string
              "valid_values":[{"":""}], #RADIUS Dictionary Attribute Valid Values. Object Type: array
         }], #Attributes of RADIUS Dictionary. Object Type: array
+
                 }
         """
         url_path = "/radius-dictionary/{radius_dictionary_id}"
@@ -1603,6 +1677,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['vendor_id', 'vendor_name', 'prefix', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_id" : 0, #Vendor ID of RADIUS Dictionary. Object Type: integer
                 "vendor_name" : "", #Vendor Name of RADIUS Dictionary. Object Type: string
@@ -1616,6 +1691,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "extra_data":"", #RADIUS Dictionary Attribute Extra Data. Object Type: string
              "valid_values":[{"":""}], #RADIUS Dictionary Attribute Valid Values. Object Type: array
         }], #Attributes of RADIUS Dictionary. Object Type: array
+
                 }
         """
         url_path = "/radius-dictionary/{radius_dictionary_id}"
@@ -1647,6 +1723,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_id" : 0, #Vendor ID of RADIUS Dictionary. Object Type: integer
                 "vendor_name" : "", #Vendor Name of RADIUS Dictionary. Object Type: string
@@ -1660,6 +1737,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "extra_data":"", #RADIUS Dictionary Attribute Extra Data. Object Type: string
              "valid_values":[{"":""}], #RADIUS Dictionary Attribute Valid Values. Object Type: array
         }], #Attributes of RADIUS Dictionary. Object Type: array
+
                 }
         """
         url_path = "/radius-dictionary/name/{name}"
@@ -1679,6 +1757,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['vendor_id', 'vendor_name', 'prefix', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_id" : 0, #Vendor ID of RADIUS Dictionary. Object Type: integer
                 "vendor_name" : "", #Vendor Name of RADIUS Dictionary. Object Type: string
@@ -1692,6 +1771,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "extra_data":"", #RADIUS Dictionary Attribute Extra Data. Object Type: string
              "valid_values":[{"":""}], #RADIUS Dictionary Attribute Valid Values. Object Type: array
         }], #Attributes of RADIUS Dictionary. Object Type: array
+
                 }
         """
         url_path = "/radius-dictionary/name/{name}"
@@ -1786,6 +1866,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'vendor_name', 'template_type', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_name" : "", #Vendor Name of RADIUS Dynamic Authorization Template. Object Type: string
                 "template_type" : "", #Template Type of RADIUS Dynamic Authorization Template. Object Type: string
@@ -1797,6 +1878,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #RADIUS Dynamic Authorization Template Attribute Name. Object Type: string
              "type":"", #RADIUS Dynamic Authorization Template Attribute Type. Object Type: string
         }], #Attributes of RADIUS Dynamic Authorization Template. Object Type: array
+
                 }
         """
         url_path = "/radius-dynamic-authorization-template"
@@ -1831,6 +1913,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_name" : "", #Vendor Name of RADIUS Dynamic Authorization Template. Object Type: string
                 "template_type" : "", #Template Type of RADIUS Dynamic Authorization Template. Object Type: string
@@ -1842,6 +1925,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #RADIUS Dynamic Authorization Template Attribute Name. Object Type: string
              "type":"", #RADIUS Dynamic Authorization Template Attribute Type. Object Type: string
         }], #Attributes of RADIUS Dynamic Authorization Template. Object Type: array
+
                 }
         """
         url_path = "/radius-dynamic-authorization-template/{radius_dynamic_authorization_template_id}"
@@ -1865,6 +1949,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'vendor_name', 'template_type', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_name" : "", #Vendor Name of RADIUS Dynamic Authorization Template. Object Type: string
                 "template_type" : "", #Template Type of RADIUS Dynamic Authorization Template. Object Type: string
@@ -1876,6 +1961,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #RADIUS Dynamic Authorization Template Attribute Name. Object Type: string
              "type":"", #RADIUS Dynamic Authorization Template Attribute Type. Object Type: string
         }], #Attributes of RADIUS Dynamic Authorization Template. Object Type: array
+
                 }
         """
         url_path = "/radius-dynamic-authorization-template/{radius_dynamic_authorization_template_id}"
@@ -1927,6 +2013,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_name" : "", #Vendor Name of RADIUS Dynamic Authorization Template. Object Type: string
                 "template_type" : "", #Template Type of RADIUS Dynamic Authorization Template. Object Type: string
@@ -1938,6 +2025,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #RADIUS Dynamic Authorization Template Attribute Name. Object Type: string
              "type":"", #RADIUS Dynamic Authorization Template Attribute Type. Object Type: string
         }], #Attributes of RADIUS Dynamic Authorization Template. Object Type: array
+
                 }
         """
         url_path = "/radius-dynamic-authorization-template/name/{name}"
@@ -1959,6 +2047,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'vendor_name', 'template_type', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor_name" : "", #Vendor Name of RADIUS Dynamic Authorization Template. Object Type: string
                 "template_type" : "", #Template Type of RADIUS Dynamic Authorization Template. Object Type: string
@@ -1970,6 +2059,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #RADIUS Dynamic Authorization Template Attribute Name. Object Type: string
              "type":"", #RADIUS Dynamic Authorization Template Attribute Type. Object Type: string
         }], #Attributes of RADIUS Dynamic Authorization Template. Object Type: array
+
                 }
         """
         url_path = "/radius-dynamic-authorization-template/name/{name}"
@@ -2024,6 +2114,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_name', 'proxy_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the proxy target. Object Type: string
         "host_name" : "", #Host name of the proxy target. Object Type: string
@@ -2036,6 +2127,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "radsec_verify_cert" : False, #Enable to verify the server certificate. Object Type: boolean
         "cert_subject" : "", #Client Certificate Subject. Object Type: string
         "enable_status_server_msgs" : False, #Enable to send the status-server message. Object Type: boolean
+
         }
         """
         url_path = "/proxy-target"
@@ -2064,6 +2156,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the proxy target. Object Type: string
         "host_name" : "", #Host name of the proxy target. Object Type: string
@@ -2076,6 +2169,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "radsec_verify_cert" : False, #Enable to verify the server certificate. Object Type: boolean
         "cert_subject" : "", #Client Certificate Subject. Object Type: string
         "enable_status_server_msgs" : False, #Enable to send the status-server message. Object Type: boolean
+
         }
         """
         url_path = "/proxy-target/{proxy_target_id}"
@@ -2095,6 +2189,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_name', 'proxy_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the proxy target. Object Type: string
         "host_name" : "", #Host name of the proxy target. Object Type: string
@@ -2107,6 +2202,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "radsec_verify_cert" : False, #Enable to verify the server certificate. Object Type: boolean
         "cert_subject" : "", #Client Certificate Subject. Object Type: string
         "enable_status_server_msgs" : False, #Enable to send the status-server message. Object Type: boolean
+
         }
         """
         url_path = "/proxy-target/{proxy_target_id}"
@@ -2150,6 +2246,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the proxy target. Object Type: string
         "host_name" : "", #Host name of the proxy target. Object Type: string
@@ -2162,6 +2259,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "radsec_verify_cert" : False, #Enable to verify the server certificate. Object Type: boolean
         "cert_subject" : "", #Client Certificate Subject. Object Type: string
         "enable_status_server_msgs" : False, #Enable to send the status-server message. Object Type: boolean
+
         }
         """
         url_path = "/proxy-target/name/{name}"
@@ -2181,6 +2279,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'host_name', 'proxy_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the proxy target. Object Type: string
         "host_name" : "", #Host name of the proxy target. Object Type: string
@@ -2193,6 +2292,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         "radsec_verify_cert" : False, #Enable to verify the server certificate. Object Type: boolean
         "cert_subject" : "", #Client Certificate Subject. Object Type: string
         "enable_status_server_msgs" : False, #Enable to send the status-server message. Object Type: boolean
+
         }
         """
         url_path = "/proxy-target/name/{name}"
@@ -2245,9 +2345,11 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the role. Object Type: string
         "description" : "", #Description of the role. Object Type: string
+
         }
         """
         url_path = "/role"
@@ -2276,9 +2378,11 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the role. Object Type: string
         "description" : "", #Description of the role. Object Type: string
+
         }
         """
         url_path = "/role/{role_id}"
@@ -2298,9 +2402,11 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the role. Object Type: string
         "description" : "", #Description of the role. Object Type: string
+
         }
         """
         url_path = "/role/{role_id}"
@@ -2344,9 +2450,11 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the role. Object Type: string
         "description" : "", #Description of the role. Object Type: string
+
         }
         """
         url_path = "/role/name/{name}"
@@ -2366,9 +2474,11 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of the role. Object Type: string
         "description" : "", #Description of the role. Object Type: string
+
         }
         """
         url_path = "/role/name/{name}"
@@ -2423,12 +2533,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'default_role_name', 'rule_combine_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Role mapping policy name. Object Type: string
         "description" : "", #Role mapping description. Object Type: string
         "default_role_name" : "", #Role mapping default role name. Object Type: string
         "rule_combine_algo" : "", #Role mapping rules evaluation algorithm. Object Type: string
-        "rules" : "" #variable unknown: , #List of role mapping rules. Object Type: RulesSettingsCreate
+        "rules" : "", #List of role mapping rules. Object Type: RulesSettingsCreate
+
         }
         """
         url_path = "/role-mapping"
@@ -2457,12 +2569,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Role mapping policy name. Object Type: string
         "description" : "", #Role mapping description. Object Type: string
         "default_role_name" : "", #Role mapping default role name. Object Type: string
         "rule_combine_algo" : "", #Role mapping rules evaluation algorithm. Object Type: string
-        "rules" : "" #variable unknown: , #List of role mapping rules. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of role mapping rules. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/role-mapping/{role_mapping_id}"
@@ -2482,12 +2596,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'default_role_name', 'rule_combine_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Role mapping policy name. Object Type: string
         "description" : "", #Role mapping description. Object Type: string
         "default_role_name" : "", #Role mapping default role name. Object Type: string
         "rule_combine_algo" : "", #Role mapping rules evaluation algorithm. Object Type: string
-        "rules" : "" #variable unknown: , #List of role mapping rules. Object Type: RulesSettingsReplace
+        "rules" : "", #List of role mapping rules. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/role-mapping/{role_mapping_id}"
@@ -2531,12 +2647,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Role mapping policy name. Object Type: string
         "description" : "", #Role mapping description. Object Type: string
         "default_role_name" : "", #Role mapping default role name. Object Type: string
         "rule_combine_algo" : "", #Role mapping rules evaluation algorithm. Object Type: string
-        "rules" : "" #variable unknown: , #List of role mapping rules. Object Type: RulesSettingsUpdate
+        "rules" : "", #List of role mapping rules. Object Type: RulesSettingsUpdate
+
         }
         """
         url_path = "/role-mapping/name/{name}"
@@ -2556,12 +2674,14 @@ class ApiPolicyElements(ClearPassAPILogin):
         Required Body Parameters:['name', 'default_role_name', 'rule_combine_algo', 'rules']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Role mapping policy name. Object Type: string
         "description" : "", #Role mapping description. Object Type: string
         "default_role_name" : "", #Role mapping default role name. Object Type: string
         "rule_combine_algo" : "", #Role mapping rules evaluation algorithm. Object Type: string
-        "rules" : "" #variable unknown: , #List of role mapping rules. Object Type: RulesSettingsReplace
+        "rules" : "", #List of role mapping rules. Object Type: RulesSettingsReplace
+
         }
         """
         url_path = "/role-mapping/name/{name}"
@@ -2616,6 +2736,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'template', 'enf_policy']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Service. Object Type: string
                 "template" : "", #Template of the Service. Object Type: string
@@ -2682,6 +2803,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #Name. Object Type: string
         }], #RADIUS attributes to be removed from remote server (proxy target) reply. Object Type: array
                 "radius_proxy_enable_for_acct" : False, #Enable proxy for accounting requests (Applicable only for RADIUS Proxy Service Type) . Object Type: boolean
+
                 }
         """
         url_path = "/config/service"
@@ -2710,6 +2832,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Service. Object Type: string
                 "template" : "", #Template of the Service. Object Type: string
@@ -2776,6 +2899,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #Name. Object Type: string
         }], #RADIUS attributes to be removed from remote server (proxy target) reply. Object Type: array
                 "radius_proxy_enable_for_acct" : False, #Enable proxy for accounting requests (Applicable only for RADIUS Proxy Service Type) . Object Type: boolean
+
                 }
         """
         url_path = "/config/service/{services_id}"
@@ -2795,6 +2919,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'template', 'enf_policy']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Service. Object Type: string
                 "template" : "", #Template of the Service. Object Type: string
@@ -2861,6 +2986,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #Name. Object Type: string
         }], #RADIUS attributes to be removed from remote server (proxy target) reply. Object Type: array
                 "radius_proxy_enable_for_acct" : False, #Enable proxy for accounting requests (Applicable only for RADIUS Proxy Service Type) . Object Type: boolean
+
                 }
         """
         url_path = "/config/service/{services_id}"
@@ -2904,6 +3030,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Service. Object Type: string
                 "template" : "", #Template of the Service. Object Type: string
@@ -2970,6 +3097,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #Name. Object Type: string
         }], #RADIUS attributes to be removed from remote server (proxy target) reply. Object Type: array
                 "radius_proxy_enable_for_acct" : False, #Enable proxy for accounting requests (Applicable only for RADIUS Proxy Service Type) . Object Type: boolean
+
                 }
         """
         url_path = "/config/service/name/{services_name}"
@@ -2989,6 +3117,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'template', 'enf_policy']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of the Service. Object Type: string
                 "template" : "", #Template of the Service. Object Type: string
@@ -3055,6 +3184,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "name":"", #Name. Object Type: string
         }], #RADIUS attributes to be removed from remote server (proxy target) reply. Object Type: array
                 "radius_proxy_enable_for_acct" : False, #Enable proxy for accounting requests (Applicable only for RADIUS Proxy Service Type) . Object Type: boolean
+
                 }
         """
         url_path = "/config/service/name/{services_name}"
@@ -3133,11 +3263,13 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['service_orders']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "service_orders" : [{
              "service_name":"", #Name of the Service. Object Type: string
              "order_no":0, #Order number of the Service. Object Type: integer
         }], #List of Service Orders to be updated. Object Type: array
+
                 }
         """
         url_path = "/config/service/reorder"
@@ -3177,6 +3309,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of TACACS+ Service Dictionary. Object Type: string
                 "display_name" : "", #Display Name of TACACS+ Service Dictionary. Object Type: string
@@ -3186,6 +3319,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #TACACS+ Service Dictionary Attribute Data Type. Object Type: string
              "allowed_values":"", #Allowed Values for TACACS+ Service Dictionary Attributes in CSV format. Object Type: string
         }], #List of TACACS+ Service Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/tacacs-service-dictionary"
@@ -3218,6 +3352,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of TACACS+ Service Dictionary. Object Type: string
                 "display_name" : "", #Display Name of TACACS+ Service Dictionary. Object Type: string
@@ -3227,6 +3362,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #TACACS+ Service Dictionary Attribute Data Type. Object Type: string
              "allowed_values":"", #Allowed Values for TACACS+ Service Dictionary Attributes in CSV format. Object Type: string
         }], #List of TACACS+ Service Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
@@ -3248,6 +3384,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of TACACS+ Service Dictionary. Object Type: string
                 "display_name" : "", #Display Name of TACACS+ Service Dictionary. Object Type: string
@@ -3257,6 +3394,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #TACACS+ Service Dictionary Attribute Data Type. Object Type: string
              "allowed_values":"", #Allowed Values for TACACS+ Service Dictionary Attributes in CSV format. Object Type: string
         }], #List of TACACS+ Service Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
@@ -3302,6 +3440,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of TACACS+ Service Dictionary. Object Type: string
                 "display_name" : "", #Display Name of TACACS+ Service Dictionary. Object Type: string
@@ -3311,6 +3450,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #TACACS+ Service Dictionary Attribute Data Type. Object Type: string
              "allowed_values":"", #Allowed Values for TACACS+ Service Dictionary Attributes in CSV format. Object Type: string
         }], #List of TACACS+ Service Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/tacacs-service-dictionary/name/{name}"
@@ -3330,6 +3470,7 @@ class ApiPolicyElements(ClearPassAPILogin):
                 Required Body Parameters:['name', 'display_name', 'attributes']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "name" : "", #Name of TACACS+ Service Dictionary. Object Type: string
                 "display_name" : "", #Display Name of TACACS+ Service Dictionary. Object Type: string
@@ -3339,6 +3480,7 @@ class ApiPolicyElements(ClearPassAPILogin):
              "attr_type":"", #TACACS+ Service Dictionary Attribute Data Type. Object Type: string
              "allowed_values":"", #Allowed Values for TACACS+ Service Dictionary Attributes in CSV format. Object Type: string
         }], #List of TACACS+ Service Dictionary Attributes. Object Type: array
+
                 }
         """
         url_path = "/tacacs-service-dictionary/name/{name}"

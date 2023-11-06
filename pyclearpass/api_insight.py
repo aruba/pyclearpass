@@ -34,6 +34,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory', 'email_targets', 'severity', 'threshold', 'interval', 'interval_unit']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the alert. Object Type: integer
         "name" : "", #Name of the alert. Object Type: string
@@ -42,13 +43,14 @@ class ApiInsight(ClearPassAPILogin):
         "subcategory" : "", #Sub category is the template name of the alert. Object Type: string
         "email_targets" : {}, #Send alert notification to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send alert notification to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
-        "config" : {},      Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
+        "config" : {},      #Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
         "severity" : "", #Severity of the alert, either "critical" or "warning". Object Type: string
         "threshold" : 0, #Triggering the alert when reaching the specified numeric threshold value. Object Type: integer
         "interval" : 0, #Triggering the alert at the numeric interval. Object Type: integer
         "interval_unit" : "", #Interval units either "minute" or "hour". Object Type: string
         "is_enabled" : False, #Enable/Disable the alert. Object Type: boolean
         "is_muted" : False, #Mute/Unmute the alert. Object Type: boolean
+
         }
         """
         url_path = "/alert"
@@ -77,6 +79,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory', 'email_targets', 'severity', 'threshold', 'interval', 'interval_unit']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the alert. Object Type: integer
         "name" : "", #Name of the alert. Object Type: string
@@ -85,13 +88,14 @@ class ApiInsight(ClearPassAPILogin):
         "subcategory" : "", #Sub category is the template name of the alert. Object Type: string
         "email_targets" : {}, #Send alert notification to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send alert notification to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
-        "config" : {},      Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
+        "config" : {},      #Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
         "severity" : "", #Severity of the alert, either "critical" or "warning". Object Type: string
         "threshold" : 0, #Triggering the alert when reaching the specified numeric threshold value. Object Type: integer
         "interval" : 0, #Triggering the alert at the numeric interval. Object Type: integer
         "interval_unit" : "", #Interval units either "minute" or "hour". Object Type: string
         "is_enabled" : False, #Enable/Disable the alert. Object Type: boolean
         "is_muted" : False, #Mute/Unmute the alert. Object Type: boolean
+
         }
         """
         url_path = "/alert/{id}"
@@ -111,6 +115,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory', 'email_targets', 'severity', 'threshold', 'interval', 'interval_unit']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the alert. Object Type: integer
         "name" : "", #Name of the alert. Object Type: string
@@ -119,13 +124,14 @@ class ApiInsight(ClearPassAPILogin):
         "subcategory" : "", #Sub category is the template name of the alert. Object Type: string
         "email_targets" : {}, #Send alert notification to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send alert notification to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
-        "config" : {},      Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
+        "config" : {},      #Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
         "severity" : "", #Severity of the alert, either "critical" or "warning". Object Type: string
         "threshold" : 0, #Triggering the alert when reaching the specified numeric threshold value. Object Type: integer
         "interval" : 0, #Triggering the alert at the numeric interval. Object Type: integer
         "interval_unit" : "", #Interval units either "minute" or "hour". Object Type: string
         "is_enabled" : False, #Enable/Disable the alert. Object Type: boolean
         "is_muted" : False, #Mute/Unmute the alert. Object Type: boolean
+
         }
         """
         url_path = "/alert/{id}"
@@ -169,6 +175,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory', 'email_targets', 'severity', 'threshold', 'interval', 'interval_unit']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the alert. Object Type: integer
         "name" : "", #Name of the alert. Object Type: string
@@ -177,13 +184,14 @@ class ApiInsight(ClearPassAPILogin):
         "subcategory" : "", #Sub category is the template name of the alert. Object Type: string
         "email_targets" : {}, #Send alert notification to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send alert notification to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
-        "config" : {},      Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
+        "config" : {},      #Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
         "severity" : "", #Severity of the alert, either "critical" or "warning". Object Type: string
         "threshold" : 0, #Triggering the alert when reaching the specified numeric threshold value. Object Type: integer
         "interval" : 0, #Triggering the alert at the numeric interval. Object Type: integer
         "interval_unit" : "", #Interval units either "minute" or "hour". Object Type: string
         "is_enabled" : False, #Enable/Disable the alert. Object Type: boolean
         "is_muted" : False, #Mute/Unmute the alert. Object Type: boolean
+
         }
         """
         url_path = "/alert/{name}"
@@ -203,6 +211,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory', 'email_targets', 'severity', 'threshold', 'interval', 'interval_unit']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the alert. Object Type: integer
         "name" : "", #Name of the alert. Object Type: string
@@ -211,13 +220,14 @@ class ApiInsight(ClearPassAPILogin):
         "subcategory" : "", #Sub category is the template name of the alert. Object Type: string
         "email_targets" : {}, #Send alert notification to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send alert notification to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
-        "config" : {},      Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
+        "config" : {},      #Setting the alert filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     }     #}. Object Type: object
         "severity" : "", #Severity of the alert, either "critical" or "warning". Object Type: string
         "threshold" : 0, #Triggering the alert when reaching the specified numeric threshold value. Object Type: integer
         "interval" : 0, #Triggering the alert at the numeric interval. Object Type: integer
         "interval_unit" : "", #Interval units either "minute" or "hour". Object Type: string
         "is_enabled" : False, #Enable/Disable the alert. Object Type: boolean
         "is_muted" : False, #Mute/Unmute the alert. Object Type: boolean
+
         }
         """
         url_path = "/alert/{name}"
@@ -362,6 +372,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
@@ -371,11 +382,12 @@ class ApiInsight(ClearPassAPILogin):
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send report to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
         "copy_remote" : False, #Enable to copy the report to the configured SCP/SFTP server. Object Type: boolean
-        "config" : {},      Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
-        "schedule" : {},      Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
+        "config" : {},      #Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
+        "schedule" : {},      #Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
         "begin_dt" : 0, #Collect the data for the report from this "begin_dt". Object Type: integer
         "end_dt" : "", #Collect the data for the report till this "end_dt". Object Type: string
         "is_enabled" : False, #Enable/Disable the report. Object Type: boolean
+
         }
         """
         url_path = "/report"
@@ -404,6 +416,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
@@ -413,11 +426,12 @@ class ApiInsight(ClearPassAPILogin):
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send report to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
         "copy_remote" : False, #Enable to copy the report to the configured SCP/SFTP server. Object Type: boolean
-        "config" : {},      Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
-        "schedule" : {},      Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
+        "config" : {},      #Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
+        "schedule" : {},      #Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
         "begin_dt" : 0, #Collect the data for the report from this "begin_dt". Object Type: integer
         "end_dt" : "", #Collect the data for the report till this "end_dt". Object Type: string
         "is_enabled" : False, #Enable/Disable the report. Object Type: boolean
+
         }
         """
         url_path = "/report/{id}"
@@ -437,6 +451,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
@@ -446,11 +461,12 @@ class ApiInsight(ClearPassAPILogin):
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send report to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
         "copy_remote" : False, #Enable to copy the report to the configured SCP/SFTP server. Object Type: boolean
-        "config" : {},      Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
-        "schedule" : {},      Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
+        "config" : {},      #Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
+        "schedule" : {},      #Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
         "begin_dt" : 0, #Collect the data for the report from this "begin_dt". Object Type: integer
         "end_dt" : "", #Collect the data for the report till this "end_dt". Object Type: string
         "is_enabled" : False, #Enable/Disable the report. Object Type: boolean
+
         }
         """
         url_path = "/report/{id}"
@@ -494,6 +510,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
@@ -503,11 +520,12 @@ class ApiInsight(ClearPassAPILogin):
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send report to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
         "copy_remote" : False, #Enable to copy the report to the configured SCP/SFTP server. Object Type: boolean
-        "config" : {},      Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
-        "schedule" : {},      Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
+        "config" : {},      #Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
+        "schedule" : {},      #Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
         "begin_dt" : 0, #Collect the data for the report from this "begin_dt". Object Type: integer
         "end_dt" : "", #Collect the data for the report till this "end_dt". Object Type: string
         "is_enabled" : False, #Enable/Disable the report. Object Type: boolean
+
         }
         """
         url_path = "/report/{name}"
@@ -527,6 +545,7 @@ class ApiInsight(ClearPassAPILogin):
         Required Body Parameters:['id', 'name', 'category', 'subcategory']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
@@ -536,11 +555,12 @@ class ApiInsight(ClearPassAPILogin):
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
         "sms_targets" : {}, #Send report to the configured SMS targets, e.g. "sms_targets":["...", "..."]. Object Type: object
         "copy_remote" : False, #Enable to copy the report to the configured SCP/SFTP server. Object Type: boolean
-        "config" : {},      Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
-        "schedule" : {},      Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
+        "config" : {},      #Setting the report filter configurations & adding CSV columns for the CSV report,     e.g. "config": {     "filter": {     "auth.ap_name": {     "operator": "EQUALS",     "value": ["..."]     },     "cppm_cluster.hostname": {     "operator":"CONTAINS",     "value":["...", "..."]     }     },     csv_cols": ["...", "...", "..."]     #}. Object Type: object
+        "schedule" : {},      #Scheduling the report. Options are [noRepeat, daily, weekly, monthly],     e.g. when running the report "now" itself => "schedule": {} - then "begin_dt" & "end_dt" are mandatory,     when scheduling the report at "daily" => "schedule": {"freq": "daily", "hour": 12}     when scheduling the report at "weekly" => "schedule": {"freq": "weekly", "day": 0, "hour": 12}     when scheduling the report at "monthly" => "schedule": {"freq": "monthly", "date": 1, "hour": 12}     #. Object Type: object
         "begin_dt" : 0, #Collect the data for the report from this "begin_dt". Object Type: integer
         "end_dt" : "", #Collect the data for the report till this "end_dt". Object Type: string
         "is_enabled" : False, #Enable/Disable the report. Object Type: boolean
+
         }
         """
         url_path = "/report/{name}"

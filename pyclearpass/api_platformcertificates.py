@@ -17,6 +17,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters:['subject_CN', 'private_key_password', 'private_key_type', 'digest_algorithm']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "subject_CN" : "", #Common Name (CN). Object Type: string
         "subject_O" : "", #Organization (O). Object Type: string
@@ -28,6 +29,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         "private_key_password" : "", #Private Key Password. Object Type: string
         "private_key_type" : "", #null. Object Type: string
         "digest_algorithm" : "", #Digest Algorithm. Object Type: string
+
         }
         """
         url_path = "/cert-sign-request"
@@ -67,10 +69,12 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters:['cert_file', 'cert_usage']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "cert_file" : "", #Certificate trust list file. Object Type: string
         "enabled" : False, #Enable certificate trust list. Object Type: boolean
         "cert_usage" : False, #Usage of the certificate. Object Type: array
+
         }
         """
         url_path = "/cert-trust-list"
@@ -101,10 +105,12 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "cert_file" : "", #Certificate trust list file. Object Type: string
         "enabled" : False, #Enable certificate trust list. Object Type: boolean
         "cert_usage" : False, #Usage of the certificate. Object Type: array
+
         }
         """
         url_path = "/cert-trust-list/{cert_trust_list_id}"
@@ -197,10 +203,12 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "certificate_url" : "", #Certificate File URL. Object Type: string
         "pkcs12_file_url" : "", #PKCS12 File URL. Object Type: string
         "pkcs12_passphrase" : "", #PKCS12 passphrase. Object Type: string
+
         }
         """
         url_path = "/client-cert"
@@ -264,6 +272,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters:['url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "url" : "", #URL of the Certificate. Object Type: string
         "bypass_proxy" : False, #Bypass Proxy status of the Certificate. Object Type: boolean
@@ -272,6 +281,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         "last_update_status" : "", #Last updated status. Object Type: string
         "last_updated_time" : "", #Last updated time. Object Type: string
         "next_updated_time" : "", #Next update time. Object Type: string
+
         }
         """
         url_path = "/revocation-list"
@@ -302,6 +312,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "url" : "", #URL of the Certificate. Object Type: string
         "bypass_proxy" : False, #Bypass Proxy status of the Certificate. Object Type: boolean
@@ -310,6 +321,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         "last_update_status" : "", #Last updated status. Object Type: string
         "last_updated_time" : "", #Last updated time. Object Type: string
         "next_updated_time" : "", #Next update time. Object Type: string
+
         }
         """
         url_path = "/revocation-list/{revocation_list_id}"
@@ -341,6 +353,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters:['certificate_type', 'server', 'type', 'subject_CN', 'private_key_password', 'private_key_type', 'digest_algorithm']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "certificate_type" : "", #Certificate Type. Object Type: string
         "server" : "", #Server hostname. Object Type: string
@@ -355,6 +368,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         "private_key_password" : "", #Private Key Password. Object Type: string
         "private_key_type" : "", #Private Key Type. Object Type: string
         "digest_algorithm" : "", #Digest Algorithm. Object Type: string
+
         }
         """
         url_path = "/self-signed-cert"
@@ -392,6 +406,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "service_id" : 0, #Service ID of the server certificate(1-RADIUS server cert, 2-HTTPS(ECC) server cert, 7-HTTPS(RSA) server cert,21-RadSec server cert and 106-Database server cert). Object Type: integer
         "service_name" : "", #Service Name of the server certificate(RADIUS, HTTPS(ECC), HTTPS(RSA), RadSec or Database). Object Type: string
@@ -409,6 +424,7 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         "certificate_url" : "", #Certificate File URL. Object Type: string
         "pkcs12_file_url" : "", #PKCS12 File URL. Object Type: string
         "pkcs12_passphrase" : "", #PKCS12 passphrase. Object Type: string
+
         }
         """
         url_path = "/server-cert/{service_id}"
@@ -446,10 +462,12 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "certificate_url" : "", #Certificate File URL. Object Type: string
         "pkcs12_file_url" : "", #PKCS12 File URL. Object Type: string
         "pkcs12_passphrase" : "", #PKCS12 passphrase. Object Type: string
+
         }
         """
         url_path = "/server-cert/name/{server_uuid}/{service_name}"
@@ -522,10 +540,12 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "certificate_url" : "", #Certificate File URL. Object Type: string
         "pkcs12_file_url" : "", #PKCS12 File URL. Object Type: string
         "pkcs12_passphrase" : "", #PKCS12 passphrase. Object Type: string
+
         }
         """
         url_path = "/service-cert"

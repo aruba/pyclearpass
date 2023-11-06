@@ -17,6 +17,7 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
         Required Body Parameters:['to', 'message']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "to" : {}, #List of Recipients Email Address (e.g., ["a@example.com", "b@example.com"]). Object Type: object
         "subject" : "", #Email Subject. Object Type: string
@@ -24,6 +25,7 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
         "cc_recipients" : {}, #List of CC recipients Email Address (e.g., ["a@example.com", "b@example.com"]). Object Type: object
         "bcc_recipients" : {}, #List of BCC recipients Email Address (e.g., ["a@example.com", "b@example.com"]). Object Type: object
         "headers" : {}, #Email headers (e.g., {"Content-Type":"text/plain; charset=UTF-8","Content-Transfer-Encoding": "8bit"}). Object Type: object
+
         }
         """
         url_path = "/email/send"
@@ -48,10 +50,12 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "random_mpsk_method" : "", #The random MPSK method.  See the documentation for the allowed values.. Object Type: string
         "random_mpsk_length" : 0, #The desired length of the MPSK.. Object Type: integer
         "random_mpsk_picture" : "", #The picture to be used for the ‘nwa_picture_password’ method.  See the documentation for the valid syntax.. Object Type: string
+
         }
         """
         url_path = "/random-mpsk"
@@ -76,10 +80,12 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "random_password_method" : "", #The random password method.  See the documentation for the allowed values.. Object Type: string
         "random_password_length" : 0, #The desired length of the password.. Object Type: integer
         "random_password_picture" : "", #The picture to be used for the ‘nwa_picture_password’ method.  See the documentation for the valid syntax.. Object Type: string
+
         }
         """
         url_path = "/random-password"
@@ -96,11 +102,13 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
         Required Body Parameters:['recipient', 'message']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "handler" : 0, #Select the service to use when sending the message. Object Type: integer
         "recipient" : "", #Enter the mobile telephone number of the recipient in international format. Object Type: string
         "carrier" : "", #The visitor’s mobile carrier. Object Type: string
         "message" : "", #Enter the message to send (maximum 160 characters). Object Type: string
+
         }
         """
         url_path = "/sms/send"

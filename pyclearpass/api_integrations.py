@@ -40,6 +40,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'action_name', 'http_method', 'url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type of the Context Server Action. Object Type: string
         "server_name" : "", #Server Name of the Context Server Action. Object Type: string
@@ -53,6 +54,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "content" : "", #Content of the Context Server Action. Object Type: string
         "headers" : {}, #Headers(key/value pairs) of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1"},{"attr_name":"key2", "attr_value":"value2"}]). Object Type: object
         "attributes" : {}, #Attributes of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1", "is_sensitive":true},{"attr_name":"key2", "attr_value":"value2", "is_sensitive": false}]). Object Type: object
+
         }
         """
         url_path = "/context-server-action"
@@ -85,6 +87,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type of the Context Server Action. Object Type: string
         "server_name" : "", #Server Name of the Context Server Action. Object Type: string
@@ -98,6 +101,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "content" : "", #Content of the Context Server Action. Object Type: string
         "headers" : {}, #Headers(key/value pairs) of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1"},{"attr_name":"key2", "attr_value":"value2"}]). Object Type: object
         "attributes" : {}, #Attributes of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1", "is_sensitive":true},{"attr_name":"key2", "attr_value":"value2", "is_sensitive": false}]). Object Type: object
+
         }
         """
         url_path = "/context-server-action/{context_server_action_id}"
@@ -119,6 +123,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'action_name', 'http_method', 'url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type of the Context Server Action. Object Type: string
         "server_name" : "", #Server Name of the Context Server Action. Object Type: string
@@ -132,6 +137,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "content" : "", #Content of the Context Server Action. Object Type: string
         "headers" : {}, #Headers(key/value pairs) of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1"},{"attr_name":"key2", "attr_value":"value2"}]). Object Type: object
         "attributes" : {}, #Attributes of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1", "is_sensitive":true},{"attr_name":"key2", "attr_value":"value2", "is_sensitive": false}]). Object Type: object
+
         }
         """
         url_path = "/context-server-action/{context_server_action_id}"
@@ -183,6 +189,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type of the Context Server Action. Object Type: string
         "server_name" : "", #Server Name of the Context Server Action. Object Type: string
@@ -196,6 +203,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "content" : "", #Content of the Context Server Action. Object Type: string
         "headers" : {}, #Headers(key/value pairs) of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1"},{"attr_name":"key2", "attr_value":"value2"}]). Object Type: object
         "attributes" : {}, #Attributes of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1", "is_sensitive":true},{"attr_name":"key2", "attr_value":"value2", "is_sensitive": false}]). Object Type: object
+
         }
         """
         url_path = "/context-server-action/{server_type}/action-name/{action_name}"
@@ -218,6 +226,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'action_name', 'http_method', 'url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type of the Context Server Action. Object Type: string
         "server_name" : "", #Server Name of the Context Server Action. Object Type: string
@@ -231,6 +240,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "content" : "", #Content of the Context Server Action. Object Type: string
         "headers" : {}, #Headers(key/value pairs) of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1"},{"attr_name":"key2", "attr_value":"value2"}]). Object Type: object
         "attributes" : {}, #Attributes of the Context Server Action (e.g., [{"attr_name":"key1", "attr_value":"value1", "is_sensitive":true},{"attr_name":"key2", "attr_value":"value2", "is_sensitive": false}]). Object Type: object
+
         }
         """
         url_path = "/context-server-action/{server_type}/action-name/{action_name}"
@@ -273,6 +283,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "enable_device_insight" : False, #Enable/Disable Device Insight Integration. Object Type: boolean
         "activation_token" : "", #Registration Token. Object Type: string
@@ -293,6 +304,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "tags_for_disconnect" : "", #Tags for Disconnect. Object Type: string
         "radius_coa_action" : "", #Radius CoA action. Object Type: string
         "analyzer_admin_url" : "", #Analyzer Admin URL. Object Type: string
+
         }
         """
         url_path = "/device-insight"
@@ -332,6 +344,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'server_name', 'server_base_url', 'auth_method', 'validate_server', 'status', 'bypass_proxy']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type. Object Type: string
         "server_name" : "", #Server Name. Object Type: string
@@ -349,6 +362,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "status" : False, #Enable Server. Object Type: boolean
         "ip_version" : "", #IP Version. Object Type: string
         "bypass_proxy" : False, #Enable to bypass proxy server. Object Type: boolean
+
         }
         """
         url_path = "/endpoint-context-server"
@@ -381,6 +395,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type. Object Type: string
         "server_name" : "", #Server Name. Object Type: string
@@ -398,6 +413,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "status" : False, #Enable Server. Object Type: boolean
         "ip_version" : "", #IP Version. Object Type: string
         "bypass_proxy" : False, #Enable to bypass proxy server. Object Type: boolean
+
         }
         """
         url_path = "/endpoint-context-server/{endpoint_context_server_id}"
@@ -419,6 +435,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'server_name', 'server_base_url', 'auth_method', 'validate_server', 'status', 'bypass_proxy']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type. Object Type: string
         "server_name" : "", #Server Name. Object Type: string
@@ -436,6 +453,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "status" : False, #Enable Server. Object Type: boolean
         "ip_version" : "", #IP Version. Object Type: string
         "bypass_proxy" : False, #Enable to bypass proxy server. Object Type: boolean
+
         }
         """
         url_path = "/endpoint-context-server/{endpoint_context_server_id}"
@@ -483,6 +501,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type. Object Type: string
         "server_name" : "", #Server Name. Object Type: string
@@ -500,6 +519,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "status" : False, #Enable Server. Object Type: boolean
         "ip_version" : "", #IP Version. Object Type: string
         "bypass_proxy" : False, #Enable to bypass proxy server. Object Type: boolean
+
         }
         """
         url_path = "/endpoint-context-server/server-name/{server_name}"
@@ -521,6 +541,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['server_type', 'server_name', 'server_base_url', 'auth_method', 'validate_server', 'status', 'bypass_proxy']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "server_type" : "", #Server Type. Object Type: string
         "server_name" : "", #Server Name. Object Type: string
@@ -538,6 +559,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "status" : False, #Enable Server. Object Type: boolean
         "ip_version" : "", #IP Version. Object Type: string
         "bypass_proxy" : False, #Enable to bypass proxy server. Object Type: boolean
+
         }
         """
         url_path = "/endpoint-context-server/server-name/{server_name}"
@@ -620,6 +642,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'ipaddress', 'vendor', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Event source Name. Object Type: string
         "description" : "", #Event source description. Object Type: string
@@ -627,6 +650,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "vendor" : "", #Vendor name. Object Type: string
         "type" : "", #Event source type. Object Type: string
         "enable" : False, #Enable event source. Object Type: boolean
+
         }
         """
         url_path = "/event-sources"
@@ -655,6 +679,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Event source Name. Object Type: string
         "description" : "", #Event source description. Object Type: string
@@ -662,6 +687,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "vendor" : "", #Vendor name. Object Type: string
         "type" : "", #Event source type. Object Type: string
         "enable" : False, #Enable event source. Object Type: boolean
+
         }
         """
         url_path = "/event-sources/{event_sources_id}"
@@ -681,6 +707,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'ipaddress', 'vendor', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Event source Name. Object Type: string
         "description" : "", #Event source description. Object Type: string
@@ -688,6 +715,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "vendor" : "", #Vendor name. Object Type: string
         "type" : "", #Event source type. Object Type: string
         "enable" : False, #Enable event source. Object Type: boolean
+
         }
         """
         url_path = "/event-sources/{event_sources_id}"
@@ -731,6 +759,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Event source Name. Object Type: string
         "description" : "", #Event source description. Object Type: string
@@ -738,6 +767,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "vendor" : "", #Vendor name. Object Type: string
         "type" : "", #Event source type. Object Type: string
         "enable" : False, #Enable event source. Object Type: boolean
+
         }
         """
         url_path = "/event-sources/name/{name}"
@@ -757,6 +787,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'ipaddress', 'vendor', 'type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Event source Name. Object Type: string
         "description" : "", #Event source description. Object Type: string
@@ -764,6 +795,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "vendor" : "", #Vendor name. Object Type: string
         "type" : "", #Event source type. Object Type: string
         "enable" : False, #Enable event source. Object Type: boolean
+
         }
         """
         url_path = "/event-sources/name/{name}"
@@ -818,12 +850,14 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['store_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "state" : "", #Desired state of the extension. Object Type: string
         "store_id" : "", #ID from the extension store. Object Type: string
         "files" : {}, #Maps extension file IDs to local content items, with ‘public:’ or ‘private:’ prefix. Object Type: object
         "ip_address" : "", #IP address to allocate to the extension, or null. Object Type: string
         "note" : "", #Note to be displayed with the extension.. Object Type: string
+
         }
         """
         url_path = "/extension/instance"
@@ -852,9 +886,11 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "state" : "", #Desired state of the extension. Object Type: string
         "note" : "", #Note to be displayed with the extension.. Object Type: string
+
         }
         """
         url_path = "/extension/instance/{id}"
@@ -902,7 +938,9 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
+
         }
         """
         url_path = "/extension/instance/{id}/config"
@@ -951,10 +989,12 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "state" : "", #Desired state of the extension. Object Type: string
         "files" : {}, #Maps extension file IDs to local content items, with ‘public:’ or ‘private:’ prefix. Object Type: object
         "ip_address" : "", #IP address to allocate to the extension, or null. Object Type: string
+
         }
         """
         url_path = "/extension/instance/{id}/reinstall"
@@ -1026,11 +1066,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "major" : False, #Indicated whether to install major extension upgrades. False by default.. Object Type: boolean
         "state" : "", #Desired state of the extension. Object Type: string
         "files" : {}, #Maps extension file IDs to local content items, with ‘public:’ or ‘private:’ prefix. Object Type: object
         "ip_address" : "", #IP address to allocate to the extension, or null. Object Type: string
+
         }
         """
         url_path = "/extension/instance/{id}/upgrade"
@@ -1109,6 +1151,7 @@ class ApiIntegrations(ClearPassAPILogin):
                 Required Body Parameters:['vendor', 'format_name', 'prefix', 'filter', 'fields', 'generic_fields']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor" : "", #Vendor of the ingress event. Object Type: string
                 "format_name" : "", #Format Name of the ingress event. Object Type: string
@@ -1127,6 +1170,7 @@ class ApiIntegrations(ClearPassAPILogin):
              "attr_name":"", #Ingress Event Generic Field attribute name. Object Type: string
              "generic_name":"", #Ingress Event Generic name of the attribute. Object Type: string
         }], #Generic Fields of the ingress event. Object Type: array
+
                 }
         """
         url_path = "/ingress-event-dictionary"
@@ -1159,6 +1203,7 @@ class ApiIntegrations(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor" : "", #Vendor of the ingress event. Object Type: string
                 "format_name" : "", #Format Name of the ingress event. Object Type: string
@@ -1177,6 +1222,7 @@ class ApiIntegrations(ClearPassAPILogin):
              "attr_name":"", #Ingress Event Generic Field attribute name. Object Type: string
              "generic_name":"", #Ingress Event Generic name of the attribute. Object Type: string
         }], #Generic Fields of the ingress event. Object Type: array
+
                 }
         """
         url_path = "/ingress-event-dictionary/{ingress_event_dictionary_id}"
@@ -1198,6 +1244,7 @@ class ApiIntegrations(ClearPassAPILogin):
                 Required Body Parameters:['vendor', 'format_name', 'prefix', 'filter', 'fields', 'generic_fields']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor" : "", #Vendor of the ingress event. Object Type: string
                 "format_name" : "", #Format Name of the ingress event. Object Type: string
@@ -1216,6 +1263,7 @@ class ApiIntegrations(ClearPassAPILogin):
              "attr_name":"", #Ingress Event Generic Field attribute name. Object Type: string
              "generic_name":"", #Ingress Event Generic name of the attribute. Object Type: string
         }], #Generic Fields of the ingress event. Object Type: array
+
                 }
         """
         url_path = "/ingress-event-dictionary/{ingress_event_dictionary_id}"
@@ -1263,6 +1311,7 @@ class ApiIntegrations(ClearPassAPILogin):
                 Required Body Parameters: None listed
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor" : "", #Vendor of the ingress event. Object Type: string
                 "format_name" : "", #Format Name of the ingress event. Object Type: string
@@ -1281,6 +1330,7 @@ class ApiIntegrations(ClearPassAPILogin):
              "attr_name":"", #Ingress Event Generic Field attribute name. Object Type: string
              "generic_name":"", #Ingress Event Generic name of the attribute. Object Type: string
         }], #Generic Fields of the ingress event. Object Type: array
+
                 }
         """
         url_path = "/ingress-event-dictionary/format_name/{format_name}"
@@ -1302,6 +1352,7 @@ class ApiIntegrations(ClearPassAPILogin):
                 Required Body Parameters:['vendor', 'format_name', 'prefix', 'filter', 'fields', 'generic_fields']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "vendor" : "", #Vendor of the ingress event. Object Type: string
                 "format_name" : "", #Format Name of the ingress event. Object Type: string
@@ -1320,6 +1371,7 @@ class ApiIntegrations(ClearPassAPILogin):
              "attr_name":"", #Ingress Event Generic Field attribute name. Object Type: string
              "generic_name":"", #Ingress Event Generic name of the attribute. Object Type: string
         }], #Generic Fields of the ingress event. Object Type: array
+
                 }
         """
         url_path = "/ingress-event-dictionary/format_name/{format_name}"
@@ -1376,6 +1428,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'export_template', 'export_event_format_type', 'syslog_servers']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of syslog export filter. Object Type: string
         "description" : "", #Description of syslog export filter. Object Type: string
@@ -1390,6 +1443,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "field_group_name" : "", #Field group name for syslog export filter. Object Type: string
         "custom_sql" : "", #Custom SQL for syslog export filter. Object Type: string
         "include_audit_data" : False, #null. Object Type: boolean
+
         }
         """
         url_path = "/syslog-export-filter"
@@ -1422,6 +1476,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of syslog export filter. Object Type: string
         "description" : "", #Description of syslog export filter. Object Type: string
@@ -1436,6 +1491,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "field_group_name" : "", #Field group name for syslog export filter. Object Type: string
         "custom_sql" : "", #Custom SQL for syslog export filter. Object Type: string
         "include_audit_data" : False, #null. Object Type: boolean
+
         }
         """
         url_path = "/syslog-export-filter/{syslog_export_filter_id}"
@@ -1457,6 +1513,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'export_template', 'export_event_format_type', 'syslog_servers']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of syslog export filter. Object Type: string
         "description" : "", #Description of syslog export filter. Object Type: string
@@ -1471,6 +1528,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "field_group_name" : "", #Field group name for syslog export filter. Object Type: string
         "custom_sql" : "", #Custom SQL for syslog export filter. Object Type: string
         "include_audit_data" : False, #null. Object Type: boolean
+
         }
         """
         url_path = "/syslog-export-filter/{syslog_export_filter_id}"
@@ -1516,6 +1574,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of syslog export filter. Object Type: string
         "description" : "", #Description of syslog export filter. Object Type: string
@@ -1530,6 +1589,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "field_group_name" : "", #Field group name for syslog export filter. Object Type: string
         "custom_sql" : "", #Custom SQL for syslog export filter. Object Type: string
         "include_audit_data" : False, #null. Object Type: boolean
+
         }
         """
         url_path = "/syslog-export-filter/name/{name}"
@@ -1549,6 +1609,7 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['name', 'export_template', 'export_event_format_type', 'syslog_servers']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of syslog export filter. Object Type: string
         "description" : "", #Description of syslog export filter. Object Type: string
@@ -1563,6 +1624,7 @@ class ApiIntegrations(ClearPassAPILogin):
         "field_group_name" : "", #Field group name for syslog export filter. Object Type: string
         "custom_sql" : "", #Custom SQL for syslog export filter. Object Type: string
         "include_audit_data" : False, #null. Object Type: boolean
+
         }
         """
         url_path = "/syslog-export-filter/name/{name}"
@@ -1617,11 +1679,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'server_port']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of syslog target. Object Type: string
         "description" : "", #Description of syslog target. Object Type: string
         "server_port" : 0, #Server port of syslog target. Object Type: integer
         "protocol" : "", #Protocol used for syslog target. Object Type: string
+
         }
         """
         url_path = "/syslog-target"
@@ -1650,11 +1714,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of syslog target. Object Type: string
         "description" : "", #Description of syslog target. Object Type: string
         "server_port" : 0, #Server port of syslog target. Object Type: integer
         "protocol" : "", #Protocol used for syslog target. Object Type: string
+
         }
         """
         url_path = "/syslog-target/{syslog_target_id}"
@@ -1674,11 +1740,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'server_port']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of syslog target. Object Type: string
         "description" : "", #Description of syslog target. Object Type: string
         "server_port" : 0, #Server port of syslog target. Object Type: integer
         "protocol" : "", #Protocol used for syslog target. Object Type: string
+
         }
         """
         url_path = "/syslog-target/{syslog_target_id}"
@@ -1724,11 +1792,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of syslog target. Object Type: string
         "description" : "", #Description of syslog target. Object Type: string
         "server_port" : 0, #Server port of syslog target. Object Type: integer
         "protocol" : "", #Protocol used for syslog target. Object Type: string
+
         }
         """
         url_path = "/syslog-target/host-address/{host_address}"
@@ -1750,11 +1820,13 @@ class ApiIntegrations(ClearPassAPILogin):
         Required Body Parameters:['host_address', 'protocol', 'server_port']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_address" : "", #Server host address of syslog target. Object Type: string
         "description" : "", #Description of syslog target. Object Type: string
         "server_port" : 0, #Server port of syslog target. Object Type: integer
         "protocol" : "", #Protocol used for syslog target. Object Type: string
+
         }
         """
         url_path = "/syslog-target/host-address/{host_address}"

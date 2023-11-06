@@ -105,6 +105,7 @@ class ApiLogs(ClearPassAPILogin):
         Required Body Parameters:['source', 'level', 'category', 'action', 'description', 'timestamp']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "source" : "", #Source. Object Type: string
         "level" : "", #Level. Object Type: string
@@ -112,6 +113,7 @@ class ApiLogs(ClearPassAPILogin):
         "action" : "", #Action. Object Type: string
         "description" : "", #Description. Object Type: string
         "timestamp" : "", #Timestamp. Object Type: string
+
         }
         """
         url_path = "/system-event"

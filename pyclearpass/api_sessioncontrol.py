@@ -52,9 +52,11 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters:['id', 'confirm_disconnect']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : "", #ID of the session to disconnect. Object Type: string
         "confirm_disconnect" : False, #Flag to confirm disconnecting the active session. Object Type: boolean
+
         }
         """
         url_path = "/session/{id}/disconnect"
@@ -90,9 +92,11 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "confirm_reauthorize" : False, #Flag to confirm the session reauthorization. Object Type: boolean
         "reauthorize_profile" : "", #Specify the name of the reauthorization profile to apply to the session. Object Type: string
+
         }
         """
         url_path = "/session/{id}/reauthorize"
@@ -113,10 +117,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/disconnect"
@@ -138,10 +144,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/disconnect/mac/{mac_address}"
@@ -166,10 +174,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/disconnect/username/{username}"
@@ -194,10 +204,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/disconnect/ip/{client_ip_address}"
@@ -219,10 +231,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/coa"
@@ -244,10 +258,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/coa/mac/{mac_address}"
@@ -272,10 +288,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/coa/username/{username}"
@@ -300,10 +318,12 @@ class ApiSessionControl(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "filter" : {}, #JSON filter expression specifying the items to return, e.g. "filter":{"username":"admin", ...}. Object Type: object
         "enforcement_profile" : {}, #When performing CoA, the 'enforcement_profile' parameter MUST be provided, e.g. "enforcement_profile":["...", "...'"]. Object Type: object
         "sort" : "", #Sorting the result set, e.g. "sort": "-id". Object Type: string
+
         }
         """
         url_path = "/session-action/coa/ip/{client_ip_address}"

@@ -17,6 +17,7 @@ class ApiApiOperations(ClearPassAPILogin):
         Required Body Parameters:['grant_type', 'client_id']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "grant_type" : "", #OAuth2 authentication method. Object Type: string
         "client_id" : "", #Client ID defined in API Clients. Object Type: string
@@ -25,6 +26,7 @@ class ApiApiOperations(ClearPassAPILogin):
         "password" : "", #Password for authentication, required for grant_type "password". Object Type: string
         "scope" : "", #Scope of the access request. Object Type: string
         "refresh_token" : "", #Refresh token issued to the client, required for grant_type "refresh_token". Object Type: string
+
         }
         """
         url_path = "/oauth"
@@ -49,10 +51,12 @@ class ApiApiOperations(ClearPassAPILogin):
         Required Body Parameters:['info', 'name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "info" : "", #Defaults to the operator profile name. Object Type: string
         "name" : "", #Defaults to the authenticated username. Object Type: string
         "..." : "", #Additional properties may be returned for grant_type "password" if corresponding properties are defined in the OAuth API enforcement profile. Object Type: string
+
         }
         """
         url_path = "/oauth/me"

@@ -79,12 +79,14 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters:['export_format']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "export_format" : "", #Select the file format for the exported item. Object Type: string
         "include_chain" : False, #Select this option to include the certificates for the CA and any intermediate certificate authorities. Object Type: boolean
         "include_ca" : "", #Select which certificate authorities to include.. Object Type: string
         "export_password" : "", #Passphrase to protect the PKCS#12 file. Object Type: string
         "export_password2" : "", #Re-enter the passphrase. Object Type: string
+
         }
         """
         url_path = "/certificate/{cert_id}/export"
@@ -104,6 +106,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters:['type', 'certificate_file', 'certificate_file_encoding']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "ca_id" : 0, #Numeric ID of the certificate authority. Object Type: integer
         "type" : "", #Type of certificate to import. Object Type: string
@@ -112,6 +115,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         "key_file" : "", #Contents of private key to import. Object Type: string
         "key_file_encoding" : "", #Encoding used for 'key_file' parameter. Object Type: string
         "key_passphrase" : "", #Enter the passphrase that was used to encrypt the private key. If the private key is not encrypted, leave this field blank. Object Type: string
+
         }
         """
         url_path = "/certificate/import"
@@ -128,6 +132,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters:['ca_id', 'cert_type', 'country', 'state', 'locality', 'organization', 'common_name', 'email_address', 'key_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "ca_id" : 0, #Select the certificate authority that will be used to sign this request. Object Type: integer
         "cert_type" : "", #Select the type of certificate to create from this signing request. Object Type: string
@@ -154,6 +159,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         "device_name" : "", #Device name to store in certificate subject alternative name. Object Type: string
         "custom_field" : "", #Custom fields to store in certificate subject alternative name. Object Type: string
         "user_email_address" : "", #User’s email address to store in certificate subject alternative name. Object Type: string
+
         }
         """
         url_path = "/certificate/new"
@@ -171,8 +177,10 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "confirm_reject" : False, #Select this checkbox to confirm the rejection of this request. Object Type: boolean
+
         }
         """
         url_path = "/certificate/{cert_id}/reject"
@@ -192,6 +200,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters:['ca_id', 'file_csr', 'cert_type']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "ca_id" : 0, #Select the certificate authority that will be used to sign this request. Object Type: integer
         "file_csr_encoding" : "", #Encoding used for 'file_csr' parameter. Object Type: string
@@ -199,6 +208,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         "cert_type" : "", #Select the type of certificate to create from this signing request. Object Type: string
         "issue_cert" : False, #To modify the subject of the certificate before signing, do not select this checkbox. Object Type: boolean
         "days" : "", #The number of days before the certificate will expire. Object Type: string
+
         }
         """
         url_path = "/certificate/request"
@@ -216,9 +226,11 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters:['ca_id', 'confirm_revoke']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "ca_id" : 0, #Numeric ID of the certificate authority. Object Type: integer
         "confirm_revoke" : False, #Select this checkbox to confirm the certificate revocation. Object Type: boolean
+
         }
         """
         url_path = "/certificate/{cert_id}/revoke"
@@ -239,6 +251,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
                 Required Body Parameters:['ca_id', 'days', 'confirm_sign']
                 Parameter Type: body, Name: body
                 Body example with descriptions and object types below (type(dict):
+
                 body={
                 "ca_id" : 0, #Numeric ID of the certificate authority. Object Type: integer
                 "days" : 0, #The number of days before the certificate will expire. Object Type: integer
@@ -251,6 +264,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
              "field":"", #Field within the subject alt name. Object Type: string
              "value":"", #Value of the field. Object Type: string
         }], #If specified, a list of field/value pairs for the subjectAltName of the issued certificate. Object Type: array
+
                 }
         """
         url_path = "/certificate/{cert_id}/sign"
@@ -306,6 +320,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric ID of the device. Object Type: integer
         "status" : "", #Determines whether the device is able to enroll and access the network. Object Type: string
@@ -324,6 +339,7 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         "expanded_type" : "", #Marketing name for the product. Object Type: string
         "mdm_managed" : "", #Mobile device management (MDM) vendor name, if an endpoint context server reports the device as managed. Object Type: string
         "device_identifier" : "", #Unique identifier string . Object Type: string
+
         }
         """
         url_path = "/onboard/device/{id}"
@@ -404,11 +420,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "id" : 0, #Numeric ID of the user. Object Type: integer
         "status" : "", #Determines whether the user can enroll devices. Object Type: string
         "username" : "", #Username of the user. Object Type: string
         "device_count" : "", #Number of devices enrolled by this user. Object Type: string
+
         }
         """
         url_path = "/user/{id}"

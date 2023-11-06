@@ -46,8 +46,10 @@ class ApiGuestActions(ClearPassAPILogin):
         Required Body Parameters:['confirm']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "confirm" : False, #Flag to confirm sending guest receipt via SMS. Object Type: boolean
+
         }
         """
         url_path = "/guest/{guest_id}/sendreceipt/sms"
@@ -68,8 +70,10 @@ class ApiGuestActions(ClearPassAPILogin):
         Required Body Parameters:['confirm']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "confirm" : False, #Flag to confirm sending guest receipt via SMTP. Object Type: boolean
+
         }
         """
         url_path = "/guest/{guest_id}/sendreceipt/smtp"
@@ -91,6 +95,7 @@ class ApiGuestActions(ClearPassAPILogin):
         Required Body Parameters:['token', 'register_token']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "token" : "", #Registration token. Object Type: string
         "register_token" : "", #Registration token. Object Type: string
@@ -98,6 +103,7 @@ class ApiGuestActions(ClearPassAPILogin):
         "role_id" : 0, #Override the guest role. Object Type: integer
         "modify_expire_time" : "", #Override the guest expiration time. Object Type: string
         "confirm_expire_time" : "", #Timestamp for new expiration time; used if modify_expire_time is "expire_time". Object Type: string
+
         }
         """
         url_path = "/guest/{guest_id}/sponsor"

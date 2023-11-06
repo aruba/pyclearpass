@@ -25,6 +25,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_os', 'working_dir', 'action', 'servers', 'download_url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Setting. Object Type: string
         "description" : "", #Description of Agentless OnGuard Setting. Object Type: string
@@ -39,6 +40,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
         "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
+
         }
         """
         url_path = "/agentless-onguard/settings"
@@ -69,6 +71,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Setting. Object Type: string
         "description" : "", #Description of Agentless OnGuard Setting. Object Type: string
@@ -83,6 +86,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
         "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
+
         }
         """
         url_path = "/agentless-onguard/settings/{settings_id}"
@@ -104,6 +108,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_os', 'working_dir', 'action', 'servers', 'download_url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Setting. Object Type: string
         "description" : "", #Description of Agentless OnGuard Setting. Object Type: string
@@ -118,6 +123,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
         "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
+
         }
         """
         url_path = "/agentless-onguard/settings/{settings_id}"
@@ -161,6 +167,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Setting. Object Type: string
         "description" : "", #Description of Agentless OnGuard Setting. Object Type: string
@@ -175,6 +182,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
         "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
+
         }
         """
         url_path = "/agentless-onguard/settings/name/{name}"
@@ -194,6 +202,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_os', 'working_dir', 'action', 'servers', 'download_url']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Setting. Object Type: string
         "description" : "", #Description of Agentless OnGuard Setting. Object Type: string
@@ -208,6 +217,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
         "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
+
         }
         """
         url_path = "/agentless-onguard/settings/name/{name}"
@@ -262,6 +272,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_subnets', 'zone', 'client_scan_setting']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Subnet Mapping. Object Type: string
         "client_subnets" : "", #IP subnets used for selecting clients. Object Type: array
@@ -271,6 +282,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agentless_onguard_setting_linux" : "", #Name of Agentless OnGuard setting for Linux for the specified subnet and zone. To unset, use empty string. Object Type: string
         "client_scan_setting" : "", #Clients to be scanned in the subnet. Object Type: string
         "enabled" : False, #Enable Clearpass server to process clients in the subnet and run Agentless OnGuard (default=true). Object Type: boolean
+
         }
         """
         url_path = "/agentless-onguard/subnet-mapping"
@@ -303,6 +315,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Subnet Mapping. Object Type: string
         "client_subnets" : "", #IP subnets used for selecting clients. Object Type: array
@@ -312,6 +325,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agentless_onguard_setting_linux" : "", #Name of Agentless OnGuard setting for Linux for the specified subnet and zone. To unset, use empty string. Object Type: string
         "client_scan_setting" : "", #Clients to be scanned in the subnet. Object Type: string
         "enabled" : False, #Enable Clearpass server to process clients in the subnet and run Agentless OnGuard (default=true). Object Type: boolean
+
         }
         """
         url_path = "/agentless-onguard/subnet-mapping/{subnet_mapping_id}"
@@ -333,6 +347,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_subnets', 'zone', 'client_scan_setting']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Subnet Mapping. Object Type: string
         "client_subnets" : "", #IP subnets used for selecting clients. Object Type: array
@@ -342,6 +357,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agentless_onguard_setting_linux" : "", #Name of Agentless OnGuard setting for Linux for the specified subnet and zone. To unset, use empty string. Object Type: string
         "client_scan_setting" : "", #Clients to be scanned in the subnet. Object Type: string
         "enabled" : False, #Enable Clearpass server to process clients in the subnet and run Agentless OnGuard (default=true). Object Type: boolean
+
         }
         """
         url_path = "/agentless-onguard/subnet-mapping/{subnet_mapping_id}"
@@ -387,6 +403,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Subnet Mapping. Object Type: string
         "client_subnets" : "", #IP subnets used for selecting clients. Object Type: array
@@ -396,6 +413,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agentless_onguard_setting_linux" : "", #Name of Agentless OnGuard setting for Linux for the specified subnet and zone. To unset, use empty string. Object Type: string
         "client_scan_setting" : "", #Clients to be scanned in the subnet. Object Type: string
         "enabled" : False, #Enable Clearpass server to process clients in the subnet and run Agentless OnGuard (default=true). Object Type: boolean
+
         }
         """
         url_path = "/agentless-onguard/subnet-mapping/name/{name}"
@@ -415,6 +433,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'client_subnets', 'zone', 'client_scan_setting']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Agentless OnGuard Subnet Mapping. Object Type: string
         "client_subnets" : "", #IP subnets used for selecting clients. Object Type: array
@@ -424,6 +443,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agentless_onguard_setting_linux" : "", #Name of Agentless OnGuard setting for Linux for the specified subnet and zone. To unset, use empty string. Object Type: string
         "client_scan_setting" : "", #Clients to be scanned in the subnet. Object Type: string
         "enabled" : False, #Enable Clearpass server to process clients in the subnet and run Agentless OnGuard (default=true). Object Type: boolean
+
         }
         """
         url_path = "/agentless-onguard/subnet-mapping/name/{name}"
@@ -507,20 +527,22 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mac" : "", #MAC address of device. Object Type: string
         "ip" : "", #IP address of device. Object Type: string
         "hostname" : "", #Hostname of device. Object Type: string
-        "dhcp" : "" #variable unknown: , #DHCP attributes as JSON. Object Type: DHCPAttributes
-        "active_sync" : "" #variable unknown: , #Active Sync attributes as JSON. Object Type: ActiveSyncAttributes
-        "host" : "" #variable unknown: , #Host attributes as JSON. Object Type: HostAttributes
-        "snmp" : "" #variable unknown: , #SNMP attributes as JSON. Object Type: SNMPAttributes
-        "device" : "" #variable unknown: , #Device attributes as JSON. Object Type: DeviceAttributes
-        "tcp" : "" #variable unknown: , #TCP attributes as JSON. Object Type: TCPAttributes
-        "nmap" : "" #variable unknown: , #NMAP attributes as JSON. Object Type: NMAPAttributes
-        "ssh" : "" #variable unknown: , #SSH attributes as JSON. Object Type: SSHAttributes
-        "wmi" : "" #variable unknown: , #WMI attributes as JSON. Object Type: WMIAttributes
-        "ports" : "" #variable unknown: , #Port attributes as JSON. Object Type: PortsAttributes
+        "dhcp" : "", #DHCP attributes as JSON. Object Type: DHCPAttributes
+        "active_sync" : "", #Active Sync attributes as JSON. Object Type: ActiveSyncAttributes
+        "host" : "", #Host attributes as JSON. Object Type: HostAttributes
+        "snmp" : "", #SNMP attributes as JSON. Object Type: SNMPAttributes
+        "device" : "", #Device attributes as JSON. Object Type: DeviceAttributes
+        "tcp" : "", #TCP attributes as JSON. Object Type: TCPAttributes
+        "nmap" : "", #NMAP attributes as JSON. Object Type: NMAPAttributes
+        "ssh" : "", #SSH attributes as JSON. Object Type: SSHAttributes
+        "wmi" : "", #WMI attributes as JSON. Object Type: WMIAttributes
+        "ports" : "", #Port attributes as JSON. Object Type: PortsAttributes
+
         }
         """
         url_path = "/device-profiler/device-fingerprint"
@@ -584,10 +606,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['category', 'family', 'name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "category" : "", #Category name of the fingerprint. Object Type: string
         "family" : "", #Family name of the fingerprint. Object Type: string
         "name" : "", #Unique name of the fingerprint. Object Type: string
+
         }
         """
         url_path = "/fingerprint"
@@ -616,10 +640,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "category" : "", #Category name of the fingerprint. Object Type: string
         "family" : "", #Family name of the fingerprint. Object Type: string
         "name" : "", #Unique name of the fingerprint. Object Type: string
+
         }
         """
         url_path = "/fingerprint/{fingerprint_id}"
@@ -639,10 +665,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['category', 'family', 'name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "category" : "", #Category name of the fingerprint. Object Type: string
         "family" : "", #Family name of the fingerprint. Object Type: string
         "name" : "", #Unique name of the fingerprint. Object Type: string
+
         }
         """
         url_path = "/fingerprint/{fingerprint_id}"
@@ -694,10 +722,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "category" : "", #Category name of the fingerprint. Object Type: string
         "family" : "", #Family name of the fingerprint. Object Type: string
         "name" : "", #Unique name of the fingerprint. Object Type: string
+
         }
         """
         url_path = "/fingerprint/name/{category}/{family}/{name}"
@@ -721,10 +751,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['category', 'family', 'name']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "category" : "", #Category name of the fingerprint. Object Type: string
         "family" : "", #Family name of the fingerprint. Object Type: string
         "name" : "", #Unique name of the fingerprint. Object Type: string
+
         }
         """
         url_path = "/fingerprint/name/{category}/{family}/{name}"
@@ -783,6 +815,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['type', 'zone', 'seed_device_or_ip_subnet', 'scan_frequency']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone" : "", #Zone for the Network Scan. Object Type: string
         "type" : "", #Type of the Network Scan. Object Type: string
@@ -794,6 +827,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "depth" : 0, #Depth level for DISCOVERY Network Scan. Object Type: integer
         "probe_arp" : False, #Probe all ARP entries found (default=false for type="DISCOVERY", not applicable for type="SUBNET"). Object Type: boolean
         "enabled" : False, #Is Network Scan enabled? (default=true). Object Type: boolean
+
         }
         """
         url_path = "/config/network-scan"
@@ -822,6 +856,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone" : "", #Zone for the Network Scan. Object Type: string
         "type" : "", #Type of the Network Scan. Object Type: string
@@ -833,6 +868,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "depth" : 0, #Depth level for DISCOVERY Network Scan. Object Type: integer
         "probe_arp" : False, #Probe all ARP entries found (default=false for type="DISCOVERY", not applicable for type="SUBNET"). Object Type: boolean
         "enabled" : False, #Is Network Scan enabled? (default=true). Object Type: boolean
+
         }
         """
         url_path = "/config/network-scan/{scan_id}"
@@ -852,6 +888,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['type', 'zone', 'seed_device_or_ip_subnet', 'scan_frequency']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "zone" : "", #Zone for the Network Scan. Object Type: string
         "type" : "", #Type of the Network Scan. Object Type: string
@@ -863,6 +900,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "depth" : 0, #Depth level for DISCOVERY Network Scan. Object Type: integer
         "probe_arp" : False, #Probe all ARP entries found (default=false for type="DISCOVERY", not applicable for type="SUBNET"). Object Type: boolean
         "enabled" : False, #Is Network Scan enabled? (default=true). Object Type: boolean
+
         }
         """
         url_path = "/config/network-scan/{scan_id}"
@@ -965,11 +1003,13 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['host_mac_list', 'message', 'is_broadcast']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_mac_list" : {}, #List of host MAC Address. Object Type: object
         "message" : "", #Message. Object Type: string
         "info_url" : "", #URL. Object Type: string
         "is_broadcast" : False, #Is a broadcast. Object Type: boolean
+
         }
         """
         url_path = "/onguard-activity/message"
@@ -985,6 +1025,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['host_mac_list', 'message', 'is_broadcast', 'action']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "host_mac_list" : {}, #List of host MAC Address. Object Type: object
         "message" : "", #Message. Object Type: string
@@ -992,6 +1033,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "is_broadcast" : False, #Is a broadcast. Object Type: boolean
         "action" : "", #Action. Object Type: string
         "endpoint_status" : "", #Status of the endpoint. Object Type: string
+
         }
         """
         url_path = "/onguard-activity/notification"
@@ -1031,6 +1073,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'os_type', 'script_type', 'attributes']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Custom Script. Object Type: string
         "description" : "", #Description of Custom Script. Object Type: string
@@ -1041,6 +1084,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "output_details" : {}, #Output Details of Custom Script, applicable only for health collection scripts (e.g. {"ExitCode":"Integer", "OutVar1":"Boolean", "OutVar2":"String"}). Object Type: object
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Custom Script, applicable only for health collection scripts. Object Type: string
         "rules" : {}, #List of Rules for Custom Script, applicable only for health collection scripts (e.g. [{"match_type":"OR","health_status":"Healthy","condition":[{"type":"Script","name":"ExitCode","oper":"EQUALS","value":"0"}]}]). Object Type: object
+
         }
         """
         url_path = "/onguard-custom-script"
@@ -1073,6 +1117,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Custom Script. Object Type: string
         "description" : "", #Description of Custom Script. Object Type: string
@@ -1081,6 +1126,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "output_details" : {}, #Output Details of Custom Script, applicable only for health collection scripts (e.g. {"ExitCode":"Integer", "OutVar1":"Boolean", "OutVar2":"String"}). Object Type: object
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Custom Script, applicable only for health collection scripts. Object Type: string
         "rules" : {}, #List of Rules for Custom Script, applicable only for health collection scripts (e.g. [{"match_type":"OR","health_status":"Healthy","condition":[{"type":"Script","name":"ExitCode","oper":"EQUALS","value":"0"}]}]). Object Type: object
+
         }
         """
         url_path = "/onguard-custom-script/{onguard_custom_script_id}"
@@ -1102,6 +1148,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'os_type', 'script_type', 'attributes']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Custom Script. Object Type: string
         "description" : "", #Description of Custom Script. Object Type: string
@@ -1112,6 +1159,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "output_details" : {}, #Output Details of Custom Script, applicable only for health collection scripts (e.g. {"ExitCode":"Integer", "OutVar1":"Boolean", "OutVar2":"String"}). Object Type: object
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Custom Script, applicable only for health collection scripts. Object Type: string
         "rules" : {}, #List of Rules for Custom Script, applicable only for health collection scripts (e.g. [{"match_type":"OR","health_status":"Healthy","condition":[{"type":"Script","name":"ExitCode","oper":"EQUALS","value":"0"}]}]). Object Type: object
+
         }
         """
         url_path = "/onguard-custom-script/{onguard_custom_script_id}"
@@ -1157,6 +1205,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Custom Script. Object Type: string
         "description" : "", #Description of Custom Script. Object Type: string
@@ -1165,6 +1214,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "output_details" : {}, #Output Details of Custom Script, applicable only for health collection scripts (e.g. {"ExitCode":"Integer", "OutVar1":"Boolean", "OutVar2":"String"}). Object Type: object
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Custom Script, applicable only for health collection scripts. Object Type: string
         "rules" : {}, #List of Rules for Custom Script, applicable only for health collection scripts (e.g. [{"match_type":"OR","health_status":"Healthy","condition":[{"type":"Script","name":"ExitCode","oper":"EQUALS","value":"0"}]}]). Object Type: object
+
         }
         """
         url_path = "/onguard-custom-script/name/{name}"
@@ -1184,6 +1234,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['name', 'os_type', 'script_type', 'attributes']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "name" : "", #Name of Custom Script. Object Type: string
         "description" : "", #Description of Custom Script. Object Type: string
@@ -1194,6 +1245,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "output_details" : {}, #Output Details of Custom Script, applicable only for health collection scripts (e.g. {"ExitCode":"Integer", "OutVar1":"Boolean", "OutVar2":"String"}). Object Type: object
         "rule_eval_algo" : "", #Rule Evaluation Algorithm for rules of Custom Script, applicable only for health collection scripts. Object Type: string
         "rules" : {}, #List of Rules for Custom Script, applicable only for health collection scripts (e.g. [{"match_type":"OR","health_status":"Healthy","condition":[{"type":"Script","name":"ExitCode","oper":"EQUALS","value":"0"}]}]). Object Type: object
+
         }
         """
         url_path = "/onguard-custom-script/name/{name}"
@@ -1233,6 +1285,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "AllowRemoteDesktopSession" : False, #Enable access over Remote Desktop Session. Object Type: boolean
         "CacheCredentialsForDays" : 0, #Cache Credentials Interval(in days). Object Type: integer
@@ -1253,6 +1306,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "VPNDeviceNamesLinux" : "", #VPN Device Names (Linux). Object Type: string
         "WiredAllowedSubnets" : "", #[Deprecated] Allowed Subnets for Wired access. Object Type: string
         "WirelessAllowedSubnets" : "", #[Deprecated] Allowed Subnets for Wireless access. Object Type: string
+
         }
         """
         url_path = "/onguard/global-settings"
@@ -1277,6 +1331,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "mode" : "", #Mode of operation. Object Type: string
         "interfaces" : "", #[wired, wireless, vpn, other]: Network interfaces Agent should monitor. Object Type: string
@@ -1296,6 +1351,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "ip_version_onguard" : "", #IP Version for Server Communication (OnGuard). Object Type: string
         "ip_version_native" : "", #IP Version for Server Communication (Native). Object Type: string
         "custom_remediation" : {}, #Customize webpage details for Agent Remediation UI. Input should be in JSON format.. Object Type: object
+
         }
         """
         url_path = "/onguard/settings"
@@ -1320,10 +1376,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['policy_manager_zone_name', 'client_subnets']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "policy_manager_zone_name" : "", #Name of the Policy Manager Zone. Object Type: string
         "client_subnets" : "", #client subnet addresses specific to the Policy Manager zone. Object Type: string
         "override_server_ips" : "", #IP addresses or FQDN to which OnGuard agent will send request. This will override the Default ClearPass Server IPs. Object Type: string
+
         }
         """
         url_path = "/onguard/policy-manager-zones"
@@ -1356,9 +1414,11 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "client_subnets" : "", #client subnet addresses specific to the Policy Manager zone. Object Type: string
         "override_server_ips" : "", #IP addresses or FQDN to which OnGuard agent will send request. This will override the Default ClearPass Server IPs. Object Type: string
+
         }
         """
         url_path = "/onguard/policy-manager-zones/{policy_manager_zones_id}"
@@ -1380,9 +1440,11 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['client_subnets']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "client_subnets" : "", #client subnet addresses specific to the Policy Manager zone. Object Type: string
         "override_server_ips" : "", #IP addresses or FQDN to which OnGuard agent will send request. This will override the Default ClearPass Server IPs. Object Type: string
+
         }
         """
         url_path = "/onguard/policy-manager-zones/{policy_manager_zones_id}"
@@ -1428,9 +1490,11 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "client_subnets" : "", #client subnet addresses specific to the Policy Manager zone. Object Type: string
         "override_server_ips" : "", #IP addresses or FQDN to which OnGuard agent will send request. This will override the Default ClearPass Server IPs. Object Type: string
+
         }
         """
         url_path = "/onguard/policy-manager-zones/name/{name}"
@@ -1450,9 +1514,11 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['client_subnets']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "client_subnets" : "", #client subnet addresses specific to the Policy Manager zone. Object Type: string
         "override_server_ips" : "", #IP addresses or FQDN to which OnGuard agent will send request. This will override the Default ClearPass Server IPs. Object Type: string
+
         }
         """
         url_path = "/onguard/policy-manager-zones/name/{name}"
@@ -1492,10 +1558,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['network', 'scan_type', 'ext_accounts']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "network" : "", #IP Subnets/IP Addresses in CSV format (e.g. "10.21.11.0/24,12.12.12.12"). Object Type: string
         "scan_type" : "", #Scan type of Profiler Subnet Mapping. Object Type: string
         "ext_accounts" : "", #List of external account names according to Scan Type (e.g. ["acc-wmi-1", "acc-wmi-2", "acc-wmi-3"] for Scan Type WMI). Object Type: array
+
         }
         """
         url_path = "/profiler-subnet-mapping"
@@ -1533,10 +1601,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "network" : "", #IP Subnets/IP Addresses in CSV format (e.g. "10.21.11.0/24,12.12.12.12"). Object Type: string
         "scan_type" : "", #Scan type of Profiler Subnet Mapping. Object Type: string
         "ext_accounts" : "", #List of external account names according to Scan Type (e.g. ["acc-wmi-1", "acc-wmi-2", "acc-wmi-3"] for Scan Type WMI). Object Type: array
+
         }
         """
         url_path = "/profiler-subnet-mapping/{scan_type}/{profiler_subnet_mapping_id}"
@@ -1562,10 +1632,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['network', 'scan_type', 'ext_accounts']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "network" : "", #IP Subnets/IP Addresses in CSV format (e.g. "10.21.11.0/24,12.12.12.12"). Object Type: string
         "scan_type" : "", #Scan type of Profiler Subnet Mapping. Object Type: string
         "ext_accounts" : "", #List of external account names according to Scan Type (e.g. ["acc-wmi-1", "acc-wmi-2", "acc-wmi-3"] for Scan Type WMI). Object Type: array
+
         }
         """
         url_path = "/profiler-subnet-mapping/{scan_type}/{profiler_subnet_mapping_id}"
@@ -1624,10 +1696,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "network" : "", #IP Subnets/IP Addresses in CSV format (e.g. "10.21.11.0/24,12.12.12.12"). Object Type: string
         "scan_type" : "", #Scan type of Profiler Subnet Mapping. Object Type: string
         "ext_accounts" : "", #List of external account names according to Scan Type (e.g. ["acc-wmi-1", "acc-wmi-2", "acc-wmi-3"] for Scan Type WMI). Object Type: array
+
         }
         """
         url_path = "/profiler-subnet-mapping/{scan_type}/network/{network}"
@@ -1650,10 +1724,12 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['network', 'scan_type', 'ext_accounts']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "network" : "", #IP Subnets/IP Addresses in CSV format (e.g. "10.21.11.0/24,12.12.12.12"). Object Type: string
         "scan_type" : "", #Scan type of Profiler Subnet Mapping. Object Type: string
         "ext_accounts" : "", #List of external account names according to Scan Type (e.g. ["acc-wmi-1", "acc-wmi-2", "acc-wmi-3"] for Scan Type WMI). Object Type: array
+
         }
         """
         url_path = "/profiler-subnet-mapping/{scan_type}/network/{network}"
@@ -1711,6 +1787,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['kbid', 'operating_system', 'title', 'severity_rating']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "kbid" : "", #KBID of the windows hotfix. Object Type: string
         "operating_system" : "", #OS of the windows hotfix. Object Type: string
@@ -1722,6 +1799,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "release_date" : "", #Release Date of the windows hotfix. Object Type: string
         "url" : "", #URL of the windows hotfix. Object Type: string
         "description" : "", #Description of the windows hotfix. Object Type: string
+
         }
         """
         url_path = "/windows-hotfix"
@@ -1752,6 +1830,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "kbid" : "", #KBID of the windows hotfix. Object Type: string
         "operating_system" : "", #OS of the windows hotfix. Object Type: string
@@ -1763,6 +1842,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "release_date" : "", #Release Date of the windows hotfix. Object Type: string
         "url" : "", #URL of the windows hotfix. Object Type: string
         "description" : "", #Description of the windows hotfix. Object Type: string
+
         }
         """
         url_path = "/windows-hotfix/{windows_hotfix_id}"
@@ -1784,6 +1864,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['kbid', 'operating_system', 'title', 'severity_rating']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "kbid" : "", #KBID of the windows hotfix. Object Type: string
         "operating_system" : "", #OS of the windows hotfix. Object Type: string
@@ -1795,6 +1876,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "release_date" : "", #Release Date of the windows hotfix. Object Type: string
         "url" : "", #URL of the windows hotfix. Object Type: string
         "description" : "", #Description of the windows hotfix. Object Type: string
+
         }
         """
         url_path = "/windows-hotfix/{windows_hotfix_id}"
@@ -1844,6 +1926,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "kbid" : "", #KBID of the windows hotfix. Object Type: string
         "operating_system" : "", #OS of the windows hotfix. Object Type: string
@@ -1855,6 +1938,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "release_date" : "", #Release Date of the windows hotfix. Object Type: string
         "url" : "", #URL of the windows hotfix. Object Type: string
         "description" : "", #Description of the windows hotfix. Object Type: string
+
         }
         """
         url_path = "/windows-hotfix/kbid/{kbid}/operating_system/{operating_system}"
@@ -1877,6 +1961,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         Required Body Parameters:['kbid', 'operating_system', 'title', 'severity_rating']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
+
         body={
         "kbid" : "", #KBID of the windows hotfix. Object Type: string
         "operating_system" : "", #OS of the windows hotfix. Object Type: string
@@ -1888,6 +1973,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "release_date" : "", #Release Date of the windows hotfix. Object Type: string
         "url" : "", #URL of the windows hotfix. Object Type: string
         "description" : "", #Description of the windows hotfix. Object Type: string
+
         }
         """
         url_path = "/windows-hotfix/kbid/{kbid}/operating_system/{operating_system}"
