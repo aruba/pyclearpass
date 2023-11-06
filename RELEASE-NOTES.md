@@ -21,3 +21,4 @@ Initial Release
 1. Missing '_new_api_token' rename from ClearPassAPILogin (common.py)
 ## Version 1.0.4
 1. Fixed incorrect positioning of characters in 'body dictionary object' across all api files (to allow copy and paste of body for easy use of script).
+2. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.11.5. 
