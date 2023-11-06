@@ -165,7 +165,7 @@ newNAD = {
     "coa_port": 3799,
     "attributes": {"Device Type": "IAP"},
 }
-ApiPolicyElements.new_network_device(login, body=newNAD)
+print(ApiPolicyElements.new_network_device(login, body=newNAD))
 ```
 
 ## Add New Endpoint
