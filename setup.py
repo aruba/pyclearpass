@@ -8,7 +8,7 @@ setup(
     author_email='aruba-automation@hpe.com',
     packages=['pyclearpass'],
     install_requires=['requests >=2.24','urllib3 >=1.25.10'],
-    version='1.0.3',
+    version='1.0.4',
     license='MIT',
     description='Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module.',
     long_description=open('README.md').read(),
