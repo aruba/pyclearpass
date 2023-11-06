@@ -56,7 +56,6 @@ Run the following in a command line terminal to install the pip package - ```pip
 1. Install Git for your Operating System from https://git-scm.com/download
 2. Run the following in a command line terminal to install the pip package - ```pip3 install git+https://github.com/aruba/pyclearpass``` or ```pip install git+https://github.com/aruba/pyclearpass```. This may vary between Operating Systems. 
 
-
 # Inital Usage Instructions
 Within your Python favourite IDE environment, create an import reference
 ```
@@ -117,8 +116,6 @@ from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
 
-
-
 ## Get Local Server Configuration 
 ```
 LSCGCS = ApiLocalServerConfiguration.get_cluster_server(login)
@@ -141,6 +138,34 @@ print(ApiLogs.get_insight_endpoint_ip_by_ip(login,ip="192.168.0.99"))
 AU = ApiGlobalServerConfiguration.get_admin_user(login)
 for users in AU['_embedded']['items']:
   print(users)
+```
+
+## Get Network Access Device
+```
+devices = ApiPolicyElements.get_network_device(login)
+for device in devices["_embedded"]["items"]:
+    print(device)
+```
+
+## Get Network Access Device by Name
+```
+print(ApiPolicyElements.get_network_device_name_by_name(login, "Lab-AP-IAP-VC"))
+```
+
+## Add New Network Access Device
+```
+newNAD = {
+    "description": "LAB AP IAP VC",
+    "name": "Lab-AP-IAP-VC",
+    "ip_address": "192.168.0.100",
+    "radius_secret": "example_radius_secret",
+    "tacacs_secret": "example_tacacs_secret",
+    "vendor_name": "Aruba",
+    "coa_capable": True,
+    "coa_port": 3799,
+    "attributes": {"Device Type": "IAP"},
+}
+ApiPolicyElements.new_network_device(login, body=newNAD)
 ```
 
 ## Add New Endpoint
