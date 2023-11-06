@@ -19,3 +19,5 @@ Initial Release
 11. Updated README.md
 ## Version 1.0.3
 1. Missing '_new_api_token' rename from ClearPassAPILogin (common.py)
+## Version 1.0.4
+1. Fixed incorrect positioning of characters in 'body dictionary object' across all api files (to allow copy and paste of body for easy use of script).
