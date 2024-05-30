@@ -1,11 +1,14 @@
 # Release Notes
-This document contains high level documented changes to the pyclearpass module releases
-## Version 1.0.0
-Initial Release
-## Version 1.0.1
+This document contains high level documented changes to the pyclearpass package.
+
+## Version 1.0.0 (Not listed) 
+1. Initial Release
+
+## Version 1.0.1 (04/07/2023)
 1. Code updated to PEP8 standards (formatting of code along with renaming of variables, packages, classes and modules)
 2. Additional examples provided
-## Version 1.0.2
+
+## Version 1.0.2 (12/09/2023)
 1. Fixed an issue with the parameter name as not injected correctly into dictionary (page-name)
 2. Added descriptions to body parameters across all methods 
 3. Used new method to generate modules file 
@@ -17,9 +20,17 @@ Initial Release
 9. All file names updated
 10. Updated __init__.py to reflect new filenames
 11. Updated README.md
-## Version 1.0.3
+
+## Version 1.0.3 (12/09/2023)
 1. Missing '_new_api_token' rename from ClearPassAPILogin (common.py)
-## Version 1.0.4
+
+## Version 1.0.4 (06/11/2023)
 1. Fixed incorrect positioning of characters in 'body dictionary object' across all api files (to allow copy and paste of body for easy use of script).
 2. Fixed missed # 'body dictionary object' across all api files for 'object' type.  
-3. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.11.5. 
+3. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.11.5.
+
+## Version 1.0.5 (30/05/2024)
+1. Updated references of 'Aruba ClearPass' to 'HPE Aruba Networking ClearPass'
+2. API code includes new, modified or deleted API that is implemented in HPE Aruba Networking ClearPass v6.12.2. To use older version built on v6.11.5, execute 'pip install pyclearpass==1.0.4'
+3. Updated README.md
+4. Updated year in license.md

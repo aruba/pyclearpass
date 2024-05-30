@@ -8,9 +8,9 @@ setup(
     author_email='aruba-automation@hpe.com',
     packages=['pyclearpass'],
     install_requires=['requests >=2.24','urllib3 >=1.25.10'],
-    version='1.0.4',
+    version='1.0.5',
     license='MIT',
-    description='Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module.',
+    description='HPE Aruba Networking ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the HPE Aruba Networking ClearPass REST API environment. Each available REST API command is available for use in this package.',
     long_description=open('README.md').read(),
     classifiers = [
     "Programming Language :: Python :: 3",
@@ -21,7 +21,6 @@ setup(
 	"Intended Audience :: Deployment Engineers",
     "Topic :: System :: Networking",
     "Natural Language :: English",],
-    project_urls={"Source": "https://github.com/aruba/pyclearpass/"},
-    keywords="Aruba, Aruba ClearPass, Aruba CPPM, CPPM, pyclearpass"
-
+    project_urls={"repository":"https://github.com/aruba/pyclearpass/","changelog":"https://github.com/aruba/pyclearpass/blob/main/RELEASE-NOTES.md","homepage":"https://developer.arubanetworks.com/aruba-cppm/docs/getting-started-with-pyclearpass"},
+    keywords="Aruba, Aruba ClearPass, Aruba CPPM, CPPM, pyclearpass, HPE Aruba Networking ClearPass"
 )

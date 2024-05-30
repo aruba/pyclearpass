@@ -3,10 +3,10 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "pyclearpass"
-version = "1.0.4"
+version = "1.0.5"
 authors = [{ name="Aruba Automation", email="aruba-automation@hpe.com" }]
 dependencies = ["requests >=2.24","urllib3 >=1.25.10"]
-description = "Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module."
+description = "HPE Aruba Networking ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the HPE Aruba Networking ClearPass REST API environment. Each available REST API command is available for use in this module."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
@@ -19,4 +19,6 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/aruba/pyclearpass"
+"homepage" = "https://developer.arubanetworks.com/aruba-cppm/docs/getting-started-with-pyclearpass"
+"repository" = "https://github.com/aruba/pyclearpass"
+"changelog" = "https://github.com/aruba/pyclearpass/blob/main/RELEASE-NOTES.md"

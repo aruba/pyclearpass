@@ -1,10 +1,13 @@
 # pyclearpass
-## Aruba ClearPass V6.11 SDK
-Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the Aruba ClearPass REST API environment. Each available REST API command is available for use in this module. All responses from the ClearPass API are in JSON format and any interactions with the API are logged within the Audit Viewer.
+## HPE Aruba Networking ClearPass V6.12 SDK
+Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the HPE Aruba Networking ClearPass REST API environment. Each available REST API command is available for use in this module. All responses from HPE Aruba Networking ClearPass API are in JSON format (converted into a Python dictionary object) and any interactions with the API are logged within the Audit Viewer.
 
-This package has been uploaded to https://pypi.org/ and is also available to install via https://github.com/aruba/pyclearpass. Installation instructions are provided below. 
+This package has been uploaded to https://pypi.org/ and is also available to install via https://github.com/aruba/pyclearpass. 
+These instructions are also available at https://developer.arubanetworks.com/aruba-cppm/docs/getting-started-with-pyclearpass.
+Installation instructions and usage instructions are also provided below. 
+
 ## Available API Categories  
-The following describes the available top level functionality of the ClearPass API available within this Python Package. 
+The following describes the available top level functionality of the HPE Aruba Networking ClearPass API available within this Python Package. 
 - Operations
 - Certificate Authority
 - Endpoint Visibility 
@@ -24,23 +27,24 @@ The following describes the available top level functionality of the ClearPass A
 
 _This package comes without any warranties and should be used at your own risk._
 
-## ClearPass Server Readiness
-These steps list what is required on the ClearPass server:
-1. Make sure you have the API Service enabled within Services. You may use the template to help you do this. 
-2. Create a new API Client within the ClearPass Guest Portal 
+## HPE Aruba Networking ClearPass Server Readiness
+These steps list what is required on the HPE Aruba Networking ClearPass server:
+1. Create a new API Client within the HPE Aruba Networking ClearPass Guest Portal 
     - client id = demo, 
-    - enabled, Operating Mode = Rest API, 
-    - Operator Profile = Pick one with apporpiate permission level or make a new one,  
+    - enabled, Operating Mode = Rest API
+    - Operator Profile = Pick one with apporpiate permission level or make a new one 
     - Grant Type = client credentials
     - Access Token Lifetime = 8 Hours
-3. Optional but preferred, a valid SSL cerfificate
+2. Optional but preferred: valid SSL cerfificate
+3. Optional: API Service enabled within Services. You may use the template to help you do this. Only required when using 'Grant Type' of Password. 
 
-If you need information, refer to the ClearPass configuration documentation for the API account -
-https://developer.arubanetworks.com/aruba-cppm/docs/clearpass-configuration  
+If you need information, refer to the HPE Aruba Networking ClearPass configuration documentation for the API account -
+https://developer.arubanetworks.com/aruba-cppm/docs/clearpass-configuration
 
 # Python Requirements  
 Ensure Python v3.9 or greater is installed on your operating system
-# Package Installation  
+# Package Installation
+
 #### Method 1 - Installing Package from PyPi
 Run the following in a command line terminal to install the pip package - ```pip3 install pyclearpass``` or ```pip install pyclearpass```. This may vary between Operating Systems. 
 
@@ -56,104 +60,172 @@ Run the following in a command line terminal to install the pip package - ```pip
 1. Install Git for your Operating System from https://git-scm.com/download
 2. Run the following in a command line terminal to install the pip package - ```pip3 install git+https://github.com/aruba/pyclearpass``` or ```pip install git+https://github.com/aruba/pyclearpass```. This may vary between Operating Systems. 
 
-# Inital Usage Instructions
-Within your Python favourite IDE environment, create an import reference
-```
+# Initial Usage Instructions
+
+Within your favourite Python IDE environment, create an import reference
+
+```python
 from pyclearpass import *
 ```
-Create a object to login into ClearPass. The login object needs to be passed to use any function within the ClearPass API.
+
+Create a object to login into ClearPass. The login object needs to be passed to use any function within the ClearPass API.  
 Two examples below shows how to create the login object (either one can be used, but not both).
-1. Using client_credentials
-```
+
+1. Using client credentials
+
+```python
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
 clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=False)
 ```
->The login object will contain the APIToken once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
-2. Using an explicitly defined api_token
-```
+
+> 📘 
+> 
+> The login object will contain the APIToken once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
+
+2. Using an explicitly defined api_token. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'.
+
+```python
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
 
+Find an API you want to use, by prefixing  `Api`  in your IDE and Intellisense will show the available APIs available. Each of the top level API category names are available as a module. Once you have chosen a specific API module to use, for example ApiPolicyElements, it will show you the available methods if you suffix a . to the command - `ApiPolicyElements.`
 
-Find an API you want to use, by prefixing  ```Api```  in your IDE and intellisense will show the available APIs available. Each of the top level API category names are available as a module. Once you have chosen a specifc API to use, for example ApiPolicyElements, it will show you the available methods if you suffix a . to the command - ```ApiPolicyElements.```
+The example below prints a single the roles available within the ClearPass server.
 
-The example below prints the roles available within the clearpass server.
-```	
+```python
 print(ApiPolicyElements.get_role(login)) 
 ```
-By default, the example above to return the roles available within the clearpass server will only show the first 25 roles. If you want to view more, you have to adjust the limit. Placing your cursor over the .getRole will usually show you help about the method. 
-```
+
+By default, the example above returns the first 25 roles. To view more, the limit needs to be adjusted. Placing your cursor over the .getRole will usually show you help about the method. 
+
+```python
 print(ApiPolicyElements.get_role(login, limit=100))
 ```
-# Help 
-Once you have written a specific API  ```ApiName.FunctionName(```, placing your cursor over the command will show you help for the function and what the required parameters are (example is Visual Studio Code). The first parameter is always login. 
-You may also read the help for the function by calling ```help(ApiName.FunctionName)```. Each function contains a help section on how to use it. 
-# Python Package Upgrade Instructions
-Once an update is available on the Python PyPi repository, you may upgrade your release by completing the following in a command line terminal - ```pip3 install pyclearpass --upgrade```
-# Uninstall Package Package
-To remove the Python pyclearpass package, type the following command into a command line terminal - ```pip3 uninstall pyclearpass ``` or ```pip uninstall pyclearpass ```
 
-# Release Notes
-Release notes for this version are availble in the [RELEASE-NOTES.md](RELEASE-NOTES.md) file.
+# Help
+
+Once you have written a specific API  `ApiName.FunctionName(`, placing your cursor over the command will show you help for the function and what the required parameters are (example is Visual Studio Code). The first parameter is always login.  
+You may also read the help for the function by calling `help(ApiName.function_name)`.  
+Each function contains a help section on how to use it. 
+
+# Python Package Upgrade Instructions
+
+Once an update is available on the Python PyPi repository, you may upgrade your release by completing the following in a command line terminal - 
+
+`pip3 install pyclearpass --upgrade`  
+or  
+`pip install pyclearpass --upgrade`
+
+To install a specific version, execute the following command with x.x.x being the specific version number you want to install. 
+
+`pip3 install pyclearpass==x.x.x`  
+or  
+ `pip install pyclearpass==x.x.x`
+ 
+# Uninstall Package Package
+
+To remove the Python pyclearpass package, type the following command into a command line terminal -  
+`pip3 uninstall pyclearpass `  
+or  
+ `pip uninstall pyclearpass `
 
 # Further Usage Examples
-The examples below all exclude importing the module and creating the login variable. This is described directly below.
 
-## New Login Session
+The examples below all exclude importing the module and creating the login variable. This is described directly below. Note, these are just a full examples, there are hundreds of API commands available within the SDK.
+
+## New Login Session (Mandatory)
+
 The login variable only needs to be defined once in the script. Two examples are shown below to achieve this;
 
 1. Using client_credentials
-```
+
+```python
 from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
 clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=False)
 ```
->As mentioned earlier, the login object will contain the API Token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
 
-2. Using an explicitly defined api_token
-```
+> 📘 
+> 
+> As mentioned earlier, the login object will contain the API Token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
+
+2. Using an explicitly defined api_token. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'.
+
+```python
 from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
 
-## Get Local Server Configuration 
-```
+## Get Local Server Configuration
+
+```python
+import json
 LSCGCS = ApiLocalServerConfiguration.get_cluster_server(login)
 print(json.dumps(LSCGCS['_embedded']['items'],indent=1))
 ```
 
-## Get Total End Point Count 
-```
+## Get Total End Point Count
+
+```python
 IGEP = ApiIdentities.get_endpoint(login, calculate_count='true')
 print("Total MACs in Table: "+str(IGEP['count']))
 ```
 
 ## Get Insight Device Details
-```
+
+```python
 print(ApiLogs.get_insight_endpoint_ip_by_ip(login,ip="192.168.0.99"))
 ```
 
 ## Get list of Admin Users
-```
+
+```python
 AU = ApiGlobalServerConfiguration.get_admin_user(login)
 for users in AU['_embedded']['items']:
   print(users)
 ```
 
-## Get Network Access Device
+## Add New Endpoint
+
+```python
+newEndPoint = {
+  "mac_address": "11:22:33:44:55:66",
+  "description": "Demo EndPoint 1",
+  "status": "Known"
+}
+print(ApiIdentities.new_endpoint(login,body=newEndPoint))
 ```
+
+## Add New Role
+
+```python
+role={"name": "Test1","description": "Test role made using the API Package in Python"}
+print(ApiPolicyElements.new_role(login,body=role))
+```
+
+## Delete Role
+
+```python
+print(ApiPolicyElements.delete_role_name_by_name(login,name='Demo'))
+```
+
+## Get Network Access Device
+
+```python
 devices = ApiPolicyElements.get_network_device(login)
 for device in devices["_embedded"]["items"]:
     print(device)
 ```
 
 ## Get Network Access Device by Name
-```
+
+```python
 print(ApiPolicyElements.get_network_device_name_by_name(login, "Lab-AP-IAP-VC"))
 ```
 
 ## Add New Network Access Device
-```
+
+```python
 newNAD = {
     "description": "LAB AP IAP VC",
     "name": "Lab-AP-IAP-VC",
@@ -165,36 +237,84 @@ newNAD = {
     "coa_port": 3799,
     "attributes": {"Device Type": "IAP"},
 }
-print(ApiPolicyElements.new_network_device(login, body=newNAD))
+ApiPolicyElements.new_network_device(login, body=newNAD)
 ```
 
-## Add New Endpoint
-```
-newEndPoint = {
-  "mac_address": "11:22:33:44:55:66",
-  "description": "Demo EndPoint 1",
-  "status": "Known"
-}
-print(ApiIdentities.new_endpoint(login,body=newEndPoint))
+## Add New Network Access Device via CSV
+
+This example adds new Network Access Devices based on the CSV (comma delimited values) named "network access devices.csv" with headings and content filled rows. 
+
+| name  | description    | ip_address    | location |
+| :---- | :------------- | :------------ | :------- |
+| demo1 | example demo 1 | 192.168.100.1 | UK       |
+| demo2 | example demo 2 | 192.168.100.2 | US       |
+
+```python
+import pandas as pd
+df = pd.read_csv("network access devices.csv")
+
+for index, items in df.iterrows():
+    newnad = {
+        "description": items["description"],  # Description of the network device. Object Type: string
+        "name": items["name"],  # Name of the network device. Object Type: string
+        "ip_address": items["ip_address"],  # IP or Subnet Address of the network device. Object Type: string
+        "tacacs_secret": "testing123",  # TACACS+ Shared Secret of the network device. Object Type: string
+        "vendor_name": "Aruba",  # Vendor Name of the network device. Object Type: string
+        "attributes": {"Location": items["location"]},
+    }
+    print(ApiPolicyElements.new_network_device(login, body=newnad))
+    print(items["name"], items["ip_address"])
+
 ```
 
-## Add New Role
-```
-role={"name": "Test1","description": "Test role made using the API Package in Python"}
-print(ApiPolicyElements.new_role(login,body=role))
+## Update Network Access Device via CSV
+
+This example updates Network Access Devices attributes based on the CSV (comma delimited values) named "network access devices updates.csv" with headings and content filled rows. 
+
+| name  | description    | location |
+| :---- | :------------- | :------- |
+| demo1 | updated demo 1 | US       |
+| demo2 | updated demo 2 | UK       |
+
+```python
+import pandas as pd
+df = pd.read_csv("network access devices updates.csv")
+for index, items in df.iterrows():
+    nadupdate = {                
+        "tacacs_secret": "updatedpassword123",  # TACACS+ Shared Secret of the network device. Object Type: string
+        "description": items["description"],  # Description of the network device. Object Type: string
+        "attributes": {"Location": items["location"]},
+    }
+    print(ApiPolicyElements.update_network_device_name_by_name(login,name=items["name"],body=nadupdate))
+
 ```
 
-## Delete Role
-```
-print(ApiPolicyElements.delete_role_name_by_name(login,name='Demo'))
+## Update Network Device Group
+
+This example updates an Network Device Group with additional IP Addresses 192.168.0.100 and 192.168.0.99.  
+These Network Access Devices must of been added before they can be appended to the group.  
+
+```python
+getcurrentnads = ApiPolicyElements.get_network_device_group_name_by_name(login,name="Example")
+newnads={"value" : "192.168.0.100, 192.168.0.98"}
+newnads["value"]=getcurrentnads['value']+", "+newnads["value"]
+print(ApiPolicyElements.update_network_device_group_name_by_name(login,name="Example",body=newnads))
+
 ```
 
-## Add New Guest Device 
+> 🚧 Ensure completion of validation checks
+> 
+> Validate the Network Access Device exists and is not already part of the Network Device Group before attempting to append to the group.
+
+## Add New Guest Device
+
 This example adds a Guest Device including 
+
 1. An expiry date within 24 hours in seconds 
 2. Associated to the role ID of 3 (Guest in test environment)
 3. Statically assigned MPSK password
-```
+
+```python
 import time
 new_guest_device = {
   "enabled": True,
@@ -212,7 +332,8 @@ print(new_device)
 ```
 
 ## Get Guest Device by MAC
-```
+
+```python
 import json
 get_mac_address = "11-22-33-33-22-11"
 view_guest_device = ApiIdentities.get_device_mac_by_macaddr(login,get_mac_address)
@@ -220,12 +341,14 @@ print(json.dumps(view_guest_device,indent=2))
 ```
 
 ## Delete an Enforcement Policy
-```
+
+```python
 print(ApiPolicyElements.delete_enforcement_policy_by_enforcement_policy_id(login,enforcement_policy_id='3058'))
 ```
 
-## Create a new Enforcement Policy with staged initial rules and then a loop to create additional rules. 
-```
+## Create a new Enforcement Policy with staged initial rules and then a loop to create additional rules.
+
+```python
 newEnforcementPolicy= {
   "name": "MPSK Demo",
   "description": "MPSK Enforcement",
@@ -274,10 +397,15 @@ newEnforcementPolicy["rules"] = newEnforcementPolicyRules["rules"]
 print(ApiPolicyElements.new_enforcement_policy(login,body=newEnforcementPolicy))
 ```
 
->Note - you may find it easier to initially pull a working Enforcement Policy with minimal rules before trying to create a new one from scratch. For example, the rule evaluation in the GUI shows as 'First applicable', however in the backend it is shown as 'first-applicable'. This example is a working policy. It is demonstrated with a loop which could read an entry in a CSV file if adapted. 
+> 📘 
+> 
+> You may find it easier to initially pull a working Enforcement Policy with minimal rules before trying to create a new one from scratch. 
+> 
+> For example, the rule evaluation in the GUI shows as 'First applicable', however in the back-end it is shown as 'first-applicable'. This example is a working policy. It is demonstrated with a loop which could read an entry in a CSV file if adapted.
 
-## Update an existing Enforcement Policy, retaining the original items and using a loop to add additional items 
-```
+## Update an existing Enforcement Policy, retaining the original items and using a loop to add additional items
+
+```python
 epol = ApiPolicyElements.get_enforcement_policy_name_by_name(login, name="MPSK Enforcement")
 OriginalRules = epol["rules"]
 CombinedRules =({"rules":[]})

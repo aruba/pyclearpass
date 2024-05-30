@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Aruba, a Hewlett Packard Enterprise company
+Copyright (c) 2024 Aruba, a Hewlett Packard Enterprise company
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
