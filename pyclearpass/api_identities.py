@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiIdentities(ClearPassAPILogin):
+
     # API Service: Manage API clients at Administration -> API Services -> API Clients
     def get_api_client(
         self, filter="", sort="", offset="", limit="", calculate_count=""
@@ -551,15 +552,24 @@ class ApiIdentities(ClearPassAPILogin):
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
 
     # API Service: Manage endpoints
-    def get_endpoint(self, filter="", sort="", offset="", limit="", calculate_count=""):
+    def get_endpoint(
+        self,
+        filter="",
+        sort="",
+        offset="",
+        limit="",
+        calculate_count="",
+        profile_details="",
+    ):
         """
-        Operation: Get a list of endpoints
+        Operation: Get a list of endpoints along with its profiling information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type (Optional): query, Name: filter, Description: JSON filter expression specifying the items to return
         Parameter Type (Optional): query, Name: sort, Description: Sort ordering for returned items (default +id)
         Parameter Type (Optional): query, Name: offset, Description: Zero based offset to start from
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
+        Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
         """
         url_path = "/endpoint"
         dict_query = {
@@ -568,6 +578,7 @@ class ApiIdentities(ClearPassAPILogin):
             "offset": offset,
             "limit": limit,
             "calculate_count": calculate_count,
+            "profile_details": profile_details,
         }
         url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -584,6 +595,7 @@ class ApiIdentities(ClearPassAPILogin):
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
+        "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
 
@@ -595,13 +607,16 @@ class ApiIdentities(ClearPassAPILogin):
             self, url=url_path, method="post", query=body
         )
 
-    def get_endpoint_by_endpoint_id(self, endpoint_id=""):
+    def get_endpoint_by_endpoint_id(self, profile_details="", endpoint_id=""):
         """
-        Operation: Get an endpoint
+        Operation: Get an endpoint along with its profiling information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
+        Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
         """
         url_path = "/endpoint/{endpoint_id}"
+        dict_query = {"profile_details": profile_details}
+        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
         dict_path = {"endpoint_id": endpoint_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -609,7 +624,7 @@ class ApiIdentities(ClearPassAPILogin):
 
     def update_endpoint_by_endpoint_id(self, endpoint_id="", body=({})):
         """
-        Operation: Update some fields of an endpoint
+        Operation: Update some fields of an endpoint. Only Device Category/OS Family/Name can be updated as a part of profile details
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
         Required Body Parameters: None listed
@@ -620,8 +635,10 @@ class ApiIdentities(ClearPassAPILogin):
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
+        "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+        "profile" : {}, #Endpoint Profile. Object Type: ProfileUpdate
 
         }
         """
@@ -636,10 +653,10 @@ class ApiIdentities(ClearPassAPILogin):
 
     def replace_endpoint_by_endpoint_id(self, endpoint_id="", body=({})):
         """
-        Operation: Replace an endpoint
+        Operation: Replace an endpoint. Only Device Category/OS Family/Name can be modified as a part of profile details
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
-        Required Body Parameters:['mac_address', 'status']
+        Required Body Parameters:['mac_address', 'status', 'profile']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
 
@@ -647,8 +664,10 @@ class ApiIdentities(ClearPassAPILogin):
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
+        "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+        "profile" : {}, #Endpoint Profile. Object Type: ProfileReplace
 
         }
         """
@@ -673,13 +692,18 @@ class ApiIdentities(ClearPassAPILogin):
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
 
-    def get_endpoint_mac_address_by_mac_address(self, mac_address=""):
+    def get_endpoint_mac_address_by_mac_address(
+        self, profile_details="", mac_address=""
+    ):
         """
-        Operation: Get an endpoint by mac_address
+        Operation: Get an endpoint along with its profiling information by mac_address
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
+        Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
         """
         url_path = "/endpoint/mac-address/{mac_address}"
+        dict_query = {"profile_details": profile_details}
+        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -687,7 +711,7 @@ class ApiIdentities(ClearPassAPILogin):
 
     def update_endpoint_mac_address_by_mac_address(self, mac_address="", body=({})):
         """
-        Operation: Update some fields of an endpoint by mac_address
+        Operation: Update some fields of an endpoint. Only Device Category/OS Family/Name can be updated as a part of profile details by mac_address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
         Required Body Parameters: None listed
@@ -698,8 +722,10 @@ class ApiIdentities(ClearPassAPILogin):
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
+        "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+        "profile" : {}, #Endpoint Profile. Object Type: ProfileUpdate
 
         }
         """
@@ -714,10 +740,10 @@ class ApiIdentities(ClearPassAPILogin):
 
     def replace_endpoint_mac_address_by_mac_address(self, mac_address="", body=({})):
         """
-        Operation: Replace an endpoint by mac_address
+        Operation: Replace an endpoint. Only Device Category/OS Family/Name can be modified as a part of profile details by mac_address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
-        Required Body Parameters:['mac_address', 'status']
+        Required Body Parameters:['mac_address', 'status', 'profile']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
 
@@ -725,8 +751,10 @@ class ApiIdentities(ClearPassAPILogin):
         "mac_address" : "", #MAC Address of the endpoint. Object Type: string
         "description" : "", #Description of the endpoint. Object Type: string
         "status" : "", #Status of the endpoint. Object Type: string
+        "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+        "profile" : {}, #Endpoint Profile. Object Type: ProfileReplace
 
         }
         """
@@ -1343,8 +1371,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
-        "password" : "", #Password of the local user. Object Type: string
         "username" : "", #User name of the local user. Object Type: string
+        "password" : "", #Password of the local user. Object Type: string
+        "password_hash" : "", #Password Hash of the local user. Object Type: string
+        "password_ntlm_hash" : "", #Password NTLM Hash of the local user. Object Type: string
         "role_name" : "", #Role name of the local user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
@@ -1381,8 +1411,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
-        "password" : "", #Password of the local user. Object Type: string
         "username" : "", #User name of the local user. Object Type: string
+        "password" : "", #Password of the local user. Object Type: string
+        "password_hash" : "", #Password Hash of the local user. Object Type: string
+        "password_ntlm_hash" : "", #Password NTLM Hash of the local user. Object Type: string
         "role_name" : "", #Role name of the local user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
@@ -1410,8 +1442,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
-        "password" : "", #Password of the local user. Object Type: string
         "username" : "", #User name of the local user. Object Type: string
+        "password" : "", #Password of the local user. Object Type: string
+        "password_hash" : "", #Password Hash of the local user. Object Type: string
+        "password_ntlm_hash" : "", #Password NTLM Hash of the local user. Object Type: string
         "role_name" : "", #Role name of the local user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
@@ -1463,8 +1497,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
-        "password" : "", #Password of the local user. Object Type: string
         "username" : "", #User name of the local user. Object Type: string
+        "password" : "", #Password of the local user. Object Type: string
+        "password_hash" : "", #Password Hash of the local user. Object Type: string
+        "password_ntlm_hash" : "", #Password NTLM Hash of the local user. Object Type: string
         "role_name" : "", #Role name of the local user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean
@@ -1492,8 +1528,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         body={
         "user_id" : "", #Unique user id of the local user. Object Type: string
-        "password" : "", #Password of the local user. Object Type: string
         "username" : "", #User name of the local user. Object Type: string
+        "password" : "", #Password of the local user. Object Type: string
+        "password_hash" : "", #Password Hash of the local user. Object Type: string
+        "password_ntlm_hash" : "", #Password NTLM Hash of the local user. Object Type: string
         "role_name" : "", #Role name of the local user. Object Type: string
         "enabled" : False, #Flag indicating if the account is enabled. Object Type: boolean
         "change_pwd_next_login" : False, #Flag indicating if the password change is required in next login. Object Type: boolean

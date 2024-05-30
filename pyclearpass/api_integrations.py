@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiIntegrations(ClearPassAPILogin):
+
     # API Service: Manage Context Server Actions
     def get_context_server_action(
         self, filter="", sort="", offset="", limit="", calculate_count=""

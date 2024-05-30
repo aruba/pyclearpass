@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiPlatformCertificates(ClearPassAPILogin):
+
     # API Service: Manage Certificate Signing Requests
     def new_cert_sign_request(self, body=({})):
         """

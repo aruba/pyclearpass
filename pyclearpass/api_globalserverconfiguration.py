@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiGlobalServerConfiguration(ClearPassAPILogin):
+
     # API Service: Manage admin privileges
     def get_admin_privilege(
         self, filter="", sort="", offset="", limit="", calculate_count=""
@@ -911,6 +912,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "CLISessionIdleTimeout" : 0, #CLI Session Idle Timeout in minutes. Object Type: integer
         "CSRCleanupInterval" : 0, #Cleanup interval for CSRs and private keys. Object Type: integer
         "ClearPassZoneCache" : "", #ClearPass Zone Cache Durability. Object Type: string
+        "CloseIdleRadSecTunnelFromNAD" : 0, #No Desc. Object Type: integer
         "ClusterCommunicationMode" : "", #Mode of communication between cluster nodes. Object Type: string
         "CommonCriteriaMode" : "", #Enable Common Criteria mode for the cluster. Object Type: string
         "ConsoleSessionIdleTimeout" : 0, #Console Session Idle Timeout in minutes. Object Type: integer
@@ -919,8 +921,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ContextServerPollStartTime" : "", #[00:00:00-23:59:59] Endpoint Context Servers polling start time. Object Type: string
         "DbAppexternalUserPassword" : "", #Database user "appexternal" password. Object Type: string
         "DesignatedStandbyPublisher" : "", #Designated Standby Publisher. Object Type: string
-        "DisableTLS1.0" : "", #Disable TLSv1.0 support. Object Type: string
-        "DisableTLS1.1" : "", #Disable TLSv1.1 support. Object Type: string
+        "DisableTLS1.0" : "", #Disable TLSv1.0 support, this field cannot be modified in FIPS mode. Object Type: string
+        "DisableTLS1.1" : "", #Disable TLSv1.1 support, this field cannot be modified in FIPS mode. Object Type: string
         "DisableTLS1.3" : "", #No Desc. Object Type: string
         "EnableNTLMV1ForWmi" : "", #Enable NTLMV1 for WMI scans. Object Type: string
         "EnablePublisherFailover" : "", #Enable Publisher Failover. Object Type: string
@@ -935,6 +937,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "InformationStoredCleanupInterval" : 0, #Cleanup interval for information stored on the disk in days. Object Type: integer
         "KnownEndpointsCleanupInterval" : 0, #Known endpoints cleanup interval in days. Object Type: integer
         "LoginBannerText" : "", #Login Banner Text. Object Type: string
+        "MACAddressFormat" : "", #No Desc. Object Type: string
         "NetflowReprofileInterval" : 0, #Netflow reprofile interval in days. Object Type: integer
         "NotificationEmailAddress" : "", #Alert Notification - Email Address. Object Type: string
         "NotificationSmsAddress" : "", #Alert Notification - SMS Address. Object Type: string
@@ -1006,6 +1009,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "CLISessionIdleTimeout" : 0, #CLI Session Idle Timeout in minutes. Object Type: integer
         "CSRCleanupInterval" : 0, #Cleanup interval for CSRs and private keys. Object Type: integer
         "ClearPassZoneCache" : "", #ClearPass Zone Cache Durability. Object Type: string
+        "CloseIdleRadSecTunnelFromNAD" : 0, #No Desc. Object Type: integer
         "ClusterCommunicationMode" : "", #Mode of communication between cluster nodes. Object Type: string
         "CommonCriteriaMode" : "", #Enable Common Criteria mode for the cluster. Object Type: string
         "ConsoleSessionIdleTimeout" : 0, #Console Session Idle Timeout in minutes. Object Type: integer
@@ -1014,8 +1018,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ContextServerPollStartTime" : "", #[00:00:00-23:59:59] Endpoint Context Servers polling start time. Object Type: string
         "DbAppexternalUserPassword" : "", #Database user "appexternal" password. Object Type: string
         "DesignatedStandbyPublisher" : "", #Designated Standby Publisher. Object Type: string
-        "DisableTLS1.0" : "", #Disable TLSv1.0 support. Object Type: string
-        "DisableTLS1.1" : "", #Disable TLSv1.1 support. Object Type: string
+        "DisableTLS1.0" : "", #Disable TLSv1.0 support, this field cannot be modified in FIPS mode. Object Type: string
+        "DisableTLS1.1" : "", #Disable TLSv1.1 support, this field cannot be modified in FIPS mode. Object Type: string
         "DisableTLS1.3" : "", #No Desc. Object Type: string
         "EnableNTLMV1ForWmi" : "", #Enable NTLMV1 for WMI scans. Object Type: string
         "EnablePublisherFailover" : "", #Enable Publisher Failover. Object Type: string
@@ -1030,6 +1034,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "InformationStoredCleanupInterval" : 0, #Cleanup interval for information stored on the disk in days. Object Type: integer
         "KnownEndpointsCleanupInterval" : 0, #Known endpoints cleanup interval in days. Object Type: integer
         "LoginBannerText" : "", #Login Banner Text. Object Type: string
+        "MACAddressFormat" : "", #No Desc. Object Type: string
         "NetflowReprofileInterval" : 0, #Netflow reprofile interval in days. Object Type: integer
         "NotificationEmailAddress" : "", #Alert Notification - Email Address. Object Type: string
         "NotificationSmsAddress" : "", #Alert Notification - SMS Address. Object Type: string

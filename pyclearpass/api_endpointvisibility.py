@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiEndpointVisibility(ClearPassAPILogin):
+
     # API Service: Manage Agentless OnGuard settings
     def get_agentless_onguard_settings(self):
         """
@@ -1350,6 +1351,7 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "agent_web_installers" : {}, #Details about Native Dissolvable Agent installers. This is read only field. Object Type: object
         "ip_version_onguard" : "", #IP Version for Server Communication (OnGuard). Object Type: string
         "ip_version_native" : "", #IP Version for Server Communication (Native). Object Type: string
+        "ip_version_agentless" : "", #IP Version for Server Communication (Agentless). Object Type: string
         "custom_remediation" : {}, #Customize webpage details for Agent Remediation UI. Input should be in JSON format.. Object Type: object
 
         }

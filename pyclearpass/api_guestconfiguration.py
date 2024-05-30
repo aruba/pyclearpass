@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiGuestConfiguration(ClearPassAPILogin):
+
     # API Service: Manage pass templates
     def get_template_pass(
         self, filter="", sort="", offset="", limit="", calculate_count=""

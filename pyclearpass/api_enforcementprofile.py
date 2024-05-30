@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiEnforcementProfile(ClearPassAPILogin):
+
     # API Service: Manage Captive Portal Profile
     def get_enforcement_profile_dur_captive_portal_profile_by_product_name(
         self, product_name=""

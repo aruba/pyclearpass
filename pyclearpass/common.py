@@ -15,24 +15,24 @@ class ClearPassAPILogin:
         password="",
         server="",
         api_token="",
-        verify_ssl=False
+        verify_ssl=False,
     ):
         """
         This is the class constructor for the ClearPassModule.
 
         This constructor is required to be created before any modules can be used and must contain the following function arguments:
-        
-        Mandatory Parameters: 
+
+        Mandatory Parameters:
         server (string): Website for ClearPass services example - https://yourserver.network.local:443/api
         verify_ssl (boolean, optional): default value False. Allows use of an invalid SSL certificate.
 
-        Option 1 Parameters - 
+        Option 1 Parameters -
         granttype (string) = ['client_credentials' or 'password' or 'refresh_token']: OAuth2 authentication method,client_id (string): Client ID defined in API Clients,
         clientsecret (string, optional): Client secret, required if the API client is not a public client,
         username (string, optional): Username for authentication, required for grant_type "password",
         password (string, optional): Password for authentication, required for grant_type "password",
-        
-        Option 2 Parameters- 
+
+        Option 2 Parameters-
         api_token = Provide the api_token which is the 'access token'.
 
         }

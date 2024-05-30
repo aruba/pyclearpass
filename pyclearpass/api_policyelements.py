@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiPolicyElements(ClearPassAPILogin):
+
     # API Service: Manage Application Dictionaries
     def get_application_dictionary(
         self, filter="", sort="", offset="", limit="", calculate_count=""
@@ -1573,7 +1574,7 @@ class ApiPolicyElements(ClearPassAPILogin):
         Operation: Get a list of RADIUS Dictionaries
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type (Optional): query, Name: filter, Description: JSON filter expression specifying the items to return
-        Parameter Type (Optional): query, Name: sort, Description: Sort ordering for returned items (default +id)
+        Parameter Type (Optional): query, Name: sort, Description: Sort ordering for returned items (default +vendor_id)
         Parameter Type (Optional): query, Name: offset, Description: Zero based offset to start from
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count

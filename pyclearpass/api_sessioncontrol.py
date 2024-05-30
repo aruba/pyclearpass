@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiSessionControl(ClearPassAPILogin):
+
     # API Service: Manage active sessions
     def get_session(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """

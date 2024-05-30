@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiLogs(ClearPassAPILogin):
+
     # API Service: Collection of endpoints
     def get_insight_endpoint_mac_by_mac(self, mac=""):
         """

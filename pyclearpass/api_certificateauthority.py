@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiCertificateAuthority(ClearPassAPILogin):
+
     # API Service: Manage Onboard certificates
     def get_certificate(
         self, filter="", sort="", offset="", limit="", calculate_count=""

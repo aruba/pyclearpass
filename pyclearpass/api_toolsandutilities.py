@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiToolsAndUtilities(ClearPassAPILogin):
+
     # API Service: Operations for Email Send
     def new_email_send(self, body=({})):
         """

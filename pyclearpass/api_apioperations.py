@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiApiOperations(ClearPassAPILogin):
+
     # API Service: Obtain an OAuth2 access token for making API calls
     def new_oauth(self, body=({})):
         """

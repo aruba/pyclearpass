@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiGuestActions(ClearPassAPILogin):
+
     # API Service: Operations for GenerateGuestDigitalPass
     def get_guest_by_guest_id_pass_id(self, guest_id="", id=""):
         """

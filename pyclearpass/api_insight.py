@@ -9,6 +9,7 @@ from pyclearpass.common import (
 
 
 class ApiInsight(ClearPassAPILogin):
+
     # API Service: Operations for Alert
     def get_alert(self, offset="", limit="", calculate_count=""):
         """
@@ -377,6 +378,7 @@ class ApiInsight(ClearPassAPILogin):
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
         "description" : "", #Description of the report. Object Type: string
+        "language" : "", #Language of the report. Object Type: string
         "category" : "", #Category of the report. Object Type: string
         "subcategory" : "", #Sub category is the template name of the report. Object Type: string
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
@@ -421,6 +423,7 @@ class ApiInsight(ClearPassAPILogin):
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
         "description" : "", #Description of the report. Object Type: string
+        "language" : "", #Language of the report. Object Type: string
         "category" : "", #Category of the report. Object Type: string
         "subcategory" : "", #Sub category is the template name of the report. Object Type: string
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
@@ -456,6 +459,7 @@ class ApiInsight(ClearPassAPILogin):
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
         "description" : "", #Description of the report. Object Type: string
+        "language" : "", #Language of the report. Object Type: string
         "category" : "", #Category of the report. Object Type: string
         "subcategory" : "", #Sub category is the template name of the report. Object Type: string
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
@@ -515,6 +519,7 @@ class ApiInsight(ClearPassAPILogin):
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
         "description" : "", #Description of the report. Object Type: string
+        "language" : "", #Language of the report. Object Type: string
         "category" : "", #Category of the report. Object Type: string
         "subcategory" : "", #Sub category is the template name of the report. Object Type: string
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
@@ -550,6 +555,7 @@ class ApiInsight(ClearPassAPILogin):
         "id" : 0, #Numeric id of the report. Object Type: integer
         "name" : "", #Name of the report. Object Type: string
         "description" : "", #Description of the report. Object Type: string
+        "language" : "", #Language of the report. Object Type: string
         "category" : "", #Category of the report. Object Type: string
         "subcategory" : "", #Sub category is the template name of the report. Object Type: string
         "email_targets" : {}, #Send report to the configured email targets, e.g. "email_targets":["...", "..."]. Object Type: object
