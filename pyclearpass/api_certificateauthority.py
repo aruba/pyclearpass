@@ -72,11 +72,14 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     # API Service: Export a certificate or certificate signing request
-    def new_certificate_by_cert_id_export(self, cert_id="", body=({})):
+    def new_certificate_by_cert_id_export(
+        self, cert_id="", body=({}), content_type="application/json"
+    ):
         """
         Operation: Export a certificate or certificate signing request
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: cert_id, Description: Numeric ID of the certificate
+        Optional Response Content-Type Parameters: application/x-x509-ca-cert, application/x-pkcs7-certificates, application/pkcs10, application/x-pkcs12, text/plain
         Required Body Parameters:['export_format']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
@@ -96,7 +99,11 @@ class ApiCertificateAuthority(ClearPassAPILogin):
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self,
+            url=url_path,
+            method="post",
+            query=body,
+            content_response_type=content_type,
         )
 
     # API Service: Import a code-signing, trusted, or CA certificate

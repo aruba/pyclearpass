@@ -47,11 +47,14 @@ class ClearPassAPILogin:
         self.api_token = api_token
         self.verify_ssl = False
 
-    def _send_request(self, url, method, query=""):
+    def _send_request(
+        self, url, method, query="", content_response_type="application/json"
+    ):
         """Sends a request to the ClearPass server
         :query: must contain the json request if model required
         :url: must contain the /url (e.g. /oauth)
         :method: must contain the post or get request type of method
+        :content_response_type: by default is set as Application/Json however can be changed by the method if required and functionality exists.
         :api_token optional[]: must contain the api_token for the calls.
         """
         full_url_path = self.server + url
@@ -66,7 +69,10 @@ class ClearPassAPILogin:
                 pass
 
         if len(self.api_token) != 0:
-            header = {"Authorization": "Bearer " + self.api_token}
+            header = {
+                "Authorization": "Bearer " + self.api_token,
+                "accept": content_response_type,
+            }
             if method == "post":
                 response = requests.post(
                     url=full_url_path,
@@ -107,10 +113,13 @@ class ClearPassAPILogin:
                     "method needs to be supplied before sending a request to ClearPass"
                 )
 
-            try:
-                return json.loads(response.text)
-            except json.decoder.JSONDecodeError:
-                return response.text
+            if "json" in content_response_type:                
+                try:
+                    return json.loads(response.text)
+                except json.decoder.JSONDecodeError:
+                    return response.text
+            else:
+                return response.content
         else:
             print("Problem logging into ClearPass")
             return cred
