@@ -34,3 +34,7 @@ This document contains high level documented changes to the pyclearpass package.
 2. API code includes new, modified or deleted API that is implemented in HPE Aruba Networking ClearPass v6.12.2. To use older version built on v6.11.5, execute 'pip install pyclearpass==1.0.4'
 3. Updated README.md
 4. Updated year in license.md
+
+## Version 1.0.6 (05/07/2024)
+1. Updated common.py to include accept in the header for non JSON response content types. 
+2. Added response content-type to methods in other api files where required. 
