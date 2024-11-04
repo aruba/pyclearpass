@@ -172,12 +172,24 @@ def _remove_empty_keys(keys):
     return keys
 
 
-def _generate_parameterised_url(url, parameters=""):
+def _get_filter_statement(filter_dict):
+    if filter_dict:
+        return f'filter={urllib.parse.quote(json.dumps(filter_dict))}'
+    else:
+        return None
+
+
+def _generate_parameterised_url(url, parameters={}):
     parameters = _remove_empty_keys(keys=parameters)
 
     if len(parameters) == 0:
         return url
     else:
-        encoded_url = urllib.parse.urlencode(parameters)
+        encoded_url = ""
+        filter_stmt = parameters.get("filter", None)
+        if filter_stmt:
+            del parameters['filter']
+            encoded_url = _get_filter_statement(filter_stmt) + "&"
+        encoded_url += urllib.parse.urlencode(parameters)
         final_url = url + "?" + encoded_url
         return final_url
