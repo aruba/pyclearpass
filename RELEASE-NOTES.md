@@ -38,3 +38,6 @@ This document contains high level documented changes to the pyclearpass package.
 ## Version 1.0.6 (05/07/2024)
 1. Updated common.py to include accept in the header for non JSON response content types. 
 2. Added response content-type to methods in other api files where required. 
+
+## Version 1.0.7 (08/11/2024)
+1. Updated common.py to convert dict to json when creating parameterised urls within the _generate_parameterised_url method. 
