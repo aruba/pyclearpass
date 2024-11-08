@@ -165,12 +165,10 @@ def _remove_empty_keys(keys):
         if keys[item] == "":
             remove_empty_values_from_dict.append(item)
         else:
-            # print(item,": ", keys[item])
             pass
     for removal in remove_empty_values_from_dict:
         del keys[removal]
     return keys
-
 
 def _generate_parameterised_url(url, parameters=""):
     parameters = _remove_empty_keys(keys=parameters)
@@ -178,6 +176,10 @@ def _generate_parameterised_url(url, parameters=""):
     if len(parameters) == 0:
         return url
     else:
+        for key, value in parameters.items():
+            if isinstance(value, dict):
+                parameters[key] = json.dumps(value, separators=(',', ':'), ensure_ascii=False)
+                
         encoded_url = urllib.parse.urlencode(parameters)
         final_url = url + "?" + encoded_url
         return final_url
