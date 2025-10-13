@@ -17,7 +17,7 @@ class ApiGuestActions(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 400 Bad Request, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: guest_id, Description: Numeric ID of the guest account
         Parameter Type: path, Name: id, Description: Numeric ID of the digital pass template
-        """
+        """ 
         url_path = "/guest/{guest_id}/pass/{id}"
         dict_path = {"guest_id": guest_id, "id": id}
         for item in dict_path:

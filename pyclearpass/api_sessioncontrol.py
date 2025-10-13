@@ -109,6 +109,48 @@ class ApiSessionControl(ClearPassAPILogin):
             self, url=url_path, method="post", query=body
         )
 
+    # API Service: Change of Authorization by MAC without enabling Insight
+    def get_active_session_by_mac_address(self, interval="", mac_address=""):
+        """
+        Operation: Get a list of Enforcement Profiles for the given MAC
+        HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
+        Parameter Type (Optional): query, Name: interval, Description: interval to get active session
+        Parameter Type: path, Name: mac_address, Description: filter by mac-address
+        """
+        url_path = "/active-session/{mac_address}"
+        dict_query = {"interval": interval}
+        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        dict_path = {"mac_address": mac_address}
+        for item in dict_path:
+            url_path = url_path.replace("{" + item + "}", dict_path[item])
+        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+
+    def new_active_session_by_mac_address(self, interval="", mac_address="", body=({})):
+        """
+        Operation: Change of Authorization of active session for the given MAC
+        HTTP Response Codes: 201 Created, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Parameter Type (Optional): query, Name: interval, Description: interval to get active session
+        Parameter Type: path, Name: mac_address, Description: filter by mac-address
+        Required Body Parameters: None listed
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
+
+        body={
+        "enforcement_profile" : "", #When performing CoA, the 'enforcement_profile' parameter MUST be provided. Object Type: string
+
+        }
+        """
+        url_path = "/active-session/{mac_address}"
+        dict_query = {"interval": interval}
+        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        dict_path = {"mac_address": mac_address}
+        for item in dict_path:
+            url_path = url_path.replace("{" + item + "}", dict_path[item])
+        body = _remove_empty_keys(keys=body)
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method="post", query=body
+        )
+
     # API Service: Manage Session Action Methods
     def new_session_action_disconnect(self, async_="", body=({})):
         """

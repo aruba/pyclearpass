@@ -598,6 +598,8 @@ class ApiIdentities(ClearPassAPILogin):
         "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
+        "added_at" : "", #Timestamp of endpoint addition. Object Type: string
+        "updated_at" : "", #Timestamp of endpoint updation. Object Type: string
 
         }
         """
@@ -638,7 +640,9 @@ class ApiIdentities(ClearPassAPILogin):
         "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
-        "profile" : {}, #Endpoint Profile. Object Type: ProfileUpdate
+        "added_at" : "", #Timestamp of endpoint addition. Object Type: string
+        "updated_at" : "", #Timestamp of endpoint updation. Object Type: string
+        "profile" : "", #Endpoint Profile. Object Type: ProfileUpdate
 
         }
         """
@@ -667,7 +671,9 @@ class ApiIdentities(ClearPassAPILogin):
         "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
-        "profile" : {}, #Endpoint Profile. Object Type: ProfileReplace
+        "added_at" : "", #Timestamp of endpoint addition. Object Type: string
+        "updated_at" : "", #Timestamp of endpoint updation. Object Type: string
+        "profile" : "", #Endpoint Profile. Object Type: ProfileReplace
 
         }
         """
@@ -725,7 +731,9 @@ class ApiIdentities(ClearPassAPILogin):
         "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
-        "profile" : {}, #Endpoint Profile. Object Type: ProfileUpdate
+        "added_at" : "", #Timestamp of endpoint addition. Object Type: string
+        "updated_at" : "", #Timestamp of endpoint updation. Object Type: string
+        "profile" : "", #Endpoint Profile. Object Type: ProfileUpdate
 
         }
         """
@@ -754,7 +762,9 @@ class ApiIdentities(ClearPassAPILogin):
         "randomized_mac" : False, #Is MAC address randomized?. Object Type: boolean
         "device_insight_tags" : "", #List of Device Insight Tags. Object Type: string
         "attributes" : {}, #Additional attributes(key/value pairs) may be stored with the endpoint. Object Type: object
-        "profile" : {}, #Endpoint Profile. Object Type: ProfileReplace
+        "added_at" : "", #Timestamp of endpoint addition. Object Type: string
+        "updated_at" : "", #Timestamp of endpoint updation. Object Type: string
+        "profile" : "", #Endpoint Profile. Object Type: ProfileReplace
 
         }
         """

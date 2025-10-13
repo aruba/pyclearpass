@@ -16,6 +16,7 @@ class ClearPassAPILogin:
         server="",
         api_token="",
         verify_ssl=False,
+        timeout=None
     ):
         """
         This is the class constructor for the ClearPassModule.
@@ -24,16 +25,19 @@ class ClearPassAPILogin:
 
         Mandatory Parameters:
         server (string): Website for ClearPass services example - https://yourserver.network.local:443/api
-        verify_ssl (boolean, optional): default value False. Allows use of an invalid SSL certificate.
 
-        Option 1 Parameters -
+        Option 1 Parameters:-
         granttype (string) = ['client_credentials' or 'password' or 'refresh_token']: OAuth2 authentication method,client_id (string): Client ID defined in API Clients,
         clientsecret (string, optional): Client secret, required if the API client is not a public client,
         username (string, optional): Username for authentication, required for grant_type "password",
         password (string, optional): Password for authentication, required for grant_type "password",
 
-        Option 2 Parameters-
+        Option 2 Parameters:
         api_token = Provide the api_token which is the 'access token'.
+        
+        Optional Parameters:
+        verify_ssl (boolean, optional): default value False. Allows use of an invalid SSL certificate.
+        timeout (int, optional): default value none. Allows to adjust the timeout value for the web request in seconds.
 
         }
 
@@ -45,7 +49,8 @@ class ClearPassAPILogin:
         self.password = password
         self.server = server
         self.api_token = api_token
-        self.verify_ssl = False
+        self.verify_ssl = verify_ssl
+        self.timeout = timeout
 
     def _send_request(
         self, url, method, query="", content_response_type="application/json"
@@ -79,6 +84,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "patch":
                 response = requests.patch(
@@ -86,6 +92,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "put":
                 response = requests.put(
@@ -93,6 +100,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "get":
                 response = requests.get(
@@ -100,6 +108,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "delete":
                 response = requests.delete(
@@ -107,6 +116,7 @@ class ClearPassAPILogin:
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
+                    timeout=self.timeout,
                 )
             if method == "":
                 print(

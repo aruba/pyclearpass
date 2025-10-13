@@ -946,6 +946,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "PolicyResultCacheTimeout" : 0, #Policy result cache timeout in minutes. Object Type: integer
         "PostAuthUnsubscribeEndpoints" : "", #No Desc. Object Type: string
         "PostAuthV2" : "", #Enable Post-Auth v2. Object Type: string
+        "PostAuthV2CombineEventsToPAN" : "", #Post-Authentication v2 Combine Session Notification Events to PAN. Object Type: string
         "PostAuthV2HttpEnforcement" : "", #Enable Post-Auth v2 HTTP enforcement. Object Type: string
         "ProcessWiredFromIfMap" : "", #Process wired device information from IF-MAP interface. Object Type: string
         "ProfiledKnownEndpointsCleanupOption" : "", #Profiled Known endpoints cleanup option in days. Object Type: string
@@ -1043,6 +1044,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "PolicyResultCacheTimeout" : 0, #Policy result cache timeout in minutes. Object Type: integer
         "PostAuthUnsubscribeEndpoints" : "", #No Desc. Object Type: string
         "PostAuthV2" : "", #Enable Post-Auth v2. Object Type: string
+        "PostAuthV2CombineEventsToPAN" : "", #Post-Authentication v2 Combine Session Notification Events to PAN. Object Type: string
         "PostAuthV2HttpEnforcement" : "", #Enable Post-Auth v2 HTTP enforcement. Object Type: string
         "ProcessWiredFromIfMap" : "", #Process wired device information from IF-MAP interface. Object Type: string
         "ProfiledKnownEndpointsCleanupOption" : "", #Profiled Known endpoints cleanup option in days. Object Type: string
