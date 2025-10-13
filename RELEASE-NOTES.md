@@ -41,3 +41,9 @@ This document contains high level documented changes to the pyclearpass package.
 
 ## Version 1.0.7 (08/11/2024)
 1. Updated common.py to convert dict to json when creating parameterised urls within the _generate_parameterised_url method. 
+
+## Version 1.0.8 (13/10/2025)
+1. Updated common.py to include an optioal timeout parameter for web requests within the ClearPassAPILogin class. 
+2. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.12.6.
+3. Updated Readme
+4. Included new function within new Utils class to pull token from token file.

@@ -69,7 +69,7 @@ from pyclearpass import *
 ```
 
 Create a object to login into ClearPass. The login object needs to be passed to use any function within the ClearPass API.  
-Two examples below shows how to create the login object (either one can be used, but not both).
+Three examples below shows how to create the login object (either one can be used, but not both).
 
 1. Using client credentials
 
@@ -86,6 +86,17 @@ clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=F
 
 ```python
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
+```
+
+3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format and is expected to exist in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file. 
+
+```json 
+{"access_token":"your_token_here"}
+```
+The python file is expected in the following format
+```python
+token = Utils.get_token_from_file("token.json")
+login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
 ```
 
 Find an API you want to use, by prefixing  `Api`  in your IDE and Intellisense will show the available APIs available. Each of the top level API category names are available as a module. Once you have chosen a specific API module to use, for example ApiPolicyElements, it will show you the available methods if you suffix a . to the command - `ApiPolicyElements.`
@@ -133,9 +144,10 @@ or
 
 The examples below all exclude importing the module and creating the login variable. This is described directly below. Note, these are just a full examples, there are hundreds of API commands available within the SDK.
 
-## New Login Session (Mandatory)
+## Login
+### Mandatory Login Session Parameters
 
-The login variable only needs to be defined once in the script. Two examples are shown below to achieve this;
+The login variable only needs to be defined once in the script. Three examples are shown below to achieve this;
 
 1. Using client_credentials
 
@@ -154,6 +166,25 @@ clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=F
 ```python
 from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
+```
+
+3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format and is expected to exist in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file. 
+
+```json 
+{"access_token":"your_token_here"}
+```
+The python file is expected in the following format
+```python
+token = Utils.get_token_from_file("token.json")
+login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
+```
+### Optional Login Session Parameters
+ 
+You can also include a timeout on the within the ClearPassAPILogin class to define how long the web request should try before timing out.  An example is provided below of 10 seconds
+
+```python
+token = Utils.get_token_from_file("token.json")
+login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False,timeout=10)
 ```
 
 ## Get Local Server Configuration
@@ -344,91 +375,4 @@ print(json.dumps(view_guest_device,indent=2))
 
 ```python
 print(ApiPolicyElements.delete_enforcement_policy_by_enforcement_policy_id(login,enforcement_policy_id='3058'))
-```
-
-## Create a new Enforcement Policy with staged initial rules and then a loop to create additional rules.
-
-```python
-newEnforcementPolicy= {
-  "name": "MPSK Demo",
-  "description": "MPSK Enforcement",
-  "enforcement_type": "RADIUS",
-  "default_enforcement_profile": "Deny Device",
-  "rule_eval_algo": "first-applicable",
-  "rules": ''}
-
-newEnforcementPolicyRules =({"rules":[]})
-
-initialrule = {
-            "enforcement_profile_names": [
-                "Sample Enforcement Policy"
-            ],
-            "condition": [
-                {
-                    "type": "Connection",
-                    "name": "AP-Name",
-                    "oper": "BEGINS_WITH",
-                    "value": "APDemo"
-                }
-            ]
-        }
-newEnforcementPolicyRules["rules"].append(initialrule)
-
-for id in range(9,11):
-    randompsk = random.randint(8000000,9000000)
-    epf ={
-            "enforcement_profile_names": [
-                "Sample Enforcement Policy"
-
-            ],
-            "condition": [
-                {
-                    "type": "Connection",
-                    "name": "AP-Name",
-                    "oper": "BEGINS_WITH",
-                    "value": "APNo"+str(id)
-                }
-            ]
-        }
-    
-    newEnforcementPolicyRules["rules"].append(epf) 
- 
-newEnforcementPolicy["rules"] = newEnforcementPolicyRules["rules"]
-print(ApiPolicyElements.new_enforcement_policy(login,body=newEnforcementPolicy))
-```
-
-> 📘 
-> 
-> You may find it easier to initially pull a working Enforcement Policy with minimal rules before trying to create a new one from scratch. 
-> 
-> For example, the rule evaluation in the GUI shows as 'First applicable', however in the back-end it is shown as 'first-applicable'. This example is a working policy. It is demonstrated with a loop which could read an entry in a CSV file if adapted.
-
-## Update an existing Enforcement Policy, retaining the original items and using a loop to add additional items
-
-```python
-epol = ApiPolicyElements.get_enforcement_policy_name_by_name(login, name="MPSK Enforcement")
-OriginalRules = epol["rules"]
-CombinedRules =({"rules":[]})
-for item in range(len(OriginalRules)):
-    CombinedRules["rules"].append(OriginalRules[item])
-
-for no in range(9,11):
-    rule ={
-            "enforcement_profile_names": [
-                "Sample Enforcement Policy"
-
-            ],
-            "condition": [
-                {
-                    "type": "Connection",
-                    "name": "AP-Name",
-                    "oper": "BEGINS_WITH",
-                    "value": "APNo"+str(no)
-                }
-            ]
-        }
-    
-    CombinedRules["rules"].append(rule)  
-
-ApiPolicyElements.update_enforcement_policy_name_by_name(login,name="MPSK Enforcement",body=CombinedRules)
 ```
