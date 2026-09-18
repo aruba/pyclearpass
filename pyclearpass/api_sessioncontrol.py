@@ -29,7 +29,8 @@ class ApiSessionControl(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_session_by_id(self, id=""):
@@ -39,6 +40,7 @@ class ApiSessionControl(ClearPassAPILogin):
         Parameter Type: path, Name: id, Description: URL parameter id
         """
         url_path = "/session/{id}"
+        id = id.replace("/", "%2F")
         dict_path = {"id": id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -61,6 +63,7 @@ class ApiSessionControl(ClearPassAPILogin):
         }
         """
         url_path = "/session/{id}/disconnect"
+        id = id.replace("/", "%2F")
         dict_path = {"id": id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -79,7 +82,9 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session/{id}/reauthorize"
         dict_query = {"template_type": template_type}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
+        id = id.replace("/", "%2F")
         dict_path = {"id": id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -101,6 +106,7 @@ class ApiSessionControl(ClearPassAPILogin):
         }
         """
         url_path = "/session/{id}/reauthorize"
+        id = id.replace("/", "%2F")
         dict_path = {"id": id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -119,7 +125,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/active-session/{mac_address}"
         dict_query = {"interval": interval}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -142,7 +149,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/active-session/{mac_address}"
         dict_query = {"interval": interval}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -170,7 +178,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/disconnect"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
             self, url=url_path, method="post", query=body
@@ -197,7 +206,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/disconnect/mac/{mac_address}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -227,7 +237,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/disconnect/username/{username}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"username": username}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -257,7 +268,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/disconnect/ip/{client_ip_address}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"client_ip_address": client_ip_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -284,7 +296,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/coa"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
             self, url=url_path, method="post", query=body
@@ -311,7 +324,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/coa/mac/{mac_address}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -341,7 +355,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/coa/username/{username}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"username": username}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -371,7 +386,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/coa/ip/{client_ip_address}"
         dict_query = {"async_": async_}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"client_ip_address": client_ip_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -390,7 +406,8 @@ class ApiSessionControl(ClearPassAPILogin):
         """
         url_path = "/session-action/{action_id}"
         dict_query = {"offset": offset, "limit": limit}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"action_id": action_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])

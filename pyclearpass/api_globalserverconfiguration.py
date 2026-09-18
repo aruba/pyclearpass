@@ -31,7 +31,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_admin_privilege(self, body=({})):
@@ -248,7 +249,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_admin_user(self, body=({})):
@@ -623,7 +625,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_attribute(self, body=({})):
@@ -909,6 +912,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "AlertNotificationTimeout" : "", #Alert Notification Timeout in hours. Object Type: string
         "AuditRecordsCleanupInterval" : 0, #Old Audit Records cleanup interval in days. Object Type: integer
         "AutoBackupConfigOptions" : "", #Auto backup configuration options. Object Type: string
+        "AutoBackupConfigPassword" : "", #Auto backup configuration password. Object Type: string
         "CLISessionIdleTimeout" : 0, #CLI Session Idle Timeout in minutes. Object Type: integer
         "CSRCleanupInterval" : 0, #Cleanup interval for CSRs and private keys. Object Type: integer
         "ClearPassZoneCache" : "", #ClearPass Zone Cache Durability. Object Type: string
@@ -921,8 +925,6 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ContextServerPollStartTime" : "", #[00:00:00-23:59:59] Endpoint Context Servers polling start time. Object Type: string
         "DbAppexternalUserPassword" : "", #Database user "appexternal" password. Object Type: string
         "DesignatedStandbyPublisher" : "", #Designated Standby Publisher. Object Type: string
-        "DisableTLS1.0" : "", #Disable TLSv1.0 support, this field cannot be modified in FIPS mode. Object Type: string
-        "DisableTLS1.1" : "", #Disable TLSv1.1 support, this field cannot be modified in FIPS mode. Object Type: string
         "DisableTLS1.3" : "", #No Desc. Object Type: string
         "EnableNTLMV1ForWmi" : "", #Enable NTLMV1 for WMI scans. Object Type: string
         "EnablePublisherFailover" : "", #Enable Publisher Failover. Object Type: string
@@ -938,16 +940,19 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "KnownEndpointsCleanupInterval" : 0, #Known endpoints cleanup interval in days. Object Type: integer
         "LoginBannerText" : "", #Login Banner Text. Object Type: string
         "MACAddressFormat" : "", #No Desc. Object Type: string
+        "NetflowDecoderInactiveTimeout" : 0, #Netflow Decoder Inactive Timeout. Object Type: integer
         "NetflowReprofileInterval" : 0, #Netflow reprofile interval in days. Object Type: integer
         "NotificationEmailAddress" : "", #Alert Notification - Email Address. Object Type: string
         "NotificationSmsAddress" : "", #Alert Notification - SMS Address. Object Type: string
         "OnGuardAutoUpdatesFlag" : "", #Automatically check for available OnGuard Signature Updates. Object Type: string
+        "OverridePitrRestoreWhenSubInsync" : "", #Override PITR Restore (When subscriber In-sync with publisher). Object Type: string
         "PasswordPrompt" : "", #TACACS+ Password Prompt Text. Object Type: string
         "PolicyResultCacheTimeout" : 0, #Policy result cache timeout in minutes. Object Type: integer
         "PostAuthUnsubscribeEndpoints" : "", #No Desc. Object Type: string
         "PostAuthV2" : "", #Enable Post-Auth v2. Object Type: string
         "PostAuthV2CombineEventsToPAN" : "", #Post-Authentication v2 Combine Session Notification Events to PAN. Object Type: string
         "PostAuthV2HttpEnforcement" : "", #Enable Post-Auth v2 HTTP enforcement. Object Type: string
+        "PostureEngineAutoUpdatesFlag" : "", #Automatically check for available Posture Engine Updates. Object Type: string
         "ProcessWiredFromIfMap" : "", #Process wired device information from IF-MAP interface. Object Type: string
         "ProfiledKnownEndpointsCleanupOption" : "", #Profiled Known endpoints cleanup option in days. Object Type: string
         "ProfiledUnknownEndpointsCleanupInterval" : 0, #Profiled Unknown endpoints cleanup interval in days. Object Type: integer
@@ -957,7 +962,6 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ProfilerScanPorts" : "", #Profiler Scan TCP Ports. Object Type: string
         "ProfilerSubnetScanInterval" : 0, #Profiler subnet scan interval in hours. Object Type: integer
         "ProfilingAutoUpdatesFlag" : "", #Automatically check for available Profiling Updates. Object Type: string
-        "SSHCipherMode" : "", #Allowed SSH Cipher Modes. Object Type: string
         "SessionLogsCleanupInterval" : 0, #Cleanup interval for Session log details in the database in days. Object Type: integer
         "SoftwareAutoUpdatesFlag" : "", #Automatically check for available Software Updates. Object Type: string
         "StaleTLSsessioninDiskclenaup" : 0, #No Desc. Object Type: integer
@@ -1007,6 +1011,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "AlertNotificationTimeout" : "", #Alert Notification Timeout in hours. Object Type: string
         "AuditRecordsCleanupInterval" : 0, #Old Audit Records cleanup interval in days. Object Type: integer
         "AutoBackupConfigOptions" : "", #Auto backup configuration options. Object Type: string
+        "AutoBackupConfigPassword" : "", #Auto backup configuration password. Object Type: string
         "CLISessionIdleTimeout" : 0, #CLI Session Idle Timeout in minutes. Object Type: integer
         "CSRCleanupInterval" : 0, #Cleanup interval for CSRs and private keys. Object Type: integer
         "ClearPassZoneCache" : "", #ClearPass Zone Cache Durability. Object Type: string
@@ -1019,8 +1024,6 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ContextServerPollStartTime" : "", #[00:00:00-23:59:59] Endpoint Context Servers polling start time. Object Type: string
         "DbAppexternalUserPassword" : "", #Database user "appexternal" password. Object Type: string
         "DesignatedStandbyPublisher" : "", #Designated Standby Publisher. Object Type: string
-        "DisableTLS1.0" : "", #Disable TLSv1.0 support, this field cannot be modified in FIPS mode. Object Type: string
-        "DisableTLS1.1" : "", #Disable TLSv1.1 support, this field cannot be modified in FIPS mode. Object Type: string
         "DisableTLS1.3" : "", #No Desc. Object Type: string
         "EnableNTLMV1ForWmi" : "", #Enable NTLMV1 for WMI scans. Object Type: string
         "EnablePublisherFailover" : "", #Enable Publisher Failover. Object Type: string
@@ -1036,16 +1039,19 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "KnownEndpointsCleanupInterval" : 0, #Known endpoints cleanup interval in days. Object Type: integer
         "LoginBannerText" : "", #Login Banner Text. Object Type: string
         "MACAddressFormat" : "", #No Desc. Object Type: string
+        "NetflowDecoderInactiveTimeout" : 0, #Netflow Decoder Inactive Timeout. Object Type: integer
         "NetflowReprofileInterval" : 0, #Netflow reprofile interval in days. Object Type: integer
         "NotificationEmailAddress" : "", #Alert Notification - Email Address. Object Type: string
         "NotificationSmsAddress" : "", #Alert Notification - SMS Address. Object Type: string
         "OnGuardAutoUpdatesFlag" : "", #Automatically check for available OnGuard Signature Updates. Object Type: string
+        "OverridePitrRestoreWhenSubInsync" : "", #Override PITR Restore (When subscriber In-sync with publisher). Object Type: string
         "PasswordPrompt" : "", #TACACS+ Password Prompt Text. Object Type: string
         "PolicyResultCacheTimeout" : 0, #Policy result cache timeout in minutes. Object Type: integer
         "PostAuthUnsubscribeEndpoints" : "", #No Desc. Object Type: string
         "PostAuthV2" : "", #Enable Post-Auth v2. Object Type: string
         "PostAuthV2CombineEventsToPAN" : "", #Post-Authentication v2 Combine Session Notification Events to PAN. Object Type: string
         "PostAuthV2HttpEnforcement" : "", #Enable Post-Auth v2 HTTP enforcement. Object Type: string
+        "PostureEngineAutoUpdatesFlag" : "", #Automatically check for available Posture Engine Updates. Object Type: string
         "ProcessWiredFromIfMap" : "", #Process wired device information from IF-MAP interface. Object Type: string
         "ProfiledKnownEndpointsCleanupOption" : "", #Profiled Known endpoints cleanup option in days. Object Type: string
         "ProfiledUnknownEndpointsCleanupInterval" : 0, #Profiled Unknown endpoints cleanup interval in days. Object Type: integer
@@ -1055,7 +1061,6 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ProfilerScanPorts" : "", #Profiler Scan TCP Ports. Object Type: string
         "ProfilerSubnetScanInterval" : 0, #Profiler subnet scan interval in hours. Object Type: integer
         "ProfilingAutoUpdatesFlag" : "", #Automatically check for available Profiling Updates. Object Type: string
-        "SSHCipherMode" : "", #Allowed SSH Cipher Modes. Object Type: string
         "SessionLogsCleanupInterval" : 0, #Cleanup interval for Session log details in the database in days. Object Type: integer
         "SoftwareAutoUpdatesFlag" : "", #Automatically check for available Software Updates. Object Type: string
         "StaleTLSsessioninDiskclenaup" : 0, #No Desc. Object Type: integer
@@ -1103,7 +1108,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_data_filter(self, body=({})):
@@ -1326,7 +1332,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_file_backup_server(self, body=({})):
@@ -1547,7 +1554,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         """
         url_path = "/oauth/all-privileges"
         dict_query = {"format": format}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     # API Service: Manage local user password policies
@@ -1688,7 +1696,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_operator_profile(self, body=({})):
@@ -2183,7 +2192,8 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_snmp_trap_receiver(self, body=({})):

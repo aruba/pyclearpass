@@ -60,7 +60,8 @@ class ApiPlatformCertificates(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_cert_trust_list(self, body=({})):
@@ -156,7 +157,8 @@ class ApiPlatformCertificates(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_cert_trust_list_details_by_cert_trust_list_details_id(
@@ -194,7 +196,8 @@ class ApiPlatformCertificates(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_client_cert(self, body=({})):
@@ -263,7 +266,8 @@ class ApiPlatformCertificates(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_revocation_list(self, body=({})):
@@ -531,7 +535,8 @@ class ApiPlatformCertificates(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_service_cert(self, body=({})):

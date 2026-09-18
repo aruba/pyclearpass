@@ -31,7 +31,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_application_dictionary(self, body=({})):
@@ -252,7 +253,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_auth_method(self, body=({})):
@@ -455,7 +457,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_auth_source(self, body=({})):
@@ -688,7 +691,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_enforcement_policy(self, body=({})):
@@ -902,7 +906,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_network_device(self, body=({})):
@@ -1164,7 +1169,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_network_device_group(self, body=({})):
@@ -1370,7 +1376,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_posture_policy(self, body=({})):
@@ -1587,7 +1594,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_radius_dictionary(self, body=({})):
@@ -1857,7 +1865,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_radius_dynamic_authorization_template(self, body=({})):
@@ -2105,7 +2114,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_proxy_target(self, body=({})):
@@ -2336,7 +2346,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_role(self, body=({})):
@@ -2524,7 +2535,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_role_mapping(self, body=({})):
@@ -2727,7 +2739,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_config_service(self, body=({})):
@@ -3300,7 +3313,8 @@ class ApiPolicyElements(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_tacacs_service_dictionary(self, body=({})):
@@ -3338,7 +3352,8 @@ class ApiPolicyElements(ClearPassAPILogin):
         Parameter Type: path, Name: tacacs_service_dictionary_id, Description: Numeric ID of the TACACS+ Service Dictionary
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
-        dict_path = {"tacacs_service_dictionary_id": tacacs_service_dictionary_id}
+        dict_path = {
+            "tacacs_service_dictionary_id": tacacs_service_dictionary_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -3367,7 +3382,8 @@ class ApiPolicyElements(ClearPassAPILogin):
                 }
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
-        dict_path = {"tacacs_service_dictionary_id": tacacs_service_dictionary_id}
+        dict_path = {
+            "tacacs_service_dictionary_id": tacacs_service_dictionary_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -3399,7 +3415,8 @@ class ApiPolicyElements(ClearPassAPILogin):
                 }
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
-        dict_path = {"tacacs_service_dictionary_id": tacacs_service_dictionary_id}
+        dict_path = {
+            "tacacs_service_dictionary_id": tacacs_service_dictionary_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -3416,7 +3433,8 @@ class ApiPolicyElements(ClearPassAPILogin):
         Parameter Type: path, Name: tacacs_service_dictionary_id, Description: Numeric ID of the TACACS+ Service Dictionary
         """
         url_path = "/tacacs-service-dictionary/{tacacs_service_dictionary_id}"
-        dict_path = {"tacacs_service_dictionary_id": tacacs_service_dictionary_id}
+        dict_path = {
+            "tacacs_service_dictionary_id": tacacs_service_dictionary_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")

@@ -31,7 +31,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_api_client(self, body=({})):
@@ -204,7 +205,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_deny_listed_users_by_deny_listed_users_id(self, deny_listed_users_id=""):
@@ -280,7 +282,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_device(self, change_of_authorization="", body=({})):
@@ -313,7 +316,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
             self, url=url_path, method="post", query=body
@@ -368,7 +372,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/{device_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"device_id": device_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -411,7 +416,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/{device_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"device_id": device_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -429,7 +435,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/{device_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"device_id": device_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -484,7 +491,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/mac/{macaddr}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"macaddr": macaddr}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -527,7 +535,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/mac/{macaddr}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"macaddr": macaddr}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -545,7 +554,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/device/mac/{macaddr}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"macaddr": macaddr}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -560,6 +570,7 @@ class ApiIdentities(ClearPassAPILogin):
         limit="",
         calculate_count="",
         profile_details="",
+        nad_details="",
     ):
         """
         Operation: Get a list of endpoints along with its profiling information
@@ -570,6 +581,7 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
+        Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         """
         url_path = "/endpoint"
         dict_query = {
@@ -579,8 +591,10 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
             "profile_details": profile_details,
+            "nad_details": nad_details,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_endpoint(self, body=({})):
@@ -609,16 +623,21 @@ class ApiIdentities(ClearPassAPILogin):
             self, url=url_path, method="post", query=body
         )
 
-    def get_endpoint_by_endpoint_id(self, profile_details="", endpoint_id=""):
+    def get_endpoint_by_endpoint_id(
+        self, profile_details="", nad_details="", endpoint_id=""
+    ):
         """
         Operation: Get an endpoint along with its profiling information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
+        Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
         """
         url_path = "/endpoint/{endpoint_id}"
-        dict_query = {"profile_details": profile_details}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        dict_query = {"profile_details": profile_details,
+                      "nad_details": nad_details}
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"endpoint_id": endpoint_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -699,17 +718,20 @@ class ApiIdentities(ClearPassAPILogin):
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
 
     def get_endpoint_mac_address_by_mac_address(
-        self, profile_details="", mac_address=""
+        self, profile_details="", nad_details="", mac_address=""
     ):
         """
         Operation: Get an endpoint along with its profiling information by mac_address
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
+        Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
         """
         url_path = "/endpoint/mac-address/{mac_address}"
-        dict_query = {"profile_details": profile_details}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        dict_query = {"profile_details": profile_details,
+                      "nad_details": nad_details}
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"mac_address": mac_address}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -810,7 +832,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_external_account(self, body=({})):
@@ -1060,7 +1083,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_guest(self, change_of_authorization="", body=({})):
@@ -1097,7 +1121,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
             self, url=url_path, method="post", query=body
@@ -1153,7 +1178,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/{guest_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"guest_id": guest_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1200,7 +1226,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/{guest_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"guest_id": guest_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1218,7 +1245,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/{guest_id}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"guest_id": guest_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1274,7 +1302,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/username/{username}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"username": username}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1321,7 +1350,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/username/{username}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"username": username}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1341,7 +1371,8 @@ class ApiIdentities(ClearPassAPILogin):
         """
         url_path = "/guest/username/{username}"
         dict_query = {"change_of_authorization": change_of_authorization}
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         dict_path = {"username": username}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -1368,7 +1399,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_local_user(self, body=({})):
@@ -1591,7 +1623,8 @@ class ApiIdentities(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_static_host_list(self, body=({})):

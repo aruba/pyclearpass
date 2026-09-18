@@ -33,7 +33,8 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control
         """
         url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid, "resource_name": resource_name}
+        dict_path = {"server_uuid": server_uuid,
+                     "resource_name": resource_name}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -57,7 +58,8 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         }
         """
         url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid, "resource_name": resource_name}
+        dict_path = {"server_uuid": server_uuid,
+                     "resource_name": resource_name}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -75,7 +77,8 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control
         """
         url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid, "resource_name": resource_name}
+        dict_path = {"server_uuid": server_uuid,
+                     "resource_name": resource_name}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")

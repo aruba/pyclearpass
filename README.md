@@ -1,6 +1,6 @@
 # pyclearpass
-## HPE Aruba Networking ClearPass V6.12 SDK
-Aruba ClearPass SDK has been developed in Python v3.9 to utilise the full functionality of the HPE Aruba Networking ClearPass REST API environment. Each available REST API command is available for use in this module. All responses from HPE Aruba Networking ClearPass API are in JSON format (converted into a Python dictionary object) and any interactions with the API are logged within the Audit Viewer.
+## HPE Aruba Networking ClearPass SDK
+The HPE Aruba ClearPass SDK also known as pyclearpass has been developed in Python 3.9 to utilise the full functionality of the HPE Aruba Networking ClearPass REST API environment. Although the package will work with older versions of ClearPass, a very small number of API functions (or parameters) may be unavailable due to the module being generated based on V6.14.0 of ClearPass. Each available REST API command is available for use in this module. All responses from HPE Aruba Networking ClearPass API are in JSON format (converted into a Python dictionary object) and any interactions which change the environment are logged within the Audit Viewer.
 
 This package has been uploaded to https://pypi.org/ and is also available to install via https://github.com/aruba/pyclearpass. 
 These instructions are also available at https://developer.arubanetworks.com/aruba-cppm/docs/getting-started-with-pyclearpass.
@@ -32,10 +32,10 @@ These steps list what is required on the HPE Aruba Networking ClearPass server:
 1. Create a new API Client within the HPE Aruba Networking ClearPass Guest Portal 
     - client id = demo, 
     - enabled, Operating Mode = Rest API
-    - Operator Profile = Pick one with apporpiate permission level or make a new one 
+    - Operator Profile = Pick one with appropriate permission level or make a new one 
     - Grant Type = client credentials
     - Access Token Lifetime = 8 Hours
-2. Optional but preferred: valid SSL cerfificate
+2. Optional but preferred: valid SSL certificate
 3. Optional: API Service enabled within Services. You may use the template to help you do this. Only required when using 'Grant Type' of Password. 
 
 If you need information, refer to the HPE Aruba Networking ClearPass configuration documentation for the API account -
@@ -45,15 +45,15 @@ https://developer.arubanetworks.com/aruba-cppm/docs/clearpass-configuration
 Ensure Python v3.9 or greater is installed on your operating system
 # Package Installation
 
-#### Method 1 - Installing Package from PyPi
+#### Method 1 - Installing Package from PyPI
 Run the following in a command line terminal to install the pip package - ```pip3 install pyclearpass``` or ```pip install pyclearpass```. This may vary between Operating Systems. 
 
-#### Method 2 - Installing Package from Github (not using Git.exe)
-1. Click into the Aruba Github Repository where the latest version of pyclearpass is located 
-2. Click Code (in green) and Download to Zip
-3. Extract the zip file into a directory
+#### Method 2 - Installing Package from GitHub (not using Git.exe)
+1. Click into the Aruba GitHub Repository where the latest version of pyclearpass is located 
+2. Click Code (in green) and Download to ZIP
+3. Extract the ZIP file into a directory
 4. Go into a command line terminal and change directory (cd) into the folder where you extracted the zipped file and then down one child folder. The folder contents should pyclearpass (FOLDER), LICENCE, pyproject.toml and README.md   
-5. In your command line terminal type ```python3 -m build``` or ```python -m build```. This will create a folder called dist with a file containing a .gz extension. 
+5. In your command line terminal type ```python3 -m build``` or ```python -m build```. This will create a directory called dist with a file containing a .gz extension. 
 6. Run the following in a command line terminal to install the pip package - ```pip3 install pathtozip.gz``` or ```pip install pathtozip.gz```. This may vary between Operating Systems.
 
 #### Method 3 - Installing Package from Github (using Git.exe)
@@ -68,10 +68,27 @@ Within your favourite Python IDE environment, create an import reference
 from pyclearpass import *
 ```
 
-Create a object to login into ClearPass. The login object needs to be passed to use any function within the ClearPass API.  
-Three examples below shows how to create the login object (either one can be used, but not both).
+Create a login object to authenticate with ClearPass. The login object needs to be passed to use any function within the ClearPass API.  
+Three examples below shows how to create the login object (pick one method).
 
-1. Using client credentials
+1. Using an explicitly defined api_token. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'.
+
+```python
+login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
+```
+
+2. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format and is expected to exist in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file. 
+
+```json 
+{"access_token":"your_token_here"}
+```
+
+```python
+token = Utils.get_token_from_file("token.json")
+login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
+```
+
+3. Using client credentials
 
 ```python
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",granttype="client_credentials",
@@ -80,24 +97,7 @@ clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=F
 
 > 📘 
 > 
-> The login object will contain the APIToken once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
-
-2. Using an explicitly defined api_token. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'.
-
-```python
-login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
-```
-
-3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format and is expected to exist in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file. 
-
-```json 
-{"access_token":"your_token_here"}
-```
-The python file is expected in the following format
-```python
-token = Utils.get_token_from_file("token.json")
-login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
-```
+> The login object will contain the API token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
 
 Find an API you want to use, by prefixing  `Api`  in your IDE and Intellisense will show the available APIs available. Each of the top level API category names are available as a module. Once you have chosen a specific API module to use, for example ApiPolicyElements, it will show you the available methods if you suffix a . to the command - `ApiPolicyElements.`
 
@@ -107,7 +107,7 @@ The example below prints a single the roles available within the ClearPass serve
 print(ApiPolicyElements.get_role(login)) 
 ```
 
-By default, the example above returns the first 25 roles. To view more, the limit needs to be adjusted. Placing your cursor over the .getRole will usually show you help about the method. 
+By default, the example above returns the first 25 roles. To view more, the limit needs to be adjusted. Placing your cursor over the .get_role will usually show you help about the method. 
 
 ```python
 print(ApiPolicyElements.get_role(login, limit=100))
@@ -119,9 +119,9 @@ Once you have written a specific API  `ApiName.FunctionName(`, placing your curs
 You may also read the help for the function by calling `help(ApiName.function_name)`.  
 Each function contains a help section on how to use it. 
 
-# Python Package Upgrade Instructions
+# Upgrade Instructions
 
-Once an update is available on the Python PyPi repository, you may upgrade your release by completing the following in a command line terminal - 
+Once an update is available on the Python PyPI repository, you may upgrade your release by completing the following in a command line terminal - 
 
 `pip3 install pyclearpass --upgrade`  
 or  
@@ -133,16 +133,16 @@ To install a specific version, execute the following command with x.x.x being th
 or  
  `pip install pyclearpass==x.x.x`
  
-# Uninstall Package Package
+# Uninstall the Package
 
-To remove the Python pyclearpass package, type the following command into a command line terminal -  
+To remove the Python pyclearpass package, run one of the following commands in a terminal -  
 `pip3 uninstall pyclearpass `  
 or  
  `pip uninstall pyclearpass `
 
 # Further Usage Examples
 
-The examples below all exclude importing the module and creating the login variable. This is described directly below. Note, these are just a full examples, there are hundreds of API commands available within the SDK.
+The examples below all exclude importing the module and creating the login variable. This is described directly below. Note, these are just a some examples, there are hundreds of API commands available within the SDK.
 
 ## Login
 ### Mandatory Login Session Parameters
@@ -159,7 +159,7 @@ clientsecret="myclientsecretexample", clientid="myclientidexample", verify_ssl=F
 
 > 📘 
 > 
-> As mentioned earlier, the login object will contain the API Token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
+> As mentioned earlier, the login object will contain the API token once any function has been used. It obtains it once for the session and uses the same token through the execution of the rest of the script. You can extract this token and reuse it for other sessions if required (login.api_token). The token will only be available for reuse until the lifetime expires which was configured when specifying a new API Client within the ClearPass Guest Module.
 
 2. Using an explicitly defined api_token. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'.
 
@@ -168,7 +168,7 @@ from pyclearpass import *
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token="yoursecretapitoken", verify_ssl=False)
 ```
 
-3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format and is expected to exist in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file. 
+3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file.  
 
 ```json 
 {"access_token":"your_token_here"}
@@ -179,8 +179,8 @@ token = Utils.get_token_from_file("token.json")
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
 ```
 ### Optional Login Session Parameters
- 
-You can also include a timeout on the within the ClearPassAPILogin class to define how long the web request should try before timing out.  An example is provided below of 10 seconds
+
+You can also specify a timeout in the ClearPassAPILogin class to define how long the web request should try before timing out.  The following example sets the timeout to 10 seconds however if not provided, the default value is 30 seconds. 
 
 ```python
 token = Utils.get_token_from_file("token.json")
@@ -195,7 +195,7 @@ LSCGCS = ApiLocalServerConfiguration.get_cluster_server(login)
 print(json.dumps(LSCGCS['_embedded']['items'],indent=1))
 ```
 
-## Get Total End Point Count
+## Get the Total Endpoint Count
 
 ```python
 IGEP = ApiIdentities.get_endpoint(login, calculate_count='true')
@@ -208,7 +208,7 @@ print("Total MACs in Table: "+str(IGEP['count']))
 print(ApiLogs.get_insight_endpoint_ip_by_ip(login,ip="192.168.0.99"))
 ```
 
-## Get list of Admin Users
+## Get a list of Administrator Users
 
 ```python
 AU = ApiGlobalServerConfiguration.get_admin_user(login)
@@ -322,8 +322,8 @@ for index, items in df.iterrows():
 
 ## Update Network Device Group
 
-This example updates an Network Device Group with additional IP Addresses 192.168.0.100 and 192.168.0.99.  
-These Network Access Devices must of been added before they can be appended to the group.  
+This example updates an Network Device Group with additional IP Addresses 192.168.0.100 and 192.168.0.98.  
+These Network Access Devices must have been added before they can be appended to the group.  
 
 ```python
 getcurrentnads = ApiPolicyElements.get_network_device_group_name_by_name(login,name="Example")

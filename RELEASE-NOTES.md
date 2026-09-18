@@ -47,3 +47,11 @@ This document contains high level documented changes to the pyclearpass package.
 2. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.12.6.
 3. Updated Readme
 4. Included new function within new Utils class to pull token from token file.
+
+## Version 1.0.9 (18/09/2026)
+1. Updated common.py to define the default timeout parameter for web requests to 30 seconds. This value was previously undefined. 
+2. Updated common.py logic
+3. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.14.0
+4. Updated Session Control API to escape slashes when passed within the id parameter. Rasied by community user on GitHub
+5. SSL Verify is now enabled by default within common.py for improved default security. You can change this with verify=False when defining the login object.
+6. Updated ReadMe file  

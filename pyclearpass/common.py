@@ -1,6 +1,7 @@
 import json
 import requests
-import urllib.parse, urllib3
+import urllib.parse
+import urllib3
 
 urllib3.disable_warnings()
 
@@ -15,8 +16,8 @@ class ClearPassAPILogin:
         password="",
         server="",
         api_token="",
-        verify_ssl=False,
-        timeout=None
+        verify_ssl=True,
+        timeout: int = 30,
     ):
         """
         This is the class constructor for the ClearPassModule.
@@ -34,10 +35,10 @@ class ClearPassAPILogin:
 
         Option 2 Parameters:
         api_token = Provide the api_token which is the 'access token'.
-        
+
         Optional Parameters:
         verify_ssl (boolean, optional): default value False. Allows use of an invalid SSL certificate.
-        timeout (int, optional): default value none. Allows to adjust the timeout value for the web request in seconds.
+        timeout (int, optional): default value 30. Allows to adjust the timeout value for the web request in seconds.
 
         }
 
@@ -64,7 +65,7 @@ class ClearPassAPILogin:
         """
         full_url_path = self.server + url
 
-        if len(self.api_token) == 0:
+        if not self.api_token:
             cred = _new_api_token(self)
             try:
                 self.api_token = cred["access_token"]
@@ -73,66 +74,38 @@ class ClearPassAPILogin:
             except KeyError:
                 pass
 
-        if len(self.api_token) != 0:
-            header = {
-                "Authorization": "Bearer " + self.api_token,
-                "accept": content_response_type,
-            }
-            if method == "post":
-                response = requests.post(
+        if not self.api_token:
+            raise RuntimeError(
+                "Problem logging into ClearPass due to access token error")
+
+        if self.api_token:
+
+            method = method.lower()
+            if method not in {"post", "patch", "put", "get", "delete"}:
+                raise RuntimeError(
+                    "A valid method must be supplied before sending a request to the ClearPass API"
+                )
+            else:
+                header = {
+                    "Authorization": "Bearer " + self.api_token,
+                    "accept": content_response_type,
+                }
+                response = requests.request(
+                    method=method.upper(),
                     url=full_url_path,
                     json=query,
                     headers=header,
                     verify=self.verify_ssl,
                     timeout=self.timeout,
-                )
-            if method == "patch":
-                response = requests.patch(
-                    url=full_url_path,
-                    json=query,
-                    headers=header,
-                    verify=self.verify_ssl,
-                    timeout=self.timeout,
-                )
-            if method == "put":
-                response = requests.put(
-                    url=full_url_path,
-                    json=query,
-                    headers=header,
-                    verify=self.verify_ssl,
-                    timeout=self.timeout,
-                )
-            if method == "get":
-                response = requests.get(
-                    url=full_url_path,
-                    json=query,
-                    headers=header,
-                    verify=self.verify_ssl,
-                    timeout=self.timeout,
-                )
-            if method == "delete":
-                response = requests.delete(
-                    url=full_url_path,
-                    json=query,
-                    headers=header,
-                    verify=self.verify_ssl,
-                    timeout=self.timeout,
-                )
-            if method == "":
-                print(
-                    "method needs to be supplied before sending a request to ClearPass"
                 )
 
-            if "json" in content_response_type:                
-                try:
-                    return json.loads(response.text)
-                except json.decoder.JSONDecodeError:
-                    return response.text
-            else:
-                return response.content
-        else:
-            print("Problem logging into ClearPass")
-            return cred
+                if "json" in content_response_type:
+                    try:
+                        return response.json()
+                    except ValueError:
+                        return response.text
+                else:
+                    return response.content
 
 
 def _new_api_token(self):
@@ -159,14 +132,15 @@ def _new_api_token(self):
     }
 
     full_url_path = self.server + "/oauth"
-    response = requests.post(url=full_url_path, json=model, verify=self.verify_ssl)
+    response = requests.post(
+        url=full_url_path, json=model, verify=self.verify_ssl, timeout=self.timeout)
+
+    response.raise_for_status()
 
     try:
-        response = json.loads(str(response.text))
-        return response
-
-    except json.decoder.JSONDecodeError:
-        return response
+        return response.json()
+    except ValueError:
+        return response.text
 
 
 def _remove_empty_keys(keys):
@@ -174,11 +148,10 @@ def _remove_empty_keys(keys):
     for item in keys:
         if keys[item] == "":
             remove_empty_values_from_dict.append(item)
-        else:
-            pass
     for removal in remove_empty_values_from_dict:
         del keys[removal]
     return keys
+
 
 def _generate_parameterised_url(url, parameters=""):
     parameters = _remove_empty_keys(keys=parameters)
@@ -188,8 +161,10 @@ def _generate_parameterised_url(url, parameters=""):
     else:
         for key, value in parameters.items():
             if isinstance(value, dict):
-                parameters[key] = json.dumps(value, separators=(',', ':'), ensure_ascii=False)
-                
+                parameters[key] = json.dumps(
+                    value, separators=(",", ":"), ensure_ascii=False
+                )
+
         encoded_url = urllib.parse.urlencode(parameters)
         final_url = url + "?" + encoded_url
         return final_url

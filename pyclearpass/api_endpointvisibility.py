@@ -39,7 +39,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "download_url" : "", #HTTP/HTTPS URL to download Agentless OnGuardWrapper EXE from the Remote File Server (e.g. https://10.20.30.40/agent/AgentlessOnGuard/windows/AgentlessOnGuardWrapper.exe). Object Type: string
         "validate_url_cert" : False, #Should Agentless OnGuard Launcher validate the Server Certificate of the remote server while downloading Agentless OnGuardWrapper EXE? (default=true). Object Type: boolean
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
-        "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
 
         }
@@ -85,7 +84,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "download_url" : "", #HTTP/HTTPS URL to download Agentless OnGuardWrapper EXE from the Remote File Server (e.g. https://10.20.30.40/agent/AgentlessOnGuard/windows/AgentlessOnGuardWrapper.exe). Object Type: string
         "validate_url_cert" : False, #Should Agentless OnGuard Launcher validate the Server Certificate of the remote server while downloading Agentless OnGuardWrapper EXE? (default=true). Object Type: boolean
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
-        "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
 
         }
@@ -122,7 +120,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "download_url" : "", #HTTP/HTTPS URL to download Agentless OnGuardWrapper EXE from the Remote File Server (e.g. https://10.20.30.40/agent/AgentlessOnGuard/windows/AgentlessOnGuardWrapper.exe). Object Type: string
         "validate_url_cert" : False, #Should Agentless OnGuard Launcher validate the Server Certificate of the remote server while downloading Agentless OnGuardWrapper EXE? (default=true). Object Type: boolean
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
-        "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
 
         }
@@ -181,7 +178,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "download_url" : "", #HTTP/HTTPS URL to download Agentless OnGuardWrapper EXE from the Remote File Server (e.g. https://10.20.30.40/agent/AgentlessOnGuard/windows/AgentlessOnGuardWrapper.exe). Object Type: string
         "validate_url_cert" : False, #Should Agentless OnGuard Launcher validate the Server Certificate of the remote server while downloading Agentless OnGuardWrapper EXE? (default=true). Object Type: boolean
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
-        "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
 
         }
@@ -216,7 +212,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "download_url" : "", #HTTP/HTTPS URL to download Agentless OnGuardWrapper EXE from the Remote File Server (e.g. https://10.20.30.40/agent/AgentlessOnGuard/windows/AgentlessOnGuardWrapper.exe). Object Type: string
         "validate_url_cert" : False, #Should Agentless OnGuard Launcher validate the Server Certificate of the remote server while downloading Agentless OnGuardWrapper EXE? (default=true). Object Type: boolean
         "override_checksum" : False, #Override checksum fields (default=false). Object Type: boolean
-        "checksums_32" : False, #SHA256 checksums of 32-bit Agentless OnGuard Wrapper EXEs. Object Type: array
         "checksums_64" : False, #SHA256 checksums of 64-bit Agentless OnGuard Wrapper EXEs. Object Type: array
 
         }
@@ -263,7 +258,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_agentless_onguard_subnet_mapping(self, body=({})):
@@ -597,7 +593,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_fingerprint(self, body=({})):
@@ -806,7 +803,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_config_network_scan(self, body=({})):
@@ -970,7 +968,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_onguard_activity_by_onguard_activity_id(self, onguard_activity_id=""):
@@ -1064,7 +1063,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_onguard_custom_script(self, body=({})):
@@ -1305,8 +1305,6 @@ class ApiEndpointVisibility(ClearPassAPILogin):
         "VPNDeviceNames" : "", #VPN Device Names (Windows). Object Type: string
         "VPNDeviceNamesMacOS" : "", #VPN Device Names (macOS). Object Type: string
         "VPNDeviceNamesLinux" : "", #VPN Device Names (Linux). Object Type: string
-        "WiredAllowedSubnets" : "", #[Deprecated] Allowed Subnets for Wired access. Object Type: string
-        "WirelessAllowedSubnets" : "", #[Deprecated] Allowed Subnets for Wireless access. Object Type: string
 
         }
         """
@@ -1779,7 +1777,8 @@ class ApiEndpointVisibility(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_windows_hotfix(self, body=({})):

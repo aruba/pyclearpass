@@ -31,7 +31,8 @@ class ApiCertificateAuthority(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_certificate_by_certificate_id(self, certificate_id=""):
@@ -305,7 +306,8 @@ class ApiCertificateAuthority(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_onboard_device_by_id(self, id=""):
@@ -380,7 +382,9 @@ class ApiCertificateAuthority(ClearPassAPILogin):
             "disconnect_active_sessions": disconnect_active_sessions,
             "ignore_disconnect_errors": ignore_disconnect_errors,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
+        id = id.replace("/", "%2F")
         dict_path = {"id": id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
@@ -405,7 +409,8 @@ class ApiCertificateAuthority(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def get_user_by_id(self, id=""):

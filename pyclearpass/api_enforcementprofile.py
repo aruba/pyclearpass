@@ -357,7 +357,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         Parameter Type: path, Name: dur_class_id, Description: Numeric ID of the DURClass
         """
         url_path = "/enforcement-profile-dur/dur-class/{product_name}/{dur_class_id}"
-        dict_path = {"product_name": product_name, "dur_class_id": dur_class_id}
+        dict_path = {"product_name": product_name,
+                     "dur_class_id": dur_class_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -440,7 +441,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
                 }
         """
         url_path = "/enforcement-profile-dur/dur-class/{product_name}/{dur_class_id}"
-        dict_path = {"product_name": product_name, "dur_class_id": dur_class_id}
+        dict_path = {"product_name": product_name,
+                     "dur_class_id": dur_class_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -526,7 +528,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
                 }
         """
         url_path = "/enforcement-profile-dur/dur-class/{product_name}/{dur_class_id}"
-        dict_path = {"product_name": product_name, "dur_class_id": dur_class_id}
+        dict_path = {"product_name": product_name,
+                     "dur_class_id": dur_class_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -544,7 +547,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         Parameter Type: path, Name: dur_class_id, Description: Numeric ID of the DURClass
         """
         url_path = "/enforcement-profile-dur/dur-class/{product_name}/{dur_class_id}"
-        dict_path = {"product_name": product_name, "dur_class_id": dur_class_id}
+        dict_path = {"product_name": product_name,
+                     "dur_class_id": dur_class_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
@@ -772,7 +776,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
             "limit": limit,
             "calculate_count": calculate_count,
         }
-        url_path = _generate_parameterised_url(parameters=dict_query, url=url_path)
+        url_path = _generate_parameterised_url(
+            parameters=dict_query, url=url_path)
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
 
     def new_enforcement_profile(self, body=({})):
@@ -2084,7 +2089,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/net-service/{product_name}/{net_service_id}"
         )
-        dict_path = {"product_name": product_name, "net_service_id": net_service_id}
+        dict_path = {"product_name": product_name,
+                     "net_service_id": net_service_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -2117,7 +2123,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/net-service/{product_name}/{net_service_id}"
         )
-        dict_path = {"product_name": product_name, "net_service_id": net_service_id}
+        dict_path = {"product_name": product_name,
+                     "net_service_id": net_service_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -2153,7 +2160,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/net-service/{product_name}/{net_service_id}"
         )
-        dict_path = {"product_name": product_name, "net_service_id": net_service_id}
+        dict_path = {"product_name": product_name,
+                     "net_service_id": net_service_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -2173,7 +2181,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/net-service/{product_name}/{net_service_id}"
         )
-        dict_path = {"product_name": product_name, "net_service_id": net_service_id}
+        dict_path = {"product_name": product_name,
+                     "net_service_id": net_service_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
@@ -2853,7 +2862,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/qos-profile/{product_name}/{qos_profile_id}"
         )
-        dict_path = {"product_name": product_name, "qos_profile_id": qos_profile_id}
+        dict_path = {"product_name": product_name,
+                     "qos_profile_id": qos_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -2882,7 +2892,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/qos-profile/{product_name}/{qos_profile_id}"
         )
-        dict_path = {"product_name": product_name, "qos_profile_id": qos_profile_id}
+        dict_path = {"product_name": product_name,
+                     "qos_profile_id": qos_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -2914,7 +2925,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/qos-profile/{product_name}/{qos_profile_id}"
         )
-        dict_path = {"product_name": product_name, "qos_profile_id": qos_profile_id}
+        dict_path = {"product_name": product_name,
+                     "qos_profile_id": qos_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -2934,7 +2946,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/qos-profile/{product_name}/{qos_profile_id}"
         )
-        dict_path = {"product_name": product_name, "qos_profile_id": qos_profile_id}
+        dict_path = {"product_name": product_name,
+                     "qos_profile_id": qos_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
@@ -3815,7 +3828,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         Parameter Type: path, Name: time_range_id, Description: Numeric ID of the Time Range
         """
         url_path = "/enforcement-profile-dur/time-range/{product_name}/{time_range_id}"
-        dict_path = {"product_name": product_name, "time_range_id": time_range_id}
+        dict_path = {"product_name": product_name,
+                     "time_range_id": time_range_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -3845,7 +3859,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
                 }
         """
         url_path = "/enforcement-profile-dur/time-range/{product_name}/{time_range_id}"
-        dict_path = {"product_name": product_name, "time_range_id": time_range_id}
+        dict_path = {"product_name": product_name,
+                     "time_range_id": time_range_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -3878,7 +3893,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
                 }
         """
         url_path = "/enforcement-profile-dur/time-range/{product_name}/{time_range_id}"
-        dict_path = {"product_name": product_name, "time_range_id": time_range_id}
+        dict_path = {"product_name": product_name,
+                     "time_range_id": time_range_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -3896,7 +3912,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         Parameter Type: path, Name: time_range_id, Description: Numeric ID of the Time Range
         """
         url_path = "/enforcement-profile-dur/time-range/{product_name}/{time_range_id}"
-        dict_path = {"product_name": product_name, "time_range_id": time_range_id}
+        dict_path = {"product_name": product_name,
+                     "time_range_id": time_range_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
@@ -4050,7 +4067,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/voip-profile/{product_name}/{voip_profile_id}"
         )
-        dict_path = {"product_name": product_name, "voip_profile_id": voip_profile_id}
+        dict_path = {"product_name": product_name,
+                     "voip_profile_id": voip_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="get")
@@ -4078,7 +4096,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/voip-profile/{product_name}/{voip_profile_id}"
         )
-        dict_path = {"product_name": product_name, "voip_profile_id": voip_profile_id}
+        dict_path = {"product_name": product_name,
+                     "voip_profile_id": voip_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -4109,7 +4128,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/voip-profile/{product_name}/{voip_profile_id}"
         )
-        dict_path = {"product_name": product_name, "voip_profile_id": voip_profile_id}
+        dict_path = {"product_name": product_name,
+                     "voip_profile_id": voip_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         body = _remove_empty_keys(keys=body)
@@ -4129,7 +4149,8 @@ class ApiEnforcementProfile(ClearPassAPILogin):
         url_path = (
             "/enforcement-profile-dur/voip-profile/{product_name}/{voip_profile_id}"
         )
-        dict_path = {"product_name": product_name, "voip_profile_id": voip_profile_id}
+        dict_path = {"product_name": product_name,
+                     "voip_profile_id": voip_profile_id}
         for item in dict_path:
             url_path = url_path.replace("{" + item + "}", dict_path[item])
         return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
