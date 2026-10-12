@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -19,15 +22,14 @@ class ApiInsight(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Limit the number of rows returned from a result set. i.e Default: 25
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/alert"
-        dict_query = {
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/alert'
+        dict_query = {'offset': offset, 'limit': limit,
+                      'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_alert(self, body=({})):
         """
@@ -55,10 +57,10 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/alert"
+        url_path = '/alert'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_alert_by_id(self, id=""):
@@ -67,11 +69,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_alert_by_id(self, id="", body=({})):
         """
@@ -100,13 +104,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/alert/{id}"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_alert_by_id(self, id="", body=({})):
@@ -136,13 +140,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/alert/{id}"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_alert_by_id(self, id=""):
@@ -151,11 +155,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_alert_by_name(self, name=""):
         """
@@ -163,11 +169,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_alert_by_name(self, name="", body=({})):
         """
@@ -196,13 +204,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/alert/{name}"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_alert_by_name(self, name="", body=({})):
@@ -232,13 +240,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/alert/{name}"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_alert_by_name(self, name=""):
@@ -247,11 +255,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def update_alert_by_id_enable(self, id=""):
         """
@@ -259,11 +269,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}/enable"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}/enable'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_id_disable(self, id=""):
         """
@@ -271,11 +283,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}/disable"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}/disable'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_id_mute(self, id=""):
         """
@@ -283,11 +297,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}/mute"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}/mute'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_id_unmute(self, id=""):
         """
@@ -295,11 +311,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the alert
         """
-        url_path = "/alert/{id}/unmute"
-        dict_path = {"id": id}
+        url_path = '/alert/{id}/unmute'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_name_enable(self, name=""):
         """
@@ -307,11 +325,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}/enable"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}/enable'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_name_disable(self, name=""):
         """
@@ -319,11 +339,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}/disable"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}/disable'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_name_mute(self, name=""):
         """
@@ -331,11 +353,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}/mute"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}/mute'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_alert_by_name_unmute(self, name=""):
         """
@@ -343,11 +367,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the alert
         """
-        url_path = "/alert/{name}/unmute"
-        dict_path = {"name": name}
+        url_path = '/alert/{name}/unmute'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     # API Service: Operations for Report
     def get_report(self, offset="", limit="", calculate_count=""):
@@ -358,15 +384,14 @@ class ApiInsight(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Limit the number of rows returned from a result set. i.e Default: 25
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/report"
-        dict_query = {
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/report'
+        dict_query = {'offset': offset, 'limit': limit,
+                      'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_report(self, body=({})):
         """
@@ -394,10 +419,10 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/report"
+        url_path = '/report'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_report_by_id(self, id=""):
@@ -406,11 +431,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the report
         """
-        url_path = "/report/{id}"
-        dict_path = {"id": id}
+        url_path = '/report/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_report_by_id(self, id="", body=({})):
         """
@@ -439,13 +466,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/report/{id}"
-        dict_path = {"id": id}
+        url_path = '/report/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_report_by_id(self, id="", body=({})):
@@ -475,13 +502,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/report/{id}"
-        dict_path = {"id": id}
+        url_path = '/report/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_report_by_id(self, id=""):
@@ -490,11 +517,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the report
         """
-        url_path = "/report/{id}"
-        dict_path = {"id": id}
+        url_path = '/report/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_report_by_name(self, name=""):
         """
@@ -502,11 +531,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the report
         """
-        url_path = "/report/{name}"
-        dict_path = {"name": name}
+        url_path = '/report/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_report_by_name(self, name="", body=({})):
         """
@@ -535,13 +566,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/report/{name}"
-        dict_path = {"name": name}
+        url_path = '/report/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_report_by_name(self, name="", body=({})):
@@ -571,13 +602,13 @@ class ApiInsight(ClearPassAPILogin):
 
         }
         """
-        url_path = "/report/{name}"
-        dict_path = {"name": name}
+        url_path = '/report/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_report_by_name(self, name=""):
@@ -586,11 +617,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the report
         """
-        url_path = "/report/{name}"
-        dict_path = {"name": name}
+        url_path = '/report/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def update_report_by_id_enable(self, id=""):
         """
@@ -598,11 +631,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the report
         """
-        url_path = "/report/{id}/enable"
-        dict_path = {"id": id}
+        url_path = '/report/{id}/enable'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_report_by_id_disable(self, id=""):
         """
@@ -610,11 +645,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the report
         """
-        url_path = "/report/{id}/disable"
-        dict_path = {"id": id}
+        url_path = '/report/{id}/disable'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_report_by_name_enable(self, name=""):
         """
@@ -622,11 +659,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the report
         """
-        url_path = "/report/{name}/enable"
-        dict_path = {"name": name}
+        url_path = '/report/{name}/enable'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_report_by_name_disable(self, name=""):
         """
@@ -634,11 +673,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the report
         """
-        url_path = "/report/{name}/disable"
-        dict_path = {"name": name}
+        url_path = '/report/{name}/disable'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def new_report_by_id_run(self, id=""):
         """
@@ -646,11 +687,13 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 201 Created, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric id of the report
         """
-        url_path = "/report/{id}/run"
-        dict_path = {"id": id}
+        url_path = '/report/{id}/run'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="post")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='post'
+        )
 
     def new_report_by_name_run(self, name=""):
         """
@@ -658,8 +701,10 @@ class ApiInsight(ClearPassAPILogin):
         HTTP Response Codes: 201 Created, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Name of the report
         """
-        url_path = "/report/{name}/run"
-        dict_path = {"name": name}
+        url_path = '/report/{name}/run'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="post")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='post'
+        )

@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -17,36 +20,36 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
         """
-        url_path = "/server/access-control/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/server/access-control/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def get_server_access_control_by_server_uuid_resource_name(
-        self, server_uuid="", resource_name=""
-    ):
+    def get_server_access_control_by_server_uuid_resource_name(self, server_uuid="", resource_name=""):
         """
         Operation: Get an application access control by resource name
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control
+        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control 
         """
-        url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid,
-                     "resource_name": resource_name}
+        url_path = '/server/access-control/{server_uuid}/{resource_name}'
+        dict_path = {'server_uuid': server_uuid,
+                     'resource_name': resource_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def replace_server_access_control_by_server_uuid_resource_name(
-        self, server_uuid="", resource_name="", body=({})
-    ):
+    def replace_server_access_control_by_server_uuid_resource_name(self, server_uuid="", resource_name="", body=({})):
         """
         Operation: Replace an application access controls by resource name
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control
+        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control 
         Required Body Parameters:['access', 'networks']
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
@@ -57,31 +60,31 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid,
-                     "resource_name": resource_name}
+        url_path = '/server/access-control/{server_uuid}/{resource_name}'
+        dict_path = {'server_uuid': server_uuid,
+                     'resource_name': resource_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def delete_server_access_control_by_server_uuid_resource_name(
-        self, server_uuid="", resource_name=""
-    ):
+    def delete_server_access_control_by_server_uuid_resource_name(self, server_uuid="", resource_name=""):
         """
         Operation: Delete an application access control by resource name
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control
+        Parameter Type: path, Name: resource_name, Description: Unique resource name of the access control 
         """
-        url_path = "/server/access-control/{server_uuid}/{resource_name}"
-        dict_path = {"server_uuid": server_uuid,
-                     "resource_name": resource_name}
+        url_path = '/server/access-control/{server_uuid}/{resource_name}'
+        dict_path = {'server_uuid': server_uuid,
+                     'resource_name': resource_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage AD Domains
     def get_ad_domain_by_server_uuid(self, server_uuid=""):
@@ -90,26 +93,28 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: URL parameter server_uuid
         """
-        url_path = "/ad-domain/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/ad-domain/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def get_ad_domain_by_server_uuid_netbios_name_netbios_name(
-        self, server_uuid="", netbios_name=""
-    ):
+    def get_ad_domain_by_server_uuid_netbios_name_netbios_name(self, server_uuid="", netbios_name=""):
         """
         Operation: GET an AD domain by netbios_name
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: URL parameter server_uuid
         Parameter Type: path, Name: netbios_name, Description: NetBIOS name of the domain
         """
-        url_path = "/ad-domain/{server_uuid}/netbios-name/{netbios_name}"
-        dict_path = {"server_uuid": server_uuid, "netbios_name": netbios_name}
+        url_path = '/ad-domain/{server_uuid}/netbios-name/{netbios_name}'
+        dict_path = {'server_uuid': server_uuid, 'netbios_name': netbios_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_ad_domain_join_by_server_uuid(self, server_uuid="", body=({})):
         """
@@ -129,13 +134,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/ad-domain/join/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/ad-domain/join/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def replace_ad_domain_leave_by_server_uuid(self, server_uuid="", body=({})):
@@ -155,18 +160,16 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/ad-domain/leave/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/ad-domain/leave/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def update_ad_domain_password_servers_by_server_uuid(
-        self, server_uuid="", body=({})
-    ):
+    def update_ad_domain_password_servers_by_server_uuid(self, server_uuid="", body=({})):
         """
         Operation: Configure AD Password Servers
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -181,13 +184,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/ad-domain/password-servers/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/ad-domain/password-servers/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Manage Cppm Version
@@ -196,8 +199,10 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Operation: Get Cppm version
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/cppm-version"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/cppm-version'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage cluster servers and per-server configuration
     def get_cluster_server(self):
@@ -205,8 +210,10 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Operation: Get a list of servers in the cluster
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/cluster/server"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/cluster/server'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_cluster_server_by_uuid(self, uuid=""):
         """
@@ -214,11 +221,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: uuid, Description: Server UUID, "publisher" or "this"
         """
-        url_path = "/cluster/server/{uuid}"
-        dict_path = {"uuid": uuid}
+        url_path = '/cluster/server/{uuid}'
+        dict_path = {'uuid': uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_cluster_server_by_uuid(self, uuid="", body=({})):
         """
@@ -234,13 +243,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cluster/server/{uuid}"
-        dict_path = {"uuid": uuid}
+        url_path = '/cluster/server/{uuid}'
+        dict_path = {'uuid': uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Get server FIPS mode information
@@ -249,8 +258,10 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Operation: Get server FIPS mode information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/server/fips"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/server/fips'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage server snmp settings
     def get_server_snmp_by_server_uuid(self, server_uuid=""):
@@ -259,11 +270,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
         """
-        url_path = "/server/snmp/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/server/snmp/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_server_snmp_by_server_uuid(self, server_uuid="", body=({})):
         """
@@ -289,13 +302,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/snmp/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/server/snmp/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def update_server_snmp_by_server_uuid(self, server_uuid="", body=({})):
@@ -322,13 +335,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/snmp/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/server/snmp/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Get server version information
@@ -337,28 +350,28 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         Operation: Get server version information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/server/version"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/server/version'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage service parameters
-    def get_service_parameter_by_server_uuid_service_id(
-        self, server_uuid="", service_id=""
-    ):
+    def get_service_parameter_by_server_uuid_service_id(self, server_uuid="", service_id=""):
         """
         Operation: Get service parameter details
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
         Parameter Type: path, Name: service_id, Description: Unique id for the service
         """
-        url_path = "/service-parameter/{server_uuid}/{service_id}"
-        dict_path = {"server_uuid": server_uuid, "service_id": service_id}
+        url_path = '/service-parameter/{server_uuid}/{service_id}'
+        dict_path = {'server_uuid': server_uuid, 'service_id': service_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_service_parameter_by_server_uuid_service_id(
-        self, server_uuid="", service_id="", body=({})
-    ):
+    def update_service_parameter_by_server_uuid_service_id(self, server_uuid="", service_id="", body=({})):
         """
         Operation: Update service parameter values
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -374,13 +387,13 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/service-parameter/{server_uuid}/{service_id}"
-        dict_path = {"server_uuid": server_uuid, "service_id": service_id}
+        url_path = '/service-parameter/{server_uuid}/{service_id}'
+        dict_path = {'server_uuid': server_uuid, 'service_id': service_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Control services running on a server
@@ -390,53 +403,55 @@ class ApiLocalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: AlphaNumeric Unique Id of the Server
         """
-        url_path = "/server/service/{server_uuid}"
-        dict_path = {"server_uuid": server_uuid}
+        url_path = '/server/service/{server_uuid}'
+        dict_path = {'server_uuid': server_uuid}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def get_server_service_by_server_uuid_service_name(
-        self, server_uuid="", service_name=""
-    ):
+    def get_server_service_by_server_uuid_service_name(self, server_uuid="", service_name=""):
         """
         Operation: Get a service by name
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: AlphaNumeric Unique Id of the Server
         Parameter Type: path, Name: service_name, Description: Unique Name of the SystemServiceControl
         """
-        url_path = "/server/service/{server_uuid}/{service_name}"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server/service/{server_uuid}/{service_name}'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_server_service_by_server_uuid_service_name_start(
-        self, server_uuid="", service_name=""
-    ):
+    def update_server_service_by_server_uuid_service_name_start(self, server_uuid="", service_name=""):
         """
         Operation:  Start a service by name
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: AlphaNumeric Unique Id of the Server
         Parameter Type: path, Name: service_name, Description: Unique Name of the SystemServiceControl
         """
-        url_path = "/server/service/{server_uuid}/{service_name}/start"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server/service/{server_uuid}/{service_name}/start'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
-    def update_server_service_by_server_uuid_service_name_stop(
-        self, server_uuid="", service_name=""
-    ):
+    def update_server_service_by_server_uuid_service_name_stop(self, server_uuid="", service_name=""):
         """
         Operation:  Stop a service by name
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: AlphaNumeric Unique Id of the Server
         Parameter Type: path, Name: service_name, Description: Unique Name of the SystemServiceControl
         """
-        url_path = "/server/service/{server_uuid}/{service_name}/stop"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server/service/{server_uuid}/{service_name}/stop'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )

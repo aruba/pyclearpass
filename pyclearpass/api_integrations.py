@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,

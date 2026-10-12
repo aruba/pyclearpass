@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -29,24 +32,26 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/email/send"
+        url_path = '/email/send'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Generate a random MPSK
     def get_random_mpsk(self):
         """
-        Operation:
+        Operation: 
         HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         """
-        url_path = "/random-mpsk"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/random-mpsk'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_random_mpsk(self, body=({})):
         """
-        Operation:
+        Operation: 
         HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
@@ -59,24 +64,26 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/random-mpsk"
+        url_path = '/random-mpsk'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Generate a random password
     def get_random_password(self):
         """
-        Operation:
+        Operation: 
         HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         """
-        url_path = "/random-password"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/random-password'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_random_password(self, body=({})):
         """
-        Operation:
+        Operation: 
         HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
@@ -89,10 +96,10 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/random-password"
+        url_path = '/random-password'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Send SMS using Configuration -> SMS Services -> Send SMS
@@ -112,8 +119,8 @@ class ApiToolsAndUtilities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/sms/send"
+        url_path = '/sms/send'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )

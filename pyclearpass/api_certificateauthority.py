@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -11,9 +14,7 @@ from pyclearpass.common import (
 class ApiCertificateAuthority(ClearPassAPILogin):
 
     # API Service: Manage Onboard certificates
-    def get_certificate(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_certificate(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of certificates
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -23,17 +24,14 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/certificate"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/certificate'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_certificate_by_certificate_id(self, certificate_id=""):
         """
@@ -41,11 +39,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: certificate_id, Description: Numeric ID of the certificate
         """
-        url_path = "/certificate/{certificate_id}"
-        dict_path = {"certificate_id": certificate_id}
+        url_path = '/certificate/{certificate_id}'
+        dict_path = {'certificate_id': certificate_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def delete_certificate_by_certificate_id(self, certificate_id=""):
         """
@@ -53,11 +53,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: certificate_id, Description: Numeric ID of the certificate
         """
-        url_path = "/certificate/{certificate_id}"
-        dict_path = {"certificate_id": certificate_id}
+        url_path = '/certificate/{certificate_id}'
+        dict_path = {'certificate_id': certificate_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Get a certificate and its trust chain
     def get_certificate_by_cert_id_chain(self, cert_id=""):
@@ -66,16 +68,16 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: cert_id, Description: Numeric ID of the certificate
         """
-        url_path = "/certificate/{cert_id}/chain"
-        dict_path = {"cert_id": cert_id}
+        url_path = '/certificate/{cert_id}/chain'
+        dict_path = {'cert_id': cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Export a certificate or certificate signing request
-    def new_certificate_by_cert_id_export(
-        self, cert_id="", body=({}), content_type="application/json"
-    ):
+    def new_certificate_by_cert_id_export(self, cert_id="", body=({}), content_type="application/json"):
         """
         Operation: Export a certificate or certificate signing request
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -94,17 +96,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/{cert_id}/export"
-        dict_path = {"cert_id": cert_id}
+        url_path = '/certificate/{cert_id}/export'
+        dict_path = {'cert_id': cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self,
-            url=url_path,
-            method="post",
-            query=body,
-            content_response_type=content_type,
+            self, url=url_path, method='post', query=body, content_response_type=content_type
         )
 
     # API Service: Import a code-signing, trusted, or CA certificate
@@ -127,10 +125,10 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/import"
+        url_path = '/certificate/import'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Create a new certificate signing request and private key
@@ -171,10 +169,10 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/new"
+        url_path = '/certificate/new'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Reject a certificate signing request
@@ -192,13 +190,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/{cert_id}/reject"
-        dict_path = {"cert_id": cert_id}
+        url_path = '/certificate/{cert_id}/reject'
+        dict_path = {'cert_id': cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Import a certificate signing request
@@ -220,10 +218,10 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/request"
+        url_path = '/certificate/request'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Revoke a certificate
@@ -242,53 +240,51 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/certificate/{cert_id}/revoke"
-        dict_path = {"cert_id": cert_id}
+        url_path = '/certificate/{cert_id}/revoke'
+        dict_path = {'cert_id': cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Sign a certificate signing request
     def new_certificate_by_cert_id_sign(self, cert_id="", body=({})):
         """
-                Operation: Sign a certificate signing request
-                HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Parameter Type: path, Name: cert_id, Description: Numeric ID of the certificate signing request
-                Required Body Parameters:['ca_id', 'days', 'confirm_sign']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Sign a certificate signing request
+        HTTP Response Codes: 200 OK, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Parameter Type: path, Name: cert_id, Description: Numeric ID of the certificate signing request
+        Required Body Parameters:['ca_id', 'days', 'confirm_sign']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "ca_id" : 0, #Numeric ID of the certificate authority. Object Type: integer
-                "days" : 0, #The number of days before the certificate will expire. Object Type: integer
-                "confirm_sign" : False, #Select this checkbox to sign the request and issue a certificate. Object Type: boolean
-                "custom_subject" : [{
-             "field":"", #Field within the subject. Object Type: string
-             "value":"", #Value of the field. Object Type: string
-        }], #If specified, a list of field/value pairs for the subject of the issued certificate. Object Type: array
-                "custom_subject_alt_name" : [{
-             "field":"", #Field within the subject alt name. Object Type: string
-             "value":"", #Value of the field. Object Type: string
-        }], #If specified, a list of field/value pairs for the subjectAltName of the issued certificate. Object Type: array
+        body={
+        "ca_id" : 0, #Numeric ID of the certificate authority. Object Type: integer
+        "days" : 0, #The number of days before the certificate will expire. Object Type: integer
+        "confirm_sign" : False, #Select this checkbox to sign the request and issue a certificate. Object Type: boolean
+        "custom_subject" : [{
+     "field":"", #Field within the subject. Object Type: string
+     "value":"", #Value of the field. Object Type: string
+}], #If specified, a list of field/value pairs for the subject of the issued certificate. Object Type: array
+        "custom_subject_alt_name" : [{
+     "field":"", #Field within the subject alt name. Object Type: string
+     "value":"", #Value of the field. Object Type: string
+}], #If specified, a list of field/value pairs for the subjectAltName of the issued certificate. Object Type: array
 
-                }
+        }
         """
-        url_path = "/certificate/{cert_id}/sign"
-        dict_path = {"cert_id": cert_id}
+        url_path = '/certificate/{cert_id}/sign'
+        dict_path = {'cert_id': cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Manage Onboard devices
-    def get_onboard_device(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_onboard_device(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of devices
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -298,17 +294,14 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/onboard/device"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/onboard/device'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_onboard_device_by_id(self, id=""):
         """
@@ -316,11 +309,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: id, Description: Numeric ID of the device
         """
-        url_path = "/onboard/device/{id}"
-        dict_path = {"id": id}
+        url_path = '/onboard/device/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_onboard_device_by_id(self, id="", body=({})):
         """
@@ -352,43 +347,41 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/onboard/device/{id}"
-        dict_path = {"id": id}
+        url_path = '/onboard/device/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def delete_onboard_device_by_id(
-        self, disconnect_active_sessions="", ignore_disconnect_errors="", id=""
-    ):
+    def delete_onboard_device_by_id(self, disconnect_active_sessions="", ignore_disconnect_errors="", id=""):
         """
-                Operation: Delete a device
-                HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Parameter Type (Optional): query, Name: disconnect_active_sessions, Description: <b>true:</b> Disconnects the device from the network (default)<br/><b>false:</b> No action is taken
-                Parameter Type (Optional): query, Name: ignore_disconnect_errors, Description:
-        <b>true:</b> Optional Disconnect — failure to disconnect will be ignored and the device will be forcibly deleted<br/>
-        <b>false:</b> Require Disconnect (Recommended) — failure to disconnect will stop the device from being deleted (default)<br/>
-        When false (‘Require Disconnect’), the device will only be deleted if all other sessions can be disconnected,
-        which ensures that the device does not retain access to the network through a currently active session.
-        You should only select true (‘Optional Disconnect’) if necessary.<br/>
-        This parameter is ignored if <span class="code">disconnect_active_sessions</span> is false.
-                Parameter Type: path, Name: id, Description: Numeric ID of the device
+        Operation: Delete a device
+        HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Parameter Type (Optional): query, Name: disconnect_active_sessions, Description: <b>true:</b> Disconnects the device from the network (default)<br/><b>false:</b> No action is taken
+        Parameter Type (Optional): query, Name: ignore_disconnect_errors, Description: 
+<b>true:</b> Optional Disconnect — failure to disconnect will be ignored and the device will be forcibly deleted<br/>
+<b>false:</b> Require Disconnect (Recommended) — failure to disconnect will stop the device from being deleted (default)<br/>
+When false (‘Require Disconnect’), the device will only be deleted if all other sessions can be disconnected,
+which ensures that the device does not retain access to the network through a currently active session.
+You should only select true (‘Optional Disconnect’) if necessary.<br/>
+This parameter is ignored if <span class="code">disconnect_active_sessions</span> is false.
+        Parameter Type: path, Name: id, Description: Numeric ID of the device
         """
-        url_path = "/onboard/device/{id}"
-        dict_query = {
-            "disconnect_active_sessions": disconnect_active_sessions,
-            "ignore_disconnect_errors": ignore_disconnect_errors,
-        }
+        url_path = '/onboard/device/{id}'
+        dict_query = {'disconnect_active_sessions': disconnect_active_sessions,
+                      'ignore_disconnect_errors': ignore_disconnect_errors}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
         id = id.replace("/", "%2F")
-        dict_path = {"id": id}
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Onboard users
     def get_user(self, filter="", sort="", offset="", limit="", calculate_count=""):
@@ -401,17 +394,14 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/user"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/user'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_user_by_id(self, id=""):
         """
@@ -419,11 +409,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: id, Description: Numeric ID of the user
         """
-        url_path = "/user/{id}"
-        dict_path = {"id": id}
+        url_path = '/user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_user_by_id(self, id="", body=({})):
         """
@@ -442,13 +434,13 @@ class ApiCertificateAuthority(ClearPassAPILogin):
 
         }
         """
-        url_path = "/user/{id}"
-        dict_path = {"id": id}
+        url_path = '/user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def delete_user_by_id(self, id=""):
@@ -457,8 +449,10 @@ class ApiCertificateAuthority(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: id, Description: Numeric ID of the user
         """
-        url_path = "/user/{id}"
-        dict_path = {"id": id}
+        url_path = '/user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )

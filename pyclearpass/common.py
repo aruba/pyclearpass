@@ -1,7 +1,12 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 import json
 import requests
-import urllib.parse
+
 import urllib3
+import urllib
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 urllib3.disable_warnings()
 
@@ -9,12 +14,12 @@ urllib3.disable_warnings()
 class ClearPassAPILogin:
     def __init__(
         self,
+        server,
         granttype="",
         clientid="",
         clientsecret="",
         username="",
         password="",
-        server="",
         api_token="",
         verify_ssl=True,
         timeout: int = 30,
@@ -27,14 +32,14 @@ class ClearPassAPILogin:
         Mandatory Parameters:
         server (string): Website for ClearPass services example - https://yourserver.network.local:443/api
 
-        Option 1 Parameters:-
+        Option 1 Parameters:
+        api_token = Provide the api_token which is the 'access token'.
+
+        Option 2 Parameters:-
         granttype (string) = ['client_credentials' or 'password' or 'refresh_token']: OAuth2 authentication method,client_id (string): Client ID defined in API Clients,
         clientsecret (string, optional): Client secret, required if the API client is not a public client,
         username (string, optional): Username for authentication, required for grant_type "password",
         password (string, optional): Password for authentication, required for grant_type "password",
-
-        Option 2 Parameters:
-        api_token = Provide the api_token which is the 'access token'.
 
         Optional Parameters:
         verify_ssl (boolean, optional): default value False. Allows use of an invalid SSL certificate.
@@ -168,3 +173,10 @@ def _generate_parameterised_url(url, parameters=""):
         encoded_url = urllib.parse.urlencode(parameters)
         final_url = url + "?" + encoded_url
         return final_url
+
+
+def _generate_encoded_relative_url(urlPath):
+    urlPath = urlPath.strip().strip('"')
+    parts = urlsplit(urlPath)
+    encodedQuery = urlencode(parse_qsl(parts.query, keep_blank_values=True))
+    return urlunsplit(("", "", parts.path, encodedQuery, parts.fragment))

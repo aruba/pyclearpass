@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -30,10 +33,10 @@ class ApiApiOperations(ClearPassAPILogin):
 
         }
         """
-        url_path = "/oauth"
+        url_path = '/oauth'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Returns OAuth2 authenticated client or user information
@@ -42,8 +45,10 @@ class ApiApiOperations(ClearPassAPILogin):
         Operation: Returns OAuth2 authenticated client or user information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/oauth/me"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/oauth/me'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_oauth_me(self, body=({})):
         """
@@ -60,10 +65,10 @@ class ApiApiOperations(ClearPassAPILogin):
 
         }
         """
-        url_path = "/oauth/me"
+        url_path = '/oauth/me'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Determine the privileges available to the user
@@ -72,5 +77,7 @@ class ApiApiOperations(ClearPassAPILogin):
         Operation: Returns a list of privileges available to the user
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/oauth/privileges"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/oauth/privileges'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )

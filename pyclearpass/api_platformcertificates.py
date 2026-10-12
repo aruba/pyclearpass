@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -33,16 +36,14 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cert-sign-request"
+        url_path = '/cert-sign-request'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Manage Certificate Trust List
-    def get_cert_trust_list(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_cert_trust_list(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of certificate trust list
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -52,17 +53,14 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/cert-trust-list"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/cert-trust-list'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_cert_trust_list(self, body=({})):
         """
@@ -79,10 +77,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cert-trust-list"
+        url_path = '/cert-trust-list'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_cert_trust_list_by_cert_trust_list_id(self, cert_trust_list_id=""):
@@ -91,15 +89,15 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: cert_trust_list_id, Description: URL parameter cert_trust_list_id
         """
-        url_path = "/cert-trust-list/{cert_trust_list_id}"
-        dict_path = {"cert_trust_list_id": cert_trust_list_id}
+        url_path = '/cert-trust-list/{cert_trust_list_id}'
+        dict_path = {'cert_trust_list_id': cert_trust_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_cert_trust_list_by_cert_trust_list_id(
-        self, cert_trust_list_id="", body=({})
-    ):
+    def update_cert_trust_list_by_cert_trust_list_id(self, cert_trust_list_id="", body=({})):
         """
         Operation: Enbale certificate trust list
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -115,13 +113,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cert-trust-list/{cert_trust_list_id}"
-        dict_path = {"cert_trust_list_id": cert_trust_list_id}
+        url_path = '/cert-trust-list/{cert_trust_list_id}'
+        dict_path = {'cert_trust_list_id': cert_trust_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def delete_cert_trust_list_by_cert_trust_list_id(self, cert_trust_list_id=""):
@@ -130,16 +128,16 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: cert_trust_list_id, Description: URL parameter cert_trust_list_id
         """
-        url_path = "/cert-trust-list/{cert_trust_list_id}"
-        dict_path = {"cert_trust_list_id": cert_trust_list_id}
+        url_path = '/cert-trust-list/{cert_trust_list_id}'
+        dict_path = {'cert_trust_list_id': cert_trust_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Certificate Trust List details
-    def get_cert_trust_list_details(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_cert_trust_list_details(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of certificate trust list details
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -149,36 +147,31 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/cert-trust-list-details"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/cert-trust-list-details'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def get_cert_trust_list_details_by_cert_trust_list_details_id(
-        self, cert_trust_list_details_id=""
-    ):
+    def get_cert_trust_list_details_by_cert_trust_list_details_id(self, cert_trust_list_details_id=""):
         """
         Operation: Get a certificate trust list details
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: cert_trust_list_details_id, Description: URL parameter cert_trust_list_details_id
         """
-        url_path = "/cert-trust-list-details/{cert_trust_list_details_id}"
-        dict_path = {"cert_trust_list_details_id": cert_trust_list_details_id}
+        url_path = '/cert-trust-list-details/{cert_trust_list_details_id}'
+        dict_path = {'cert_trust_list_details_id': cert_trust_list_details_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage Client Certificates
-    def get_client_cert(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_client_cert(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of client certificates
         HTTP Response Codes: 200 OK, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -188,17 +181,14 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/client-cert"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/client-cert'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_client_cert(self, body=({})):
         """
@@ -215,10 +205,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/client-cert"
+        url_path = '/client-cert'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_client_cert_by_client_cert_id(self, client_cert_id=""):
@@ -227,11 +217,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: client_cert_id, Description: URL parameter client_cert_id
         """
-        url_path = "/client-cert/{client_cert_id}"
-        dict_path = {"client_cert_id": client_cert_id}
+        url_path = '/client-cert/{client_cert_id}'
+        dict_path = {'client_cert_id': client_cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def delete_client_cert_by_client_cert_id(self, client_cert_id=""):
         """
@@ -239,16 +231,16 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: client_cert_id, Description: URL parameter client_cert_id
         """
-        url_path = "/client-cert/{client_cert_id}"
-        dict_path = {"client_cert_id": client_cert_id}
+        url_path = '/client-cert/{client_cert_id}'
+        dict_path = {'client_cert_id': client_cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Revocation Certificate List
-    def get_revocation_list(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_revocation_list(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of revocation certificate list
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -258,17 +250,14 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/revocation-list"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/revocation-list'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_revocation_list(self, body=({})):
         """
@@ -289,10 +278,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/revocation-list"
+        url_path = '/revocation-list'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_revocation_list_by_revocation_list_id(self, revocation_list_id=""):
@@ -301,15 +290,15 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: revocation_list_id, Description: URL parameter revocation_list_id
         """
-        url_path = "/revocation-list/{revocation_list_id}"
-        dict_path = {"revocation_list_id": revocation_list_id}
+        url_path = '/revocation-list/{revocation_list_id}'
+        dict_path = {'revocation_list_id': revocation_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_revocation_list_by_revocation_list_id(
-        self, revocation_list_id="", body=({})
-    ):
+    def update_revocation_list_by_revocation_list_id(self, revocation_list_id="", body=({})):
         """
         Operation: Update a certificate
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -329,13 +318,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/revocation-list/{revocation_list_id}"
-        dict_path = {"revocation_list_id": revocation_list_id}
+        url_path = '/revocation-list/{revocation_list_id}'
+        dict_path = {'revocation_list_id': revocation_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def delete_revocation_list_by_revocation_list_id(self, revocation_list_id=""):
@@ -344,11 +333,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: revocation_list_id, Description: URL parameter revocation_list_id
         """
-        url_path = "/revocation-list/{revocation_list_id}"
-        dict_path = {"revocation_list_id": revocation_list_id}
+        url_path = '/revocation-list/{revocation_list_id}'
+        dict_path = {'revocation_list_id': revocation_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Self-Signed Certificates
     def new_self_signed_cert(self, body=({})):
@@ -376,10 +367,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/self-signed-cert"
+        url_path = '/self-signed-cert'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Manage Server Certificates
@@ -388,8 +379,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Operation: Get a list of server certificates
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/server-cert"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/server-cert'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_server_cert_by_service_id(self, service_id=""):
         """
@@ -397,11 +390,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: service_id, Description: Unique ID for the service
         """
-        url_path = "/server-cert/{service_id}"
-        dict_path = {"service_id": service_id}
+        url_path = '/server-cert/{service_id}'
+        dict_path = {'service_id': service_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_server_cert_by_service_id(self, service_id="", body=({})):
         """
@@ -432,38 +427,36 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server-cert/{service_id}"
-        dict_path = {"service_id": service_id}
+        url_path = '/server-cert/{service_id}'
+        dict_path = {'service_id': service_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def get_server_cert_name_by_server_uuid_service_name(
-        self, server_uuid="", service_name=""
-    ):
+    def get_server_cert_name_by_server_uuid_service_name(self, server_uuid="", service_name=""):
         """
         Operation: Get a server certificate
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: service_name, Description: Service name (RADIUS, HTTPS(RSA), HTTPS(ECC) or RadSec)
+        Parameter Type: path, Name: service_name, Description: Service name (RADIUS, HTTPS(RSA), HTTPS(ECC) or RadSec) 
         """
-        url_path = "/server-cert/name/{server_uuid}/{service_name}"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server-cert/name/{server_uuid}/{service_name}'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def replace_server_cert_name_by_server_uuid_service_name(
-        self, server_uuid="", service_name="", body=({})
-    ):
+    def replace_server_cert_name_by_server_uuid_service_name(self, server_uuid="", service_name="", body=({})):
         """
         Operation: Add a server certificate
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: service_name, Description: Service name (RADIUS, HTTPS(RSA), HTTPS(ECC) or RadSec)
+        Parameter Type: path, Name: service_name, Description: Service name (RADIUS, HTTPS(RSA), HTTPS(ECC) or RadSec) 
         Required Body Parameters: None listed
         Parameter Type: body, Name: body
         Body example with descriptions and object types below (type(dict):
@@ -475,49 +468,47 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server-cert/name/{server_uuid}/{service_name}"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server-cert/name/{server_uuid}/{service_name}'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def update_server_cert_name_by_server_uuid_service_name_enable(
-        self, server_uuid="", service_name=""
-    ):
+    def update_server_cert_name_by_server_uuid_service_name_enable(self, server_uuid="", service_name=""):
         """
         Operation: Update a server certificate
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: service_name, Description: Service name (HTTPS(RSA) or HTTPS(ECC))
+        Parameter Type: path, Name: service_name, Description: Service name (HTTPS(RSA) or HTTPS(ECC)) 
         """
-        url_path = "/server-cert/name/{server_uuid}/{service_name}/enable"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server-cert/name/{server_uuid}/{service_name}/enable'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
-    def update_server_cert_name_by_server_uuid_service_name_disable(
-        self, server_uuid="", service_name=""
-    ):
+    def update_server_cert_name_by_server_uuid_service_name_disable(self, server_uuid="", service_name=""):
         """
         Operation: Update a server certificate
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: server_uuid, Description: UUID of the server
-        Parameter Type: path, Name: service_name, Description: Service name (HTTPS(RSA) or HTTPS(ECC))
+        Parameter Type: path, Name: service_name, Description: Service name (HTTPS(RSA) or HTTPS(ECC)) 
         """
-        url_path = "/server-cert/name/{server_uuid}/{service_name}/disable"
-        dict_path = {"server_uuid": server_uuid, "service_name": service_name}
+        url_path = '/server-cert/name/{server_uuid}/{service_name}/disable'
+        dict_path = {'server_uuid': server_uuid, 'service_name': service_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     # API Service: Manage Service Certificates
-    def get_service_cert(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_service_cert(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of service certificates
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -527,17 +518,14 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/service-cert"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/service-cert'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_service_cert(self, body=({})):
         """
@@ -554,10 +542,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
 
         }
         """
-        url_path = "/service-cert"
+        url_path = '/service-cert'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_service_cert_by_service_cert_id(self, service_cert_id=""):
@@ -566,11 +554,13 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: service_cert_id, Description: URL parameter service_cert_id
         """
-        url_path = "/service-cert/{service_cert_id}"
-        dict_path = {"service_cert_id": service_cert_id}
+        url_path = '/service-cert/{service_cert_id}'
+        dict_path = {'service_cert_id': service_cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def delete_service_cert_by_service_cert_id(self, service_cert_id=""):
         """
@@ -578,8 +568,10 @@ class ApiPlatformCertificates(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: service_cert_id, Description: URL parameter service_cert_id
         """
-        url_path = "/service-cert/{service_cert_id}"
-        dict_path = {"service_cert_id": service_cert_id}
+        url_path = '/service-cert/{service_cert_id}'
+        dict_path = {'service_cert_id': service_cert_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )

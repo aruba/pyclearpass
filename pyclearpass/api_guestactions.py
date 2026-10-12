@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -18,11 +21,13 @@ class ApiGuestActions(ClearPassAPILogin):
         Parameter Type: path, Name: guest_id, Description: Numeric ID of the guest account
         Parameter Type: path, Name: id, Description: Numeric ID of the digital pass template
         """
-        url_path = "/guest/{guest_id}/pass/{id}"
-        dict_path = {"guest_id": guest_id, "id": id}
+        url_path = '/guest/{guest_id}/pass/{id}'
+        dict_path = {'guest_id': guest_id, 'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Generate a guest account receipt
     def get_guest_by_guest_id_receipt_id(self, guest_id="", id=""):
@@ -32,11 +37,13 @@ class ApiGuestActions(ClearPassAPILogin):
         Parameter Type: path, Name: guest_id, Description: Numeric ID of the guest account
         Parameter Type: path, Name: id, Description: Numeric ID of the print template
         """
-        url_path = "/guest/{guest_id}/receipt/{id}"
-        dict_path = {"guest_id": guest_id, "id": id}
+        url_path = '/guest/{guest_id}/receipt/{id}'
+        dict_path = {'guest_id': guest_id, 'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Operations for SendSmsReceipt
     def new_guest_by_guest_id_sendreceipt_sms(self, guest_id="", body=({})):
@@ -53,13 +60,13 @@ class ApiGuestActions(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/{guest_id}/sendreceipt/sms"
-        dict_path = {"guest_id": guest_id}
+        url_path = '/guest/{guest_id}/sendreceipt/sms'
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Operations for SendSmtpReceipt
@@ -77,13 +84,13 @@ class ApiGuestActions(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/{guest_id}/sendreceipt/smtp"
-        dict_path = {"guest_id": guest_id}
+        url_path = '/guest/{guest_id}/sendreceipt/smtp'
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Sponsor confirmation for guest accounts
@@ -107,14 +114,14 @@ class ApiGuestActions(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/{guest_id}/sponsor"
-        dict_query = {"gsr_id": gsr_id}
+        url_path = '/guest/{guest_id}/sponsor'
+        dict_query = {'gsr_id': gsr_id}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"guest_id": guest_id}
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )

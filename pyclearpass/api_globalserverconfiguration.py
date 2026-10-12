@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -11,9 +14,7 @@ from pyclearpass.common import (
 class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
     # API Service: Manage admin privileges
-    def get_admin_privilege(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_admin_privilege(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of admin privileges
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -23,17 +24,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/admin-privilege"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/admin-privilege'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_admin_privilege(self, body=({})):
         """
@@ -54,10 +52,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-privilege"
+        url_path = '/admin-privilege'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_admin_privilege_by_admin_privilege_id(self, admin_privilege_id=""):
@@ -66,15 +64,15 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: admin_privilege_id, Description: Numeric ID of the admin privilege
         """
-        url_path = "/admin-privilege/{admin_privilege_id}"
-        dict_path = {"admin_privilege_id": admin_privilege_id}
+        url_path = '/admin-privilege/{admin_privilege_id}'
+        dict_path = {'admin_privilege_id': admin_privilege_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_admin_privilege_by_admin_privilege_id(
-        self, admin_privilege_id="", body=({})
-    ):
+    def update_admin_privilege_by_admin_privilege_id(self, admin_privilege_id="", body=({})):
         """
         Operation: Update some fields of an admin privilege
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -94,18 +92,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-privilege/{admin_privilege_id}"
-        dict_path = {"admin_privilege_id": admin_privilege_id}
+        url_path = '/admin-privilege/{admin_privilege_id}'
+        dict_path = {'admin_privilege_id': admin_privilege_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_admin_privilege_by_admin_privilege_id(
-        self, admin_privilege_id="", body=({})
-    ):
+    def replace_admin_privilege_by_admin_privilege_id(self, admin_privilege_id="", body=({})):
         """
         Operation: Replace an admin privilege
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -125,13 +121,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-privilege/{admin_privilege_id}"
-        dict_path = {"admin_privilege_id": admin_privilege_id}
+        url_path = '/admin-privilege/{admin_privilege_id}'
+        dict_path = {'admin_privilege_id': admin_privilege_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_admin_privilege_by_admin_privilege_id(self, admin_privilege_id=""):
@@ -140,11 +136,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: admin_privilege_id, Description: Numeric ID of the admin privilege
         """
-        url_path = "/admin-privilege/{admin_privilege_id}"
-        dict_path = {"admin_privilege_id": admin_privilege_id}
+        url_path = '/admin-privilege/{admin_privilege_id}'
+        dict_path = {'admin_privilege_id': admin_privilege_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_admin_privilege_name_by_name(self, name=""):
         """
@@ -152,11 +150,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the admin privilege
         """
-        url_path = "/admin-privilege/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/admin-privilege/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_admin_privilege_name_by_name(self, name="", body=({})):
         """
@@ -178,13 +178,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-privilege/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/admin-privilege/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_admin_privilege_name_by_name(self, name="", body=({})):
@@ -207,13 +207,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-privilege/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/admin-privilege/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_admin_privilege_name_by_name(self, name=""):
@@ -222,16 +222,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the admin privilege
         """
-        url_path = "/admin-privilege/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/admin-privilege/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage admin users
-    def get_admin_user(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_admin_user(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of admin users
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -241,17 +241,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/admin-user"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/admin-user'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_admin_user(self, body=({})):
         """
@@ -270,10 +267,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user"
+        url_path = '/admin-user'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_admin_user_by_id(self, id=""):
@@ -282,11 +279,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric ID of the admin user
         """
-        url_path = "/admin-user/{id}"
-        dict_path = {"id": id}
+        url_path = '/admin-user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_admin_user_by_id(self, id="", body=({})):
         """
@@ -306,13 +305,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/{id}"
-        dict_path = {"id": id}
+        url_path = '/admin-user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_admin_user_by_id(self, id="", body=({})):
@@ -333,13 +332,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/{id}"
-        dict_path = {"id": id}
+        url_path = '/admin-user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_admin_user_by_id(self, id=""):
@@ -348,11 +347,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: Numeric ID of the admin user
         """
-        url_path = "/admin-user/{id}"
-        dict_path = {"id": id}
+        url_path = '/admin-user/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_admin_user_user_id_by_user_id(self, user_id=""):
         """
@@ -360,11 +361,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: Unique user_id of the admin user
         """
-        url_path = "/admin-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/admin-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_admin_user_user_id_by_user_id(self, user_id="", body=({})):
         """
@@ -384,13 +387,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/admin-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_admin_user_user_id_by_user_id(self, user_id="", body=({})):
@@ -411,13 +414,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/admin-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_admin_user_user_id_by_user_id(self, user_id=""):
@@ -426,11 +429,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: Unique user_id of the admin user
         """
-        url_path = "/admin-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/admin-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage admin user password policies
     def get_admin_user_password_policy(self):
@@ -438,8 +443,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get the admin user password policies
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/admin-user/password-policy"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/admin-user/password-policy'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_admin_user_password_policy(self, body=({})):
         """
@@ -463,10 +470,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/password-policy"
+        url_path = '/admin-user/password-policy'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def update_admin_user_password_policy(self, body=({})):
@@ -491,10 +498,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/admin-user/password-policy"
+        url_path = '/admin-user/password-policy'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Manage application license
@@ -503,8 +510,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get a list of application licenses
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/application-license"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/application-license'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_application_license(self, body=({})):
         """
@@ -519,10 +528,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/application-license"
+        url_path = '/application-license'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_application_license_by_license_id(self, license_id=""):
@@ -531,11 +540,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: license_id, Description: Numeric ID of Application License
         """
-        url_path = "/application-license/{license_id}"
-        dict_path = {"license_id": license_id}
+        url_path = '/application-license/{license_id}'
+        dict_path = {'license_id': license_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_application_license_by_license_id(self, license_id="", body=({})):
         """
@@ -551,13 +562,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/application-license/{license_id}"
-        dict_path = {"license_id": license_id}
+        url_path = '/application-license/{license_id}'
+        dict_path = {'license_id': license_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_application_license_by_license_id(self, license_id=""):
@@ -566,11 +577,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: license_id, Description: Numeric ID of Application License
         """
-        url_path = "/application-license/{license_id}"
-        dict_path = {"license_id": license_id}
+        url_path = '/application-license/{license_id}'
+        dict_path = {'license_id': license_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def update_application_license_activate_online_by_license_id(self, license_id=""):
         """
@@ -578,11 +591,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: license_id, Description: Numeric ID of Application License
         """
-        url_path = "/application-license/activate-online/{license_id}"
-        dict_path = {"license_id": license_id}
+        url_path = '/application-license/activate-online/{license_id}'
+        dict_path = {'license_id': license_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def update_application_license_activate_offline_by_license_id(self, license_id=""):
         """
@@ -590,24 +605,26 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: license_id, Description: Numeric ID of Application License
         """
-        url_path = "/application-license/activate-offline/{license_id}"
-        dict_path = {"license_id": license_id}
+        url_path = '/application-license/activate-offline/{license_id}'
+        dict_path = {'license_id': license_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="patch")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='patch'
+        )
 
     def get_application_license_summary(self):
         """
         Operation: Get application license summary
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/application-license/summary"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/application-license/summary'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage Attributes
-    def get_attribute(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_attribute(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of attributes
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -617,17 +634,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/attribute"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/attribute'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_attribute(self, body=({})):
         """
@@ -648,10 +662,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/attribute"
+        url_path = '/attribute'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_attribute_by_attribute_id(self, attribute_id=""):
@@ -660,11 +674,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: attribute_id, Description: Numeric ID of the attribute
         """
-        url_path = "/attribute/{attribute_id}"
-        dict_path = {"attribute_id": attribute_id}
+        url_path = '/attribute/{attribute_id}'
+        dict_path = {'attribute_id': attribute_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_attribute_by_attribute_id(self, attribute_id="", body=({})):
         """
@@ -686,13 +702,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/attribute/{attribute_id}"
-        dict_path = {"attribute_id": attribute_id}
+        url_path = '/attribute/{attribute_id}'
+        dict_path = {'attribute_id': attribute_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_attribute_by_attribute_id(self, attribute_id="", body=({})):
@@ -715,13 +731,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/attribute/{attribute_id}"
-        dict_path = {"attribute_id": attribute_id}
+        url_path = '/attribute/{attribute_id}'
+        dict_path = {'attribute_id': attribute_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_attribute_by_attribute_id(self, attribute_id=""):
@@ -730,11 +746,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: attribute_id, Description: Numeric ID of the attribute
         """
-        url_path = "/attribute/{attribute_id}"
-        dict_path = {"attribute_id": attribute_id}
+        url_path = '/attribute/{attribute_id}'
+        dict_path = {'attribute_id': attribute_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_attribute_by_entity_name_name_name(self, entity_name="", name=""):
         """
@@ -743,15 +761,15 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type: path, Name: entity_name, Description: Entity Name of the attribute
         Parameter Type: path, Name: name, Description: Unique name of the attribute
         """
-        url_path = "/attribute/{entity_name}/name/{name}"
-        dict_path = {"entity_name": entity_name, "name": name}
+        url_path = '/attribute/{entity_name}/name/{name}'
+        dict_path = {'entity_name': entity_name, 'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_attribute_by_entity_name_name_name(
-        self, entity_name="", name="", body=({})
-    ):
+    def update_attribute_by_entity_name_name_name(self, entity_name="", name="", body=({})):
         """
         Operation: Update some fields of an attribute by name
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -772,18 +790,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/attribute/{entity_name}/name/{name}"
-        dict_path = {"entity_name": entity_name, "name": name}
+        url_path = '/attribute/{entity_name}/name/{name}'
+        dict_path = {'entity_name': entity_name, 'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_attribute_by_entity_name_name_name(
-        self, entity_name="", name="", body=({})
-    ):
+    def replace_attribute_by_entity_name_name_name(self, entity_name="", name="", body=({})):
         """
         Operation: Replace an attribute by name
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -804,13 +820,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/attribute/{entity_name}/name/{name}"
-        dict_path = {"entity_name": entity_name, "name": name}
+        url_path = '/attribute/{entity_name}/name/{name}'
+        dict_path = {'entity_name': entity_name, 'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_attribute_by_entity_name_name_name(self, entity_name="", name=""):
@@ -820,11 +836,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type: path, Name: entity_name, Description: Entity Name of the attribute
         Parameter Type: path, Name: name, Description: Unique name of the attribute
         """
-        url_path = "/attribute/{entity_name}/name/{name}"
-        dict_path = {"entity_name": entity_name, "name": name}
+        url_path = '/attribute/{entity_name}/name/{name}'
+        dict_path = {'entity_name': entity_name, 'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage ClearPass portal
     def get_clearpass_portal(self):
@@ -832,8 +850,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get ClearPass Portal
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/clearpass-portal"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/clearpass-portal'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_clearpass_portal(self, body=({})):
         """
@@ -854,10 +874,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/clearpass-portal"
+        url_path = '/clearpass-portal'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Ensure a subscriber node is synchronized with the publisher node
@@ -874,10 +894,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cluster/db-sync"
+        url_path = '/cluster/db-sync'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     # API Service: Manage cluster wide parameters
@@ -886,8 +906,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get cluster wide parameters
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/cluster/parameters"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/cluster/parameters'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_cluster_parameters(self, body=({})):
         """
@@ -964,7 +986,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ProfilingAutoUpdatesFlag" : "", #Automatically check for available Profiling Updates. Object Type: string
         "SessionLogsCleanupInterval" : 0, #Cleanup interval for Session log details in the database in days. Object Type: integer
         "SoftwareAutoUpdatesFlag" : "", #Automatically check for available Software Updates. Object Type: string
-        "StaleTLSsessioninDiskclenaup" : 0, #No Desc. Object Type: integer
+        "StaleTLSSessionInDiskCleanup" : 0, #No Desc. Object Type: integer
         "StandbyFailoverWaitTime" : 0, #Failover Wait Time in minutes. Object Type: integer
         "StaticIPEndpointsCleanupOption" : "", #Static IP endpoints cleanup option. Object Type: string
         "StorePasswordHash" : "", #Store Password Hash for MSCHAP authentication. Object Type: string
@@ -982,10 +1004,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cluster/parameters"
+        url_path = '/cluster/parameters'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def update_cluster_parameters(self, body=({})):
@@ -1063,7 +1085,7 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         "ProfilingAutoUpdatesFlag" : "", #Automatically check for available Profiling Updates. Object Type: string
         "SessionLogsCleanupInterval" : 0, #Cleanup interval for Session log details in the database in days. Object Type: integer
         "SoftwareAutoUpdatesFlag" : "", #Automatically check for available Software Updates. Object Type: string
-        "StaleTLSsessioninDiskclenaup" : 0, #No Desc. Object Type: integer
+        "StaleTLSSessionInDiskCleanup" : 0, #No Desc. Object Type: integer
         "StandbyFailoverWaitTime" : 0, #Failover Wait Time in minutes. Object Type: integer
         "StaticIPEndpointsCleanupOption" : "", #Static IP endpoints cleanup option. Object Type: string
         "StorePasswordHash" : "", #Store Password Hash for MSCHAP authentication. Object Type: string
@@ -1081,16 +1103,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/cluster/parameters"
+        url_path = '/cluster/parameters'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Manage data filters
-    def get_data_filter(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_data_filter(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of data filters
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1100,17 +1120,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/data-filter"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/data-filter'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_data_filter(self, body=({})):
         """
@@ -1133,10 +1150,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/data-filter"
+        url_path = '/data-filter'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_data_filter_by_data_filter_id(self, data_filter_id=""):
@@ -1145,11 +1162,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: data_filter_id, Description: Numeric ID of the Data Filter
         """
-        url_path = "/data-filter/{data_filter_id}"
-        dict_path = {"data_filter_id": data_filter_id}
+        url_path = '/data-filter/{data_filter_id}'
+        dict_path = {'data_filter_id': data_filter_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_data_filter_by_data_filter_id(self, data_filter_id="", body=({})):
         """
@@ -1173,13 +1192,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/data-filter/{data_filter_id}"
-        dict_path = {"data_filter_id": data_filter_id}
+        url_path = '/data-filter/{data_filter_id}'
+        dict_path = {'data_filter_id': data_filter_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_data_filter_by_data_filter_id(self, data_filter_id="", body=({})):
@@ -1204,13 +1223,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/data-filter/{data_filter_id}"
-        dict_path = {"data_filter_id": data_filter_id}
+        url_path = '/data-filter/{data_filter_id}'
+        dict_path = {'data_filter_id': data_filter_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_data_filter_by_data_filter_id(self, data_filter_id=""):
@@ -1219,11 +1238,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: data_filter_id, Description: Numeric ID of the Data Filter
         """
-        url_path = "/data-filter/{data_filter_id}"
-        dict_path = {"data_filter_id": data_filter_id}
+        url_path = '/data-filter/{data_filter_id}'
+        dict_path = {'data_filter_id': data_filter_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_data_filter_name_by_name(self, name=""):
         """
@@ -1231,11 +1252,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the data filter
         """
-        url_path = "/data-filter/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/data-filter/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_data_filter_name_by_name(self, name="", body=({})):
         """
@@ -1259,13 +1282,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/data-filter/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/data-filter/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_data_filter_name_by_name(self, name="", body=({})):
@@ -1290,13 +1313,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/data-filter/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/data-filter/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_data_filter_name_by_name(self, name=""):
@@ -1305,16 +1328,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the data filter
         """
-        url_path = "/data-filter/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/data-filter/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage file backup server
-    def get_file_backup_server(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_file_backup_server(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of file backup server
         HTTP Response Codes: 200 OK, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1324,17 +1347,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/file-backup-server"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/file-backup-server'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_file_backup_server(self, body=({})):
         """
@@ -1357,10 +1377,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/file-backup-server"
+        url_path = '/file-backup-server'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_file_backup_server_by_file_backup_server_id(self, file_backup_server_id=""):
@@ -1369,15 +1389,15 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: file_backup_server_id, Description: Numeric ID of the file-backup-server
         """
-        url_path = "/file-backup-server/{file_backup_server_id}"
-        dict_path = {"file_backup_server_id": file_backup_server_id}
+        url_path = '/file-backup-server/{file_backup_server_id}'
+        dict_path = {'file_backup_server_id': file_backup_server_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_file_backup_server_by_file_backup_server_id(
-        self, file_backup_server_id="", body=({})
-    ):
+    def update_file_backup_server_by_file_backup_server_id(self, file_backup_server_id="", body=({})):
         """
         Operation: Update some fields of a file backup server
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1399,18 +1419,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/file-backup-server/{file_backup_server_id}"
-        dict_path = {"file_backup_server_id": file_backup_server_id}
+        url_path = '/file-backup-server/{file_backup_server_id}'
+        dict_path = {'file_backup_server_id': file_backup_server_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_file_backup_server_by_file_backup_server_id(
-        self, file_backup_server_id="", body=({})
-    ):
+    def replace_file_backup_server_by_file_backup_server_id(self, file_backup_server_id="", body=({})):
         """
         Operation: Replace a file backup server
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1432,28 +1450,28 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/file-backup-server/{file_backup_server_id}"
-        dict_path = {"file_backup_server_id": file_backup_server_id}
+        url_path = '/file-backup-server/{file_backup_server_id}'
+        dict_path = {'file_backup_server_id': file_backup_server_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def delete_file_backup_server_by_file_backup_server_id(
-        self, file_backup_server_id=""
-    ):
+    def delete_file_backup_server_by_file_backup_server_id(self, file_backup_server_id=""):
         """
         Operation: Delete a file backup server
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: file_backup_server_id, Description: Numeric ID of the file-backup-server
         """
-        url_path = "/file-backup-server/{file_backup_server_id}"
-        dict_path = {"file_backup_server_id": file_backup_server_id}
+        url_path = '/file-backup-server/{file_backup_server_id}'
+        dict_path = {'file_backup_server_id': file_backup_server_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_file_backup_server_host_address_by_host_address(self, host_address=""):
         """
@@ -1461,15 +1479,15 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: host_address, Description: Unique host_address of the file-backup-server
         """
-        url_path = "/file-backup-server/host-address/{host_address}"
-        dict_path = {"host_address": host_address}
+        url_path = '/file-backup-server/host-address/{host_address}'
+        dict_path = {'host_address': host_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_file_backup_server_host_address_by_host_address(
-        self, host_address="", body=({})
-    ):
+    def update_file_backup_server_host_address_by_host_address(self, host_address="", body=({})):
         """
         Operation: Update some fields of a file backup server by host_address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1491,18 +1509,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/file-backup-server/host-address/{host_address}"
-        dict_path = {"host_address": host_address}
+        url_path = '/file-backup-server/host-address/{host_address}'
+        dict_path = {'host_address': host_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_file_backup_server_host_address_by_host_address(
-        self, host_address="", body=({})
-    ):
+    def replace_file_backup_server_host_address_by_host_address(self, host_address="", body=({})):
         """
         Operation: Replace a file backup server by host_address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1524,13 +1540,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/file-backup-server/host-address/{host_address}"
-        dict_path = {"host_address": host_address}
+        url_path = '/file-backup-server/host-address/{host_address}'
+        dict_path = {'host_address': host_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_file_backup_server_host_address_by_host_address(self, host_address=""):
@@ -1539,11 +1555,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: host_address, Description: Unique host_address of the file-backup-server
         """
-        url_path = "/file-backup-server/host-address/{host_address}"
-        dict_path = {"host_address": host_address}
+        url_path = '/file-backup-server/host-address/{host_address}'
+        dict_path = {'host_address': host_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Returns the list of system-defined privileges
     def get_oauth_all_privileges(self, format=""):
@@ -1552,11 +1570,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type (Optional): query, Name: format, Description: <b>list:</b> List of all privileges by name<br/><b>tree:</b> List of all domains, each containing features
         """
-        url_path = "/oauth/all-privileges"
-        dict_query = {"format": format}
+        url_path = '/oauth/all-privileges'
+        dict_query = {'format': format}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     # API Service: Manage local user password policies
     def get_local_user_password_policy(self):
@@ -1564,8 +1584,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get the local user password policy
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/local-user/password-policy"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/local-user/password-policy'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_local_user_password_policy(self, body=({})):
         """
@@ -1594,10 +1616,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/password-policy"
+        url_path = '/local-user/password-policy'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def update_local_user_password_policy(self, body=({})):
@@ -1627,10 +1649,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/password-policy"
+        url_path = '/local-user/password-policy'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Operations for MessagingSetup
@@ -1639,8 +1661,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: GET Messaging setup
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/messaging-setup"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/messaging-setup'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_messaging_setup(self, body=({})):
         """
@@ -1661,10 +1685,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/messaging-setup"
+        url_path = '/messaging-setup'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def delete_messaging_setup(self):
@@ -1672,13 +1696,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Reset Messaging setup configuration
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/messaging-setup"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+        url_path = '/messaging-setup'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage operator profiles
-    def get_operator_profile(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_operator_profile(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of operator profiles
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1688,17 +1712,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/operator-profile"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/operator-profile'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_operator_profile(self, body=({})):
         """
@@ -1751,10 +1772,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/operator-profile"
+        url_path = '/operator-profile'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_operator_profile_by_id(self, id=""):
@@ -1763,11 +1784,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: id, Description: Numeric ID of the operator profile
         """
-        url_path = "/operator-profile/{id}"
-        dict_path = {"id": id}
+        url_path = '/operator-profile/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_operator_profile_by_id(self, id="", body=({})):
         """
@@ -1821,13 +1844,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/operator-profile/{id}"
-        dict_path = {"id": id}
+        url_path = '/operator-profile/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_operator_profile_by_id(self, id="", body=({})):
@@ -1882,13 +1905,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/operator-profile/{id}"
-        dict_path = {"id": id}
+        url_path = '/operator-profile/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_operator_profile_by_id(self, id=""):
@@ -1897,11 +1920,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: id, Description: Numeric ID of the operator profile
         """
-        url_path = "/operator-profile/{id}"
-        dict_path = {"id": id}
+        url_path = '/operator-profile/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_operator_profile_name_by_name(self, name=""):
         """
@@ -1909,11 +1934,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: name, Description: Name of the operator profile
         """
-        url_path = "/operator-profile/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/operator-profile/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_operator_profile_name_by_name(self, name="", body=({})):
         """
@@ -1967,13 +1994,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/operator-profile/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/operator-profile/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_operator_profile_name_by_name(self, name="", body=({})):
@@ -2028,13 +2055,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/operator-profile/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/operator-profile/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_operator_profile_name_by_name(self, name=""):
@@ -2043,11 +2070,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: name, Description: Name of the operator profile
         """
-        url_path = "/operator-profile/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/operator-profile/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Policy Manager Zones
     def get_server_policy_manager_zones(self):
@@ -2055,8 +2084,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Operation: Get list of Policy Manager Zones
         HTTP Response Codes: 200 OK, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/server/policy-manager-zones"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/server/policy-manager-zones'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_server_policy_manager_zones(self, body=({})):
         """
@@ -2071,10 +2102,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/policy-manager-zones"
+        url_path = '/server/policy-manager-zones'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_server_policy_manager_zones_by_zone_id(self, zone_id=""):
@@ -2083,11 +2114,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: zone_id, Description: Numeric ID of the policy manager zone
         """
-        url_path = "/server/policy-manager-zones/{zone_id}"
-        dict_path = {"zone_id": zone_id}
+        url_path = '/server/policy-manager-zones/{zone_id}'
+        dict_path = {'zone_id': zone_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_server_policy_manager_zones_by_zone_id(self, zone_id="", body=({})):
         """
@@ -2103,13 +2136,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/policy-manager-zones/{zone_id}"
-        dict_path = {"zone_id": zone_id}
+        url_path = '/server/policy-manager-zones/{zone_id}'
+        dict_path = {'zone_id': zone_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_server_policy_manager_zones_by_zone_id(self, zone_id=""):
@@ -2118,11 +2151,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: zone_id, Description: Numeric ID of the policy manager zone
         """
-        url_path = "/server/policy-manager-zones/{zone_id}"
-        dict_path = {"zone_id": zone_id}
+        url_path = '/server/policy-manager-zones/{zone_id}'
+        dict_path = {'zone_id': zone_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_server_policy_manager_zones_name_by_name(self, name=""):
         """
@@ -2130,11 +2165,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the policy manager zone
         """
-        url_path = "/server/policy-manager-zones/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/server/policy-manager-zones/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def replace_server_policy_manager_zones_name_by_name(self, name="", body=({})):
         """
@@ -2150,13 +2187,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/server/policy-manager-zones/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/server/policy-manager-zones/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_server_policy_manager_zones_name_by_name(self, name=""):
@@ -2165,16 +2202,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the policy manager zone
         """
-        url_path = "/server/policy-manager-zones/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/server/policy-manager-zones/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage Snmp Trap Receiver
-    def get_snmp_trap_receiver(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_snmp_trap_receiver(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of Snmp Trap Receiver
         HTTP Response Codes: 200 OK, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -2184,17 +2221,14 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/snmp-trap-receiver"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/snmp-trap-receiver'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_snmp_trap_receiver(self, body=({})):
         """
@@ -2220,10 +2254,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/snmp-trap-receiver"
+        url_path = '/snmp-trap-receiver'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_snmp_trap_receiver_by_snmp_trap_receiver_id(self, snmp_trap_receiver_id=""):
@@ -2232,15 +2266,15 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: snmp_trap_receiver_id, Description: Numeric ID of the SNMPTrap Server
         """
-        url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
-        dict_path = {"snmp_trap_receiver_id": snmp_trap_receiver_id}
+        url_path = '/snmp-trap-receiver/{snmp_trap_receiver_id}'
+        dict_path = {'snmp_trap_receiver_id': snmp_trap_receiver_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_snmp_trap_receiver_by_snmp_trap_receiver_id(
-        self, snmp_trap_receiver_id="", body=({})
-    ):
+    def update_snmp_trap_receiver_by_snmp_trap_receiver_id(self, snmp_trap_receiver_id="", body=({})):
         """
         Operation: Update some fields of Snmp Trap Receiver
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -2265,18 +2299,16 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
-        dict_path = {"snmp_trap_receiver_id": snmp_trap_receiver_id}
+        url_path = '/snmp-trap-receiver/{snmp_trap_receiver_id}'
+        dict_path = {'snmp_trap_receiver_id': snmp_trap_receiver_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_snmp_trap_receiver_by_snmp_trap_receiver_id(
-        self, snmp_trap_receiver_id="", body=({})
-    ):
+    def replace_snmp_trap_receiver_by_snmp_trap_receiver_id(self, snmp_trap_receiver_id="", body=({})):
         """
         Operation: Replace a Snmp Trap Receiver
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -2301,28 +2333,28 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
-        dict_path = {"snmp_trap_receiver_id": snmp_trap_receiver_id}
+        url_path = '/snmp-trap-receiver/{snmp_trap_receiver_id}'
+        dict_path = {'snmp_trap_receiver_id': snmp_trap_receiver_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def delete_snmp_trap_receiver_by_snmp_trap_receiver_id(
-        self, snmp_trap_receiver_id=""
-    ):
+    def delete_snmp_trap_receiver_by_snmp_trap_receiver_id(self, snmp_trap_receiver_id=""):
         """
         Operation: Delete a Snmp Trap Receiver
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: snmp_trap_receiver_id, Description: Numeric ID of the SNMPTrap Server
         """
-        url_path = "/snmp-trap-receiver/{snmp_trap_receiver_id}"
-        dict_path = {"snmp_trap_receiver_id": snmp_trap_receiver_id}
+        url_path = '/snmp-trap-receiver/{snmp_trap_receiver_id}'
+        dict_path = {'snmp_trap_receiver_id': snmp_trap_receiver_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_snmp_trap_receiver_name_by_name(self, name=""):
         """
@@ -2330,11 +2362,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the Host Address
         """
-        url_path = "/snmp-trap-receiver/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/snmp-trap-receiver/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_snmp_trap_receiver_name_by_name(self, name="", body=({})):
         """
@@ -2361,13 +2395,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/snmp-trap-receiver/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/snmp-trap-receiver/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_snmp_trap_receiver_name_by_name(self, name="", body=({})):
@@ -2395,13 +2429,13 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/snmp-trap-receiver/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/snmp-trap-receiver/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_snmp_trap_receiver_name_by_name(self, name=""):
@@ -2410,8 +2444,10 @@ class ApiGlobalServerConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the Host Address
         """
-        url_path = "/snmp-trap-receiver/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/snmp-trap-receiver/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )

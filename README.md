@@ -170,10 +170,11 @@ login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_
 
 3. Using the api token located in a file. You can generate an API token by clicking on the API client and then clicking 'Generate Access Token'. The Token file is expected in the following format in the script execution folder. This is the preferred method to avoid having your credentials directly exposed in your script file.  
 
+The python file is expected in the following format
 ```json 
 {"access_token":"your_token_here"}
 ```
-The python file is expected in the following format
+
 ```python
 token = Utils.get_token_from_file("token.json")
 login = ClearPassAPILogin(server="https://yourserver.network.local:443/api",api_token=token, verify_ssl=False)
@@ -375,4 +376,26 @@ print(json.dumps(view_guest_device,indent=2))
 
 ```python
 print(ApiPolicyElements.delete_enforcement_policy_by_enforcement_policy_id(login,enforcement_policy_id='3058'))
+```
+
+## Custom Request 
+
+In scenarios where a request needs to be made against the ClearPass API, the customRequest Utils method can be utilsed.
+Provided below are four examples of requests. There is also a patch request not shown in the example.
+
+```python 
+#New Admin User with Body Parameter 
+nau = {"name": "New Admin",  "enabled": True,  "password": "mysecretpassword","privilege_level": "Super Administrator","user_id":"New_Admin"}
+print(Utils.customRequest(login,method="post",urlPath="/admin-user",body=nau))
+
+#Get Admin Users
+print(Utils.customRequest(login,method="get",urlPath="/admin-user"))
+
+#Delete Admin User by ID with Path Parameter
+print(Utils.customRequest(login,method="delete",urlPath="/admin-user/3011"))
+
+#Modify Admin User by User ID with Path and Body Parameters
+mau={"enabled":False}
+print(Utils.customRequest(login,method="patch",urlPath="/admin-user/user-id/New_Admin",body=mau))
+
 ```

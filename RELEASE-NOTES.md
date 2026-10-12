@@ -55,3 +55,9 @@ This document contains high level documented changes to the pyclearpass package.
 4. Updated Session Control API to escape slashes when passed within the id parameter. Rasied by community user on GitHub
 5. SSL Verify is now enabled by default within common.py for improved default security. You can change this with verify=False when defining the login object.
 6. Updated ReadMe file  
+
+## Version 1.0.10 (09/10/2026)
+1. API code includes new, modified or deleted API that is implemented in Aruba ClearPass v6.14.1. Please read the release notes for further information. 
+2. Added in new method for customRequest in common.py.
+3. Added new customRequest to utils.py.
+4. Updated common.py logic.

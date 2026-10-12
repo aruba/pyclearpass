@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -11,9 +14,7 @@ from pyclearpass.common import (
 class ApiGuestConfiguration(ClearPassAPILogin):
 
     # API Service: Manage pass templates
-    def get_template_pass(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_template_pass(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of pass templates
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -23,17 +24,14 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/template/pass"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/template/pass'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_template_pass(self, body=({})):
         """
@@ -74,10 +72,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/pass"
+        url_path = '/template/pass'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_template_pass_by_id(self, id=""):
@@ -86,11 +84,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/template/pass/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/pass/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_template_pass_by_id(self, id="", body=({})):
         """
@@ -132,13 +132,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/pass/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/pass/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_template_pass_by_id(self, id="", body=({})):
@@ -181,13 +181,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/pass/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/pass/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_template_pass_by_id(self, id=""):
@@ -196,11 +196,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/template/pass/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/pass/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage settings in Configuration -> Authentication
     def get_guest_authentication(self):
@@ -208,8 +210,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Operation: Return settings from Configuration -> Authentication
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/guest/authentication"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/guest/authentication'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_guest_authentication(self, body=({})):
         """
@@ -228,10 +232,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/authentication"
+        url_path = '/guest/authentication'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def update_guest_authentication(self, body=({})):
@@ -251,10 +255,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/authentication"
+        url_path = '/guest/authentication'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Manage settings in Configuration -> Guest Manager
@@ -263,135 +267,135 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Operation: Return settings from Configuration -> Guest Manager
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         """
-        url_path = "/guestmanager"
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        url_path = '/guestmanager'
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_guestmanager(self, body=({})):
         """
-                Operation: Modify settings at Configuration -> Guest Manager
-                HTTP Response Codes: 201 Created, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Modify settings at Configuration -> Guest Manager
+        HTTP Response Codes: 201 Created, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
-                "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
-                "random_username_picture" : "", #Format picture (see below) describing the usernames that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
-                "random_username_length" : 0, #The length, in characters, of generated account usernames. Object Type: integer
-                "guest_initial_sequence_options" : {}, #Create multi next available sequence number.  These values will be used when multi_initial_sequence is set to -1. Object Type: object
-                "random_password_method" : "", #The method used to generate a random account password. Object Type: string
-                "random_password_picture" : "", #Format picture (see below) describing the passwords that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
-                "random_password_length" : 0, #Number of characters to include in randomly-generated account passwords. Object Type: integer
-                "guest_password_complexity" : "", #Password complexity to enforce for manually-entered guest passwords.Requires the random password type ‘A password matching the password complexity requirements’and the field validator ‘NwaIsValidPasswordComplexity’ for manual password entry. Object Type: string
-                "guest_password_minimum" : 0, #The minimum number of characters that a guest password must contain. Object Type: integer
-                "guest_password_disallowed" : "", #Characters which cannot appear in a user-generated password. Object Type: string
-                "guest_password_disallowed_words" : "", #Comma separated list of words disallowed in the random words password generator. Object Type: string
-                "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
-                "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
-        Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
-                "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
-                "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
-                "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
-                "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
-                "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
-        Enter a value between 1 and 30. Object Type: integer
-                "g_action_notify_account_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email address recorded. Object Type: string
-                "g_action_notify_account_expire_email_unknown_fixed" : "", #Address used when no email address is known for a user. Object Type: string
-                "g_action_notify_account_expire_email_unknown_domain" : "", #Domain to append to the username to form an email address. Object Type: string
-                "g_action_notify_account_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
-                "g_action_notify_account_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
-                "g_action_notify_account_expire_skin" : "", #The format in which to send email receipts. Object Type: string
-                "g_action_notify_account_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
-                "g_action_notify_account_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
-                "g_action_notify_device_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email or sponsor_email address recorded. Object Type: string
-                "g_action_notify_device_expire_email_unknown_fixed" : "", #Address used when no email address is known for a device. Object Type: string
-                "g_action_notify_device_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
-                "g_action_notify_device_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
-                "g_action_notify_device_expire_skin" : "", #The format in which to send email receipts. Object Type: string
-                "g_action_notify_device_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
-                "g_action_notify_device_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
-                "site_ssid" : "", #The SSID of the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
-                "site_wpa_key" : "", #The WPA key for the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
-                "guest_receipt_print_button" : False, #Guest receipts can print simply by selecting the template in the dropdown, or by clicking a link. Object Type: boolean
-                "guest_account_terms_of_use_url" : "", #The URL of a terms and conditions page.  The URL will appear in any terms checkbox with:{nwa_global name=guest_account_terms_of_use_url}It is recommended to upload your terms in Content Manager, where the files will be referenced with the "public/" prefix.Alternatively, you can edit Terms and Conditions under Configuration > Pages > Web Pages.If your site is hosted externally, be sure the proper access control lists (ACLs) are in place.If terms are not required, it is recommended to edit the terms field on your forms to a UI type "hidden" and an Initial Value of 1. Object Type: string
-                "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
-        Enter 0 to allow an unlimited number of sessions. Object Type: integer
-                "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
+        body={
+        "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
+        "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
+        "random_username_picture" : "", #Format picture (see below) describing the usernames that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
+        "random_username_length" : 0, #The length, in characters, of generated account usernames. Object Type: integer
+        "guest_initial_sequence_options" : {}, #Create multi next available sequence number.  These values will be used when multi_initial_sequence is set to -1. Object Type: object
+        "random_password_method" : "", #The method used to generate a random account password. Object Type: string
+        "random_password_picture" : "", #Format picture (see below) describing the passwords that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
+        "random_password_length" : 0, #Number of characters to include in randomly-generated account passwords. Object Type: integer
+        "guest_password_complexity" : "", #Password complexity to enforce for manually-entered guest passwords.Requires the random password type ‘A password matching the password complexity requirements’and the field validator ‘NwaIsValidPasswordComplexity’ for manual password entry. Object Type: string
+        "guest_password_minimum" : 0, #The minimum number of characters that a guest password must contain. Object Type: integer
+        "guest_password_disallowed" : "", #Characters which cannot appear in a user-generated password. Object Type: string
+        "guest_password_disallowed_words" : "", #Comma separated list of words disallowed in the random words password generator. Object Type: string
+        "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
+        "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
+Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
+        "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
+        "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
+        "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
+        "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
+        "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
+Enter a value between 1 and 30. Object Type: integer
+        "g_action_notify_account_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email address recorded. Object Type: string
+        "g_action_notify_account_expire_email_unknown_fixed" : "", #Address used when no email address is known for a user. Object Type: string
+        "g_action_notify_account_expire_email_unknown_domain" : "", #Domain to append to the username to form an email address. Object Type: string
+        "g_action_notify_account_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
+        "g_action_notify_account_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
+        "g_action_notify_account_expire_skin" : "", #The format in which to send email receipts. Object Type: string
+        "g_action_notify_account_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
+        "g_action_notify_account_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
+        "g_action_notify_device_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email or sponsor_email address recorded. Object Type: string
+        "g_action_notify_device_expire_email_unknown_fixed" : "", #Address used when no email address is known for a device. Object Type: string
+        "g_action_notify_device_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
+        "g_action_notify_device_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
+        "g_action_notify_device_expire_skin" : "", #The format in which to send email receipts. Object Type: string
+        "g_action_notify_device_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
+        "g_action_notify_device_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
+        "site_ssid" : "", #The SSID of the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
+        "site_wpa_key" : "", #The WPA key for the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
+        "guest_receipt_print_button" : False, #Guest receipts can print simply by selecting the template in the dropdown, or by clicking a link. Object Type: boolean
+        "guest_account_terms_of_use_url" : "", #The URL of a terms and conditions page.  The URL will appear in any terms checkbox with:{nwa_global name=guest_account_terms_of_use_url}It is recommended to upload your terms in Content Manager, where the files will be referenced with the "public/" prefix.Alternatively, you can edit Terms and Conditions under Configuration > Pages > Web Pages.If your site is hosted externally, be sure the proper access control lists (ACLs) are in place.If terms are not required, it is recommended to edit the terms field on your forms to a UI type "hidden" and an Initial Value of 1. Object Type: string
+        "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
+Enter 0 to allow an unlimited number of sessions. Object Type: integer
+        "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
 
-                }
+        }
         """
-        url_path = "/guestmanager"
+        url_path = '/guestmanager'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def update_guestmanager(self, body=({})):
         """
-                Operation: Modify settings at Configuration -> Guest Manager
-                HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Modify settings at Configuration -> Guest Manager
+        HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Required Body Parameters:['random_username_method', 'random_username_length', 'random_password_method', 'random_password_length', 'guest_password_complexity', 'guest_password_minimum', 'guest_do_expire', 'guest_account_expiry_options', 'guest_modify_expire_time_options', 'guest_lifetime_options']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
-                "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
-                "random_username_picture" : "", #Format picture (see below) describing the usernames that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
-                "random_username_length" : 0, #The length, in characters, of generated account usernames. Object Type: integer
-                "guest_initial_sequence_options" : {}, #Create multi next available sequence number.  These values will be used when multi_initial_sequence is set to -1. Object Type: object
-                "random_password_method" : "", #The method used to generate a random account password. Object Type: string
-                "random_password_picture" : "", #Format picture (see below) describing the passwords that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
-                "random_password_length" : 0, #Number of characters to include in randomly-generated account passwords. Object Type: integer
-                "guest_password_complexity" : "", #Password complexity to enforce for manually-entered guest passwords.Requires the random password type ‘A password matching the password complexity requirements’and the field validator ‘NwaIsValidPasswordComplexity’ for manual password entry. Object Type: string
-                "guest_password_minimum" : 0, #The minimum number of characters that a guest password must contain. Object Type: integer
-                "guest_password_disallowed" : "", #Characters which cannot appear in a user-generated password. Object Type: string
-                "guest_password_disallowed_words" : "", #Comma separated list of words disallowed in the random words password generator. Object Type: string
-                "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
-                "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
-        Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
-                "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
-                "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
-                "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
-                "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
-                "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
-        Enter a value between 1 and 30. Object Type: integer
-                "g_action_notify_account_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email address recorded. Object Type: string
-                "g_action_notify_account_expire_email_unknown_fixed" : "", #Address used when no email address is known for a user. Object Type: string
-                "g_action_notify_account_expire_email_unknown_domain" : "", #Domain to append to the username to form an email address. Object Type: string
-                "g_action_notify_account_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
-                "g_action_notify_account_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
-                "g_action_notify_account_expire_skin" : "", #The format in which to send email receipts. Object Type: string
-                "g_action_notify_account_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
-                "g_action_notify_account_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
-                "g_action_notify_device_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email or sponsor_email address recorded. Object Type: string
-                "g_action_notify_device_expire_email_unknown_fixed" : "", #Address used when no email address is known for a device. Object Type: string
-                "g_action_notify_device_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
-                "g_action_notify_device_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
-                "g_action_notify_device_expire_skin" : "", #The format in which to send email receipts. Object Type: string
-                "g_action_notify_device_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
-                "g_action_notify_device_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
-                "site_ssid" : "", #The SSID of the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
-                "site_wpa_key" : "", #The WPA key for the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
-                "guest_receipt_print_button" : False, #Guest receipts can print simply by selecting the template in the dropdown, or by clicking a link. Object Type: boolean
-                "guest_account_terms_of_use_url" : "", #The URL of a terms and conditions page.  The URL will appear in any terms checkbox with:{nwa_global name=guest_account_terms_of_use_url}It is recommended to upload your terms in Content Manager, where the files will be referenced with the "public/" prefix.Alternatively, you can edit Terms and Conditions under Configuration > Pages > Web Pages.If your site is hosted externally, be sure the proper access control lists (ACLs) are in place.If terms are not required, it is recommended to edit the terms field on your forms to a UI type "hidden" and an Initial Value of 1. Object Type: string
-                "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
-        Enter 0 to allow an unlimited number of sessions. Object Type: integer
-                "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
+        body={
+        "random_username_method" : "", #The method used to generate random account usernames. Object Type: string
+        "random_username_multi_prefix" : "", #Identifier string to prepend to usernames.Dynamic entries based on a user attribute can be entered as '_' + attribute.  For example '_role_name'.The username length will determine the length of the numeric sequence only.  Recommend 4. Object Type: string
+        "random_username_picture" : "", #Format picture (see below) describing the usernames that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
+        "random_username_length" : 0, #The length, in characters, of generated account usernames. Object Type: integer
+        "guest_initial_sequence_options" : {}, #Create multi next available sequence number.  These values will be used when multi_initial_sequence is set to -1. Object Type: object
+        "random_password_method" : "", #The method used to generate a random account password. Object Type: string
+        "random_password_picture" : "", #Format picture (see below) describing the passwords that will be created for visitors. • Alphanumeric characters are passed through without modification. • ‘#’ is replaced with a random digit [0-9]. • ‘$’ or ‘?’ is replaced with a random letter [A-Za-z] • ‘_’ is replaced with a random lowercase letter [a-z] • ‘^’ is replaced with a random uppercase letter [A-Z] • ‘*’ is replaced with a random letter or digit [A-Za-z0-9]. • ‘!’ is replaced with a random punctuation symbol [excluding apostrophe, quotes] • ‘&’ is replaced with a random character (union of sets ! and *) • ‘@’ is replaced with a random letter or digit, excluding vowels • '%' is replaced with a random letter or digit, excluding vowels and anything that looks like another (il1, B8, O0, Z2). Object Type: string
+        "random_password_length" : 0, #Number of characters to include in randomly-generated account passwords. Object Type: integer
+        "guest_password_complexity" : "", #Password complexity to enforce for manually-entered guest passwords.Requires the random password type ‘A password matching the password complexity requirements’and the field validator ‘NwaIsValidPasswordComplexity’ for manual password entry. Object Type: string
+        "guest_password_minimum" : 0, #The minimum number of characters that a guest password must contain. Object Type: integer
+        "guest_password_disallowed" : "", #Characters which cannot appear in a user-generated password. Object Type: string
+        "guest_password_disallowed_words" : "", #Comma separated list of words disallowed in the random words password generator. Object Type: string
+        "guest_view_account_password" : False, #If selected, guest and device Wi-Fi passwords may be displayed to an operator.This is only possible if operators have the View Passwords privilege as well. Object Type: boolean
+        "guest_do_expire" : 0, #Default action to take when the expire_time is reached.
+Note that a logout can only occur if the NAS is RFC-3576 compliant. Object Type: integer
+        "guest_account_expiry_options" : {},      #The available options to select from when choosing the expiration time of a guest account (expire_after).     #Expiration times are specified in hours. Object Type: object
+        "guest_modify_expire_time_options" : {},      #The available options to select from when modifying an account's expiration (modify_expire_time).     #Note some items may be dynamically removed based on the state of the account. Object Type: object
+        "guest_lifetime_options" : {},      #The available options to select from when choosing the lifetime of a guest account (expire_postlogin).     #Lifetime values are specified in minutes. Object Type: object
+        "g_action_notify_account_expire_enabled" : False, #If checked, users will receive an email notification when their device’s network credentials are due to expire.Accounts must contain the ’expired_notify_status’ field with a value of ’1’.  Once a notification is sent, this field will show as ’0’. Object Type: boolean
+        "g_action_notify_account_expiration_duration" : 0, #Account expiration emails are sent this many days before the account expires.
+Enter a value between 1 and 30. Object Type: integer
+        "g_action_notify_account_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email address recorded. Object Type: string
+        "g_action_notify_account_expire_email_unknown_fixed" : "", #Address used when no email address is known for a user. Object Type: string
+        "g_action_notify_account_expire_email_unknown_domain" : "", #Domain to append to the username to form an email address. Object Type: string
+        "g_action_notify_account_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
+        "g_action_notify_account_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
+        "g_action_notify_account_expire_skin" : "", #The format in which to send email receipts. Object Type: string
+        "g_action_notify_account_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
+        "g_action_notify_account_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
+        "g_action_notify_device_expire_email_unknown" : "", #Specify where to send emails if the user’s account doesn’t have an email or sponsor_email address recorded. Object Type: string
+        "g_action_notify_device_expire_email_unknown_fixed" : "", #Address used when no email address is known for a device. Object Type: string
+        "g_action_notify_device_expire_subject" : "", #Enter a subject for the notification email. Object Type: string
+        "g_action_notify_device_expire_message" : 0, #The plain text or HTML print template to use when generating an email message. Object Type: integer
+        "g_action_notify_device_expire_skin" : "", #The format in which to send email receipts. Object Type: string
+        "g_action_notify_device_expire_copies" : "", #Specify when to send to the recipients in the Copies To list. Object Type: string
+        "g_action_notify_device_expire_copies_to" : "", #An optional list of email addresses to which copies of expiry notifications will be sent. Object Type: string
+        "site_ssid" : "", #The SSID of the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
+        "site_wpa_key" : "", #The WPA key for the wireless LAN, if applicable.  This will appear on guest account print receipts. Object Type: string
+        "guest_receipt_print_button" : False, #Guest receipts can print simply by selecting the template in the dropdown, or by clicking a link. Object Type: boolean
+        "guest_account_terms_of_use_url" : "", #The URL of a terms and conditions page.  The URL will appear in any terms checkbox with:{nwa_global name=guest_account_terms_of_use_url}It is recommended to upload your terms in Content Manager, where the files will be referenced with the "public/" prefix.Alternatively, you can edit Terms and Conditions under Configuration > Pages > Web Pages.If your site is hosted externally, be sure the proper access control lists (ACLs) are in place.If terms are not required, it is recommended to edit the terms field on your forms to a UI type "hidden" and an Initial Value of 1. Object Type: string
+        "guest_active_sessions" : 0, #Enable limiting the number of active sessions a guest account may have.
+Enter 0 to allow an unlimited number of sessions. Object Type: integer
+        "guest_about_guest_network_access" : "", #Template code to display on the Guest Manager start page, under the“About Guest Network Access” heading.  Leave blank to use the default text,or enter a hyphen (“-”) to remove the default text and the heading. Object Type: string
 
-                }
+        }
         """
-        url_path = "/guestmanager"
+        url_path = '/guestmanager'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     # API Service: Manage print templates
-    def get_template_print(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_template_print(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of print templates
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -401,17 +405,14 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/template/print"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/template/print'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_template_print(self, body=({})):
         """
@@ -440,10 +441,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/print"
+        url_path = '/template/print'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_template_print_by_id(self, id=""):
@@ -452,11 +453,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/template/print/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/print/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_template_print_by_id(self, id="", body=({})):
         """
@@ -486,13 +489,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/print/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/print/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_template_print_by_id(self, id="", body=({})):
@@ -523,13 +526,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/template/print/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/print/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_template_print_by_id(self, id=""):
@@ -538,11 +541,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/template/print/{id}"
-        dict_path = {"id": id}
+        url_path = '/template/print/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage web logins
     def get_weblogin(self, filter="", sort="", offset="", limit="", calculate_count=""):
@@ -555,17 +560,14 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/weblogin"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/weblogin'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_weblogin(self, body=({})):
         """
@@ -667,10 +669,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/weblogin"
+        url_path = '/weblogin'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_weblogin_by_id(self, id=""):
@@ -679,11 +681,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/weblogin/{id}"
-        dict_path = {"id": id}
+        url_path = '/weblogin/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_weblogin_by_id(self, id="", body=({})):
         """
@@ -786,13 +790,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/weblogin/{id}"
-        dict_path = {"id": id}
+        url_path = '/weblogin/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_weblogin_by_id(self, id="", body=({})):
@@ -896,13 +900,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/weblogin/{id}"
-        dict_path = {"id": id}
+        url_path = '/weblogin/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_weblogin_by_id(self, id=""):
@@ -911,11 +915,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: id, Description: URL parameter id
         """
-        url_path = "/weblogin/{id}"
-        dict_path = {"id": id}
+        url_path = '/weblogin/{id}'
+        dict_path = {'id': id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_weblogin_page_name_by_page_name(self, page_name=""):
         """
@@ -923,11 +929,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: page-name, Description: Unique page name of the web login
         """
-        url_path = "/weblogin/page-name/{page_name}"
-        dict_path = {"page_name": page_name}
+        url_path = '/weblogin/page-name/{page_name}'
+        dict_path = {'page_name': page_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_weblogin_page_name_by_page_name(self, page_name="", body=({})):
         """
@@ -1030,13 +1038,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/weblogin/page-name/{page_name}"
-        dict_path = {"page_name": page_name}
+        url_path = '/weblogin/page-name/{page_name}'
+        dict_path = {'page_name': page_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_weblogin_page_name_by_page_name(self, page_name="", body=({})):
@@ -1140,13 +1148,13 @@ class ApiGuestConfiguration(ClearPassAPILogin):
 
         }
         """
-        url_path = "/weblogin/page-name/{page_name}"
-        dict_path = {"page_name": page_name}
+        url_path = '/weblogin/page-name/{page_name}'
+        dict_path = {'page_name': page_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_weblogin_page_name_by_page_name(self, page_name=""):
@@ -1155,8 +1163,10 @@ class ApiGuestConfiguration(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: page-name, Description: Unique page name of the web login
         """
-        url_path = "/weblogin/page-name/{page_name}"
-        dict_path = {"page_name": page_name}
+        url_path = '/weblogin/page-name/{page_name}'
+        dict_path = {'page_name': page_name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )

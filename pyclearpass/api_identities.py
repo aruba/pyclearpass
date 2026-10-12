@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.common import (
     _generate_parameterised_url,
     _remove_empty_keys,
@@ -11,9 +14,7 @@ from pyclearpass.common import (
 class ApiIdentities(ClearPassAPILogin):
 
     # API Service: Manage API clients at Administration -> API Services -> API Clients
-    def get_api_client(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_api_client(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of API clients
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -23,55 +24,52 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/api-client"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/api-client'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_api_client(self, body=({})):
         """
-                Operation: Create a new API client
-                HTTP Response Codes: 201 Created, 400 Client Error, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Create a new API client
+        HTTP Response Codes: 201 Created, 400 Client Error, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "auto_confirm" : 0, #Not supported at this time. Object Type: integer
-                "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
-                "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "client_public" : False, #Public clients have no client secret. Object Type: boolean
-                "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
-                "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
-                "enabled" : False, #Enable API client. Object Type: boolean
-                "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
-                "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
-        This determines what API objects and methods are available for use. Object Type: integer
-                "profile_name" : "", #Name of operator profile. Object Type: string
-                "redirect_uri" : "", #Not supported at this time. Object Type: string
-                "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "scope" : "", #Not supported at this time. Object Type: string
-                "user_id" : "", #Not supported at this time. Object Type: string
+        body={
+        "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "auto_confirm" : 0, #Not supported at this time. Object Type: integer
+        "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
+        "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "client_public" : False, #Public clients have no client secret. Object Type: boolean
+        "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
+        "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
+        "enabled" : False, #Enable API client. Object Type: boolean
+        "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
+        "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
+This determines what API objects and methods are available for use. Object Type: integer
+        "profile_name" : "", #Name of operator profile. Object Type: string
+        "redirect_uri" : "", #Not supported at this time. Object Type: string
+        "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "scope" : "", #Not supported at this time. Object Type: string
+        "user_id" : "", #Not supported at this time. Object Type: string
 
-                }
+        }
         """
-        url_path = "/api-client"
+        url_path = '/api-client'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_api_client_by_client_id(self, client_id=""):
@@ -80,96 +78,98 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: client_id, Description: URL parameter client_id
         """
-        url_path = "/api-client/{client_id}"
-        dict_path = {"client_id": client_id}
+        url_path = '/api-client/{client_id}'
+        dict_path = {'client_id': client_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_api_client_by_client_id(self, client_id="", body=({})):
         """
-                Operation: Update some fields of an API client
-                HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 400 Client Error, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Parameter Type: path, Name: client_id, Description: URL parameter client_id
-                Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Update some fields of an API client
+        HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 400 Client Error, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Parameter Type: path, Name: client_id, Description: URL parameter client_id
+        Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "auto_confirm" : 0, #Not supported at this time. Object Type: integer
-                "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
-                "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "client_public" : False, #Public clients have no client secret. Object Type: boolean
-                "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
-                "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
-                "enabled" : False, #Enable API client. Object Type: boolean
-                "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
-                "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
-        This determines what API objects and methods are available for use. Object Type: integer
-                "profile_name" : "", #Name of operator profile. Object Type: string
-                "redirect_uri" : "", #Not supported at this time. Object Type: string
-                "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "scope" : "", #Not supported at this time. Object Type: string
-                "user_id" : "", #Not supported at this time. Object Type: string
+        body={
+        "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "auto_confirm" : 0, #Not supported at this time. Object Type: integer
+        "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
+        "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "client_public" : False, #Public clients have no client secret. Object Type: boolean
+        "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
+        "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
+        "enabled" : False, #Enable API client. Object Type: boolean
+        "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
+        "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
+This determines what API objects and methods are available for use. Object Type: integer
+        "profile_name" : "", #Name of operator profile. Object Type: string
+        "redirect_uri" : "", #Not supported at this time. Object Type: string
+        "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "scope" : "", #Not supported at this time. Object Type: string
+        "user_id" : "", #Not supported at this time. Object Type: string
 
-                }
+        }
         """
-        url_path = "/api-client/{client_id}"
-        dict_path = {"client_id": client_id}
+        url_path = '/api-client/{client_id}'
+        dict_path = {'client_id': client_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_api_client_by_client_id(self, client_id="", body=({})):
         """
-                Operation: Replace an API client
-                HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 400 Client Error, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
-                Parameter Type: path, Name: client_id, Description: URL parameter client_id
-                Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
-                Parameter Type: body, Name: body
-                Body example with descriptions and object types below (type(dict):
+        Operation: Replace an API client
+        HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 400 Client Error, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
+        Parameter Type: path, Name: client_id, Description: URL parameter client_id
+        Required Body Parameters:['access_token_lifetime', 'access_token_lifetime_units', 'client_id', 'id', 'refresh_token_lifetime', 'refresh_token_lifetime_units']
+        Parameter Type: body, Name: body
+        Body example with descriptions and object types below (type(dict):
 
-                body={
-                "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
-                "auto_confirm" : 0, #Not supported at this time. Object Type: integer
-                "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
-                "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "client_public" : False, #Public clients have no client secret. Object Type: boolean
-                "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
-                "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
-                "enabled" : False, #Enable API client. Object Type: boolean
-                "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
-                "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
-                "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
-        This determines what API objects and methods are available for use. Object Type: integer
-                "profile_name" : "", #Name of operator profile. Object Type: string
-                "redirect_uri" : "", #Not supported at this time. Object Type: string
-                "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
-                "scope" : "", #Not supported at this time. Object Type: string
-                "user_id" : "", #Not supported at this time. Object Type: string
+        body={
+        "access_lifetime" : "", #Lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "access_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 access token. Object Type: string
+        "auto_confirm" : 0, #Not supported at this time. Object Type: integer
+        "client_description" : "", #Use this field to store comments or notes about this API client. Object Type: string
+        "client_id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "client_public" : False, #Public clients have no client secret. Object Type: boolean
+        "client_refresh" : False, #An OAuth2 refresh token may be used to obtain an updated access token.Use grant_type=refresh_token for this. Object Type: boolean
+        "client_secret" : "", #Use this value in the OAuth2 “client_secret” parameter. NOTE: This value is encrypted when stored and cannot be retrieved.. Object Type: string
+        "enabled" : False, #Enable API client. Object Type: boolean
+        "id" : "", #The unique string identifying this API client.  Use this value in the OAuth2 “client_id” parameter. Object Type: string
+        "grant_types" : "", #Only the selected authentication method will be permitted for use with this client ID. Object Type: string
+        "profile_id" : 0, #The operator profile applies role-based access control to authorized OAuth2 clients.
+This determines what API objects and methods are available for use. Object Type: integer
+        "profile_name" : "", #Name of operator profile. Object Type: string
+        "redirect_uri" : "", #Not supported at this time. Object Type: string
+        "refresh_lifetime" : "", #Lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "refresh_token_lifetime_units" : "", #Specify the lifetime of an OAuth2 refresh token. Object Type: string
+        "scope" : "", #Not supported at this time. Object Type: string
+        "user_id" : "", #Not supported at this time. Object Type: string
 
-                }
+        }
         """
-        url_path = "/api-client/{client_id}"
-        dict_path = {"client_id": client_id}
+        url_path = '/api-client/{client_id}'
+        dict_path = {'client_id': client_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_api_client_by_client_id(self, client_id=""):
@@ -178,16 +178,16 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: client_id, Description: URL parameter client_id
         """
-        url_path = "/api-client/{client_id}"
-        dict_path = {"client_id": client_id}
+        url_path = '/api-client/{client_id}'
+        dict_path = {'client_id': client_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage deny listed users
-    def get_deny_listed_users(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_deny_listed_users(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of deny listed users
         HTTP Response Codes: 200 OK, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -197,17 +197,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/deny-listed-users"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/deny-listed-users'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def get_deny_listed_users_by_deny_listed_users_id(self, deny_listed_users_id=""):
         """
@@ -215,11 +212,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: deny_listed_users_id, Description: Numeric ID of the deny listed user
         """
-        url_path = "/deny-listed-users/{deny_listed_users_id}"
-        dict_path = {"deny_listed_users_id": deny_listed_users_id}
+        url_path = '/deny-listed-users/{deny_listed_users_id}'
+        dict_path = {'deny_listed_users_id': deny_listed_users_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def delete_deny_listed_users_by_deny_listed_users_id(self, deny_listed_users_id=""):
         """
@@ -227,41 +226,43 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: deny_listed_users_id, Description: Numeric ID of the deny listed user
         """
-        url_path = "/deny-listed-users/{deny_listed_users_id}"
-        dict_path = {"deny_listed_users_id": deny_listed_users_id}
+        url_path = '/deny-listed-users/{deny_listed_users_id}'
+        dict_path = {'deny_listed_users_id': deny_listed_users_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
-    def get_deny_listed_users_user_id_by_user_id_mac_address_mac_address(
-        self, user_id="", mac_address=""
-    ):
+    def get_deny_listed_users_user_id_by_user_id_mac_address_mac_address(self, user_id="", mac_address=""):
         """
         Operation: Get a deny listed user by Username and MAC Address
         HTTP Response Codes: 200 OK, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: User ID of the deny listed user
         Parameter Type: path, Name: mac_address, Description: MAC address of the deny listed user
         """
-        url_path = "/deny-listed-users/user_id/{user_id}/mac_address/{mac_address}"
-        dict_path = {"user_id": user_id, "mac_address": mac_address}
+        url_path = '/deny-listed-users/user_id/{user_id}/mac_address/{mac_address}'
+        dict_path = {'user_id': user_id, 'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def delete_deny_listed_users_user_id_by_user_id_mac_address_mac_address(
-        self, user_id="", mac_address=""
-    ):
+    def delete_deny_listed_users_user_id_by_user_id_mac_address_mac_address(self, user_id="", mac_address=""):
         """
         Operation: Delete a deny listed user by Username and MAC Address
         HTTP Response Codes: 204 No Content, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: User ID of the deny listed user
         Parameter Type: path, Name: mac_address, Description: MAC address of the deny listed user
         """
-        url_path = "/deny-listed-users/user_id/{user_id}/mac_address/{mac_address}"
-        dict_path = {"user_id": user_id, "mac_address": mac_address}
+        url_path = '/deny-listed-users/user_id/{user_id}/mac_address/{mac_address}'
+        dict_path = {'user_id': user_id, 'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage device accounts
     def get_device(self, filter="", sort="", offset="", limit="", calculate_count=""):
@@ -274,17 +275,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/device"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/device'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_device(self, change_of_authorization="", body=({})):
         """
@@ -314,13 +312,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/device"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_device_by_device_id(self, device_id=""):
@@ -329,15 +327,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: device_id, Description: Numeric ID of the device account
         """
-        url_path = "/device/{device_id}"
-        dict_path = {"device_id": device_id}
+        url_path = '/device/{device_id}'
+        dict_path = {'device_id': device_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_device_by_device_id(
-        self, change_of_authorization="", device_id="", body=({})
-    ):
+    def update_device_by_device_id(self, change_of_authorization="", device_id="", body=({})):
         """
         Operation: Update some fields of a device account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -370,21 +368,19 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/device/{device_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/{device_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"device_id": device_id}
+        dict_path = {'device_id': device_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_device_by_device_id(
-        self, change_of_authorization="", device_id="", body=({})
-    ):
+    def replace_device_by_device_id(self, change_of_authorization="", device_id="", body=({})):
         """
         Operation: Replace a device account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -414,16 +410,16 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/device/{device_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/{device_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"device_id": device_id}
+        dict_path = {'device_id': device_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_device_by_device_id(self, change_of_authorization="", device_id=""):
@@ -433,14 +429,16 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: change_of_authorization, Description: <b>true:</b> Updates the network state using Disconnect-Request or CoA-Request, depending on the changes made<br/><b>false:</b> No action is taken<br/><b>blank or unset:</b> Use the default setting from Configuration » Authentication » Dynamic Authorization
         Parameter Type: path, Name: device_id, Description: Numeric ID of the device account
         """
-        url_path = "/device/{device_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/{device_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"device_id": device_id}
+        dict_path = {'device_id': device_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_device_mac_by_macaddr(self, macaddr=""):
         """
@@ -448,15 +446,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: macaddr, Description: MAC address of the device account
         """
-        url_path = "/device/mac/{macaddr}"
-        dict_path = {"macaddr": macaddr}
+        url_path = '/device/mac/{macaddr}'
+        dict_path = {'macaddr': macaddr}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_device_mac_by_macaddr(
-        self, change_of_authorization="", macaddr="", body=({})
-    ):
+    def update_device_mac_by_macaddr(self, change_of_authorization="", macaddr="", body=({})):
         """
         Operation: Update some fields of a device account by MAC address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -489,21 +487,19 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/device/mac/{macaddr}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/mac/{macaddr}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"macaddr": macaddr}
+        dict_path = {'macaddr': macaddr}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_device_mac_by_macaddr(
-        self, change_of_authorization="", macaddr="", body=({})
-    ):
+    def replace_device_mac_by_macaddr(self, change_of_authorization="", macaddr="", body=({})):
         """
         Operation: Replace a device account by MAC address
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -533,16 +529,16 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/device/mac/{macaddr}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/mac/{macaddr}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"macaddr": macaddr}
+        dict_path = {'macaddr': macaddr}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_device_mac_by_macaddr(self, change_of_authorization="", macaddr=""):
@@ -552,26 +548,19 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: change_of_authorization, Description: <b>true:</b> Updates the network state using Disconnect-Request or CoA-Request, depending on the changes made<br/><b>false:</b> No action is taken<br/><b>blank or unset:</b> Use the default setting from Configuration » Authentication » Dynamic Authorization
         Parameter Type: path, Name: macaddr, Description: MAC address of the device account
         """
-        url_path = "/device/mac/{macaddr}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/device/mac/{macaddr}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"macaddr": macaddr}
+        dict_path = {'macaddr': macaddr}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage endpoints
-    def get_endpoint(
-        self,
-        filter="",
-        sort="",
-        offset="",
-        limit="",
-        calculate_count="",
-        profile_details="",
-        nad_details="",
-    ):
+    def get_endpoint(self, filter="", sort="", offset="", limit="", calculate_count="", profile_details="", nad_details=""):
         """
         Operation: Get a list of endpoints along with its profiling information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -583,19 +572,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: profile_details, Description: <b>true:</b> Fetch the endpoint profile details as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         """
-        url_path = "/endpoint"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-            "profile_details": profile_details,
-            "nad_details": nad_details,
-        }
+        url_path = '/endpoint'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset, 'limit': limit,
+                      'calculate_count': calculate_count, 'profile_details': profile_details, 'nad_details': nad_details}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_endpoint(self, body=({})):
         """
@@ -617,15 +601,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/endpoint"
+        url_path = '/endpoint'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
-    def get_endpoint_by_endpoint_id(
-        self, profile_details="", nad_details="", endpoint_id=""
-    ):
+    def get_endpoint_by_endpoint_id(self, profile_details="", nad_details="", endpoint_id=""):
         """
         Operation: Get an endpoint along with its profiling information
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
@@ -633,15 +615,17 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
         """
-        url_path = "/endpoint/{endpoint_id}"
-        dict_query = {"profile_details": profile_details,
-                      "nad_details": nad_details}
+        url_path = '/endpoint/{endpoint_id}'
+        dict_query = {'profile_details': profile_details,
+                      'nad_details': nad_details}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"endpoint_id": endpoint_id}
+        dict_path = {'endpoint_id': endpoint_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_endpoint_by_endpoint_id(self, endpoint_id="", body=({})):
         """
@@ -665,13 +649,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/endpoint/{endpoint_id}"
-        dict_path = {"endpoint_id": endpoint_id}
+        url_path = '/endpoint/{endpoint_id}'
+        dict_path = {'endpoint_id': endpoint_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_endpoint_by_endpoint_id(self, endpoint_id="", body=({})):
@@ -696,13 +680,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/endpoint/{endpoint_id}"
-        dict_path = {"endpoint_id": endpoint_id}
+        url_path = '/endpoint/{endpoint_id}'
+        dict_path = {'endpoint_id': endpoint_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_endpoint_by_endpoint_id(self, endpoint_id=""):
@@ -711,15 +695,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: endpoint_id, Description: Numeric ID of the endpoint
         """
-        url_path = "/endpoint/{endpoint_id}"
-        dict_path = {"endpoint_id": endpoint_id}
+        url_path = '/endpoint/{endpoint_id}'
+        dict_path = {'endpoint_id': endpoint_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
-    def get_endpoint_mac_address_by_mac_address(
-        self, profile_details="", nad_details="", mac_address=""
-    ):
+    def get_endpoint_mac_address_by_mac_address(self, profile_details="", nad_details="", mac_address=""):
         """
         Operation: Get an endpoint along with its profiling information by mac_address
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
@@ -727,15 +711,17 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: nad_details, Description: <b>true:</b> Fetch the endpoint nad detail as well<br/><b>false:</b> Fetch only endpoint details(default)
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
         """
-        url_path = "/endpoint/mac-address/{mac_address}"
-        dict_query = {"profile_details": profile_details,
-                      "nad_details": nad_details}
+        url_path = '/endpoint/mac-address/{mac_address}'
+        dict_query = {'profile_details': profile_details,
+                      'nad_details': nad_details}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"mac_address": mac_address}
+        dict_path = {'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_endpoint_mac_address_by_mac_address(self, mac_address="", body=({})):
         """
@@ -759,13 +745,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/endpoint/mac-address/{mac_address}"
-        dict_path = {"mac_address": mac_address}
+        url_path = '/endpoint/mac-address/{mac_address}'
+        dict_path = {'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_endpoint_mac_address_by_mac_address(self, mac_address="", body=({})):
@@ -790,13 +776,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/endpoint/mac-address/{mac_address}"
-        dict_path = {"mac_address": mac_address}
+        url_path = '/endpoint/mac-address/{mac_address}'
+        dict_path = {'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_endpoint_mac_address_by_mac_address(self, mac_address=""):
@@ -805,16 +791,16 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: mac_address, Description: Unique mac_address of the endpoint
         """
-        url_path = "/endpoint/mac-address/{mac_address}"
-        dict_path = {"mac_address": mac_address}
+        url_path = '/endpoint/mac-address/{mac_address}'
+        dict_path = {'mac_address': mac_address}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage external accounts
-    def get_external_account(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_external_account(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of external accounts
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -824,17 +810,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/external-account"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/external-account'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_external_account(self, body=({})):
         """
@@ -862,10 +845,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/external-account"
+        url_path = '/external-account'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_external_account_by_external_account_id(self, external_account_id=""):
@@ -874,15 +857,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: external_account_id, Description: Numeric ID of external account
         """
-        url_path = "/external-account/{external_account_id}"
-        dict_path = {"external_account_id": external_account_id}
+        url_path = '/external-account/{external_account_id}'
+        dict_path = {'external_account_id': external_account_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_external_account_by_external_account_id(
-        self, external_account_id="", body=({})
-    ):
+    def update_external_account_by_external_account_id(self, external_account_id="", body=({})):
         """
         Operation: Update some fields of an external account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -909,18 +892,16 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/external-account/{external_account_id}"
-        dict_path = {"external_account_id": external_account_id}
+        url_path = '/external-account/{external_account_id}'
+        dict_path = {'external_account_id': external_account_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_external_account_by_external_account_id(
-        self, external_account_id="", body=({})
-    ):
+    def replace_external_account_by_external_account_id(self, external_account_id="", body=({})):
         """
         Operation: Replace an external account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -947,13 +928,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/external-account/{external_account_id}"
-        dict_path = {"external_account_id": external_account_id}
+        url_path = '/external-account/{external_account_id}'
+        dict_path = {'external_account_id': external_account_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_external_account_by_external_account_id(self, external_account_id=""):
@@ -962,11 +943,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: external_account_id, Description: Numeric ID of external account
         """
-        url_path = "/external-account/{external_account_id}"
-        dict_path = {"external_account_id": external_account_id}
+        url_path = '/external-account/{external_account_id}'
+        dict_path = {'external_account_id': external_account_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_external_account_name_by_name(self, name=""):
         """
@@ -974,11 +957,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of external account
         """
-        url_path = "/external-account/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/external-account/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_external_account_name_by_name(self, name="", body=({})):
         """
@@ -1007,13 +992,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/external-account/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/external-account/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_external_account_name_by_name(self, name="", body=({})):
@@ -1043,13 +1028,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/external-account/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/external-account/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_external_account_name_by_name(self, name=""):
@@ -1058,11 +1043,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of external account
         """
-        url_path = "/external-account/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/external-account/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage guest accounts
     def get_guest(self, filter="", sort="", offset="", limit="", calculate_count=""):
@@ -1075,17 +1062,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/guest"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/guest'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_guest(self, change_of_authorization="", body=({})):
         """
@@ -1119,13 +1103,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_guest_by_guest_id(self, guest_id=""):
@@ -1134,15 +1118,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: guest_id, Description: Numeric ID of the guest account
         """
-        url_path = "/guest/{guest_id}"
-        dict_path = {"guest_id": guest_id}
+        url_path = '/guest/{guest_id}'
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_guest_by_guest_id(
-        self, change_of_authorization="", guest_id="", body=({})
-    ):
+    def update_guest_by_guest_id(self, change_of_authorization="", guest_id="", body=({})):
         """
         Operation: Update some fields of a guest account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1176,21 +1160,19 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/{guest_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/{guest_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"guest_id": guest_id}
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_guest_by_guest_id(
-        self, change_of_authorization="", guest_id="", body=({})
-    ):
+    def replace_guest_by_guest_id(self, change_of_authorization="", guest_id="", body=({})):
         """
         Operation: Replace a guest account
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1224,16 +1206,16 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/{guest_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/{guest_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"guest_id": guest_id}
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_guest_by_guest_id(self, change_of_authorization="", guest_id=""):
@@ -1243,14 +1225,16 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: change_of_authorization, Description: <b>true:</b> Updates the network state using Disconnect-Request or CoA-Request, depending on the changes made<br/><b>false:</b> No action is taken<br/><b>blank or unset:</b> Use the default setting from Configuration » Authentication » Dynamic Authorization
         Parameter Type: path, Name: guest_id, Description: Numeric ID of the guest account
         """
-        url_path = "/guest/{guest_id}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/{guest_id}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"guest_id": guest_id}
+        dict_path = {'guest_id': guest_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_guest_username_by_username(self, username=""):
         """
@@ -1258,15 +1242,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type: path, Name: username, Description: Unique username of the guest account
         """
-        url_path = "/guest/username/{username}"
-        dict_path = {"username": username}
+        url_path = '/guest/username/{username}'
+        dict_path = {'username': username}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_guest_username_by_username(
-        self, change_of_authorization="", username="", body=({})
-    ):
+    def update_guest_username_by_username(self, change_of_authorization="", username="", body=({})):
         """
         Operation: Update some fields of a guest account by username
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1300,21 +1284,19 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/username/{username}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/username/{username}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"username": username}
+        dict_path = {'username': username}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_guest_username_by_username(
-        self, change_of_authorization="", username="", body=({})
-    ):
+    def replace_guest_username_by_username(self, change_of_authorization="", username="", body=({})):
         """
         Operation: Replace a guest account by username
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1348,40 +1330,38 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/guest/username/{username}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/username/{username}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"username": username}
+        dict_path = {'username': username}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
-    def delete_guest_username_by_username(
-        self, change_of_authorization="", username=""
-    ):
+    def delete_guest_username_by_username(self, change_of_authorization="", username=""):
         """
         Operation: Delete a guest account by username
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
         Parameter Type (Optional): query, Name: change_of_authorization, Description: <b>true:</b> Updates the network state using Disconnect-Request or CoA-Request, depending on the changes made<br/><b>false:</b> No action is taken<br/><b>blank or unset:</b> Use the default setting from Configuration » Authentication » Dynamic Authorization
         Parameter Type: path, Name: username, Description: Unique username of the guest account
         """
-        url_path = "/guest/username/{username}"
-        dict_query = {"change_of_authorization": change_of_authorization}
+        url_path = '/guest/username/{username}'
+        dict_query = {'change_of_authorization': change_of_authorization}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        dict_path = {"username": username}
+        dict_path = {'username': username}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage local users
-    def get_local_user(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_local_user(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of local users
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1391,17 +1371,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/local-user"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/local-user'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_local_user(self, body=({})):
         """
@@ -1424,10 +1401,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user"
+        url_path = '/local-user'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_local_user_by_local_user_id(self, local_user_id=""):
@@ -1436,11 +1413,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: local_user_id, Description: Numeric ID of the local user
         """
-        url_path = "/local-user/{local_user_id}"
-        dict_path = {"local_user_id": local_user_id}
+        url_path = '/local-user/{local_user_id}'
+        dict_path = {'local_user_id': local_user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_local_user_by_local_user_id(self, local_user_id="", body=({})):
         """
@@ -1464,13 +1443,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/{local_user_id}"
-        dict_path = {"local_user_id": local_user_id}
+        url_path = '/local-user/{local_user_id}'
+        dict_path = {'local_user_id': local_user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_local_user_by_local_user_id(self, local_user_id="", body=({})):
@@ -1495,13 +1474,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/{local_user_id}"
-        dict_path = {"local_user_id": local_user_id}
+        url_path = '/local-user/{local_user_id}'
+        dict_path = {'local_user_id': local_user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_local_user_by_local_user_id(self, local_user_id=""):
@@ -1510,11 +1489,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: local_user_id, Description: Numeric ID of the local user
         """
-        url_path = "/local-user/{local_user_id}"
-        dict_path = {"local_user_id": local_user_id}
+        url_path = '/local-user/{local_user_id}'
+        dict_path = {'local_user_id': local_user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_local_user_user_id_by_user_id(self, user_id=""):
         """
@@ -1522,11 +1503,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: Unique user_id of the local user
         """
-        url_path = "/local-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/local-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_local_user_user_id_by_user_id(self, user_id="", body=({})):
         """
@@ -1550,13 +1533,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/local-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_local_user_user_id_by_user_id(self, user_id="", body=({})):
@@ -1581,13 +1564,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/local-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/local-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_local_user_user_id_by_user_id(self, user_id=""):
@@ -1596,16 +1579,16 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: user_id, Description: Unique user_id of the local user
         """
-        url_path = "/local-user/user-id/{user_id}"
-        dict_path = {"user_id": user_id}
+        url_path = '/local-user/user-id/{user_id}'
+        dict_path = {'user_id': user_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     # API Service: Manage static host lists
-    def get_static_host_list(
-        self, filter="", sort="", offset="", limit="", calculate_count=""
-    ):
+    def get_static_host_list(self, filter="", sort="", offset="", limit="", calculate_count=""):
         """
         Operation: Get a list of static host lists
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1615,17 +1598,14 @@ class ApiIdentities(ClearPassAPILogin):
         Parameter Type (Optional): query, Name: limit, Description: Maximum number of items to return (1 – 1000)
         Parameter Type (Optional): query, Name: calculate_count, Description: Whether to calculate the total item count
         """
-        url_path = "/static-host-list"
-        dict_query = {
-            "filter": filter,
-            "sort": sort,
-            "offset": offset,
-            "limit": limit,
-            "calculate_count": calculate_count,
-        }
+        url_path = '/static-host-list'
+        dict_query = {'filter': filter, 'sort': sort, 'offset': offset,
+                      'limit': limit, 'calculate_count': calculate_count}
         url_path = _generate_parameterised_url(
             parameters=dict_query, url=url_path)
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def new_static_host_list(self, body=({})):
         """
@@ -1645,10 +1625,10 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/static-host-list"
+        url_path = '/static-host-list'
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="post", query=body
+            self, url=url_path, method='post', query=body
         )
 
     def get_static_host_list_by_static_host_list_id(self, static_host_list_id=""):
@@ -1657,15 +1637,15 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: static_host_list_id, Description: Numeric ID of the static host list
         """
-        url_path = "/static-host-list/{static_host_list_id}"
-        dict_path = {"static_host_list_id": static_host_list_id}
+        url_path = '/static-host-list/{static_host_list_id}'
+        dict_path = {'static_host_list_id': static_host_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
-    def update_static_host_list_by_static_host_list_id(
-        self, static_host_list_id="", body=({})
-    ):
+    def update_static_host_list_by_static_host_list_id(self, static_host_list_id="", body=({})):
         """
         Operation: Update some fields of a static host list
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1684,18 +1664,16 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/static-host-list/{static_host_list_id}"
-        dict_path = {"static_host_list_id": static_host_list_id}
+        url_path = '/static-host-list/{static_host_list_id}'
+        dict_path = {'static_host_list_id': static_host_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
-    def replace_static_host_list_by_static_host_list_id(
-        self, static_host_list_id="", body=({})
-    ):
+    def replace_static_host_list_by_static_host_list_id(self, static_host_list_id="", body=({})):
         """
         Operation: Replace a static host list
         HTTP Response Codes: 200 OK, 204 No Content, 304 Not Modified, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type, 422 Unprocessable Entity
@@ -1714,13 +1692,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/static-host-list/{static_host_list_id}"
-        dict_path = {"static_host_list_id": static_host_list_id}
+        url_path = '/static-host-list/{static_host_list_id}'
+        dict_path = {'static_host_list_id': static_host_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_static_host_list_by_static_host_list_id(self, static_host_list_id=""):
@@ -1729,11 +1707,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: static_host_list_id, Description: Numeric ID of the static host list
         """
-        url_path = "/static-host-list/{static_host_list_id}"
-        dict_path = {"static_host_list_id": static_host_list_id}
+        url_path = '/static-host-list/{static_host_list_id}'
+        dict_path = {'static_host_list_id': static_host_list_id}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
 
     def get_static_host_list_name_by_name(self, name=""):
         """
@@ -1741,11 +1721,13 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the static host list
         """
-        url_path = "/static-host-list/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/static-host-list/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="get")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='get'
+        )
 
     def update_static_host_list_name_by_name(self, name="", body=({})):
         """
@@ -1766,13 +1748,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/static-host-list/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/static-host-list/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="patch", query=body
+            self, url=url_path, method='patch', query=body
         )
 
     def replace_static_host_list_name_by_name(self, name="", body=({})):
@@ -1794,13 +1776,13 @@ class ApiIdentities(ClearPassAPILogin):
 
         }
         """
-        url_path = "/static-host-list/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/static-host-list/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
         body = _remove_empty_keys(keys=body)
         return ClearPassAPILogin._send_request(
-            self, url=url_path, method="put", query=body
+            self, url=url_path, method='put', query=body
         )
 
     def delete_static_host_list_name_by_name(self, name=""):
@@ -1809,8 +1791,10 @@ class ApiIdentities(ClearPassAPILogin):
         HTTP Response Codes: 204 No Content, 401 Unauthorized, 403 Forbidden, 404 Not Found, 406 Not Acceptable, 415 Unsupported Media Type
         Parameter Type: path, Name: name, Description: Unique name of the static host list
         """
-        url_path = "/static-host-list/name/{name}"
-        dict_path = {"name": name}
+        url_path = '/static-host-list/name/{name}'
+        dict_path = {'name': name}
         for item in dict_path:
-            url_path = url_path.replace("{" + item + "}", dict_path[item])
-        return ClearPassAPILogin._send_request(self, url=url_path, method="delete")
+            url_path = url_path.replace('{'+item+'}', dict_path[item])
+        return ClearPassAPILogin._send_request(
+            self, url=url_path, method='delete'
+        )
