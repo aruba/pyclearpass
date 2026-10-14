@@ -61,3 +61,6 @@ This document contains high level documented changes to the pyclearpass package.
 2. Added in new method for customRequest in common.py.
 3. Added new customRequest to utils.py.
 4. Updated common.py logic.
+
+## Version 1.0.11 (09/10/2026)
+1. Updated Readme notes!

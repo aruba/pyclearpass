@@ -1,3 +1,6 @@
+# (C) Copyright 2019-2026 Hewlett Packard Enterprise Development LP.
+# Apache License 2.0
+
 from pyclearpass.api_apioperations import *
 from pyclearpass.api_certificateauthority import *
 from pyclearpass.api_endpointvisibility import *

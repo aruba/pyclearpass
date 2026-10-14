@@ -378,10 +378,11 @@ print(json.dumps(view_guest_device,indent=2))
 print(ApiPolicyElements.delete_enforcement_policy_by_enforcement_policy_id(login,enforcement_policy_id='3058'))
 ```
 
-## Custom Request 
+## Custom Requests
 
-In scenarios where a request needs to be made against the ClearPass API, the customRequest Utils method can be utilsed.
-Provided below are four examples of requests. There is also a patch request not shown in the example.
+In scenarios where a custom request needs to be made against the ClearPass API due to potentially missing functionality within the SDK, the customRequest Utils method can be utilsed. You may refer to the API documentation for detailed information about the available API functions https://developer.arubanetworks.com/cppm/reference/.
+
+Four example API requests are provided below. A put request is missing from the example. 
 
 ```python 
 #New Admin User with Body Parameter 
@@ -397,5 +398,40 @@ print(Utils.customRequest(login,method="delete",urlPath="/admin-user/3011"))
 #Modify Admin User by User ID with Path and Body Parameters
 mau={"enabled":False}
 print(Utils.customRequest(login,method="patch",urlPath="/admin-user/user-id/New_Admin",body=mau))
+
+```
+
+## Filters
+
+The get functions contain filters which can be used to further filter results before returning the object to the terminal.  The table below describes the filters which can be used along with some brief examples below. 
+
+| Description                      | JSON Filter Syntax                                                                                                     |
+| :------------------------------- | :--------------------------------------------------------------------------------------------------------------------- | 
+| No filter, matches everything                       | {}                                                                                                  |
+| Field is equal to "value"                           | {"fieldName":"value"} OR {"fieldName":{"$eq":"value"}}                                              |
+| Field is one of a list of values                    | {"fieldName":["value1", "value2"]} OR {"fieldName":{"$in":["value1", "value2"]}}                    |
+Field is not one of a list of values                  | {"fieldName":{"$nin":["value1", "value2"]}}                                                         |
+Field contains a substring "value"                    | {"fieldName":{"$contains":"value"}}                                                                 |
+Field is not equal to "value"	                      | {"fieldName":{"$ne":"value"}}                                                                       |
+Field is greater than "value"	                      | {"fieldName":{"$gt":"value"}}                                                                       |
+Field is greater than or equal to "value"             |	{"fieldName":{"$gte":"value"}}                                                                      |
+Field is less than "value"                            | {"fieldName":{"$lt":"value"}}                                                                       |
+Field is less than or equal to "value"	              | {"fieldName":{"$lte":"value"}}                                                                      |
+Field matches a regular expression (case-sensitive)	  | {"fieldName":{"$regex":"regex"}}                                                                    |
+Field matches a regular expression (case-insensitive) |	{"fieldName":{"$regex":"regex", "$options":"i"}}                                                    |
+Field exists (does not contain a null value)          |	{"fieldName":{"$exists":true}}                                                                      |
+Field is NULL	                                      | {"fieldName":{"$exists":false}}                                                                     |
+Combining filter expressions with AND	              | {"$and":[ filter1, filter2, ... ]}                                                                  |
+Inverting a filter expression	                      | {"$not":{ filter }}                                                                                 |
+Field is greater than or equal to 2 and less than 5   |{"fieldName":{"$gte":2, "$lt":5}} OR {"$and":[ {"fieldName":{"$gte":2}}, {"fieldName":{"$lt":5}} ]}  |
+
+```python Python - Example 1
+devices = ApiPolicyElements.get_network_device(login, filter={"ip_address": {"$contains": "10.0.0"}})
+print(devices["_embedded"]["items"])
+```
+
+```python Python - Example 2
+devices = ApiPolicyElements.get_network_device(login, filter={"name": "workswitch"})
+print(devices["_embedded"]["items"])
 
 ```
